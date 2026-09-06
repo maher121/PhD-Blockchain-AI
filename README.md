@@ -1,11 +1,13 @@
-# Prototype V0.1
+# Prototype V0.1 + V0.2
 
 **A Lightweight and Green Blockchain–AI Framework for Secure and Energy-Efficient Supply Chain Management**
 
-> **Status: Prototype V0.1** — a reproducible research foundation. Later phases
-> (NSGA-II/MOPSO/PSO feature optimisation, deep learning, PostgreSQL/FastAPI,
-> real Ethereum/Hyperledger deployment, 1M-transaction experiments) are
-> intentionally **not** implemented yet.
+> **Status: Prototype V0.1 + V0.2** — a reproducible research foundation. V0.2
+> integrates the **real DataCo SMART Supply-Chain dataset** with a rigorous,
+> leakage-safe preprocessing pipeline. Later phases (NSGA-II/MOPSO/PSO feature
+> optimisation, deep learning, PostgreSQL/FastAPI, real Ethereum/Hyperledger
+> deployment, 1M-transaction experiments) are intentionally **not** implemented
+> yet.
 
 ---
 
@@ -42,6 +44,64 @@ Explicitly **out of scope** for V0.1: NSGA-II, MOPSO, PSO/GWO feature
 optimisation, deep learning, PostgreSQL, FastAPI, real Ethereum/Hyperledger,
 smart contracts on a live chain, and 1M-transaction experiments.
 
+## 2A. Prototype V0.2 — Real DataCo Dataset Pipeline
+
+V0.2 replaces V0.1's synthetic sample with the **real DataCo SMART Supply-Chain
+for Big Data Analysis** dataset (`shashwatwork/dataco-smart-supply-chain-for-big-data-analysis`,
+53 columns, 180,519 rows) under `data/raw/DataCoSupplyChainDataset.csv`.
+The file is staged from the local `kagglehub` cache — V0.2 **never downloads or
+fabricates data** and never auto-downloads at import time.
+
+### What V0.2 does
+
+- [x] **Discovery** (`src/data/dataset_discovery.py`) — signature-based detection
+      of the real DataCo file (`DataCo` signatures in `src/config.py`), with a
+      provenance trust chain (`raw_dir` / `kagglehub_cache` / `none`).
+- [x] **Audit** (`src/data/audit.py`) — missing values, duplicates, dtypes,
+      numeric/categorical/datetime/identifier roles, quality checks, leakage
+      candidates; outputs JSON/CSV + PNG figures under `results/data_audit/`.
+- [x] **Versioning** (`src/data/versioning.py`) — sha-256 of the raw file,
+      processing environment, split config, identity-overlap checks and feature
+      list → `data/processed/dataset_metadata.json`.
+- [x] **Leakage-safe split** (`src/preprocessing/leakage.py`) — the split
+      happens **before** any fitting. Default `order_grouped` keeps every
+      `Order Id` entirely inside one split (no order straddles train/val/test).
+      Alternatives: `random`, `chronological`.
+- [x] **Fit-on-TRAIN-only preprocessing** (`src/preprocessing/dataco_pipeline.py`)
+      — numeric medians, non-negative masking of impossible negatives,
+      categorical one-hot (cardinality ≤ 15; higher-cardinality columns stay
+      metadata-only), order-level aggregates derived from the train split only,
+      `StandardScaler` fitted on train, constant/all-NaN columns reported and
+      dropped; validation/test are **transformed** with train-fitted statistics.
+- [x] **Feature engineering** (`src/preprocessing/feature_engineering_v2.py`)
+      — 17 documented features (9 transaction/price, 6 temporal from the order
+      date, 2 order-level) + one-hot of `Type`, `Market`, `Shipping Mode`,
+      `Customer Segment`, `Department Name`.
+- [x] **Versioned outputs** (`src/pipeline_v02.py`) — `features.csv`,
+      `metadata.csv`, `target.csv` per split under `data/processed/{train,
+      validation,test}/`, plus `docs/data_dictionary.md` and
+      `results/dataco_pipeline_v02_report.json`.
+- [x] **Deterministic, capped** at `DATACO_MAX_ROWS = 40000` (fixed seed 42)
+      **before** the split — honest probabilities, reproducible bytes.
+- [x] **Tests** — fixture-based unit tests (no real-file dependency) with an
+      `integration`-marked real-dataset test (run with `RUN_DATACO_INTEGRATION=1`).
+
+### Not in scope for V0.2
+
+Purposely **excluded from V0.2** (documented, not silently done): cybersecurity
+attack/anomaly generation, native attack labels (the real dataset has none),
+advanced anomaly-detection modelling, feature optimisation, PSO, GWO, NSGA-II,
+MOPSO, and advanced energy optimisation of the DataCo pipeline. `Late_delivery_risk`
+is an **operational delivery outcome** (late vs on-time), not a cyber label.
+
+### Run
+
+```bash
+python -m src.pipeline_v02            # orchestrates discovery→audit→split→preprocess→save
+jupyter nbconvert --to notebook --execute --inplace notebooks/02_dataco_audit.ipynb
+RUN_DATACO_INTEGRATION=1 python -m pytest tests/test_dataco_pipeline.py -v   # real-file integration test
+```
+
 ## 3. Architecture
 
 ```
@@ -65,23 +125,27 @@ reproducible run; the notebook calls the same functions cell-by-cell.
 ```
 data/             raw/, processed/, synthetic/ datasets (.csv)
 src/
-  config.py               constants, paths, seeds, schemas
-  data/                   generator + loading
-  preprocessing/          cleaning + feature engineering
-  ai/                     anomaly_detection.py (Isolation Forest)
-  blockchain/             crypto.py, core.py, validation.py
-  security/               integrity.py (tamper detection facade)
-  energy/                 measurement.py, estimation.py
-  evaluation/             reporting.py (JSON results)
-  pipeline.py             V0.1 orchestrator
-notebooks/        01_prototype_pipeline.ipynb
+    config.py               constants, paths, seeds, schemas (+ V0.2 DataCo roles)
+    data/                   generator + loading + dataset_discovery + audit + versioning
+    preprocessing/          cleaning + feature engineering (+ leakage, dataco_pipeline)
+    ai/                     anomaly_detection.py (Isolation Forest)
+    blockchain/             crypto.py, core.py, validation.py
+    security/               integrity.py (tamper detection facade)
+    energy/                 measurement.py, estimation.py
+    evaluation/             reporting.py (JSON results)
+    pipeline.py             V0.1 orchestrator
+    pipeline_v02.py         V0.2 orchestrator (real DataCo end-to-end)
+notebooks/          01_prototype_pipeline.ipynb, 02_dataco_audit.ipynb
 experiments/      (later phase experiment driver work)
 models/           fitted estimators (.joblib, gitignored)
-results/          JSON experiment reports (gitignored)
-tests/            pytest suites
-docs/             (later-phase design documentation)
+results/          JSON experiment + V0.2 audit reports (gitignored)
+tests/            pytest suites (V0.1 46 + V0.2 45 = 91 passing, 1 skipped)
+docs/             data_dictionary.md (generated), later-phase design docs
 requirements.txt, README.md, .gitignore
 ```
+
+> **Note on data/raw**: `data/raw/` and `data/processed/` are gitignored and
+> regenerable; V0.2 stages the real DataCo CSV from the local `kagglehub` cache.
 
 ## 5. Installation
 
@@ -127,33 +191,42 @@ never hard-requires network access.
 From the repository root:
 
 ```bash
-jupyter notebook notebooks/01_prototype_pipeline.ipynb
+jupyter notebook notebooks/01_prototype_pipeline.ipynb   # V0.1: AI + blockchain skeleton
+jupyter notebook notebooks/02_dataco_audit.ipynb         # V0.2: real-dataset audit + split + features
 ```
 
 or, if the `prototype-v01` kernel is registered, select *Python 3
-(prototype-v01)* as the kernel. The notebook demonstrates the whole V0.1
-workflow (data → preprocessing → features → Isolation Forest → blockchain →
+(prototype-v01)* as the kernel. `01` demonstrates the whole V0.1 workflow
+(data → preprocessing → features → Isolation Forest → blockchain →
 verification → tamper detection → measurement → energy estimate → saved
-results) and calls only `src/` functions.
+results). `02` demonstrates the full V0.2 real-dataset workflow (discovery →
+loading → audit → leakage analysis → split → feature engineering → save) in 16
+sections and calls only `src/` functions.
 
-Reproducibly headless-execute it:
+Reproducibly headless-execute either notebook:
 
 ```bash
 python -m jupyter nbconvert --to notebook --execute --inplace \
   notebooks/01_prototype_pipeline.ipynb \
   --ExecutePreprocessor.kernel_name=prototype-v01
+python -m jupyter nbconvert --to notebook --execute --inplace \
+  notebooks/02_dataco_audit.ipynb
 ```
 
 ## 7. Running Tests
 
 ```bash
 python -m pytest tests/ -v
+# or the V0.2 real-dataset integration test:
+RUN_DATACO_INTEGRATION=1 python -m pytest tests/test_dataco_pipeline.py -v
 ```
 
 The suite covers transaction hashing, transaction validation, block hashing,
 block validation, blockchain verification and tamper detection, plus the data,
-AI and energy modules. A dedicated end-to-end test asserts that editing a
-transaction **after** block creation causes integrity verification to fail.
+AI and energy modules, and the V0.2 data-discovery/audit/split/preprocessing/
+pipeline modules (91 passing, 1 integration test skipped without the env flag).
+A dedicated end-to-end test asserts that editing a transaction **after** block
+creation causes integrity verification to fail.
 
 ## 8. Limitations
 
@@ -183,8 +256,11 @@ Honest boundaries of Prototype V0.1:
 ## 9. Reproducibility
 
 - Fixed random seed (`src/config.GLOBAL_SEED = 42`) across the synthetic
-  generator, the isolation forest `random_state`, and the Kaggle-table sampling.
+  generator, the isolation forest `random_state`, the Kaggle-table sampling,
+  and the V0.2 cap/split/preprocessor.
 - Deterministic timestamp/quantity bases in the synthetic generator.
+- V0.2 stages only from the local `kagglehub` cache and records the raw file's
+  sha-256 + provenance (`dataset_metadata.json`); no automatic downloads.
 - The source used for every run is recorded (`data_source` /
   `label_kind` in the JSON report).
 - Every run writes a self-describing JSON report (timestamp, Python/platform,
@@ -194,13 +270,16 @@ Honest boundaries of Prototype V0.1:
 
 ## 10. Future Development Phases
 
-1. **V0.2 – Optimisation & deeper AI:** NSGA-II / MOPSO / PSO/GWO feature
+1. **V0.3 – Baseline AI anomaly detection:** train/evaluate detectors
+   (Isolation Forest, autoencoders) on the V0.2 leakage-free features with
+   honest-label reporting (delivery-outcome proxy).
+2. **V0.4 – Optimisation & deeper AI:** NSGA-II / MOPSO / PSO/GWO feature
    selection and hyperparameter tuning; deep-learning detectors.
-2. **V0.3 – Persistence & service:** PostgreSQL storage, FastAPI endpoints.
-3. **V0.4 – Real ledger:** Ethereum/Hyperledger smart contracts and deployment.
-4. **V1.0 – Scale:** 1M-transaction experiments and energy benchmarking at scale.
+3. **V0.5 – Persistence & service:** PostgreSQL storage, FastAPI endpoints.
+4. **V0.6 – Real ledger:** Ethereum/Hyperledger smart contracts and deployment.
+5. **V1.0 – Scale:** 1M-transaction experiments and energy benchmarking at scale.
 
 ---
 
-Prototype V0.1 provides the clean, modular, reproducible foundation these later
-phases will extend.
+Prototypes V0.1 and V0.2 provide the clean, modular, reproducible foundation
+these later phases will extend.
