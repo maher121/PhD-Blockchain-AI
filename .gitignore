@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+.venv-win/
+venv/
+env/
+.python-version
+
+# IPython / Jupyter
+.ipynb_checkpoints/
+.ipython/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+*.coverage
+
+# Experiment / model / result artifacts (regenerable)
+data/raw/*
+data/processed/*
+data/synthetic/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/synthetic/.gitkeep
+models/**/*.joblib
+models/**/*.pkl
+results/**/*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.tmp
+
+# Logs
+*.log
