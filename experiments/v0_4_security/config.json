@@ -1,0 +1,27 @@
+{
+  "stage": "V0.4",
+  "random_seed": null,
+  "attack_rates": [],
+  "severity_levels": [],
+  "primary_attack_rate": 0.05,
+  "primary_severity": "MEDIUM",
+  "attack_config_path": "/mnt/e/PhD-Blockchain-AI/config/attack_scenarios.yaml",
+  "resolved_random_seed": 42,
+  "resolved_attack_rates": [
+    0.01,
+    0.03,
+    0.05,
+    0.1
+  ],
+  "resolved_severity_levels": [
+    "LOW",
+    "MEDIUM",
+    "HIGH"
+  ],
+  "python_version": "3.12.3",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "numpy_version": "2.5.2",
+  "pandas_version": "3.0.5",
+  "scikit_learn_version": "1.9.0",
+  "pyyaml_version": "6.0.3"
+}

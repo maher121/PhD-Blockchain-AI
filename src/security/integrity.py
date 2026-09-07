@@ -9,7 +9,8 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-from src.blockchain.validation import detect_tampering, verify_chain
+from src.blockchain.validation import detect_tampering as blockchain_detect_tampering
+from src.blockchain.validation import verify_chain
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +22,7 @@ def verify_chain_integrity(chain: list[dict[str, Any]]) -> bool:
 
 def detect_tampering(chain: list[dict[str, Any]]) -> dict[str, Any]:
     """Public tamper-detection entry point; see `validation.detect_tampering`."""
-    return detect_tampering(chain)
+    return blockchain_detect_tampering(chain)
 
 
 def modify_transaction_after_sealing(

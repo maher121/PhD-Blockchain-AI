@@ -1,0 +1,327 @@
+{
+  "dataset": {
+    "name": "DataCo SMART Supply Chain for Big Data Analysis",
+    "filename": "DataCoSupplyChainDataset.csv",
+    "path": "/mnt/e/PhD-Blockchain-AI/data/raw/DataCoSupplyChainDataset.csv",
+    "file_sha256": "fa6d022ed437155e1a2f0378710602848703c8a7f203f7ff5d77805bf8480aa6",
+    "n_raw_rows": 180519,
+    "n_raw_columns": 54,
+    "provenance": "capped:40000|provenance:raw_dir"
+  },
+  "processing": {
+    "timestamp_utc": "2026-09-06T22:13:24.614054+00:00",
+    "python_version": "3.12.3",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python_implementation": "CPython",
+    "pandas_version": "3.0.5",
+    "numpy_version": "2.5.2",
+    "scikit_learn_version": "1.9.0"
+  },
+  "split": {
+    "seed": 42,
+    "strategy": "order_grouped",
+    "ratios": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "sizes": {
+      "train": 28000,
+      "validation": 6000,
+      "test": 6000
+    },
+    "identity_overlap_checks": {
+      "Order Id": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      },
+      "Order Customer Id": {
+        "train_vs_validation": 2910,
+        "train_vs_test": 2927,
+        "validation_vs_test": 1103
+      },
+      "Product Card Id": {
+        "train_vs_validation": 109,
+        "train_vs_test": 109,
+        "validation_vs_test": 104
+      }
+    }
+  },
+  "preprocessing": {
+    "fitted_on_rows": 28000,
+    "ml_feature_count": 43,
+    "numeric_feature_count": 17,
+    "onehot_column_count": 32,
+    "ml_feature_columns": [
+      "order_item_quantity",
+      "order_item_product_price",
+      "product_price",
+      "order_item_discount",
+      "order_item_discount_rate",
+      "order_item_profit_ratio",
+      "order_item_total",
+      "days_schedule",
+      "year",
+      "month",
+      "day",
+      "day_of_week",
+      "hour",
+      "is_weekend",
+      "item_count_per_order",
+      "order_total_value",
+      "Type_DEBIT",
+      "Type_TRANSFER",
+      "Type_PAYMENT",
+      "Type_CASH",
+      "Market_LATAM",
+      "Market_Europe",
+      "Market_Pacific Asia",
+      "Market_USCA",
+      "Market_Africa",
+      "Shipping Mode_Standard Class",
+      "Shipping Mode_Second Class",
+      "Shipping Mode_First Class",
+      "Shipping Mode_Same Day",
+      "Customer Segment_Consumer",
+      "Customer Segment_Corporate",
+      "Customer Segment_Home Office",
+      "Department Name_Fan Shop",
+      "Department Name_Apparel",
+      "Department Name_Golf",
+      "Department Name_Footwear",
+      "Department Name_Outdoors",
+      "Department Name_Fitness",
+      "Department Name_Discs Shop",
+      "Department Name_Technology",
+      "Department Name_Pet Shop",
+      "Department Name_Health and Beauty",
+      "Department Name_Book Shop"
+    ],
+    "numeric_medians": {
+      "order_item_quantity": 1.0,
+      "order_item_product_price": 70.0,
+      "product_price": 70.0,
+      "order_item_discount": 14.0,
+      "order_item_discount_rate": 0.090000004,
+      "order_item_profit_ratio": 0.270000011,
+      "order_item_total": 163.9900055,
+      "days_schedule": 4.0,
+      "price_delta": 0.0,
+      "year": 2016.0,
+      "month": 6.0,
+      "day": 16.0,
+      "day_of_week": 3.0,
+      "hour": 11.0,
+      "is_weekend": 0.0,
+      "item_count_per_order": 1.0,
+      "order_total_value": 248.2799988
+    },
+    "onehot_levels": {
+      "Type": [
+        "DEBIT",
+        "TRANSFER",
+        "PAYMENT",
+        "CASH"
+      ],
+      "Market": [
+        "LATAM",
+        "Europe",
+        "Pacific Asia",
+        "USCA",
+        "Africa"
+      ],
+      "Shipping Mode": [
+        "Standard Class",
+        "Second Class",
+        "First Class",
+        "Same Day"
+      ],
+      "Customer Segment": [
+        "Consumer",
+        "Corporate",
+        "Home Office"
+      ],
+      "Department Name": [
+        "Fan Shop",
+        "Apparel",
+        "Golf",
+        "Footwear",
+        "Outdoors",
+        "Fitness",
+        "Discs Shop",
+        "Technology",
+        "Pet Shop",
+        "Health and Beauty",
+        "Book Shop"
+      ]
+    },
+    "order_aggregate_n": 21293,
+    "constant_or_allna_columns_dropped": 0,
+    "config": {
+      "impute_numeric_strategy": "median",
+      "impute_categorical_strategy": "mode",
+      "scale_numeric": true,
+      "onehot_max_cardinality": 15,
+      "drop_empty_target": true,
+      "negative_value_columns": [
+        "Order Item Quantity",
+        "Order Item Product Price",
+        "Product Price",
+        "Order Item Total",
+        "Sales"
+      ],
+      "seed": 42
+    },
+    "split": {
+      "strategy": "order_grouped",
+      "ratios": {
+        "train": 0.7,
+        "validation": 0.15,
+        "test": 0.15
+      }
+    },
+    "outputs": {
+      "train": {
+        "rows": 28000,
+        "ml_feature_columns": 43,
+        "has_target": true
+      },
+      "validation": {
+        "rows": 6000,
+        "ml_feature_columns": 43,
+        "has_target": true
+      },
+      "test": {
+        "rows": 6000,
+        "ml_feature_columns": 43,
+        "has_target": true
+      }
+    },
+    "target_column": "Late_delivery_risk",
+    "cybersecurity_labels_available": false
+  },
+  "features": {
+    "columns": [
+      "order_item_quantity",
+      "order_item_product_price",
+      "product_price",
+      "order_item_discount",
+      "order_item_discount_rate",
+      "order_item_profit_ratio",
+      "order_item_total",
+      "days_schedule",
+      "year",
+      "month",
+      "day",
+      "day_of_week",
+      "hour",
+      "is_weekend",
+      "item_count_per_order",
+      "order_total_value",
+      "Type_DEBIT",
+      "Type_TRANSFER",
+      "Type_PAYMENT",
+      "Type_CASH",
+      "Market_LATAM",
+      "Market_Europe",
+      "Market_Pacific Asia",
+      "Market_USCA",
+      "Market_Africa",
+      "Shipping Mode_Standard Class",
+      "Shipping Mode_Second Class",
+      "Shipping Mode_First Class",
+      "Shipping Mode_Same Day",
+      "Customer Segment_Consumer",
+      "Customer Segment_Corporate",
+      "Customer Segment_Home Office",
+      "Department Name_Fan Shop",
+      "Department Name_Apparel",
+      "Department Name_Golf",
+      "Department Name_Footwear",
+      "Department Name_Outdoors",
+      "Department Name_Fitness",
+      "Department Name_Discs Shop",
+      "Department Name_Technology",
+      "Department Name_Pet Shop",
+      "Department Name_Health and Beauty",
+      "Department Name_Book Shop"
+    ],
+    "target_column": "Late_delivery_risk",
+    "cybersecurity_labels": false
+  },
+  "extra": {
+    "dataset_used_rows": 40000,
+    "resolution": {
+      "found_in_raw": true,
+      "provenance": "raw_dir",
+      "staged_to": null,
+      "messages": [
+        "Found unambiguous DataCo file in data/raw: /mnt/e/PhD-Blockchain-AI/data/raw/DataCoSupplyChainDataset.csv"
+      ]
+    },
+    "audit": {
+      "n_rows": 180519,
+      "n_columns": 54,
+      "missing_total_cells": 336209,
+      "duplicate_rows": 0,
+      "leakage_candidates": [
+        {
+          "column": "Days for shipping (real)",
+          "reason": "outcome_adjacent",
+          "suggestion": "exclude from ML features; traceability metadata only"
+        },
+        {
+          "column": "Benefit per order",
+          "reason": "aggregate",
+          "suggestion": "verify aggregation window; prefer train-derived aggregates"
+        },
+        {
+          "column": "Sales per customer",
+          "reason": "aggregate",
+          "suggestion": "verify aggregation window; prefer train-derived aggregates"
+        },
+        {
+          "column": "Delivery Status",
+          "reason": "outcome",
+          "suggestion": "exclude from ML features; traceability metadata only"
+        },
+        {
+          "column": "Late_delivery_risk",
+          "reason": "target",
+          "suggestion": "used as supervised target, never as a feature"
+        },
+        {
+          "column": "Customer Id",
+          "reason": "key_shared",
+          "suggestion": "split by this key or drop from features"
+        },
+        {
+          "column": "Order Customer Id",
+          "reason": "key_shared",
+          "suggestion": "split by this key or drop from features"
+        },
+        {
+          "column": "Order Id",
+          "reason": "key_shared",
+          "suggestion": "split by this key or drop from features"
+        },
+        {
+          "column": "Order Profit Per Order",
+          "reason": "aggregate",
+          "suggestion": "verify aggregation window; prefer train-derived aggregates"
+        },
+        {
+          "column": "Order Status",
+          "reason": "outcome_adjacent",
+          "suggestion": "exclude from ML features; traceability metadata only"
+        },
+        {
+          "column": "Product Card Id",
+          "reason": "key_shared",
+          "suggestion": "split by this key or drop from features"
+        }
+      ]
+    }
+  }
+}

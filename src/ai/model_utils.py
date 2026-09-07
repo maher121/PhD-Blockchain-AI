@@ -10,6 +10,8 @@ from typing import Any, Iterable
 import numpy as np
 import pandas as pd
 
+from src.security.ground_truth import ATTACK_METADATA_COLUMNS
+
 from src.config import (
     DATACO_CATEGORICAL_FEATURES,
     DATACO_DATETIME_COLUMNS,
@@ -29,6 +31,7 @@ MODEL_GENERATED_COLUMNS: tuple[str, ...] = (
     "normalized_anomaly_score",
     "anomaly_label",
     "predicted_anomaly",
+    "isolation_forest_prediction",
 )
 
 
@@ -142,6 +145,7 @@ def validate_selected_features(feature_names: Iterable[str]) -> None:
         *DATACO_IDENTIFIER_COLUMNS,
         *DATACO_OUTCOME_COLUMNS,
         *MODEL_GENERATED_COLUMNS,
+        *ATTACK_METADATA_COLUMNS,
     }
     invalid = sorted(set(names) & forbidden)
     if invalid:
@@ -163,6 +167,13 @@ def build_feature_manifest(bundle: ProcessedDataBundle) -> dict[str, Any]:
             {
                 "column": column,
                 "reason": "Model-generated output; never permitted as an input feature.",
+            }
+        )
+    for column in ATTACK_METADATA_COLUMNS:
+        excluded.append(
+            {
+                "column": column,
+                "reason": "Experimental attack label/metadata; never permitted as an input feature.",
             }
         )
     return {

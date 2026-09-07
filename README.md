@@ -1,8 +1,8 @@
-# Prototype V0.1 + V0.2 + V0.3
+# Prototype V0.1 + V0.2 + V0.3 + V0.4
 
 **A Lightweight and Green Blockchain–AI Framework for Secure and Energy-Efficient Supply Chain Management**
 
-> **Status: Prototype V0.1 + V0.2 + V0.3** — a reproducible research foundation. V0.2
+> **Status: Prototype V0.1 + V0.2 + V0.3 + V0.4** — a reproducible research foundation. V0.2
 > integrates the **real DataCo SMART Supply-Chain dataset** with a rigorous,
 > leakage-safe preprocessing pipeline; V0.3 establishes an unsupervised
 > Isolation Forest reference. Later phases (NSGA-II/MOPSO/PSO feature
@@ -153,6 +153,53 @@ Scientific interpretation is limited to: **The V0.3 baseline establishes a
 reproducible anomaly-detection reference point for subsequent optimization and
 lightweight-model experiments.**
 
+## Prototype V0.4 — Controlled Cybersecurity Evaluation
+
+DataCo is an operational supply-chain dataset and has no verified native
+cybersecurity attack labels. V0.4 therefore creates deterministic, controlled
+synthetic modifications of clean V0.2 **test** records. The generator creates
+experimental ground truth and attack manifests before V0.3 Isolation Forest
+inference; predictions never define attacked records.
+
+- **Scenarios:** quantity, order/product value, shipping/delivery information,
+  transaction status, timestamp, geographic/route information, and generic
+  transaction-record tampering. A scenario runs only when its configured DataCo
+  source field exists and has eligible values.
+- **Rates and severity:** 1%, 3%, 5%, and 10% of eligible records at `LOW`,
+  `MEDIUM`, and `HIGH` documented bounds in `config/attack_scenarios.yaml`.
+- **Modes:** a single attack type or a mixed scenario with disjoint selected
+  records and exact per-record traceability.
+- **Reversibility:** supported edits can be restored with their in-memory
+  manifest through `src.security.attack_generator.restore_original`.
+- **Leakage prevention:** labels, severity, attack type, original/modified values,
+  experiment IDs, rates, and seeds remain separate from the exact 43 V0.3 input
+  features. Runtime checks and tests fail if attack metadata enters the matrix.
+- **AI evaluation:** the unchanged saved V0.3 Isolation Forest is evaluated using
+  precision, recall, F1, trapezoidal PR-AUC, average precision, ROC-AUC when valid,
+  and confusion counts against controlled experimental ground truth. Paired clean
+  and attacked inference distinguishes pre-existing flags from attack-induced ones.
+- **Blockchain evaluation:** the V0.1 hash chain verifies before a sealed
+  transaction is changed and fails verification afterward. This tests integrity,
+  while AI tests statistical behavior; the mechanisms are complementary.
+- **Outputs:** reports, predictions, manifests, and six curated figures are under
+  `results/security/`; reproducibility snapshots are under
+  `experiments/v0_4_security/`.
+
+Run from the repository root:
+
+```bash
+python -m src.pipeline_v02  # prerequisite: processed train/validation/test splits
+python -m src.pipeline_v03  # prerequisite: clean-trained V0.3 model artifact
+python -m src.pipeline_v04
+python -m jupyter nbconvert --to notebook --execute --inplace notebooks/04_cybersecurity_attack_scenarios.ipynb
+```
+
+Scientific limitations are material: controlled synthetic attacks are not real
+attacks; their distributions are parameterized; Isolation Forest remains an
+unsupervised baseline; DataCo is not a cybersecurity dataset; and results describe
+controlled detection behavior rather than universal effectiveness. Full method
+and parameter documentation is in `docs/security_v04.md`.
+
 ## 3. Architecture
 
 ```
@@ -176,19 +223,20 @@ reproducible run; the notebook calls the same functions cell-by-cell.
 ```
 data/             raw/, processed/, synthetic/ datasets (.csv)
 src/
-    config.py               constants, paths, seeds, schemas (+ V0.2/V0.3 settings)
+    config.py               constants, paths, seeds, schemas (+ V0.2/V0.3/V0.4 settings)
     data/                   generator + loading + dataset_discovery + audit + versioning
     preprocessing/          cleaning + feature engineering (+ leakage, dataco_pipeline)
     ai/                     V0.1 detector + V0.3 detector/evaluation/model utilities
     blockchain/             crypto.py, core.py, validation.py
-    security/               integrity.py (tamper detection facade)
+    security/               attacks, ground truth, evaluation, integrity facade
     energy/                 measurement.py, estimation.py
     evaluation/             reporting.py (JSON results)
     pipeline.py             V0.1 orchestrator
     pipeline_v02.py         V0.2 orchestrator (real DataCo end-to-end)
     pipeline_v03.py         V0.3 unsupervised AI baseline orchestrator
-notebooks/          01 prototype, 02 DataCo audit, 03 baseline anomaly detection
-experiments/        v0_3_baseline/ reproducibility records
+    pipeline_v04.py         V0.4 controlled security evaluation orchestrator
+notebooks/          01 prototype, 02 DataCo audit, 03 AI baseline, 04 security
+experiments/        V0.3 and V0.4 reproducibility records
 models/           fitted estimators (.joblib, gitignored)
 results/          JSON experiment + V0.2 audit reports (gitignored)
 tests/            pytest suites, including synthetic V0.3 model/leakage tests
@@ -246,6 +294,7 @@ From the repository root:
 jupyter notebook notebooks/01_prototype_pipeline.ipynb   # V0.1: AI + blockchain skeleton
 jupyter notebook notebooks/02_dataco_audit.ipynb         # V0.2: real-dataset audit + split + features
 jupyter notebook notebooks/03_baseline_anomaly_detection.ipynb  # V0.3: unsupervised baseline
+jupyter notebook notebooks/04_cybersecurity_attack_scenarios.ipynb  # V0.4: controlled security
 ```
 
 or, if the `prototype-v01` kernel is registered, select *Python 3
@@ -267,6 +316,8 @@ python -m jupyter nbconvert --to notebook --execute --inplace \
   notebooks/02_dataco_audit.ipynb
 python -m jupyter nbconvert --to notebook --execute --inplace \
   notebooks/03_baseline_anomaly_detection.ipynb
+python -m jupyter nbconvert --to notebook --execute --inplace \
+  notebooks/04_cybersecurity_attack_scenarios.ipynb
 ```
 
 ## 7. Running Tests
@@ -280,8 +331,9 @@ RUN_DATACO_INTEGRATION=1 python -m pytest tests/test_dataco_pipeline.py -v
 The suite covers transaction hashing, transaction validation, block hashing,
 block validation, blockchain verification and tamper detection, plus the data,
 AI and energy modules, the V0.2 data-discovery/audit/split/preprocessing/
-pipeline modules, and V0.3 model, score, reproducibility, feature exclusion,
-leakage, persistence, and reloaded-inference behavior. The real-data integration
+pipeline modules, V0.3 model behavior, and V0.4 attack generation, rates,
+severity, traceability, restoration, leakage, AI metrics, blockchain integrity,
+and combined reporting. The real-data integration
 test remains skipped without the environment flag.
 A dedicated end-to-end test asserts that editing a transaction **after** block
 creation causes integrity verification to fail.
@@ -328,13 +380,13 @@ Honest boundaries of Prototype V0.1:
 
 ## 10. Future Development Phases
 
-1. **V0.4 – Controlled cybersecurity attack/anomaly scenario generation and
-   security evaluation.**
+1. **V0.5 – Lightweight AI baseline and computational/resource efficiency
+   evaluation.**
 2. **Later optimization phases:** lightweight model comparison and controlled
    PSO/GWO/hybrid optimization only after valid evaluation scenarios exist.
 3. **Later deployment phases:** persistence, services, and real ledger work.
 
 ---
 
-Prototypes V0.1, V0.2, and V0.3 provide the clean, modular, reproducible
+Prototypes V0.1 through V0.4 provide the clean, modular, reproducible
 foundation these later phases will extend.

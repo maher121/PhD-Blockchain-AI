@@ -1,0 +1,213 @@
+{
+  "stage": "V0.4",
+  "status": "PASS",
+  "pipeline_execution_status": "PASS",
+  "contract_validation_status": "PASS",
+  "contract_checks": {
+    "leakage_prevention": true,
+    "attack_count_achieved": true,
+    "blockchain_clean_valid": true,
+    "blockchain_tampered_invalid": true,
+    "reproducibility": true,
+    "required_figures_created": true,
+    "required_artifacts_created": true
+  },
+  "generated_at_utc": "2026-09-07T09:13:59.984269+00:00",
+  "dataset": {
+    "source": "Real operational DataCo records from the V0.2 test split",
+    "native_cybersecurity_labels": false,
+    "ground_truth_kind": "controlled experimental ground truth",
+    "test_sample_count": 6000,
+    "clean_sample_count": 5700,
+    "attacked_sample_count": 300,
+    "feature_count": 43,
+    "processed_dataset_row_cap": 40000,
+    "raw_file_sha256": "fa6d022ed437155e1a2f0378710602848703c8a7f203f7ff5d77805bf8480aa6"
+  },
+  "attack": {
+    "attack_types": [
+      "quantity_manipulation",
+      "value_manipulation",
+      "shipping_delivery_manipulation",
+      "transaction_status_manipulation",
+      "timestamp_manipulation",
+      "geographic_route_manipulation",
+      "transaction_record_tampering"
+    ],
+    "attack_rates": [
+      0.01,
+      0.03,
+      0.05,
+      0.1
+    ],
+    "severity_levels": [
+      "LOW",
+      "MEDIUM",
+      "HIGH"
+    ],
+    "primary_experiment_id": "v0_4_mixed_r0p05_medium_s42",
+    "primary_attack_rate_requested": 0.05,
+    "primary_attack_rate_achieved": 0.05,
+    "primary_severity": "MEDIUM",
+    "primary_eligible_records": 6000,
+    "primary_selected_records": 300,
+    "primary_actual_modified_records": 300,
+    "primary_per_attack_type": {
+      "quantity_manipulation": {
+        "eligible_records": 6000,
+        "actual_modified_records": 43
+      },
+      "value_manipulation": {
+        "eligible_records": 6000,
+        "actual_modified_records": 43
+      },
+      "shipping_delivery_manipulation": {
+        "eligible_records": 6000,
+        "actual_modified_records": 43
+      },
+      "transaction_status_manipulation": {
+        "eligible_records": 6000,
+        "actual_modified_records": 43
+      },
+      "timestamp_manipulation": {
+        "eligible_records": 6000,
+        "actual_modified_records": 43
+      },
+      "geographic_route_manipulation": {
+        "eligible_records": 6000,
+        "actual_modified_records": 43
+      },
+      "transaction_record_tampering": {
+        "eligible_records": 6000,
+        "actual_modified_records": 42
+      }
+    },
+    "primary_manifest": "/mnt/e/PhD-Blockchain-AI/results/security/attack_manifests/v0_4_mixed_r0p05_medium_s42.csv",
+    "detector_visible_modified_records": 171,
+    "detector_invisible_modified_records": 129
+  },
+  "detection": {
+    "precision": 0.057755775577557754,
+    "recall": 0.35,
+    "f1": 0.09915014164305949,
+    "pr_auc": 0.05247932745593603,
+    "pr_auc_method": "trapezoidal_precision_recall_curve",
+    "average_precision": 0.05313255602096632,
+    "roc_auc": 0.5151269005847954,
+    "true_positives": 105,
+    "true_negatives": 3987,
+    "false_positives": 1713,
+    "false_negatives": 195,
+    "confusion_matrix": [
+      [
+        3987,
+        1713
+      ],
+      [
+        195,
+        105
+      ]
+    ],
+    "evaluated_records": 6000,
+    "attacked_records": 300
+  },
+  "visible_attack_detection": {
+    "precision": 0.03547297297297297,
+    "recall": 0.3684210526315789,
+    "f1": 0.06471494607087827,
+    "pr_auc": 0.032389353195306815,
+    "pr_auc_method": "trapezoidal_precision_recall_curve",
+    "average_precision": 0.033258845285008075,
+    "roc_auc": 0.5233169180260593,
+    "true_positives": 63,
+    "true_negatives": 3987,
+    "false_positives": 1713,
+    "false_negatives": 108,
+    "confusion_matrix": [
+      [
+        3987,
+        1713
+      ],
+      [
+        108,
+        63
+      ]
+    ],
+    "evaluated_records": 5871,
+    "attacked_records": 171
+  },
+  "paired_clean_vs_attacked_detection": {
+    "attacked_records": 300,
+    "already_flagged_before_attack": 106,
+    "flagged_after_attack": 105,
+    "newly_detected_after_attack": 3,
+    "lost_detections_after_attack": 4,
+    "unchanged_flagged": 102,
+    "unchanged_not_flagged": 191,
+    "attack_induced_detection_rate": 0.01,
+    "mean_anomaly_score_delta": 0.00015749051842742242,
+    "median_anomaly_score_delta": 0.0
+  },
+  "blockchain": {
+    "clean_chain_verification": true,
+    "tampered_chain_verification": false,
+    "integrity_failure_detected": true,
+    "tampered_transaction_id": "75648",
+    "tampered_source_field": "Order Item Quantity",
+    "tampered_transaction_field": "quantity",
+    "original_value": 1.0,
+    "modified_value": 1.5,
+    "clean_verification_time_seconds": 0.00010168600056204014,
+    "tampered_verification_time_seconds": 0.000617491999946651,
+    "verification_time_seconds": 0.0007191780005086912
+  },
+  "combined_security": {
+    "ai_detected_anomaly": false,
+    "blockchain_integrity_valid": false,
+    "record_id": 153596,
+    "transaction_id": "75648",
+    "attack_type": "quantity_manipulation"
+  },
+  "performance": {
+    "clean_ai_inference_time_seconds": 0.4592852799996763,
+    "ai_inference_time_seconds": 0.08979394200014212,
+    "attack_generation_time_seconds": 1.0929989790001855,
+    "feature_projection_time_seconds": 1.4056181149999247,
+    "blockchain_verification_time_seconds": 0.0007191780005086912,
+    "total_pipeline_time_seconds": 77.59461529800046
+  },
+  "leakage_audit": {
+    "status": "PASS",
+    "forbidden_columns": [
+      "is_attack",
+      "attack_type",
+      "attack_severity",
+      "original_field",
+      "original_dtype",
+      "original_value",
+      "modified_value",
+      "experiment_id",
+      "attack_rate",
+      "random_seed"
+    ],
+    "model_feature_count": 43,
+    "evidence": "Model inference received only the exact V0.3 selected feature list."
+  },
+  "reproducibility": {
+    "status": "PASS",
+    "random_seed": 42,
+    "same_configuration_reproduced_full_evaluation": true,
+    "model_sha256": "7512e891c44748f5de8eddb8d1cc6517dd80fce87ed9f25cd4ef66db77fcf266"
+  },
+  "research_interpretation": "Final-label metrics compare V0.3 flags with controlled ground truth, while the paired clean-versus-attacked analysis isolates newly induced flags and score changes. The observed attack-induced detection rate is descriptive, not evidence of universal effectiveness. AI tests statistical behavior; the simulated blockchain tests post-sealing integrity, so their roles are complementary.",
+  "limitations": [
+    "Synthetic controlled attacks are not equivalent to real attacks.",
+    "Attack distributions are determined by experiment parameters.",
+    "Isolation Forest remains an unsupervised baseline with an existing decision threshold.",
+    "DataCo is an operational supply-chain dataset, not a dedicated cybersecurity dataset.",
+    "Results measure controlled detection behavior and do not establish universal cybersecurity effectiveness.",
+    "Fields excluded from V0.3 for leakage safety may be modified but remain intentionally invisible to AI.",
+    "The blockchain is a single-authority hash-chain simulation without consensus or signatures.",
+    "The experiment uses a deterministic 40,000-row DataCo cap and its 6,000-row test split."
+  ]
+}

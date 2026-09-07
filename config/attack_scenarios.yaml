@@ -1,0 +1,77 @@
+version: "v0.4"
+default_random_state: 42
+attack_rates: [0.01, 0.03, 0.05, 0.10]
+severity_levels: [LOW, MEDIUM, HIGH]
+
+# Parameters are expressed in the source field's units. Multiplicative factors
+# below one decrease a value; factors above one increase it. Timestamp offsets
+# are bounded hours. High timestamp severity may deliberately make an order
+# time inconsistent with its shipping time, but all timestamps remain parseable.
+scenarios:
+  quantity_manipulation:
+    description: "Controlled increase or decrease of an order-line quantity."
+    candidates: ["Order Item Quantity", "quantity", "order_item_quantity"]
+    transformation: multiplicative
+    positive_only: true
+    severity:
+      LOW: {factors: [0.90, 1.10]}
+      MEDIUM: {factors: [0.60, 1.50]}
+      HIGH: {factors: [0.25, 3.00]}
+
+  value_manipulation:
+    description: "Controlled modification of an order-line monetary value."
+    candidates: ["Order Item Total", "Sales", "total_amount", "order_item_total"]
+    transformation: multiplicative
+    positive_only: true
+    severity:
+      LOW: {factors: [0.90, 1.10]}
+      MEDIUM: {factors: [0.70, 1.35]}
+      HIGH: {factors: [0.40, 2.00]}
+
+  shipping_delivery_manipulation:
+    description: "Bounded change to realized or scheduled shipping duration."
+    candidates: ["Days for shipping (real)", "Days for shipment (scheduled)", "shipping_days", "days_schedule"]
+    transformation: additive
+    nonnegative_result: true
+    severity:
+      LOW: {deltas: [-1.0, 1.0]}
+      MEDIUM: {deltas: [-3.0, 3.0]}
+      HIGH: {deltas: [-7.0, 7.0]}
+
+  transaction_status_manipulation:
+    description: "Change an observed operational status to another valid observed state."
+    candidates: ["Order Status", "transaction_status"]
+    transformation: categorical
+    severity:
+      LOW: {steps: 1}
+      MEDIUM: {steps: 2}
+      HIGH: {steps: 3}
+
+  timestamp_manipulation:
+    description: "Shift an existing transaction timestamp within documented bounds."
+    candidates: ["order date (DateOrders)", "timestamp"]
+    transformation: timestamp
+    severity:
+      LOW: {offset_hours: [-1, 1]}
+      MEDIUM: {offset_hours: [-24, 24]}
+      HIGH: {offset_hours: [-168, 168]}
+
+  geographic_route_manipulation:
+    description: "Change an observed region or route category to another observed category."
+    candidates: ["Order Region", "location_region", "Market"]
+    transformation: categorical
+    severity:
+      LOW: {steps: 1}
+      MEDIUM: {steps: 2}
+      HIGH: {steps: 3}
+
+  transaction_record_tampering:
+    description: "Generic record-integrity edit of one eligible transaction field."
+    candidates: ["Order Item Quantity", "Order Item Total", "quantity", "total_amount", "order_item_quantity", "order_item_total"]
+    transformation: generic_numeric
+    choose_field_per_record: true
+    positive_only: true
+    severity:
+      LOW: {factors: [0.90, 1.10]}
+      MEDIUM: {factors: [0.60, 1.50]}
+      HIGH: {factors: [0.25, 3.00]}

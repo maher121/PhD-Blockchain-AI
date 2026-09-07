@@ -1,4 +1,4 @@
-"""Global configuration constants for Prototype V0.1 / V0.2 / V0.3.
+"""Global configuration constants for Prototype V0.1 through V0.4.
 
 Centralises paths, reproducibility seeds, schema names and default
 estimation constants so that modules never hard-code these values.
@@ -316,3 +316,14 @@ V03_ISOLATION_FOREST_PARAMS: dict[str, object] = {
 # These are sensitivity assumptions, not estimates of anomaly prevalence.
 V03_CONTAMINATION_VALUES: tuple[float, ...] = (0.01, 0.03, 0.05, 0.10)
 V03_STABILITY_SEEDS: tuple[int, ...] = (GLOBAL_SEED, GLOBAL_SEED + 1, GLOBAL_SEED + 2)
+
+# ============================================================================
+# V0.4 -- Controlled Cybersecurity and Data-Tampering Evaluation
+# ============================================================================
+
+ATTACK_CONFIG_FILE: Path = PROJECT_ROOT / "config" / "attack_scenarios.yaml"
+SECURITY_RESULTS_DIR: Path = RESULTS_DIR / "security"
+SECURITY_FIGURES_DIR: Path = SECURITY_RESULTS_DIR / "figures"
+SECURITY_MANIFESTS_DIR: Path = SECURITY_RESULTS_DIR / "attack_manifests"
+SECURITY_PREDICTIONS_DIR: Path = SECURITY_RESULTS_DIR / "predictions"
+V04_EXPERIMENT_DIR: Path = EXPERIMENTS_DIR / "v0_4_security"

@@ -13,6 +13,7 @@ import pandas as pd
 from src.ai.anomaly_detector import IsolationForestBaseline
 from src.ai.model_utils import MODEL_GENERATED_COLUMNS
 from src.config import DATACO_OUTCOME_COLUMNS, DATACO_TARGET_COLUMN
+from src.security.ground_truth import ATTACK_METADATA_COLUMNS
 
 
 def summarize_predictions(predictions: pd.DataFrame) -> dict[str, Any]:
@@ -170,6 +171,10 @@ def build_leakage_audit(
         "model_outputs_not_in_features": _check(
             selected_set.isdisjoint(MODEL_GENERATED_COLUMNS),
             sorted(selected_set & set(MODEL_GENERATED_COLUMNS)),
+        ),
+        "attack_metadata_not_in_features": _check(
+            selected_set.isdisjoint(ATTACK_METADATA_COLUMNS),
+            sorted(selected_set & set(ATTACK_METADATA_COLUMNS)),
         ),
         "future_information_not_in_features": _check(
             selected_set.isdisjoint(future_names), sorted(selected_set & future_names)
