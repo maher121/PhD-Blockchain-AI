@@ -1,0 +1,61 @@
+{
+  "stage": "V0.3",
+  "objective": "Reproducible unsupervised anomaly-detection baseline",
+  "dataset": {
+    "name": "DataCo SMART Supply Chain for Big Data Analysis",
+    "filename": "DataCoSupplyChainDataset.csv",
+    "path": "/mnt/e/PhD-Blockchain-AI/data/raw/DataCoSupplyChainDataset.csv",
+    "file_sha256": "fa6d022ed437155e1a2f0378710602848703c8a7f203f7ff5d77805bf8480aa6",
+    "n_raw_rows": 180519,
+    "n_raw_columns": 54,
+    "provenance": "capped:40000|provenance:raw_dir"
+  },
+  "split": {
+    "seed": 42,
+    "strategy": "order_grouped",
+    "ratios": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "sizes": {
+      "train": 28000,
+      "validation": 6000,
+      "test": 6000
+    },
+    "identity_overlap_checks": {
+      "Order Id": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      },
+      "Order Customer Id": {
+        "train_vs_validation": 2910,
+        "train_vs_test": 2927,
+        "validation_vs_test": 1103
+      },
+      "Product Card Id": {
+        "train_vs_validation": 109,
+        "train_vs_test": 109,
+        "validation_vs_test": 104
+      }
+    }
+  },
+  "label_situation": {
+    "case": "C",
+    "kind": "operational_outcome_only",
+    "target": "Late_delivery_risk",
+    "source": "DataCo Late_delivery_risk operational delivery outcome",
+    "supervised_metrics_allowed": false,
+    "reason": "The available target describes late delivery, not an anomaly or cybersecurity attack. It is not used to fit or evaluate V0.3."
+  },
+  "evaluation_scope": "Test-split anomaly behavior; no cyber/classification claims",
+  "conclusion": "The V0.3 baseline establishes a reproducible anomaly-detection reference point for subsequent optimization and lightweight-model experiments.",
+  "limitations": [
+    "DataCo has no native cybersecurity or anomaly ground-truth labels.",
+    "Isolation Forest is unsupervised; its flags are not confirmed attacks.",
+    "Contamination scenarios are assumptions, not measured prevalence.",
+    "Anomaly interpretation is operational/business-oriented and requires domain review.",
+    "The V0.2 processed experiment uses a deterministic 40,000-row cap."
+  ]
+}

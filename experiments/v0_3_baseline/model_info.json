@@ -1,0 +1,18 @@
+{
+  "name": "IsolationForest",
+  "artifact_version": "v0.3",
+  "artifact_path": "E:\\PhD-Blockchain-AI\\models\\isolation_forest_v0_3.joblib",
+  "parameters": {
+    "n_estimators": 100,
+    "max_samples": "auto",
+    "contamination": "auto",
+    "random_state": 42,
+    "n_jobs": 1
+  },
+  "random_seed": 42,
+  "selected_feature_count": 43,
+  "embedded_preprocessing": "exact V0.2 processed-feature selector",
+  "reload_and_inference_verification": "PASS",
+  "additional_models": [],
+  "additional_models_note": "No additional model was added: Isolation Forest is the intentionally simple, computationally bounded primary reference for V0.3."
+}

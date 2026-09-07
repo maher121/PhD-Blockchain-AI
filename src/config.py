@@ -1,4 +1,4 @@
-"""Global configuration constants for Prototype V0.1 / V0.2.
+"""Global configuration constants for Prototype V0.1 / V0.2 / V0.3.
 
 Centralises paths, reproducibility seeds, schema names and default
 estimation constants so that modules never hard-code these values.
@@ -294,3 +294,25 @@ NEGATIVE_VALUE_COLUMNS: tuple[str, ...] = (
     "Order Item Total",
     "Sales",
 )
+
+# ============================================================================
+# V0.3 -- Baseline AI Anomaly Detection
+# ============================================================================
+
+AI_BASELINE_DIR: Path = RESULTS_DIR / "ai_baseline"
+AI_BASELINE_FIGURES_DIR: Path = AI_BASELINE_DIR / "figures"
+AI_BASELINE_PREDICTIONS_DIR: Path = AI_BASELINE_DIR / "predictions"
+V03_EXPERIMENT_DIR: Path = EXPERIMENTS_DIR / "v0_3_baseline"
+V03_MODEL_FILE: Path = MODELS_DIR / "isolation_forest_v0_3.joblib"
+
+V03_ISOLATION_FOREST_PARAMS: dict[str, object] = {
+    "n_estimators": 100,
+    "max_samples": "auto",
+    "contamination": "auto",
+    "random_state": GLOBAL_SEED,
+    "n_jobs": 1,
+}
+
+# These are sensitivity assumptions, not estimates of anomaly prevalence.
+V03_CONTAMINATION_VALUES: tuple[float, ...] = (0.01, 0.03, 0.05, 0.10)
+V03_STABILITY_SEEDS: tuple[int, ...] = (GLOBAL_SEED, GLOBAL_SEED + 1, GLOBAL_SEED + 2)

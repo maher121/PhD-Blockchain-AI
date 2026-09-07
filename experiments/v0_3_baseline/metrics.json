@@ -1,0 +1,172 @@
+{
+  "evaluation_mode": "unsupervised_anomaly_detection",
+  "evaluation_split": "test",
+  "label_situation": {
+    "case": "C",
+    "kind": "operational_outcome_only",
+    "target": "Late_delivery_risk",
+    "source": "DataCo Late_delivery_risk operational delivery outcome",
+    "supervised_metrics_allowed": false,
+    "reason": "The available target describes late delivery, not an anomaly or cybersecurity attack. It is not used to fit or evaluate V0.3."
+  },
+  "supervised_metrics": {
+    "calculated": false,
+    "reason": "The available target describes late delivery, not an anomaly or cybersecurity attack. It is not used to fit or evaluate V0.3."
+  },
+  "anomaly_detection": {
+    "train": {
+      "number_of_samples": 28000,
+      "number_of_detected_anomalies": 9994,
+      "anomaly_percentage": 35.69285714285714,
+      "score_direction": {
+        "raw_isolation_score": "lower values are more anomalous",
+        "anomaly_score": "higher values are more anomalous (-raw_isolation_score)",
+        "normalized_anomaly_score": "higher values are more anomalous; training-bound min-max score, not a probability"
+      },
+      "raw_isolation_score_statistics": {
+        "minimum": -0.6366888498410525,
+        "q1": -0.5100949166875806,
+        "median": -0.4885010052571539,
+        "mean": -0.4895432041503279,
+        "q3": -0.4675988295234086,
+        "maximum": -0.40869095345925244,
+        "standard_deviation": 0.030168418728821315
+      },
+      "anomaly_score_statistics": {
+        "minimum": 0.40869095345925244,
+        "q1": 0.4675988295234086,
+        "median": 0.4885010052571539,
+        "mean": 0.4895432041503279,
+        "q3": 0.5100949166875806,
+        "maximum": 0.6366888498410525,
+        "standard_deviation": 0.030168418728821315
+      }
+    },
+    "validation": {
+      "number_of_samples": 6000,
+      "number_of_detected_anomalies": 1812,
+      "anomaly_percentage": 30.2,
+      "score_direction": {
+        "raw_isolation_score": "lower values are more anomalous",
+        "anomaly_score": "higher values are more anomalous (-raw_isolation_score)",
+        "normalized_anomaly_score": "higher values are more anomalous; training-bound min-max score, not a probability"
+      },
+      "raw_isolation_score_statistics": {
+        "minimum": -0.6030563175352818,
+        "q1": -0.504960262260757,
+        "median": -0.48376259336324134,
+        "mean": -0.48494421079610817,
+        "q3": -0.46395996332151873,
+        "maximum": -0.41271812644681977,
+        "standard_deviation": 0.029459237145914176
+      },
+      "anomaly_score_statistics": {
+        "minimum": 0.41271812644681977,
+        "q1": 0.46395996332151873,
+        "median": 0.48376259336324134,
+        "mean": 0.48494421079610817,
+        "q3": 0.504960262260757,
+        "maximum": 0.6030563175352818,
+        "standard_deviation": 0.029459237145914176
+      }
+    },
+    "test": {
+      "number_of_samples": 6000,
+      "number_of_detected_anomalies": 1819,
+      "anomaly_percentage": 30.316666666666666,
+      "score_direction": {
+        "raw_isolation_score": "lower values are more anomalous",
+        "anomaly_score": "higher values are more anomalous (-raw_isolation_score)",
+        "normalized_anomaly_score": "higher values are more anomalous; training-bound min-max score, not a probability"
+      },
+      "raw_isolation_score_statistics": {
+        "minimum": -0.5955326136093458,
+        "q1": -0.5048877595853999,
+        "median": -0.4836607374701094,
+        "mean": -0.484925105097967,
+        "q3": -0.46383215477297185,
+        "maximum": -0.4132781140453749,
+        "standard_deviation": 0.029476201912808326
+      },
+      "anomaly_score_statistics": {
+        "minimum": 0.4132781140453749,
+        "q1": 0.46383215477297185,
+        "median": 0.4836607374701094,
+        "mean": 0.484925105097967,
+        "q3": 0.5048877595853999,
+        "maximum": 0.5955326136093458,
+        "standard_deviation": 0.029476201912808326
+      }
+    }
+  },
+  "stability": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "minimum_jaccard_with_reference": 0.6487642585551331,
+    "minimum_score_rank_correlation_with_reference": 0.9023790319898605
+  },
+  "performance": {
+    "training_time_seconds": 0.589866,
+    "inference_time_seconds_all_splits": 0.493217,
+    "total_execution_time_seconds": 9.052298599970527,
+    "training_measurement": {
+      "wall_time_seconds": 0.589866,
+      "cpu_time_seconds": 0.4375,
+      "avg_cpu_percent": 71.13,
+      "peak_cpu_percent": 153.8,
+      "peak_memory_rss_bytes": 276623360,
+      "start_memory_rss_bytes": 263344128,
+      "end_memory_rss_bytes": 267202560,
+      "sample_count": 30
+    },
+    "inference_measurements": {
+      "train": {
+        "wall_time_seconds": 0.327538,
+        "cpu_time_seconds": 0.328125,
+        "avg_cpu_percent": 95.57,
+        "peak_cpu_percent": 153.4,
+        "peak_memory_rss_bytes": 256909312,
+        "start_memory_rss_bytes": 238919680,
+        "end_memory_rss_bytes": 247259136,
+        "sample_count": 18
+      },
+      "validation": {
+        "wall_time_seconds": 0.083127,
+        "cpu_time_seconds": 0.078125,
+        "avg_cpu_percent": 76.08,
+        "peak_cpu_percent": 152.1,
+        "peak_memory_rss_bytes": 250368000,
+        "start_memory_rss_bytes": 249634816,
+        "end_memory_rss_bytes": 250351616,
+        "sample_count": 6
+      },
+      "test": {
+        "wall_time_seconds": 0.082552,
+        "cpu_time_seconds": 0.078125,
+        "avg_cpu_percent": 76.7,
+        "peak_cpu_percent": 153.9,
+        "peak_memory_rss_bytes": 250437632,
+        "start_memory_rss_bytes": 250368000,
+        "end_memory_rss_bytes": 250408960,
+        "sample_count": 6
+      }
+    },
+    "total_compute_measurement": {
+      "wall_time_seconds": 9.052299,
+      "cpu_time_seconds": 7.03125,
+      "avg_cpu_percent": 77.51,
+      "peak_cpu_percent": 155.2,
+      "peak_memory_rss_bytes": 302329856,
+      "start_memory_rss_bytes": 228356096,
+      "end_memory_rss_bytes": 302329856,
+      "sample_count": 430
+    },
+    "energy_consumption": {
+      "reported": false,
+      "reason": "No direct energy instrumentation was used; no energy value is inferred."
+    }
+  }
+}

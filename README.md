@@ -1,10 +1,11 @@
-# Prototype V0.1 + V0.2
+# Prototype V0.1 + V0.2 + V0.3
 
 **A Lightweight and Green Blockchain–AI Framework for Secure and Energy-Efficient Supply Chain Management**
 
-> **Status: Prototype V0.1 + V0.2** — a reproducible research foundation. V0.2
+> **Status: Prototype V0.1 + V0.2 + V0.3** — a reproducible research foundation. V0.2
 > integrates the **real DataCo SMART Supply-Chain dataset** with a rigorous,
-> leakage-safe preprocessing pipeline. Later phases (NSGA-II/MOPSO/PSO feature
+> leakage-safe preprocessing pipeline; V0.3 establishes an unsupervised
+> Isolation Forest reference. Later phases (NSGA-II/MOPSO/PSO feature
 > optimisation, deep learning, PostgreSQL/FastAPI, real Ethereum/Hyperledger
 > deployment, 1M-transaction experiments) are intentionally **not** implemented
 > yet.
@@ -102,6 +103,56 @@ jupyter nbconvert --to notebook --execute --inplace notebooks/02_dataco_audit.ip
 RUN_DATACO_INTEGRATION=1 python -m pytest tests/test_dataco_pipeline.py -v   # real-file integration test
 ```
 
+## Prototype V0.3 — Baseline AI Anomaly Detection
+
+V0.3 establishes a deliberately simple and reproducible anomaly-detection
+reference point on the V0.2 processed DataCo splits.
+
+- **Objective:** provide a transparent baseline for later controlled security,
+  feature-selection, lightweight-model, and optimization experiments.
+- **Model:** Isolation Forest only (`n_estimators=100`, `max_samples="auto"`,
+  `contamination="auto"`, `random_state=42`, `n_jobs=1`). No additional model is
+  included because algorithm count is not an objective at this stage.
+- **Feature strategy:** exact reuse of the 43 leakage-safe V0.2 processed
+  features. Raw IDs, PII, operational targets/outcomes, post-outcome fields,
+  model outputs, blockchain fields, and synthetic attack information are
+  excluded. The complete rationale is saved in
+  `results/ai_baseline/feature_list.json`.
+- **Preprocessing:** V0.2 imputation, categorical encoding, engineering, and
+  scaling were fitted on the 28,000-row training split only. The saved V0.3
+  sklearn pipeline embeds an exact-column selector but does not refit or
+  duplicate those transformations.
+- **Evaluation:** unsupervised score distributions, flag counts/rates, top-record
+  inspection, contamination sensitivity (`0.01`, `0.03`, `0.05`, `0.10`), and
+  three-seed stability. `Late_delivery_risk` is an operational delivery outcome,
+  not cyber/anomaly ground truth, so V0.3 calculates no accuracy, precision,
+  recall, F1, ROC-AUC, PR-AUC, or confusion matrix.
+- **Scores:** sklearn's raw score is lower for more anomalous observations;
+  `anomaly_score=-score_samples` is higher for more anomalous observations. The
+  training-bound normalized anomaly score is not a probability or calibrated
+  cybersecurity risk.
+- **Resources:** wall time, process CPU time/utilization, and RSS memory are
+  measured with `src.energy.measurement.ExecutionTimer`. No energy consumption
+  is measured or estimated in V0.3.
+- **Outputs:** versioned model under `models/`, predictions and reports under
+  `results/ai_baseline/`, and reproducibility metadata under
+  `experiments/v0_3_baseline/`.
+- **Limitations:** DataCo has no native cybersecurity/anomaly labels; Isolation
+  Forest flags are not confirmed attacks; contamination values are assumptions;
+  seed stability and business plausibility require review; the V0.2 experiment
+  uses a deterministic 40,000-row cap.
+
+Run from the repository root:
+
+```bash
+python -m src.pipeline_v03
+jupyter nbconvert --to notebook --execute --inplace notebooks/03_baseline_anomaly_detection.ipynb
+```
+
+Scientific interpretation is limited to: **The V0.3 baseline establishes a
+reproducible anomaly-detection reference point for subsequent optimization and
+lightweight-model experiments.**
+
 ## 3. Architecture
 
 ```
@@ -125,21 +176,22 @@ reproducible run; the notebook calls the same functions cell-by-cell.
 ```
 data/             raw/, processed/, synthetic/ datasets (.csv)
 src/
-    config.py               constants, paths, seeds, schemas (+ V0.2 DataCo roles)
+    config.py               constants, paths, seeds, schemas (+ V0.2/V0.3 settings)
     data/                   generator + loading + dataset_discovery + audit + versioning
     preprocessing/          cleaning + feature engineering (+ leakage, dataco_pipeline)
-    ai/                     anomaly_detection.py (Isolation Forest)
+    ai/                     V0.1 detector + V0.3 detector/evaluation/model utilities
     blockchain/             crypto.py, core.py, validation.py
     security/               integrity.py (tamper detection facade)
     energy/                 measurement.py, estimation.py
     evaluation/             reporting.py (JSON results)
     pipeline.py             V0.1 orchestrator
     pipeline_v02.py         V0.2 orchestrator (real DataCo end-to-end)
-notebooks/          01_prototype_pipeline.ipynb, 02_dataco_audit.ipynb
-experiments/      (later phase experiment driver work)
+    pipeline_v03.py         V0.3 unsupervised AI baseline orchestrator
+notebooks/          01 prototype, 02 DataCo audit, 03 baseline anomaly detection
+experiments/        v0_3_baseline/ reproducibility records
 models/           fitted estimators (.joblib, gitignored)
 results/          JSON experiment + V0.2 audit reports (gitignored)
-tests/            pytest suites (V0.1 46 + V0.2 45 = 91 passing, 1 skipped)
+tests/            pytest suites, including synthetic V0.3 model/leakage tests
 docs/             data_dictionary.md (generated), later-phase design docs
 requirements.txt, README.md, .gitignore
 ```
@@ -193,6 +245,7 @@ From the repository root:
 ```bash
 jupyter notebook notebooks/01_prototype_pipeline.ipynb   # V0.1: AI + blockchain skeleton
 jupyter notebook notebooks/02_dataco_audit.ipynb         # V0.2: real-dataset audit + split + features
+jupyter notebook notebooks/03_baseline_anomaly_detection.ipynb  # V0.3: unsupervised baseline
 ```
 
 or, if the `prototype-v01` kernel is registered, select *Python 3
@@ -201,7 +254,8 @@ or, if the `prototype-v01` kernel is registered, select *Python 3
 verification → tamper detection → measurement → energy estimate → saved
 results). `02` demonstrates the full V0.2 real-dataset workflow (discovery →
 loading → audit → leakage analysis → split → feature engineering → save) in 16
-sections and calls only `src/` functions.
+sections and calls only `src/` functions. `03` runs the V0.3 model, sensitivity,
+stability, leakage, persistence, and artifact workflow through `src.pipeline_v03`.
 
 Reproducibly headless-execute either notebook:
 
@@ -211,6 +265,8 @@ python -m jupyter nbconvert --to notebook --execute --inplace \
   --ExecutePreprocessor.kernel_name=prototype-v01
 python -m jupyter nbconvert --to notebook --execute --inplace \
   notebooks/02_dataco_audit.ipynb
+python -m jupyter nbconvert --to notebook --execute --inplace \
+  notebooks/03_baseline_anomaly_detection.ipynb
 ```
 
 ## 7. Running Tests
@@ -223,8 +279,10 @@ RUN_DATACO_INTEGRATION=1 python -m pytest tests/test_dataco_pipeline.py -v
 
 The suite covers transaction hashing, transaction validation, block hashing,
 block validation, blockchain verification and tamper detection, plus the data,
-AI and energy modules, and the V0.2 data-discovery/audit/split/preprocessing/
-pipeline modules (91 passing, 1 integration test skipped without the env flag).
+AI and energy modules, the V0.2 data-discovery/audit/split/preprocessing/
+pipeline modules, and V0.3 model, score, reproducibility, feature exclusion,
+leakage, persistence, and reloaded-inference behavior. The real-data integration
+test remains skipped without the environment flag.
 A dedicated end-to-end test asserts that editing a transaction **after** block
 creation causes integrity verification to fail.
 
@@ -270,16 +328,13 @@ Honest boundaries of Prototype V0.1:
 
 ## 10. Future Development Phases
 
-1. **V0.3 – Baseline AI anomaly detection:** train/evaluate detectors
-   (Isolation Forest, autoencoders) on the V0.2 leakage-free features with
-   honest-label reporting (delivery-outcome proxy).
-2. **V0.4 – Optimisation & deeper AI:** NSGA-II / MOPSO / PSO/GWO feature
-   selection and hyperparameter tuning; deep-learning detectors.
-3. **V0.5 – Persistence & service:** PostgreSQL storage, FastAPI endpoints.
-4. **V0.6 – Real ledger:** Ethereum/Hyperledger smart contracts and deployment.
-5. **V1.0 – Scale:** 1M-transaction experiments and energy benchmarking at scale.
+1. **V0.4 – Controlled cybersecurity attack/anomaly scenario generation and
+   security evaluation.**
+2. **Later optimization phases:** lightweight model comparison and controlled
+   PSO/GWO/hybrid optimization only after valid evaluation scenarios exist.
+3. **Later deployment phases:** persistence, services, and real ledger work.
 
 ---
 
-Prototypes V0.1 and V0.2 provide the clean, modular, reproducible foundation
-these later phases will extend.
+Prototypes V0.1, V0.2, and V0.3 provide the clean, modular, reproducible
+foundation these later phases will extend.

@@ -1,0 +1,289 @@
+{
+  "stage": "V0.3",
+  "selection_strategy": "Transparent reuse of the exact leakage-safe processed feature list recorded by V0.2; no optimization-based selection.",
+  "preprocessing": "V0.2 fitted imputation, scaling, and categorical levels on training data only. V0.3 applies no second fitted transformation.",
+  "selected_feature_count": 43,
+  "selected_features": [
+    "order_item_quantity",
+    "order_item_product_price",
+    "product_price",
+    "order_item_discount",
+    "order_item_discount_rate",
+    "order_item_profit_ratio",
+    "order_item_total",
+    "days_schedule",
+    "year",
+    "month",
+    "day",
+    "day_of_week",
+    "hour",
+    "is_weekend",
+    "item_count_per_order",
+    "order_total_value",
+    "Type_DEBIT",
+    "Type_TRANSFER",
+    "Type_PAYMENT",
+    "Type_CASH",
+    "Market_LATAM",
+    "Market_Europe",
+    "Market_Pacific Asia",
+    "Market_USCA",
+    "Market_Africa",
+    "Shipping Mode_Standard Class",
+    "Shipping Mode_Second Class",
+    "Shipping Mode_First Class",
+    "Shipping Mode_Same Day",
+    "Customer Segment_Consumer",
+    "Customer Segment_Corporate",
+    "Customer Segment_Home Office",
+    "Department Name_Fan Shop",
+    "Department Name_Apparel",
+    "Department Name_Golf",
+    "Department Name_Footwear",
+    "Department Name_Outdoors",
+    "Department Name_Fitness",
+    "Department Name_Discs Shop",
+    "Department Name_Technology",
+    "Department Name_Pet Shop",
+    "Department Name_Health and Beauty",
+    "Department Name_Book Shop"
+  ],
+  "excluded_features": [
+    {
+      "column": "row_id",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Type",
+      "reason": "Raw category replaced by train-fitted V0.2 one-hot features."
+    },
+    {
+      "column": "Days for shipping (real)",
+      "reason": "Realized or post-outcome field; excluded to prevent future/outcome leakage."
+    },
+    {
+      "column": "Days for shipment (scheduled)",
+      "reason": "Raw source replaced by its controlled V0.2 engineered/scaled representation."
+    },
+    {
+      "column": "Benefit per order",
+      "reason": "Owner-computed aggregate with unclear time window; excluded as leakage-prone."
+    },
+    {
+      "column": "Sales per customer",
+      "reason": "Owner-computed aggregate with unclear time window; excluded as leakage-prone."
+    },
+    {
+      "column": "Delivery Status",
+      "reason": "Realized or post-outcome field; excluded to prevent future/outcome leakage."
+    },
+    {
+      "column": "Late_delivery_risk",
+      "reason": "Operational delivery target, not a cybersecurity/anomaly label; excluded."
+    },
+    {
+      "column": "Category Id",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Category Name",
+      "reason": "Not selected for the transparent V0.3 baseline; retained only in source metadata/audit."
+    },
+    {
+      "column": "Customer City",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Customer Country",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Customer Email",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Customer Fname",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Customer Id",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Customer Lname",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Customer Password",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Customer Segment",
+      "reason": "Raw category replaced by train-fitted V0.2 one-hot features."
+    },
+    {
+      "column": "Customer State",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Customer Street",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Customer Zipcode",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Department Id",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Department Name",
+      "reason": "Raw category replaced by train-fitted V0.2 one-hot features."
+    },
+    {
+      "column": "Latitude",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Longitude",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Market",
+      "reason": "Raw category replaced by train-fitted V0.2 one-hot features."
+    },
+    {
+      "column": "Order City",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Order Country",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Order Customer Id",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "order date (DateOrders)",
+      "reason": "Raw source replaced by its controlled V0.2 engineered/scaled representation."
+    },
+    {
+      "column": "Order Id",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Order Item Cardprod Id",
+      "reason": "Not selected for the transparent V0.3 baseline; retained only in source metadata/audit."
+    },
+    {
+      "column": "Order Item Discount",
+      "reason": "Raw source replaced by its controlled V0.2 engineered/scaled representation."
+    },
+    {
+      "column": "Order Item Discount Rate",
+      "reason": "Raw source replaced by its controlled V0.2 engineered/scaled representation."
+    },
+    {
+      "column": "Order Item Id",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Order Item Product Price",
+      "reason": "Raw source replaced by its controlled V0.2 engineered/scaled representation."
+    },
+    {
+      "column": "Order Item Profit Ratio",
+      "reason": "Raw source replaced by its controlled V0.2 engineered/scaled representation."
+    },
+    {
+      "column": "Order Item Quantity",
+      "reason": "Raw source replaced by its controlled V0.2 engineered/scaled representation."
+    },
+    {
+      "column": "Sales",
+      "reason": "Not selected for the transparent V0.3 baseline; retained only in source metadata/audit."
+    },
+    {
+      "column": "Order Item Total",
+      "reason": "Raw source replaced by its controlled V0.2 engineered/scaled representation."
+    },
+    {
+      "column": "Order Profit Per Order",
+      "reason": "Owner-computed aggregate with unclear time window; excluded as leakage-prone."
+    },
+    {
+      "column": "Order Region",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Order State",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Order Status",
+      "reason": "Realized or post-outcome field; excluded to prevent future/outcome leakage."
+    },
+    {
+      "column": "Order Zipcode",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Product Card Id",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Product Category Id",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Product Description",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Product Image",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Product Name",
+      "reason": "Identifier, high-cardinality traceability field, geography, or PII; metadata only."
+    },
+    {
+      "column": "Product Price",
+      "reason": "Raw source replaced by its controlled V0.2 engineered/scaled representation."
+    },
+    {
+      "column": "Product Status",
+      "reason": "Not selected for the transparent V0.3 baseline; retained only in source metadata/audit."
+    },
+    {
+      "column": "shipping date (DateOrders)",
+      "reason": "Shipping-time information occurs after order placement; excluded as future information."
+    },
+    {
+      "column": "Shipping Mode",
+      "reason": "Raw category replaced by train-fitted V0.2 one-hot features."
+    },
+    {
+      "column": "raw_isolation_score",
+      "reason": "Model-generated output; never permitted as an input feature."
+    },
+    {
+      "column": "anomaly_score",
+      "reason": "Model-generated output; never permitted as an input feature."
+    },
+    {
+      "column": "normalized_anomaly_score",
+      "reason": "Model-generated output; never permitted as an input feature."
+    },
+    {
+      "column": "anomaly_label",
+      "reason": "Model-generated output; never permitted as an input feature."
+    },
+    {
+      "column": "predicted_anomaly",
+      "reason": "Model-generated output; never permitted as an input feature."
+    }
+  ]
+}
