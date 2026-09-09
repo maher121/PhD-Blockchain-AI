@@ -1,8 +1,8 @@
-# Prototype V0.1 + V0.2 + V0.3 + V0.4
+# Prototype V0.1 + V0.2 + V0.3 + V0.4 + V0.5
 
 **A Lightweight and Green Blockchain–AI Framework for Secure and Energy-Efficient Supply Chain Management**
 
-> **Status: Prototype V0.1 + V0.2 + V0.3 + V0.4** — a reproducible research foundation. V0.2
+> **Status: Prototype V0.1 + V0.2 + V0.3 + V0.4 + V0.5** — a reproducible research foundation. V0.2
 > integrates the **real DataCo SMART Supply-Chain dataset** with a rigorous,
 > leakage-safe preprocessing pipeline; V0.3 establishes an unsupervised
 > Isolation Forest reference. Later phases (NSGA-II/MOPSO/PSO feature
@@ -200,6 +200,64 @@ unsupervised baseline; DataCo is not a cybersecurity dataset; and results descri
 controlled detection behavior rather than universal effectiveness. Full method
 and parameter documentation is in `docs/security_v04.md`.
 
+## Prototype V0.5 — Lightweight AI and Computational Efficiency
+
+V0.5 establishes lightweight tabular detection and measured computational-cost
+baselines. Its objective is to characterize detection-resource **trade-offs**, not
+to maximize one predictive metric or claim the final framework is proven.
+
+- **Models:** the unchanged saved V0.3 Isolation Forest is retained as the direct
+  reference. V0.5 trains Isolation Forest (`100` estimators), balanced Logistic
+  Regression, a Decision Tree (`max_depth=5`), and a deliberately small Random
+  Forest (`25` trees, `max_depth=5`). One-Class SVM is excluded because kernel
+  scaling on 28,000 rows is not reliably lightweight. No hyperparameter optimizer
+  is used.
+- **Common experiment:** every model uses the fixed V0.2 grouped split, processed
+  representation, seed `42`, and V0.4 controlled scenarios. V0.5 candidates train
+  on the same 5% MEDIUM mixed training scenario; supervised models use its separate
+  controlled labels while Isolation Forest ignores labels. All comparisons use the
+  same attacked test records. Attack metadata never enters model features.
+- **Feature reduction:** nested 100%, 75%, 50%, and 25% subsets (43, 32, 22, and
+  11 features) are selected by a scale-invariant correlation-redundancy ranking
+  fitted on the clean training split only. Labels, validation data, and test data
+  are not used for ranking.
+- **Metrics:** precision, recall, F1, trapezoidal precision-recall-curve AUC,
+  average precision in detailed outputs, ROC-AUC, confusion counts, training time,
+  inference time, peak process RSS, CPU observations, actual serialized model size,
+  feature count, and descriptive complexity indicators.
+- **Computational-efficiency proxies:** repeated-call wall time, fresh-process peak
+  RSS, artifact size, and feature count. Fresh processes prevent allocator history
+  from determining model comparisons; RSS still includes Python, sklearn, and the
+  selected input matrix. These are not electrical energy measurements. Electrical
+  energy is **NOT DIRECTLY MEASURED**, and no normalized energy score is invented.
+- **Pareto analysis:** a deterministic non-dominance check uses validation F1 while
+  minimizing validation inference time, validation peak process RSS, and feature
+  count. Test metrics are reported after selection and are not used to select
+  candidates. It does not use NSGA-II, MOPSO, PSO, GWO, or another optimizer.
+- **Security evaluation:** all 42 V0.4 attack-type/rate/severity scenarios are
+  regenerated, checked against their persisted manifests, and evaluated with the
+  full-feature models. The primary mixed-scenario V0.3 metrics are reproduced.
+  All-label metrics and detector-visible-only metrics are reported separately
+  because some V0.4 edits intentionally affect V0.2-excluded fields.
+- **Reproducibility:** model parameters, feature subsets, Python/sklearn versions,
+  hardware context, dataset hash, split metadata, seed, and experiment ID are
+  recorded under `experiments/v0_5_lightweight/`. Timing variation with system load
+  is expected.
+- **Outputs:** publication table, feature/resource analyses, Pareto candidates,
+  scenario results, predictions, and figures are under `results/lightweight/`;
+  actual model artifacts are under `models/lightweight/`.
+- **Limitations:** controlled modifications are not real attacks; supervised models
+  learn the configured attack distribution; V0.2-excluded fields remain invisible
+  to AI; decision thresholds differ by model family and are documented rather than
+  test-tuned; faster execution alone does not demonstrate energy efficiency.
+
+Run from the repository root:
+
+```bash
+python -m src.pipeline_v05
+python -m jupyter nbconvert --to notebook --execute --inplace notebooks/05_lightweight_ai_comparison.ipynb
+```
+
 ## 3. Architecture
 
 ```
@@ -223,20 +281,22 @@ reproducible run; the notebook calls the same functions cell-by-cell.
 ```
 data/             raw/, processed/, synthetic/ datasets (.csv)
 src/
-    config.py               constants, paths, seeds, schemas (+ V0.2/V0.3/V0.4 settings)
+    config.py               constants, paths, seeds, schemas (+ V0.2-V0.5 settings)
     data/                   generator + loading + dataset_discovery + audit + versioning
     preprocessing/          cleaning + feature engineering (+ leakage, dataco_pipeline)
     ai/                     V0.1 detector + V0.3 detector/evaluation/model utilities
     blockchain/             crypto.py, core.py, validation.py
     security/               attacks, ground truth, evaluation, integrity facade
+    lightweight/            V0.5 models, training, evaluation, resources, feature reduction
     energy/                 measurement.py, estimation.py
     evaluation/             reporting.py (JSON results)
     pipeline.py             V0.1 orchestrator
     pipeline_v02.py         V0.2 orchestrator (real DataCo end-to-end)
     pipeline_v03.py         V0.3 unsupervised AI baseline orchestrator
     pipeline_v04.py         V0.4 controlled security evaluation orchestrator
-notebooks/          01 prototype, 02 DataCo audit, 03 AI baseline, 04 security
-experiments/        V0.3 and V0.4 reproducibility records
+    pipeline_v05.py         V0.5 lightweight model/resource orchestrator
+notebooks/          01 prototype, 02 DataCo audit, 03 AI baseline, 04 security, 05 lightweight AI
+experiments/        V0.3, V0.4, and V0.5 reproducibility records
 models/           fitted estimators (.joblib, gitignored)
 results/          JSON experiment + V0.2 audit reports (gitignored)
 tests/            pytest suites, including synthetic V0.3 model/leakage tests
@@ -295,6 +355,7 @@ jupyter notebook notebooks/01_prototype_pipeline.ipynb   # V0.1: AI + blockchain
 jupyter notebook notebooks/02_dataco_audit.ipynb         # V0.2: real-dataset audit + split + features
 jupyter notebook notebooks/03_baseline_anomaly_detection.ipynb  # V0.3: unsupervised baseline
 jupyter notebook notebooks/04_cybersecurity_attack_scenarios.ipynb  # V0.4: controlled security
+jupyter notebook notebooks/05_lightweight_ai_comparison.ipynb  # V0.5: lightweight AI/resources
 ```
 
 or, if the `prototype-v01` kernel is registered, select *Python 3
@@ -318,6 +379,8 @@ python -m jupyter nbconvert --to notebook --execute --inplace \
   notebooks/03_baseline_anomaly_detection.ipynb
 python -m jupyter nbconvert --to notebook --execute --inplace \
   notebooks/04_cybersecurity_attack_scenarios.ipynb
+python -m jupyter nbconvert --to notebook --execute --inplace \
+  notebooks/05_lightweight_ai_comparison.ipynb
 ```
 
 ## 7. Running Tests
@@ -333,7 +396,7 @@ block validation, blockchain verification and tamper detection, plus the data,
 AI and energy modules, the V0.2 data-discovery/audit/split/preprocessing/
 pipeline modules, V0.3 model behavior, and V0.4 attack generation, rates,
 severity, traceability, restoration, leakage, AI metrics, blockchain integrity,
-and combined reporting. The real-data integration
+combined reporting, and V0.5 model/resource/feature/Pareto behavior. The real-data integration
 test remains skipped without the environment flag.
 A dedicated end-to-end test asserts that editing a transaction **after** block
 creation causes integrity verification to fail.
@@ -350,12 +413,12 @@ Honest boundaries of Prototype V0.1:
   typical-TDP power convention (Energy = Power × Time). It is a research proxy.
   Measured metrics (time, CPU %, RSS memory) are always kept distinct and are
   never called "energy".
-- **No cybersecurity attack labels exist.** Depending on the source, the label
+- **No native DataCo cybersecurity attack labels exist.** In V0.1, depending on the source, the label
   column is either `known_anomaly` (synthetic/controlled anomalies injected by
   the generator) or `natural_label` (the DataCo Kaggle table's real
-  `Late_delivery_risk` flag). Every JSON report records `label_kind`
-  (`controlled_synthetic`, `natural_late_delivery_risk` or `none`). Metric
-  results describe recovery of that label source only.
+  `Late_delivery_risk` flag). V0.1 records `label_kind`; V0.4 separately records
+  `ground_truth_kind="controlled experimental ground truth"`. Metrics describe
+  only their stated label source.
 - **Sampled features for the full Kaggle table.** The full 180k-row table is
   loaded and cleaned, but feature engineering (and the anomaly / blockchain
   stages) run on a fixed-seed sample (`PROCESS_MAX_ROWS=20000`) to keep
@@ -380,13 +443,12 @@ Honest boundaries of Prototype V0.1:
 
 ## 10. Future Development Phases
 
-1. **V0.5 – Lightweight AI baseline and computational/resource efficiency
-   evaluation.**
-2. **Later optimization phases:** lightweight model comparison and controlled
-   PSO/GWO/hybrid optimization only after valid evaluation scenarios exist.
+1. **V0.6 – Research-grade feature-selection baseline.**
+2. **Later optimization phases:** controlled PSO/GWO/hybrid optimization only
+   after the non-optimized feature-selection baseline is established.
 3. **Later deployment phases:** persistence, services, and real ledger work.
 
 ---
 
-Prototypes V0.1 through V0.4 provide the clean, modular, reproducible
+Prototypes V0.1 through V0.5 provide the clean, modular, reproducible
 foundation these later phases will extend.

@@ -146,6 +146,6 @@ experiment uses the V0.2 deterministic 40,000-row cap and its 6,000-row test spl
 2. Attack distributions are controlled by experiment parameters.
 3. Isolation Forest remains an unsupervised baseline with its existing threshold.
 4. DataCo is not a dedicated cybersecurity dataset.
-5. Results demonstrate controlled detection capability, not universal cybersecurity effectiveness.
+5. Results describe controlled detection behavior, not universal cybersecurity effectiveness.
 6. Some valid tampering scenarios affect fields intentionally excluded from AI for leakage safety.
 7. The blockchain remains a lightweight single-authority research simulation.

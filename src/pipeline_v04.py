@@ -331,6 +331,7 @@ def run_security_evaluation_v04(
             "random_seed": random_seed,
             "same_configuration_reproduced_full_evaluation": reproducible,
             "model_sha256": _sha256(Path(model_path)),
+            "v0_4_source_sha256": _source_fingerprint(),
         },
         "research_interpretation": (
             "Final-label metrics compare V0.3 flags with controlled ground truth, while the paired "
@@ -582,6 +583,23 @@ def _portable_path(path: Path) -> str:
         return str(path.resolve().relative_to(PROJECT_ROOT.resolve()))
     except ValueError:
         return str(path)
+
+
+def _source_fingerprint() -> str:
+    paths = [
+        Path(__file__),
+        PROJECT_ROOT / "config" / "attack_scenarios.yaml",
+        PROJECT_ROOT / "src" / "security" / "attack_generator.py",
+        PROJECT_ROOT / "src" / "security" / "attack_scenarios.py",
+        PROJECT_ROOT / "src" / "security" / "evaluation.py",
+        PROJECT_ROOT / "src" / "security" / "experiments.py",
+        PROJECT_ROOT / "src" / "security" / "ground_truth.py",
+    ]
+    digest = hashlib.sha256()
+    for path in paths:
+        digest.update(_portable_path(path).encode("utf-8"))
+        digest.update(path.read_bytes())
+    return digest.hexdigest()
 
 
 if __name__ == "__main__":

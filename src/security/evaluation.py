@@ -240,8 +240,16 @@ def save_security_figures(
     written: list[Path] = []
 
     for metric, filename, title in (
-        ("recall", "attack_rate_vs_recall.png", "Attack rate vs recall"),
-        ("f1", "attack_rate_vs_f1.png", "Attack rate vs F1"),
+        (
+            "recall",
+            "attack_rate_vs_recall.png",
+            "Attack rate vs final-label recall (includes pre-existing flags)",
+        ),
+        (
+            "f1",
+            "attack_rate_vs_f1.png",
+            "Attack rate vs final-label F1 (includes pre-existing flags)",
+        ),
     ):
         fig, ax = plt.subplots(figsize=(8, 5))
         for attack_type, group in attack_rate_analysis.groupby("attack_type", sort=False):
@@ -256,8 +264,16 @@ def save_security_figures(
     severity_plot = severity_analysis.copy()
     severity_plot["severity_order"] = severity_plot["severity"].map(severity_order)
     for metric, filename, title in (
-        ("recall", "severity_vs_recall.png", "Attack severity vs recall"),
-        ("f1", "severity_vs_f1.png", "Attack severity vs F1"),
+        (
+            "recall",
+            "severity_vs_recall.png",
+            "Severity vs final-label recall (includes pre-existing flags)",
+        ),
+        (
+            "f1",
+            "severity_vs_f1.png",
+            "Severity vs final-label F1 (includes pre-existing flags)",
+        ),
     ):
         fig, ax = plt.subplots(figsize=(8, 5))
         for attack_type, group in severity_plot.groupby("attack_type", sort=False):
@@ -278,7 +294,7 @@ def save_security_figures(
             ax.text(column, row, str(matrix[row, column]), ha="center", va="center")
     ax.set_xticks([0, 1], labels=["Predicted clean", "Predicted attack"])
     ax.set_yticks([0, 1], labels=["Actual clean", "Actual attack"])
-    ax.set_title("Controlled-attack confusion matrix")
+    ax.set_title("Final flags vs ground truth (includes pre-existing flags)")
     fig.colorbar(image, ax=ax)
     written.append(_save_figure(fig, output_dir / "confusion_matrix.png", plt))
 
@@ -287,7 +303,7 @@ def save_security_figures(
     fig, ax = plt.subplots(figsize=(8, 5))
     ax.hist(scores[labels == 0], bins=45, alpha=0.7, label="Clean", color="#356859")
     ax.hist(scores[labels == 1], bins=35, alpha=0.7, label="Controlled attack", color="#c14953")
-    ax.set_title("Anomaly-score distribution: clean vs controlled attacks")
+    ax.set_title("Post-injection scores: clean vs selected attack records")
     ax.set_xlabel("Anomaly score (-score_samples); higher is more anomalous")
     ax.set_ylabel("Records")
     ax.legend()

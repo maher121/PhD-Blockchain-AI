@@ -1,0 +1,60 @@
+{
+  "version": "v0.5",
+  "experiment_id": "v0_5_lightweight_s42",
+  "random_seed": 42,
+  "models": {
+    "isolation_forest": {
+      "n_estimators": 100,
+      "max_samples": "auto",
+      "max_features": 1.0,
+      "contamination": "auto",
+      "n_jobs": 1
+    },
+    "logistic_regression": {
+      "solver": "liblinear",
+      "class_weight": "balanced",
+      "max_iter": 500,
+      "C": 1.0
+    },
+    "decision_tree": {
+      "max_depth": 5,
+      "min_samples_leaf": 20,
+      "class_weight": "balanced"
+    },
+    "random_forest": {
+      "n_estimators": 25,
+      "max_depth": 5,
+      "min_samples_leaf": 20,
+      "class_weight": "balanced_subsample",
+      "n_jobs": 1
+    }
+  },
+  "feature_reduction": {
+    "method": "train_correlation_redundancy_ranking",
+    "fractions": [
+      1.0,
+      0.75,
+      0.5,
+      0.25
+    ]
+  },
+  "evaluation": {
+    "primary_attack_type": "mixed",
+    "primary_attack_rate": 0.05,
+    "primary_severity": "MEDIUM",
+    "security_scenario_sweep": true,
+    "evaluation_split": "test",
+    "inference_repeats": 10
+  },
+  "energy": {
+    "directly_measured": false,
+    "classification": "NOT DIRECTLY MEASURED",
+    "computational_proxies": [
+      "training_time_sec",
+      "inference_time_sec",
+      "peak_process_rss_mb",
+      "model_size_bytes",
+      "feature_count"
+    ]
+  }
+}

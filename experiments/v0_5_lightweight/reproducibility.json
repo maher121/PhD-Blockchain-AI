@@ -1,0 +1,112 @@
+{
+  "stage": "V0.5",
+  "experiment_id": "v0_5_lightweight_s42",
+  "random_seed": 42,
+  "generated_at_utc": "2026-09-08T06:45:07.083436+00:00",
+  "python_version": "3.12.3",
+  "scikit_learn_version": "1.9.0",
+  "numpy_version": "2.5.2",
+  "pandas_version": "3.0.5",
+  "psutil_version": "7.2.2",
+  "pyyaml_version": "6.0.3",
+  "hardware": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 12,
+    "physical_cpus": 6,
+    "cpu_freq_max_mhz": 0,
+    "system_cpu_percent": 8.2,
+    "process_cpu_percent": 0.0,
+    "process_rss_bytes": 320937984,
+    "memory_total_bytes": 8184344576,
+    "memory_available_bytes": 6532956160,
+    "memory_percent": 20.2
+  },
+  "dataset": {
+    "name": "DataCo SMART Supply Chain for Big Data Analysis",
+    "filename": "DataCoSupplyChainDataset.csv",
+    "path": "/mnt/e/PhD-Blockchain-AI/data/raw/DataCoSupplyChainDataset.csv",
+    "file_sha256": "fa6d022ed437155e1a2f0378710602848703c8a7f203f7ff5d77805bf8480aa6",
+    "n_raw_rows": 180519,
+    "n_raw_columns": 54,
+    "provenance": "capped:40000|provenance:raw_dir"
+  },
+  "split": {
+    "seed": 42,
+    "strategy": "order_grouped",
+    "ratios": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "sizes": {
+      "train": 28000,
+      "validation": 6000,
+      "test": 6000
+    },
+    "identity_overlap_checks": {
+      "Order Id": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      },
+      "Order Customer Id": {
+        "train_vs_validation": 2910,
+        "train_vs_test": 2927,
+        "validation_vs_test": 1103
+      },
+      "Product Card Id": {
+        "train_vs_validation": 109,
+        "train_vs_test": 109,
+        "validation_vs_test": 104
+      }
+    }
+  },
+  "model_configuration": {
+    "isolation_forest": {
+      "n_estimators": 100,
+      "max_samples": "auto",
+      "max_features": 1.0,
+      "contamination": "auto",
+      "n_jobs": 1
+    },
+    "logistic_regression": {
+      "solver": "liblinear",
+      "class_weight": "balanced",
+      "max_iter": 500,
+      "C": 1.0
+    },
+    "decision_tree": {
+      "max_depth": 5,
+      "min_samples_leaf": 20,
+      "class_weight": "balanced"
+    },
+    "random_forest": {
+      "n_estimators": 25,
+      "max_depth": 5,
+      "min_samples_leaf": 20,
+      "class_weight": "balanced_subsample",
+      "n_jobs": 1
+    }
+  },
+  "feature_configuration": {
+    "method": "train_correlation_redundancy_ranking",
+    "fractions": [
+      1.0,
+      0.75,
+      0.5,
+      0.25
+    ]
+  },
+  "configuration_selection": {
+    "metric_source": "controlled validation split",
+    "test_metrics_used": false
+  },
+  "attack_configuration": {
+    "primary_attack_type": "mixed",
+    "primary_attack_rate": 0.05,
+    "primary_severity": "MEDIUM",
+    "source": "unchanged V0.4 attack_scenarios.yaml"
+  },
+  "timing_note": "Wall-clock timings may vary with system load."
+}

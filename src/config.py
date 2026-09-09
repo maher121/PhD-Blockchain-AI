@@ -1,4 +1,4 @@
-"""Global configuration constants for Prototype V0.1 through V0.4.
+"""Global configuration constants for Prototype V0.1 through V0.5.
 
 Centralises paths, reproducibility seeds, schema names and default
 estimation constants so that modules never hard-code these values.
@@ -327,3 +327,14 @@ SECURITY_FIGURES_DIR: Path = SECURITY_RESULTS_DIR / "figures"
 SECURITY_MANIFESTS_DIR: Path = SECURITY_RESULTS_DIR / "attack_manifests"
 SECURITY_PREDICTIONS_DIR: Path = SECURITY_RESULTS_DIR / "predictions"
 V04_EXPERIMENT_DIR: Path = EXPERIMENTS_DIR / "v0_4_security"
+
+# ============================================================================
+# V0.5 -- Lightweight AI and Computational Efficiency
+# ============================================================================
+
+LIGHTWEIGHT_CONFIG_FILE: Path = PROJECT_ROOT / "config" / "lightweight_models.yaml"
+LIGHTWEIGHT_RESULTS_DIR: Path = RESULTS_DIR / "lightweight"
+LIGHTWEIGHT_FIGURES_DIR: Path = LIGHTWEIGHT_RESULTS_DIR / "figures"
+LIGHTWEIGHT_PREDICTIONS_DIR: Path = LIGHTWEIGHT_RESULTS_DIR / "predictions"
+LIGHTWEIGHT_MODELS_DIR: Path = MODELS_DIR / "lightweight"
+V05_EXPERIMENT_DIR: Path = EXPERIMENTS_DIR / "v0_5_lightweight"

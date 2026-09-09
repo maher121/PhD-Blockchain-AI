@@ -1,0 +1,467 @@
+{
+  "method": "train_correlation_redundancy_ranking",
+  "ranking": [
+    {
+      "rank": 1,
+      "feature": "order_item_profit_ratio",
+      "mean_absolute_training_correlation": 0.005039112794084916,
+      "max_correlation_with_earlier_features": 0.0,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 2,
+      "feature": "Department Name_Apparel",
+      "mean_absolute_training_correlation": 0.05365521114091077,
+      "max_correlation_with_earlier_features": 0.00035725788225266154,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 3,
+      "feature": "item_count_per_order",
+      "mean_absolute_training_correlation": 0.03394920693782681,
+      "max_correlation_with_earlier_features": 0.0015132786398198484,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 4,
+      "feature": "order_item_discount_rate",
+      "mean_absolute_training_correlation": 0.02393061592966404,
+      "max_correlation_with_earlier_features": 0.006923442252503684,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 5,
+      "feature": "Market_Africa",
+      "mean_absolute_training_correlation": 0.026452780984305972,
+      "max_correlation_with_earlier_features": 0.007224456896120506,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 6,
+      "feature": "Type_CASH",
+      "mean_absolute_training_correlation": 0.021576360453275645,
+      "max_correlation_with_earlier_features": 0.007776508394783312,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 7,
+      "feature": "Shipping Mode_Same Day",
+      "mean_absolute_training_correlation": 0.029618831374320823,
+      "max_correlation_with_earlier_features": 0.007943821547687604,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 8,
+      "feature": "Customer Segment_Consumer",
+      "mean_absolute_training_correlation": 0.03128132066686242,
+      "max_correlation_with_earlier_features": 0.00981978011831773,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 9,
+      "feature": "hour",
+      "mean_absolute_training_correlation": 0.0054121196904216105,
+      "max_correlation_with_earlier_features": 0.01049966865419865,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 10,
+      "feature": "day",
+      "mean_absolute_training_correlation": 0.01175761942333664,
+      "max_correlation_with_earlier_features": 0.017091633028129955,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 11,
+      "feature": "is_weekend",
+      "mean_absolute_training_correlation": 0.02581583418019654,
+      "max_correlation_with_earlier_features": 0.01758808717603311,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 12,
+      "feature": "Department Name_Health and Beauty",
+      "mean_absolute_training_correlation": 0.017803284031163758,
+      "max_correlation_with_earlier_features": 0.037254764344542446,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 13,
+      "feature": "Department Name_Pet Shop",
+      "mean_absolute_training_correlation": 0.019605301035953825,
+      "max_correlation_with_earlier_features": 0.0405568115283535,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 14,
+      "feature": "Department Name_Book Shop",
+      "mean_absolute_training_correlation": 0.019043983310293663,
+      "max_correlation_with_earlier_features": 0.05071448790593197,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 15,
+      "feature": "order_item_quantity",
+      "mean_absolute_training_correlation": 0.06304112958369847,
+      "max_correlation_with_earlier_features": 0.05659399972766717,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 16,
+      "feature": "Department Name_Technology",
+      "mean_absolute_training_correlation": 0.05177345055536061,
+      "max_correlation_with_earlier_features": 0.0693567345551994,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 17,
+      "feature": "Department Name_Fitness",
+      "mean_absolute_training_correlation": 0.016662654389966888,
+      "max_correlation_with_earlier_features": 0.07063269667552387,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 18,
+      "feature": "Department Name_Discs Shop",
+      "mean_absolute_training_correlation": 0.03185472604816749,
+      "max_correlation_with_earlier_features": 0.08118342123844681,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 19,
+      "feature": "Shipping Mode_First Class",
+      "mean_absolute_training_correlation": 0.038119248903211285,
+      "max_correlation_with_earlier_features": 0.10371873408348063,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 20,
+      "feature": "Market_USCA",
+      "mean_absolute_training_correlation": 0.03128720017819613,
+      "max_correlation_with_earlier_features": 0.1081840443666089,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 21,
+      "feature": "Department Name_Outdoors",
+      "mean_absolute_training_correlation": 0.0340009560886903,
+      "max_correlation_with_earlier_features": 0.1435202147891812,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 22,
+      "feature": "year",
+      "mean_absolute_training_correlation": 0.034521152772460637,
+      "max_correlation_with_earlier_features": 0.1764087659907828,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 23,
+      "feature": "Department Name_Footwear",
+      "mean_absolute_training_correlation": 0.04004164358863689,
+      "max_correlation_with_earlier_features": 0.18067066295196044,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 24,
+      "feature": "Type_PAYMENT",
+      "mean_absolute_training_correlation": 0.027164181022355283,
+      "max_correlation_with_earlier_features": 0.18881578741604368,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 25,
+      "feature": "Shipping Mode_Second Class",
+      "mean_absolute_training_correlation": 0.03452734646728983,
+      "max_correlation_with_earlier_features": 0.20764298449693006,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 26,
+      "feature": "Market_Pacific Asia",
+      "mean_absolute_training_correlation": 0.046030639273752005,
+      "max_correlation_with_earlier_features": 0.22240284592368684,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 27,
+      "feature": "month",
+      "mean_absolute_training_correlation": 0.04869312404242579,
+      "max_correlation_with_earlier_features": 0.23579006516468518,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 28,
+      "feature": "Department Name_Golf",
+      "mean_absolute_training_correlation": 0.0656498888743693,
+      "max_correlation_with_earlier_features": 0.2879682089734967,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 29,
+      "feature": "order_item_total",
+      "mean_absolute_training_correlation": 0.11382217900599889,
+      "max_correlation_with_earlier_features": 0.31287560210369775,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 30,
+      "feature": "Type_TRANSFER",
+      "mean_absolute_training_correlation": 0.029411654405882556,
+      "max_correlation_with_earlier_features": 0.3360511311247575,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 31,
+      "feature": "Market_Europe",
+      "mean_absolute_training_correlation": 0.04965463323259615,
+      "max_correlation_with_earlier_features": 0.33755070328190484,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 32,
+      "feature": "Department Name_Fan Shop",
+      "mean_absolute_training_correlation": 0.08783834594745346,
+      "max_correlation_with_earlier_features": 0.468693898008716,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 33,
+      "feature": "Customer Segment_Home Office",
+      "mean_absolute_training_correlation": 0.023467209738107255,
+      "max_correlation_with_earlier_features": 0.48326168976567535,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 34,
+      "feature": "Type_DEBIT",
+      "mean_absolute_training_correlation": 0.03392940861325249,
+      "max_correlation_with_earlier_features": 0.4930599183828436,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 35,
+      "feature": "Market_LATAM",
+      "mean_absolute_training_correlation": 0.05346606321875367,
+      "max_correlation_with_earlier_features": 0.5493758454029466,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 36,
+      "feature": "days_schedule",
+      "mean_absolute_training_correlation": 0.0598002907877243,
+      "max_correlation_with_earlier_features": 0.5944500975245103,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 37,
+      "feature": "order_item_discount",
+      "mean_absolute_training_correlation": 0.08815318369724057,
+      "max_correlation_with_earlier_features": 0.6604006828760962,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 38,
+      "feature": "order_total_value",
+      "mean_absolute_training_correlation": 0.09174102772442545,
+      "max_correlation_with_earlier_features": 0.6742843080506788,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 39,
+      "feature": "Customer Segment_Corporate",
+      "mean_absolute_training_correlation": 0.027786551381094534,
+      "max_correlation_with_earlier_features": 0.6827332713174057,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 40,
+      "feature": "order_item_product_price",
+      "mean_absolute_training_correlation": 0.12486219662938859,
+      "max_correlation_with_earlier_features": 0.7785668107632305,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 41,
+      "feature": "day_of_week",
+      "mean_absolute_training_correlation": 0.024822524792853327,
+      "max_correlation_with_earlier_features": 0.7909608987796412,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 42,
+      "feature": "Shipping Mode_Standard Class",
+      "mean_absolute_training_correlation": 0.0590096581077461,
+      "max_correlation_with_earlier_features": 0.945277011067203,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    },
+    {
+      "rank": 43,
+      "feature": "product_price",
+      "mean_absolute_training_correlation": 0.12486219662938859,
+      "max_correlation_with_earlier_features": 1.0,
+      "selection_data": "clean_training_split_only",
+      "labels_used": false
+    }
+  ],
+  "subsets": {
+    "1.0": [
+      "order_item_quantity",
+      "order_item_product_price",
+      "product_price",
+      "order_item_discount",
+      "order_item_discount_rate",
+      "order_item_profit_ratio",
+      "order_item_total",
+      "days_schedule",
+      "year",
+      "month",
+      "day",
+      "day_of_week",
+      "hour",
+      "is_weekend",
+      "item_count_per_order",
+      "order_total_value",
+      "Type_DEBIT",
+      "Type_TRANSFER",
+      "Type_PAYMENT",
+      "Type_CASH",
+      "Market_LATAM",
+      "Market_Europe",
+      "Market_Pacific Asia",
+      "Market_USCA",
+      "Market_Africa",
+      "Shipping Mode_Standard Class",
+      "Shipping Mode_Second Class",
+      "Shipping Mode_First Class",
+      "Shipping Mode_Same Day",
+      "Customer Segment_Consumer",
+      "Customer Segment_Corporate",
+      "Customer Segment_Home Office",
+      "Department Name_Fan Shop",
+      "Department Name_Apparel",
+      "Department Name_Golf",
+      "Department Name_Footwear",
+      "Department Name_Outdoors",
+      "Department Name_Fitness",
+      "Department Name_Discs Shop",
+      "Department Name_Technology",
+      "Department Name_Pet Shop",
+      "Department Name_Health and Beauty",
+      "Department Name_Book Shop"
+    ],
+    "0.75": [
+      "order_item_quantity",
+      "order_item_discount_rate",
+      "order_item_profit_ratio",
+      "order_item_total",
+      "year",
+      "month",
+      "day",
+      "hour",
+      "is_weekend",
+      "item_count_per_order",
+      "Type_TRANSFER",
+      "Type_PAYMENT",
+      "Type_CASH",
+      "Market_Europe",
+      "Market_Pacific Asia",
+      "Market_USCA",
+      "Market_Africa",
+      "Shipping Mode_Second Class",
+      "Shipping Mode_First Class",
+      "Shipping Mode_Same Day",
+      "Customer Segment_Consumer",
+      "Department Name_Fan Shop",
+      "Department Name_Apparel",
+      "Department Name_Golf",
+      "Department Name_Footwear",
+      "Department Name_Outdoors",
+      "Department Name_Fitness",
+      "Department Name_Discs Shop",
+      "Department Name_Technology",
+      "Department Name_Pet Shop",
+      "Department Name_Health and Beauty",
+      "Department Name_Book Shop"
+    ],
+    "0.5": [
+      "order_item_quantity",
+      "order_item_discount_rate",
+      "order_item_profit_ratio",
+      "year",
+      "day",
+      "hour",
+      "is_weekend",
+      "item_count_per_order",
+      "Type_CASH",
+      "Market_USCA",
+      "Market_Africa",
+      "Shipping Mode_First Class",
+      "Shipping Mode_Same Day",
+      "Customer Segment_Consumer",
+      "Department Name_Apparel",
+      "Department Name_Outdoors",
+      "Department Name_Fitness",
+      "Department Name_Discs Shop",
+      "Department Name_Technology",
+      "Department Name_Pet Shop",
+      "Department Name_Health and Beauty",
+      "Department Name_Book Shop"
+    ],
+    "0.25": [
+      "order_item_discount_rate",
+      "order_item_profit_ratio",
+      "day",
+      "hour",
+      "is_weekend",
+      "item_count_per_order",
+      "Type_CASH",
+      "Market_Africa",
+      "Shipping Mode_Same Day",
+      "Customer Segment_Consumer",
+      "Department Name_Apparel"
+    ]
+  }
+}

@@ -5,7 +5,7 @@
   "severity_levels": [],
   "primary_attack_rate": 0.05,
   "primary_severity": "MEDIUM",
-  "attack_config_path": "/mnt/e/PhD-Blockchain-AI/config/attack_scenarios.yaml",
+  "attack_config_path": "config/attack_scenarios.yaml",
   "resolved_random_seed": 42,
   "resolved_attack_rates": [
     0.01,

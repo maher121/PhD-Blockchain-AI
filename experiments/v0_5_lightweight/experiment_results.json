@@ -1,0 +1,464 @@
+{
+  "stage": "V0.5",
+  "status": "PASS",
+  "scientific_objective": "Establish lightweight detection and computational-resource baselines; not maximize predictive performance alone.",
+  "experiment_id": "v0_5_lightweight_s42",
+  "dataset": {
+    "source": "V0.2 processed DataCo splits",
+    "split_sizes": {
+      "train": 28000,
+      "validation": 6000,
+      "test": 6000
+    },
+    "full_feature_count": 43,
+    "ground_truth": "V0.4 controlled experimental labels"
+  },
+  "models": [
+    "isolation_forest",
+    "logistic_regression",
+    "decision_tree",
+    "random_forest"
+  ],
+  "model_configurations": {
+    "isolation_forest": {
+      "n_estimators": 100,
+      "max_samples": "auto",
+      "max_features": 1.0,
+      "contamination": "auto",
+      "n_jobs": 1
+    },
+    "logistic_regression": {
+      "solver": "liblinear",
+      "class_weight": "balanced",
+      "max_iter": 500,
+      "C": 1.0
+    },
+    "decision_tree": {
+      "max_depth": 5,
+      "min_samples_leaf": 20,
+      "class_weight": "balanced"
+    },
+    "random_forest": {
+      "n_estimators": 25,
+      "max_depth": 5,
+      "min_samples_leaf": 20,
+      "class_weight": "balanced_subsample",
+      "n_jobs": 1
+    }
+  },
+  "excluded_model": {
+    "one_class_svm": "Excluded because kernel scaling on 28,000 training records is not reliably lightweight for this baseline stage."
+  },
+  "best_f1_model": {
+    "configuration_id": "decision_tree_f32",
+    "model": "decision_tree",
+    "feature_count": 32,
+    "f1": 0.270935960591133,
+    "validation_f1": 0.2557544757033248,
+    "pr_auc": 0.318817930181882,
+    "average_precision": 0.21916633732558,
+    "pr_auc_method": "trapezoidal_precision_recall_curve",
+    "validation_inference_time_sec": 0.025448044699999173,
+    "validation_memory_mb": 152.4609375,
+    "inference_time_sec": 0.02211304539999901,
+    "memory_mb": 152.09765625,
+    "model_size_kb": 3.47265625,
+    "selection_basis": "highest validation F1; test F1 reported without test-based reselection"
+  },
+  "fastest_inference_model": {
+    "configuration_id": "logistic_regression_f32",
+    "model": "logistic_regression",
+    "feature_count": 32,
+    "f1": 0.09246088193456614,
+    "validation_f1": 0.10296746514122274,
+    "pr_auc": 0.05349182900043273,
+    "average_precision": 0.053931440958820714,
+    "pr_auc_method": "trapezoidal_precision_recall_curve",
+    "validation_inference_time_sec": 0.02169663759999594,
+    "validation_memory_mb": 151.21484375,
+    "inference_time_sec": 0.025674367399994937,
+    "memory_mb": 151.23046875,
+    "model_size_kb": 1.958984375,
+    "selection_basis": "lowest validation inference time"
+  },
+  "lowest_memory_model": {
+    "configuration_id": "decision_tree_f11",
+    "model": "decision_tree",
+    "feature_count": 11,
+    "f1": 0.08774412680441551,
+    "validation_f1": 0.09388097233864208,
+    "pr_auc": 0.051685513299704534,
+    "average_precision": 0.050202085086773277,
+    "pr_auc_method": "trapezoidal_precision_recall_curve",
+    "validation_inference_time_sec": 0.02458225330001369,
+    "validation_memory_mb": 150.48828125,
+    "inference_time_sec": 0.023572454399982234,
+    "memory_mb": 150.8125,
+    "model_size_kb": 5.81640625,
+    "selection_basis": "lowest validation fresh-process peak RSS"
+  },
+  "smallest_model": {
+    "configuration_id": "logistic_regression_f11",
+    "model": "logistic_regression",
+    "feature_count": 11,
+    "f1": 0.08950843727072634,
+    "validation_f1": 0.09844559585492228,
+    "pr_auc": 0.049104975100865166,
+    "average_precision": 0.049510163807372824,
+    "pr_auc_method": "trapezoidal_precision_recall_curve",
+    "validation_inference_time_sec": 0.02454268310000316,
+    "validation_memory_mb": 150.66015625,
+    "inference_time_sec": 0.02082325950000268,
+    "memory_mb": 150.45703125,
+    "model_size_kb": 1.349609375,
+    "selection_basis": "smallest actual serialized artifact"
+  },
+  "lowest_feature_configuration": {
+    "configuration_id": "logistic_regression_f11",
+    "model": "logistic_regression",
+    "feature_count": 11,
+    "f1": 0.08950843727072634,
+    "validation_f1": 0.09844559585492228,
+    "pr_auc": 0.049104975100865166,
+    "average_precision": 0.049510163807372824,
+    "pr_auc_method": "trapezoidal_precision_recall_curve",
+    "validation_inference_time_sec": 0.02454268310000316,
+    "validation_memory_mb": 150.66015625,
+    "inference_time_sec": 0.02082325950000268,
+    "memory_mb": 150.45703125,
+    "model_size_kb": 1.349609375,
+    "selection_basis": "highest validation F1 among minimum-feature configurations"
+  },
+  "pareto_method": "Deterministic non-dominance: maximize validation F1; minimize validation inference time, validation peak process RSS, and feature count.",
+  "pareto_candidates": [
+    {
+      "configuration_id": "decision_tree_f32",
+      "model": "decision_tree",
+      "feature_count": 32,
+      "f1": 0.270935960591133,
+      "validation_f1": 0.2557544757033248,
+      "pr_auc": 0.318817930181882,
+      "average_precision": 0.21916633732558,
+      "pr_auc_method": "trapezoidal_precision_recall_curve",
+      "validation_inference_time_sec": 0.025448044699999173,
+      "validation_memory_mb": 152.4609375,
+      "inference_time_sec": 0.02211304539999901,
+      "memory_mb": 152.09765625,
+      "model_size_kb": 3.47265625
+    },
+    {
+      "configuration_id": "decision_tree_f43",
+      "model": "decision_tree",
+      "feature_count": 43,
+      "f1": 0.22750424448217318,
+      "validation_f1": 0.18333333333333332,
+      "pr_auc": 0.2753491748335437,
+      "average_precision": 0.22917337773289193,
+      "pr_auc_method": "trapezoidal_precision_recall_curve",
+      "validation_inference_time_sec": 0.023494294799991166,
+      "validation_memory_mb": 152.8671875,
+      "inference_time_sec": 0.025932656199995564,
+      "memory_mb": 153.03515625,
+      "model_size_kb": 3.69140625
+    },
+    {
+      "configuration_id": "random_forest_f22",
+      "model": "random_forest",
+      "feature_count": 22,
+      "f1": 0.14516129032258066,
+      "validation_f1": 0.1593959731543624,
+      "pr_auc": 0.19503242907176196,
+      "average_precision": 0.19546879473720236,
+      "pr_auc_method": "trapezoidal_precision_recall_curve",
+      "validation_inference_time_sec": 0.03718038549998255,
+      "validation_memory_mb": 151.796875,
+      "inference_time_sec": 0.034364121900011924,
+      "memory_mb": 151.90625,
+      "model_size_kb": 83.837890625
+    },
+    {
+      "configuration_id": "decision_tree_f22",
+      "model": "decision_tree",
+      "feature_count": 22,
+      "f1": 0.13764624913971094,
+      "validation_f1": 0.11936339522546419,
+      "pr_auc": 0.2733446620538743,
+      "average_precision": 0.2086641854880827,
+      "pr_auc_method": "trapezoidal_precision_recall_curve",
+      "validation_inference_time_sec": 0.023951744399983,
+      "validation_memory_mb": 151.54296875,
+      "inference_time_sec": 0.026792426799988788,
+      "memory_mb": 151.93359375,
+      "model_size_kb": 3.26953125
+    },
+    {
+      "configuration_id": "logistic_regression_f32",
+      "model": "logistic_regression",
+      "feature_count": 32,
+      "f1": 0.09246088193456614,
+      "validation_f1": 0.10296746514122274,
+      "pr_auc": 0.05349182900043273,
+      "average_precision": 0.053931440958820714,
+      "pr_auc_method": "trapezoidal_precision_recall_curve",
+      "validation_inference_time_sec": 0.02169663759999594,
+      "validation_memory_mb": 151.21484375,
+      "inference_time_sec": 0.025674367399994937,
+      "memory_mb": 151.23046875,
+      "model_size_kb": 1.958984375
+    },
+    {
+      "configuration_id": "logistic_regression_f11",
+      "model": "logistic_regression",
+      "feature_count": 11,
+      "f1": 0.08950843727072634,
+      "validation_f1": 0.09844559585492228,
+      "pr_auc": 0.049104975100865166,
+      "average_precision": 0.049510163807372824,
+      "pr_auc_method": "trapezoidal_precision_recall_curve",
+      "validation_inference_time_sec": 0.02454268310000316,
+      "validation_memory_mb": 150.66015625,
+      "inference_time_sec": 0.02082325950000268,
+      "memory_mb": 150.45703125,
+      "model_size_kb": 1.349609375
+    },
+    {
+      "configuration_id": "logistic_regression_f22",
+      "model": "logistic_regression",
+      "feature_count": 22,
+      "f1": 0.09150805270863836,
+      "validation_f1": 0.09426073736221968,
+      "pr_auc": 0.05183897999527869,
+      "average_precision": 0.05265953118646966,
+      "pr_auc_method": "trapezoidal_precision_recall_curve",
+      "validation_inference_time_sec": 0.022760345100005,
+      "validation_memory_mb": 151.25390625,
+      "inference_time_sec": 0.022630015599997933,
+      "memory_mb": 150.85546875,
+      "model_size_kb": 1.693359375
+    },
+    {
+      "configuration_id": "decision_tree_f11",
+      "model": "decision_tree",
+      "feature_count": 11,
+      "f1": 0.08774412680441551,
+      "validation_f1": 0.09388097233864208,
+      "pr_auc": 0.051685513299704534,
+      "average_precision": 0.050202085086773277,
+      "pr_auc_method": "trapezoidal_precision_recall_curve",
+      "validation_inference_time_sec": 0.02458225330001369,
+      "validation_memory_mb": 150.48828125,
+      "inference_time_sec": 0.023572454399982234,
+      "memory_mb": 150.8125,
+      "model_size_kb": 5.81640625
+    }
+  ],
+  "v0_3_comparison": {
+    "reference": "current-environment reproduction of the unchanged V0.3 methodology",
+    "reproduction_matches_saved_v0_3_predictions": true,
+    "comparison_basis": "same regenerated V0.4 primary test scenario",
+    "rows": [
+      {
+        "model": "isolation_forest",
+        "reference_model": "v0_3_isolation_forest",
+        "f1_change": -0.0006945431874610386,
+        "pr_auc_change": 0.00021439253900720767,
+        "roc_auc_change": 0.0008912280701753872,
+        "inference_time_change_sec": -0.012867399499998558,
+        "inference_time_ratio": 0.8975578602282533,
+        "memory_change_mb": -2.890625,
+        "model_size_change_kb": -9.625,
+        "feature_count_change": 0,
+        "interpretation": "trade-off; no single metric establishes superiority"
+      },
+      {
+        "model": "logistic_regression",
+        "reference_model": "v0_3_isolation_forest",
+        "f1_change": -0.004042375649217542,
+        "pr_auc_change": -0.0005567532538541531,
+        "roc_auc_change": -0.004307017543859648,
+        "inference_time_change_sec": -0.09944292340001085,
+        "inference_time_ratio": 0.208298004716792,
+        "memory_change_mb": -6.8515625,
+        "model_size_change_kb": -1569.7734375,
+        "feature_count_change": 0,
+        "interpretation": "trade-off; no single metric establishes superiority"
+      },
+      {
+        "model": "decision_tree",
+        "reference_model": "v0_3_isolation_forest",
+        "f1_change": 0.1283541028391137,
+        "pr_auc_change": 0.22286984737760768,
+        "roc_auc_change": 0.1002880116959064,
+        "inference_time_change_sec": -0.09967385230000901,
+        "inference_time_ratio": 0.20645949409536066,
+        "memory_change_mb": -5.7109375,
+        "model_size_change_kb": -1568.369140625,
+        "feature_count_change": 0,
+        "interpretation": "trade-off; no single metric establishes superiority"
+      },
+      {
+        "model": "random_forest",
+        "reference_model": "v0_3_isolation_forest",
+        "f1_change": 0.015228943324260766,
+        "pr_auc_change": 0.07404404500774509,
+        "roc_auc_change": 0.0624985380116958,
+        "inference_time_change_sec": -0.06905677340000693,
+        "inference_time_ratio": 0.4502134146973409,
+        "memory_change_mb": -5.73828125,
+        "model_size_change_kb": -1472.17578125,
+        "feature_count_change": 0,
+        "interpretation": "trade-off; no single metric establishes superiority"
+      }
+    ],
+    "interpretation": "Results expose trade-offs and do not declare one model universally superior."
+  },
+  "security_evaluation": {
+    "primary_attack_type": "mixed",
+    "primary_attack_rate": 0.05,
+    "primary_severity": "MEDIUM",
+    "scenario_count": 42,
+    "evaluation_rows": 210,
+    "attack_types": [
+      "geographic_route_manipulation",
+      "quantity_manipulation",
+      "shipping_delivery_manipulation",
+      "timestamp_manipulation",
+      "transaction_record_tampering",
+      "transaction_status_manipulation",
+      "value_manipulation"
+    ],
+    "attack_rates": [
+      0.01,
+      0.03,
+      0.05,
+      0.1
+    ],
+    "severity_levels": [
+      "HIGH",
+      "LOW",
+      "MEDIUM"
+    ],
+    "v0_4_manifest_verification": {
+      "available": 42,
+      "matched": 42,
+      "mismatched": 0
+    },
+    "primary_manifest_verification": {
+      "available": true,
+      "matches": true,
+      "path": "results/security/attack_manifests/v0_4_mixed_r0p05_medium_s42.csv",
+      "record_count": 300,
+      "columns_checked": [
+        "experiment_id",
+        "record_id",
+        "attack_type",
+        "attack_severity",
+        "original_field",
+        "original_dtype",
+        "original_value",
+        "modified_value",
+        "attack_rate",
+        "random_seed"
+      ]
+    },
+    "v0_4_reference_metrics_reproduced": {
+      "available": true,
+      "matches": true,
+      "path": "results/security/security_summary.json"
+    },
+    "primary_detector_visible_records": 171,
+    "primary_detector_invisible_records": 129,
+    "metrics_scope": "Headline metrics include all controlled labels; visible_attack_comparison.csv separately evaluates attacked records whose legitimate model inputs changed."
+  },
+  "computational_efficiency": {
+    "classification": "computational efficiency proxies",
+    "proxies": [
+      "training_time_sec",
+      "inference_time_sec",
+      "peak_process_rss_mb",
+      "model_size_bytes",
+      "feature_count"
+    ],
+    "normalized_efficiency_score_created": false,
+    "complexity_note": "Complexity indicators are not measurements of energy consumption.",
+    "memory_definition": "Peak resident set size in a fresh isolated inference process, including Python/sklearn, selected input data, and the loaded model.",
+    "inference_timing_definition": "Mean wall time per prediction call over configured repeated calls in a fresh isolated process; model loading is excluded.",
+    "configuration_selection_resource_split": "validation"
+  },
+  "energy_measurement": {
+    "directly_measured": false,
+    "status": "NOT DIRECTLY MEASURED",
+    "electrical_energy_values_reported": false
+  },
+  "leakage_audit": {
+    "status": "PASS",
+    "forbidden_columns": [
+      "anomaly_score",
+      "attack_rate",
+      "attack_severity",
+      "attack_type",
+      "experiment_id",
+      "is_attack",
+      "modified_value",
+      "original_dtype",
+      "original_field",
+      "original_value",
+      "prediction",
+      "random_seed",
+      "target"
+    ],
+    "feature_ranking_fitted_on": "clean_training_split_only",
+    "feature_ranking_used_labels": false,
+    "feature_ranking_used_test_data": false,
+    "configuration_selection_metric_source": "validation_split_only",
+    "test_metrics_used_for_configuration_selection": false,
+    "model_inputs": "selected V0.2 processed features only"
+  },
+  "reproducibility": {
+    "random_seed": 42,
+    "model_reload_checks_passed": true,
+    "model_reload_checks": {
+      "isolation_forest_f43": true,
+      "isolation_forest_f32": true,
+      "isolation_forest_f22": true,
+      "isolation_forest_f11": true,
+      "logistic_regression_f43": true,
+      "logistic_regression_f32": true,
+      "logistic_regression_f22": true,
+      "logistic_regression_f11": true,
+      "decision_tree_f43": true,
+      "decision_tree_f32": true,
+      "decision_tree_f22": true,
+      "decision_tree_f11": true,
+      "random_forest_f43": true,
+      "random_forest_f32": true,
+      "random_forest_f22": true,
+      "random_forest_f11": true
+    },
+    "timing_variation_expected": true
+  },
+  "artifacts": {
+    "model_count": 17,
+    "figure_count": 5,
+    "figures": [
+      "results/lightweight/figures/f1_vs_inference_time.png",
+      "results/lightweight/figures/f1_vs_feature_count.png",
+      "results/lightweight/figures/inference_time_vs_features.png",
+      "results/lightweight/figures/memory_vs_features.png",
+      "results/lightweight/figures/model_comparison.png"
+    ]
+  },
+  "total_execution_time_sec": 762.8741607960001,
+  "limitations": [
+    "Controlled synthetic modifications are not equivalent to real attacks.",
+    "DataCo has no native cybersecurity labels.",
+    "Supervised models learn the configured controlled attack distribution.",
+    "Fields excluded by V0.2 remain invisible to every AI model.",
+    "Isolated peak process RSS includes interpreter, selected input data, and loaded-library memory.",
+    "Wall-clock timings depend on system load and are computational proxies only.",
+    "Default decision thresholds differ by model family and are documented rather than tuned on test labels.",
+    "No electrical energy consumption was directly measured.",
+    "No hyperparameter optimization or future-stage optimizer was used."
+  ],
+  "conclusion": "V0.5 establishes candidate configurations and detection-resource trade-offs for later research-grade feature selection."
+}

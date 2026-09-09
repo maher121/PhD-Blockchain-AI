@@ -12,7 +12,7 @@
     "required_figures_created": true,
     "required_artifacts_created": true
   },
-  "generated_at_utc": "2026-09-07T09:13:59.984269+00:00",
+  "generated_at_utc": "2026-09-07T10:51:10.218928+00:00",
   "dataset": {
     "source": "Real operational DataCo records from the V0.2 test split",
     "native_cybersecurity_labels": false,
@@ -82,7 +82,7 @@
         "actual_modified_records": 42
       }
     },
-    "primary_manifest": "/mnt/e/PhD-Blockchain-AI/results/security/attack_manifests/v0_4_mixed_r0p05_medium_s42.csv",
+    "primary_manifest": "results/security/attack_manifests/v0_4_mixed_r0p05_medium_s42.csv",
     "detector_visible_modified_records": 171,
     "detector_invisible_modified_records": 129
   },
@@ -157,9 +157,9 @@
     "tampered_transaction_field": "quantity",
     "original_value": 1.0,
     "modified_value": 1.5,
-    "clean_verification_time_seconds": 0.00010168600056204014,
-    "tampered_verification_time_seconds": 0.000617491999946651,
-    "verification_time_seconds": 0.0007191780005086912
+    "clean_verification_time_seconds": 5.473100009112386e-05,
+    "tampered_verification_time_seconds": 0.0019736170006581233,
+    "verification_time_seconds": 0.002028348000749247
   },
   "combined_security": {
     "ai_detected_anomaly": false,
@@ -169,12 +169,12 @@
     "attack_type": "quantity_manipulation"
   },
   "performance": {
-    "clean_ai_inference_time_seconds": 0.4592852799996763,
-    "ai_inference_time_seconds": 0.08979394200014212,
-    "attack_generation_time_seconds": 1.0929989790001855,
-    "feature_projection_time_seconds": 1.4056181149999247,
-    "blockchain_verification_time_seconds": 0.0007191780005086912,
-    "total_pipeline_time_seconds": 77.59461529800046
+    "clean_ai_inference_time_seconds": 0.6850903250006013,
+    "ai_inference_time_seconds": 0.11191429700011213,
+    "attack_generation_time_seconds": 1.1105249439997351,
+    "feature_projection_time_seconds": 1.563698953000312,
+    "blockchain_verification_time_seconds": 0.002028348000749247,
+    "total_pipeline_time_seconds": 85.09365670199986
   },
   "leakage_audit": {
     "status": "PASS",
@@ -197,7 +197,8 @@
     "status": "PASS",
     "random_seed": 42,
     "same_configuration_reproduced_full_evaluation": true,
-    "model_sha256": "7512e891c44748f5de8eddb8d1cc6517dd80fce87ed9f25cd4ef66db77fcf266"
+    "model_sha256": "7512e891c44748f5de8eddb8d1cc6517dd80fce87ed9f25cd4ef66db77fcf266",
+    "v0_4_source_sha256": "4eac81ce0bc1b31b3781bd8683fd43a7dc1c1022888bcb1a02da7823db6b2a31"
   },
   "research_interpretation": "Final-label metrics compare V0.3 flags with controlled ground truth, while the paired clean-versus-attacked analysis isolates newly induced flags and score changes. The observed attack-induced detection rate is descriptive, not evidence of universal effectiveness. AI tests statistical behavior; the simulated blockchain tests post-sealing integrity, so their roles are complementary.",
   "limitations": [

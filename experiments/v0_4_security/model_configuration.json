@@ -1,5 +1,5 @@
 {
-  "artifact_path": "/mnt/e/PhD-Blockchain-AI/models/isolation_forest_v0_3.joblib",
+  "artifact_path": "models/isolation_forest_v0_3.joblib",
   "artifact_sha256": "7512e891c44748f5de8eddb8d1cc6517dd80fce87ed9f25cd4ef66db77fcf266",
   "artifact_version": "v0.3",
   "parameters": {
