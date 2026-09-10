@@ -9,6 +9,13 @@ from src.feature_selection.base import (
     SupervisedFeatureSelector,
     UnsupervisedFeatureSelector,
 )
+from src.feature_selection.methods import (
+    AnovaFSelector,
+    CorrelationRedundancySelector,
+    MutualInformationSelector,
+    PairwiseCorrelationFilter,
+    VarianceThresholdSelector,
+)
 
 __all__ = [
     "CONTROLLED_ATTACK_LABEL_SOURCE",
@@ -18,4 +25,9 @@ __all__ = [
     "SelectionResult",
     "SupervisedFeatureSelector",
     "UnsupervisedFeatureSelector",
+    "AnovaFSelector",
+    "CorrelationRedundancySelector",
+    "MutualInformationSelector",
+    "PairwiseCorrelationFilter",
+    "VarianceThresholdSelector",
 ]
