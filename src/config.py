@@ -1,4 +1,4 @@
-"""Global configuration constants for Prototype V0.1 through V0.5.
+"""Global configuration constants for Prototype V0.1 through V0.6.
 
 Centralises paths, reproducibility seeds, schema names and default
 estimation constants so that modules never hard-code these values.
@@ -338,3 +338,9 @@ LIGHTWEIGHT_FIGURES_DIR: Path = LIGHTWEIGHT_RESULTS_DIR / "figures"
 LIGHTWEIGHT_PREDICTIONS_DIR: Path = LIGHTWEIGHT_RESULTS_DIR / "predictions"
 LIGHTWEIGHT_MODELS_DIR: Path = MODELS_DIR / "lightweight"
 V05_EXPERIMENT_DIR: Path = EXPERIMENTS_DIR / "v0_5_lightweight"
+
+# ============================================================================
+# V0.6 -- Research-Grade Feature Selection Baseline
+# ============================================================================
+
+FEATURE_SELECTION_CONFIG_FILE: Path = PROJECT_ROOT / "config" / "feature_selection.yaml"

@@ -1,0 +1,28 @@
+version: "v0.6-c"
+experiment_id: "v0_6_development"
+seeds: [42, 43, 44, 45, 46]
+
+# V0.6-C prepares one explicit candidate at a time; it does not execute a matrix.
+feature_selection:
+  candidate_k: [32, 22, 11]
+  variance_threshold: 0.0
+  correlation_threshold: 0.95
+
+attack:
+  type: mixed
+  rate: 0.05
+  severity: MEDIUM
+
+# Frozen V0.5 primary baseline. These values are not tuning parameters.
+primary_model:
+  name: decision_tree
+  parameters:
+    max_depth: 5
+    min_samples_leaf: 20
+    class_weight: balanced
+  prediction_threshold: 0.5
+
+governance:
+  development_split: validation
+  final_test_requires_explicit_lock: true
+  resource_measurement_stage: V0.6-D

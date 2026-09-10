@@ -57,6 +57,27 @@ def load_processed_dataco(
     audit_path: Path | str | None = None,
 ) -> ProcessedDataBundle:
     """Load V0.2 outputs and verify row/feature alignment across all splits."""
+    return load_processed_dataco_splits(
+        SPLIT_NAMES,
+        processed_dir=processed_dir,
+        metadata_path=metadata_path,
+        audit_path=audit_path,
+    )
+
+
+def load_processed_dataco_splits(
+    split_names: Iterable[str],
+    processed_dir: Path | str = PROCESSED_DATA_DIR,
+    metadata_path: Path | str | None = None,
+    audit_path: Path | str | None = None,
+) -> ProcessedDataBundle:
+    """Load only explicitly requested V0.2 splits using the shared validation."""
+    requested = tuple(split_names)
+    if not requested or len(set(requested)) != len(requested):
+        raise ValueError("Processed split names must be non-empty and unique.")
+    unsupported = [name for name in requested if name not in SPLIT_NAMES]
+    if unsupported:
+        raise ValueError(f"Unsupported processed split names: {unsupported}")
     processed_dir = Path(processed_dir)
     metadata_path = Path(metadata_path) if metadata_path else processed_dir / DATASET_METADATA_FILE.name
     audit_path = Path(audit_path) if audit_path else DATA_AUDIT_DIR / "dataset_summary.json"
@@ -68,7 +89,7 @@ def load_processed_dataco(
     validate_selected_features(selected_features)
 
     splits: dict[str, ProcessedSplit] = {}
-    for name in SPLIT_NAMES:
+    for name in requested:
         split_dir = processed_dir / name
         feature_path = split_dir / "features.csv"
         metadata_csv = split_dir / "metadata.csv"
@@ -88,10 +109,13 @@ def load_processed_dataco(
             raise ValueError(f"{name} split contains non-finite processed features.")
         splits[name] = ProcessedSplit(name, features, trace, target)
 
-    reference_columns = list(splits["train"].features.columns)
-    for name in SPLIT_NAMES[1:]:
+    reference_name = requested[0]
+    reference_columns = list(splits[reference_name].features.columns)
+    for name in requested[1:]:
         if list(splits[name].features.columns) != reference_columns:
-            raise ValueError(f"Processed feature layout differs between train and {name}.")
+            raise ValueError(
+                f"Processed feature layout differs between {reference_name} and {name}."
+            )
 
     audit_summary = (
         json.loads(audit_path.read_text(encoding="utf-8")) if audit_path.exists() else {}
