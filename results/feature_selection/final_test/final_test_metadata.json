@@ -1,0 +1,38 @@
+{
+  "attack_config_sha256": "3c6d6a5fe181cb7df319ea32edc91fd3879aabac5be20e4f6497cc25641a4e26",
+  "candidate_features_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+  "completed_run_count": 15,
+  "execution_plan_sha256": "a4bba811fac2236acb11b2be161906badb111f04dfb61228eb7698664d7bc61c",
+  "failed_run_count": 0,
+  "first_test_access_timestamp": "2026-09-11T05:59:05.238837+00:00",
+  "gate_timestamp": "2026-09-11T05:59:05.210456+00:00",
+  "git_commit": "b717762e146fbca4fa2a649ddf0194d83127de09",
+  "locked_run_count": 15,
+  "manifestation_fingerprints": {
+    "42": "8218a521bbf219f46806866ed0abbbf6dfbdab3a330e52df2b62a5aaba3ccdd8",
+    "43": "d648dacdb41680c57598f0d85afe241876e5979e1432dad1599208c56b981810",
+    "44": "e6cc7ea5578bb27bd426f57534be36ab158f44c75443ecbd6372013d5f4ee280",
+    "45": "0e5a942f9913a0777e33998719f08c3384086647d5b333b547eb47a7ba4d52aa",
+    "46": "d8f29bda3cdb39957663e99af3fd59717cbd16317342538bf6b825bdafbcf0e7"
+  },
+  "number_of_locked_roles": 4,
+  "number_of_unique_locked_configurations": 3,
+  "processed_dataset_metadata_sha256": "139f84f1443c39ff8b5a9c114b54a6a69ce177bf6f1a3d01982ceddcbce9d811",
+  "schema_version": "v0.6-f-locked-final-test-1",
+  "semantic_lock_sha256": "487b7aea89a9998b92e1d6bb6eac87d557a2328db82d82e7cbffb660de5de70c",
+  "software": {
+    "git_commit": "b717762e146fbca4fa2a649ddf0194d83127de09",
+    "git_worktree_dirty": true,
+    "numpy_version": "2.5.2",
+    "pandas_version": "3.0.5",
+    "pipeline_v06f_sha256": "d170707a4e82878d0d3d01c27578b416a0f5962f65948d44df7d314abdf5e560",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python_version": "3.12.3",
+    "scikit_learn_version": "1.9.0",
+    "timestamp_utc": "2026-09-11T05:59:05.711789+00:00"
+  },
+  "stage": "V0.6-F",
+  "status": "COMPLETED",
+  "test_accessed": true,
+  "validation_lock_file_sha256": "71dc92b8a34db1bb3c2f55a69e56f43733544329128ec60c5cdbbce2445d1604"
+}

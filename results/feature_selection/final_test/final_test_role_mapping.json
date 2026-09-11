@@ -1,0 +1,6 @@
+{
+  "best_supervised": "mutual_information_select_k_best_k11",
+  "best_unsupervised": "pairwise_correlation_filter_natural",
+  "full_baseline": "none_natural",
+  "smallest_preserving": "mutual_information_select_k_best_k11"
+}

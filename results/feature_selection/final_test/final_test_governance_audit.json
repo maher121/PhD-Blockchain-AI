@@ -1,0 +1,235 @@
+{
+  "checks": [
+    {
+      "name": "lock_integrity_verified_before_test_access",
+      "passed": true
+    },
+    {
+      "name": "test_accessed_only_after_gate",
+      "passed": true
+    },
+    {
+      "name": "validation_lock_sidecar_verified",
+      "passed": true
+    },
+    {
+      "name": "v06e_semantic_source_reconstruction_passed",
+      "passed": true
+    },
+    {
+      "name": "semantic_hash_read_from_lock",
+      "passed": true
+    },
+    {
+      "name": "v06e_audit_pass_and_test_unaccessed",
+      "passed": true
+    },
+    {
+      "name": "frozen_mixed_005_medium_attack",
+      "passed": true
+    },
+    {
+      "name": "frozen_decision_tree_configuration",
+      "passed": true
+    },
+    {
+      "name": "frozen_threshold_05",
+      "passed": true
+    },
+    {
+      "name": "exact_seeds_42_through_46",
+      "passed": true
+    },
+    {
+      "name": "four_required_roles_verified",
+      "passed": true
+    },
+    {
+      "name": "role_configuration_feature_fingerprints_consistent",
+      "passed": true
+    },
+    {
+      "name": "model_file_hashes_and_sizes_verified",
+      "passed": true
+    },
+    {
+      "name": "loaded_model_state_config_seed_features_verified",
+      "passed": true
+    },
+    {
+      "name": "unique_configurations_derived_only_from_roles",
+      "passed": true
+    },
+    {
+      "name": "duplicate_roles_collapsed_and_mapping_preserved",
+      "passed": true
+    },
+    {
+      "name": "execution_plan_frozen_and_fingerprinted",
+      "passed": true
+    },
+    {
+      "name": "test_access_state_written_before_loader",
+      "passed": true
+    },
+    {
+      "name": "one_manifestation_per_seed_reused_across_configurations",
+      "passed": true
+    },
+    {
+      "name": "all_locked_runs_completed",
+      "passed": true
+    },
+    {
+      "name": "locked_models_used_without_training",
+      "passed": true
+    },
+    {
+      "name": "selector_fit_not_performed",
+      "passed": true
+    },
+    {
+      "name": "selector_not_fitted_on_validation",
+      "passed": true
+    },
+    {
+      "name": "selector_not_fitted_on_test",
+      "passed": true
+    },
+    {
+      "name": "model_fit_not_performed",
+      "passed": true
+    },
+    {
+      "name": "test_labels_not_used_in_training",
+      "passed": true
+    },
+    {
+      "name": "test_features_not_used_in_training",
+      "passed": true
+    },
+    {
+      "name": "preprocessing_not_fitted_on_test",
+      "passed": true
+    },
+    {
+      "name": "preprocessor_refit_not_performed",
+      "passed": true
+    },
+    {
+      "name": "locked_k_unchanged",
+      "passed": true
+    },
+    {
+      "name": "locked_selected_feature_lists_unchanged",
+      "passed": true
+    },
+    {
+      "name": "locked_model_parameters_unchanged",
+      "passed": true
+    },
+    {
+      "name": "locked_threshold_unchanged",
+      "passed": true
+    },
+    {
+      "name": "locked_attack_configuration_unchanged",
+      "passed": true
+    },
+    {
+      "name": "threshold_tuning_not_performed",
+      "passed": true
+    },
+    {
+      "name": "consensus_selection_not_performed",
+      "passed": true
+    },
+    {
+      "name": "reselection_not_performed",
+      "passed": true
+    },
+    {
+      "name": "no_configuration_choice_from_test_metrics",
+      "passed": true
+    },
+    {
+      "name": "controlled_is_attack_ground_truth_used",
+      "passed": true
+    },
+    {
+      "name": "late_delivery_risk_not_ground_truth_or_feature",
+      "passed": true
+    },
+    {
+      "name": "attack_metadata_absent_from_model_features",
+      "passed": true
+    },
+    {
+      "name": "all_failures_recorded",
+      "passed": true
+    },
+    {
+      "name": "no_p_values_energy_claims_or_reselection",
+      "passed": true
+    },
+    {
+      "name": "test_accessed_true",
+      "passed": true
+    }
+  ],
+  "execution_plan_sha256": "a4bba811fac2236acb11b2be161906badb111f04dfb61228eb7698664d7bc61c",
+  "first_test_access_timestamp": "2026-09-11T05:59:05.238837+00:00",
+  "gate_timestamp": "2026-09-11T05:59:05.210456+00:00",
+  "manifestation_reuse_evidence": {
+    "42": {
+      "configuration_ids": [
+        "none_natural",
+        "pairwise_correlation_filter_natural",
+        "mutual_information_select_k_best_k11"
+      ],
+      "manifestation_sha256": "8218a521bbf219f46806866ed0abbbf6dfbdab3a330e52df2b62a5aaba3ccdd8",
+      "object_id": 138685917347472
+    },
+    "43": {
+      "configuration_ids": [
+        "none_natural",
+        "pairwise_correlation_filter_natural",
+        "mutual_information_select_k_best_k11"
+      ],
+      "manifestation_sha256": "d648dacdb41680c57598f0d85afe241876e5979e1432dad1599208c56b981810",
+      "object_id": 138685910252240
+    },
+    "44": {
+      "configuration_ids": [
+        "none_natural",
+        "pairwise_correlation_filter_natural",
+        "mutual_information_select_k_best_k11"
+      ],
+      "manifestation_sha256": "e6cc7ea5578bb27bd426f57534be36ab158f44c75443ecbd6372013d5f4ee280",
+      "object_id": 138685913168448
+    },
+    "45": {
+      "configuration_ids": [
+        "none_natural",
+        "pairwise_correlation_filter_natural",
+        "mutual_information_select_k_best_k11"
+      ],
+      "manifestation_sha256": "0e5a942f9913a0777e33998719f08c3384086647d5b333b547eb47a7ba4d52aa",
+      "object_id": 138685910271424
+    },
+    "46": {
+      "configuration_ids": [
+        "none_natural",
+        "pairwise_correlation_filter_natural",
+        "mutual_information_select_k_best_k11"
+      ],
+      "manifestation_sha256": "d8f29bda3cdb39957663e99af3fd59717cbd16317342538bf6b825bdafbcf0e7",
+      "object_id": 138685910079616
+    }
+  },
+  "schema_version": "v0.6-f-locked-final-test-1",
+  "semantic_lock_sha256": "487b7aea89a9998b92e1d6bb6eac87d557a2328db82d82e7cbffb660de5de70c",
+  "stage": "V0.6-F",
+  "status": "PASS",
+  "test_accessed": true
+}

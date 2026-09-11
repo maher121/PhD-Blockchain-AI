@@ -1,0 +1,10 @@
+configuration_id,baseline_configuration_id,metric,paired_seed_count,mean_difference,ci95_low,ci95_high
+none_natural,none_natural,average_precision,5,0.0,0.0,0.0
+none_natural,none_natural,f1,5,0.0,0.0,0.0
+none_natural,none_natural,recall,5,0.0,0.0,0.0
+pairwise_correlation_filter_natural,none_natural,average_precision,5,0.0,0.0,0.0
+pairwise_correlation_filter_natural,none_natural,f1,5,0.0,0.0,0.0
+pairwise_correlation_filter_natural,none_natural,recall,5,0.0,0.0,0.0
+mutual_information_select_k_best_k11,none_natural,average_precision,5,0.0028573434426328705,-0.007382655152918804,0.013097342038184544
+mutual_information_select_k_best_k11,none_natural,f1,5,0.0031160812277668455,-0.04483297245517681,0.051065134910710505
+mutual_information_select_k_best_k11,none_natural,recall,5,-0.005333333333333334,-0.037473009040678774,0.026806342374012103

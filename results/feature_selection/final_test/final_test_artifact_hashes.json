@@ -1,0 +1,20 @@
+{
+  "figures/final_test_metrics.png": "3b2b790f31c04d06cefe5994eea72bba9b1a27ad5a48b72f23b1a78624523fa1",
+  "figures/inference_resources.png": "03d1d2c75260c580173e2cb587f68b1ee5e8bbddffc5f0f114c261a959dd950e",
+  "final_test_generalization.csv": "0162fdc6cbd312677e6bc1162104e86f3c786262f8d327236af2fa136f31931a",
+  "final_test_generalization.json": "f1e18a6ce5cec5ff7f299509d6135c80298c73850098fbe6c39736922f3a6c37",
+  "final_test_governance_audit.json": "4d1981b091e4140081efc3bec870bee609ea33f51898fa0caa4e0c0a882600fe",
+  "final_test_metadata.json": "d0df16e26952ecf5c3e70e2936d0e0d17a45d2357d2280b4bbb0e9f337c86ae5",
+  "final_test_paired_comparison.csv": "3526a112c283aaa5c5c9f4effb729dbb073b5d476585ab53f50fa53e40f0e58f",
+  "final_test_paired_comparison.json": "7ad7b4dd7e8275be989786ed115f629255aa310335a4ec2bd3543bf0403dc383",
+  "final_test_preservation.csv": "3b5d1da5d900348da8860c07da1629d01bf00f611ff3f6e169dc301fbf004055",
+  "final_test_preservation.json": "2e3e8fb148141beaecc240b4b9cd42f73febf881bcd7c87b610a479f7cb7100a",
+  "final_test_resource_summary.csv": "bfa922793fc86bab33e8fed68729802b4d22f9dad5b455ec8ad2725a7c888890",
+  "final_test_resource_summary.json": "7d6fa75488d84c72209a59af8575c2ec6558148d76c052aa10fd792242f6b011",
+  "final_test_role_mapping.json": "67fc4ed9bf558fef557af504bd1e4097c77a9d5f31bfc6bae275b6ec6d3fd0fb",
+  "final_test_runs.csv": "9449811b0384c79ab63bec897e638c5c8e31625a3324f2e6f620088d62e64a31",
+  "final_test_runs.json": "78c69836d47eef121b0ff7b4ee994aabce994bc2e7b5ea1b813bcd0e20c7bc1d",
+  "final_test_summary.csv": "96149df4eec6520453f8ad865491bc29f47f795bf3c73b8b3cc06de5273bec50",
+  "final_test_summary.json": "4a01d5cdcaf69f297aa25aa71b58a45c8456352e94a4022a8b126e38c9e68b50",
+  "test_access_state.json": "a1444ef6fda8441f4e5ec018a6fbc71c36bbc4bf2ea218229a5c1a6e2670cf83"
+}

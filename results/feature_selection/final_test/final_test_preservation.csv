@@ -1,0 +1,10 @@
+configuration_id,metric,margin_percent,relative_degradation_percent,descriptively_preserved,selection_performed,overall_descriptive_preservation
+none_natural,average_precision,5.0,0.0,True,False,True
+none_natural,f1,5.0,0.0,True,False,True
+none_natural,recall,10.0,0.0,True,False,True
+pairwise_correlation_filter_natural,average_precision,5.0,0.0,True,False,True
+pairwise_correlation_filter_natural,f1,5.0,0.0,True,False,True
+pairwise_correlation_filter_natural,recall,10.0,0.0,True,False,True
+mutual_information_select_k_best_k11,average_precision,5.0,0.0,True,False,True
+mutual_information_select_k_best_k11,f1,5.0,0.0,True,False,True
+mutual_information_select_k_best_k11,recall,10.0,1.746724890829702,True,False,True
