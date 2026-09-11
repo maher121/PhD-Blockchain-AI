@@ -1,0 +1,195 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "evidence_type": "stored_attestation"
+      },
+      "name": "source_d_leakage_audit_pass",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "stored_attestation"
+      },
+      "name": "source_d_test_accessed_false",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "stored_attestation"
+      },
+      "name": "source_d_metadata_test_accessed_false",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "validated_core_splits"
+      },
+      "name": "validation_only_configuration_selection",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "artifact_only_input_schema"
+      },
+      "name": "no_test_metrics_available_to_locking_logic",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "module_capability"
+      },
+      "name": "artifact_only_architecture",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "recomputed_from_core_runs"
+      },
+      "name": "exact_v06d_matrix_verified",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "recomputed_from_core_runs"
+      },
+      "name": "preservation_and_sensitivity_recomputed",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "artifact_consistency"
+      },
+      "name": "stored_validation_analysis_cross_checked",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "cryptographic"
+      },
+      "name": "per_seed_feature_fingerprints_verified",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "finite_nonnegative_core_values"
+      },
+      "name": "resource_summaries_validated",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "artifact_only_architecture_and_operation"
+      },
+      "name": "preprocessing_refit_not_performed",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "artifact_only_architecture_and_operation"
+      },
+      "name": "selector_refit_not_performed",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "artifact_only_architecture_and_operation"
+      },
+      "name": "model_refit_not_performed",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "frozen_rule_application"
+      },
+      "name": "threshold_tuning_not_performed",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "invariant_source_configuration"
+      },
+      "name": "attack_configuration_not_redefined",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "inherited_passing_v06d_audit"
+      },
+      "name": "operational_fraud_label_not_used_as_cyber_ground_truth",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "inherited_passing_v06d_audit"
+      },
+      "name": "attack_metadata_not_used_as_model_features",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "artifact_only_architecture_and_source_attestations"
+      },
+      "name": "no_post_validation_selection_from_test_information",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "module_capability"
+      },
+      "name": "final_test_runner_not_imported_or_called",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "detail": "No loader exists in this artifact-only module; false test access is an architecture/attestation guarantee, not a loader-hook measurement.",
+        "evidence_type": "not_applicable"
+      },
+      "name": "runtime_test_loader_instrumentation_not_claimed",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "cryptographic"
+      },
+      "name": "source_hashes_verified",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "cryptographic_reconstruction"
+      },
+      "name": "source_semantics_reconstructed",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "cryptographic"
+      },
+      "name": "semantic_payload_verified",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "cryptographic"
+      },
+      "name": "sidecar_file_hash_verified",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "evidence_type": "post_write"
+      },
+      "name": "post_write_verification",
+      "passed": true
+    }
+  ],
+  "schema_version": "v0.6-e-artifact-lock-1",
+  "scope": "artifact_only_validation_configuration_locking",
+  "semantic_payload_sha256": "487b7aea89a9998b92e1d6bb6eac87d557a2328db82d82e7cbffb660de5de70c",
+  "stage": "V0.6-E",
+  "status": "PASS",
+  "test_access_evidence": "artifact-only architecture plus inherited D attestations; no runtime test-loader instrumentation is present or needed",
+  "test_accessed": false,
+  "validation_lock_file_sha256": "71dc92b8a34db1bb3c2f55a69e56f43733544329128ec60c5cdbbce2445d1604"
+}
