@@ -1,0 +1,67 @@
+{
+  "completed_decision_tree_run_count": 195,
+  "completed_logistic_regression_run_count": 195,
+  "completed_run_count": 390,
+  "completion_timestamp": "2026-09-11T08:40:18.569821+00:00",
+  "execution_plan_sha256": "157f24a493313171f14fb93dcc9f87bd986ade50523b2209530ad493051a9961",
+  "expected_decision_tree_run_count": 195,
+  "expected_logistic_regression_run_count": 195,
+  "expected_run_count": 390,
+  "failed_decision_tree_run_count": 0,
+  "failed_logistic_regression_run_count": 0,
+  "failed_run_count": 0,
+  "gate_timestamp": "2026-09-11T08:09:20.110772+00:00",
+  "inference_repeats": 10,
+  "logistic_fit_count": 15,
+  "lr_parameters": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "max_iter": 500,
+    "random_state": "seed",
+    "solver": "liblinear"
+  },
+  "prediction_threshold": 0.5,
+  "preservation_margins_percent": {
+    "average_precision": 5.0,
+    "f1": 5.0,
+    "recall": 10.0
+  },
+  "resource_interpretation": "time, memory, input size, and serialized size are computational proxies only",
+  "role_mapping": {
+    "best_supervised": "mutual_information_select_k_best_k11",
+    "best_unsupervised": "pairwise_correlation_filter_natural",
+    "full_baseline": "none_natural"
+  },
+  "scenario_count": 13,
+  "schema_version": "v0.6-g-locked-robustness-1",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "semantic_lock_sha256": "487b7aea89a9998b92e1d6bb6eac87d557a2328db82d82e7cbffb660de5de70c",
+  "semantic_roles": [
+    "full_baseline",
+    "best_unsupervised",
+    "best_supervised"
+  ],
+  "software": {
+    "git_commit": "9e3c53a966cfb22476c91300b027945fc2b4f182",
+    "numpy_version": "2.5.2",
+    "pandas_version": "3.0.5",
+    "pipeline_v06g_sha256": "266f8fe75d483f95e0e08ce33dd34680d91b219f8b72999c11ccf415ace49728",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python_version": "3.12.3",
+    "scikit_learn_version": "1.9.0",
+    "timestamp_utc": "2026-09-11T08:40:18.562484+00:00"
+  },
+  "stage": "V0.6-G",
+  "status": "COMPLETED",
+  "test_accessed": true,
+  "uncertainty_scope": "five algorithm/attack seeds on one fixed dataset split",
+  "unique_configuration_count": 3,
+  "v06f_artifact_manifest_sha256": "5c8f8b7300f0df07a389c6a7af7774e0d15d45bcaeceff759c7514925b91be58",
+  "validation_lock_file_sha256": "71dc92b8a34db1bb3c2f55a69e56f43733544329128ec60c5cdbbce2445d1604"
+}

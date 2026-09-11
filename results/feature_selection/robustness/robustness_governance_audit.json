@@ -1,0 +1,1143 @@
+{
+  "checks": [
+    {
+      "name": "v06e_lock_semantics_and_sources_verified",
+      "passed": true
+    },
+    {
+      "name": "v06f_access_completed_and_hash_manifest_verified",
+      "passed": true
+    },
+    {
+      "name": "source_hashes_verified_before_and_after",
+      "passed": true
+    },
+    {
+      "name": "loaded_decision_tree_file_and_state_hashes_verified",
+      "passed": true
+    },
+    {
+      "name": "exact_semantic_roles_derived_and_duplicates_collapsed",
+      "passed": true
+    },
+    {
+      "name": "official_config_derived_rates_and_severities",
+      "passed": true
+    },
+    {
+      "name": "unique_scenario_deduplication",
+      "passed": true
+    },
+    {
+      "name": "exact_seeds_42_through_46",
+      "passed": true
+    },
+    {
+      "name": "dt_and_lr_same_scenario_matrix",
+      "passed": true
+    },
+    {
+      "name": "one_manifestation_per_seed_scenario_reused_in_all_cells",
+      "passed": true
+    },
+    {
+      "name": "primary_manifestation_replays_v06f",
+      "passed": true
+    },
+    {
+      "name": "decision_tree_not_fitted",
+      "passed": true
+    },
+    {
+      "name": "logistic_regression_fitted_once_per_seed_configuration",
+      "passed": true
+    },
+    {
+      "name": "lr_training_used_controlled_training_labels_only",
+      "passed": true
+    },
+    {
+      "name": "original_train_only_and_train_test_rows_disjoint",
+      "passed": true
+    },
+    {
+      "name": "validation_and_test_excluded_from_training",
+      "passed": true
+    },
+    {
+      "name": "selector_and_preprocessing_fit_not_performed",
+      "passed": true
+    },
+    {
+      "name": "threshold_tuning_not_performed",
+      "passed": true
+    },
+    {
+      "name": "ap_and_explicit_trapezoidal_pr_auc_only",
+      "passed": true
+    },
+    {
+      "name": "no_reselection_or_configuration_choice_from_test",
+      "passed": true
+    },
+    {
+      "name": "attack_metadata_excluded_from_features",
+      "passed": true
+    },
+    {
+      "name": "late_delivery_risk_not_cyber_ground_truth_or_feature",
+      "passed": true
+    },
+    {
+      "name": "dt_and_lr_hyperparameters_untuned",
+      "passed": true
+    },
+    {
+      "name": "attack_generator_and_scenarios_not_redesigned",
+      "passed": true
+    },
+    {
+      "name": "paired_seed_differences_reported",
+      "passed": true
+    },
+    {
+      "name": "no_p_value_fishing_or_direct_energy_claims",
+      "passed": true
+    },
+    {
+      "name": "all_outputs_atomic",
+      "passed": true
+    }
+  ],
+  "execution_plan_sha256": "157f24a493313171f14fb93dcc9f87bd986ade50523b2209530ad493051a9961",
+  "lr_model_artifacts": {
+    "mutual_information_select_k_best_k11:42": {
+      "file_sha256": "b9befdf6e003af6109228ddf44bf6e836ac966bcb3db26cabf0c22cc8127fbe9",
+      "model_state_sha256": "9a61004b1ecf5cbf72f01d8241dc8954d1e586dc40489bb744d6b266dc928b1c",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__mutual_information_select_k_best_k11__s42.joblib"
+    },
+    "mutual_information_select_k_best_k11:43": {
+      "file_sha256": "e7a095c66fe822fd8e9aa25a591c8370f2bc10a40dbb48206a8ceeafa62a03c8",
+      "model_state_sha256": "31a8b7e61bc649845f45d411f916cfa8f0d0668f62b490d45c5589f4aaf354e6",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__mutual_information_select_k_best_k11__s43.joblib"
+    },
+    "mutual_information_select_k_best_k11:44": {
+      "file_sha256": "d0761ecd18541e2e2edaedc0e85fb37f3a193f6de267748ca3b42e7aed435f33",
+      "model_state_sha256": "3f87b4f5401809e8ba8f9ea2b863261cf3f7283fbdc06a84e9221a51ab720353",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__mutual_information_select_k_best_k11__s44.joblib"
+    },
+    "mutual_information_select_k_best_k11:45": {
+      "file_sha256": "88ec2b2925e4e0b0f44d3a5faa52824a35d1919c27c6d91517cb753ed8a0583e",
+      "model_state_sha256": "bce96bebef98e5bd7b79ac6129ea3c9153c5043d4de16171878e669aa251b24d",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__mutual_information_select_k_best_k11__s45.joblib"
+    },
+    "mutual_information_select_k_best_k11:46": {
+      "file_sha256": "b848f014609e2c48f2976b05b6fd6185c626b253bf81acf4fb66bf26e7fa77fb",
+      "model_state_sha256": "49f9c0f25a848f15bfe7272a25ec4747c16fd800e0dadda69253b402e7c306cd",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__mutual_information_select_k_best_k11__s46.joblib"
+    },
+    "none_natural:42": {
+      "file_sha256": "e3bc8ae3d91d93478dc6b6f44514bb0ba1be16ac298127ee0468d5e2725e0a49",
+      "model_state_sha256": "da3da415fcf2c21a75c2ee0fe5319d2c99eeb1b86d9918bf1b81b7f754c18b00",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__none_natural__s42.joblib"
+    },
+    "none_natural:43": {
+      "file_sha256": "251a67c9664b01dbc5594c2798d575fe67b59a7d9d69228a3a1725b5d03d0ecd",
+      "model_state_sha256": "360ec76826a6b46cf14579e037b53d1aba09c8f38b92d20eb2fe3195316cabd7",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__none_natural__s43.joblib"
+    },
+    "none_natural:44": {
+      "file_sha256": "a824be560f83eb8319bb04addaba6bd0e8840f0c7d78194d99b18f57a58eaab1",
+      "model_state_sha256": "ce39d5883334717bc9a1bbdf05ff843da550fbef9250daff16a8403dca7c91ab",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__none_natural__s44.joblib"
+    },
+    "none_natural:45": {
+      "file_sha256": "7d5dffcae198392accb4ef4a8026d51e013eacb885df841076275dfd8f4449f5",
+      "model_state_sha256": "1859f1c94ac707aeb633bf800374244e52ed8d84c7dc99fc617036f6668eac79",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__none_natural__s45.joblib"
+    },
+    "none_natural:46": {
+      "file_sha256": "05b6fe696cdf57c56cf6c66d129a819a978d52d2bcaf67c8506fff0807fcfaba",
+      "model_state_sha256": "12cf48e140204c80f6d5aa1fad3214150b8bd3f69981a0ebd137e07ea0c5c4aa",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__none_natural__s46.joblib"
+    },
+    "pairwise_correlation_filter_natural:42": {
+      "file_sha256": "b1947017d2e621704fa923a4142a9462c816421c713d708ad8305ad6d7d20d4b",
+      "model_state_sha256": "0a46c0abcaa7471a212b3d21c5e522de54acb48ced4b0d6578b7e44173b6d12a",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__pairwise_correlation_filter_natural__s42.joblib"
+    },
+    "pairwise_correlation_filter_natural:43": {
+      "file_sha256": "f71e7a4387781f38503919610b9fa1c077d8fd552571117dc0422dc8ce817f1f",
+      "model_state_sha256": "3ddcb6d2694a6cf6188a7d04ca2c95eb39cf704013a51156d69bc0d8f7bb296d",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__pairwise_correlation_filter_natural__s43.joblib"
+    },
+    "pairwise_correlation_filter_natural:44": {
+      "file_sha256": "e792013fcf0913aa07c5d671d3f8666d36a69756254cc0af93549819efdb4d1f",
+      "model_state_sha256": "69ff64da756c9c6106915f8a439c2f5612000e82523d4d9cabc8ce37261a3f35",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__pairwise_correlation_filter_natural__s44.joblib"
+    },
+    "pairwise_correlation_filter_natural:45": {
+      "file_sha256": "2e93bf12c734c1bb17fb26cb1cc3be24df277cd5c7f42d08346191e384477400",
+      "model_state_sha256": "e4db6be1f6dc031516893140900fe5ec2867d204ad954a9cef1076b899617be1",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__pairwise_correlation_filter_natural__s45.joblib"
+    },
+    "pairwise_correlation_filter_natural:46": {
+      "file_sha256": "b4fcbb1674314a5e6af034c24f055907be55f2d894cb8972578fdaaf39c09d7b",
+      "model_state_sha256": "d44ceff6d3bb8b296a34d89769021c4fcc0deb9749106c98ffee703f5f34b560",
+      "path": "/mnt/e/PhD-Blockchain-AI/results/feature_selection/robustness/models/v0_6_g__logistic_regression__pairwise_correlation_filter_natural__s46.joblib"
+    }
+  },
+  "manifestation_reuse_evidence": {
+    "42:geographic_route_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "2ff7e6aef5b23dedc123069bf8df95109fe0b53cf550ca2bba7f614ced3736c0",
+      "object_id": 135682645688048
+    },
+    "42:mixed__r0p01__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "2c6eb0a52d8824a98c64533133ce5cec2bfa21d393d07bff7e0b43fb560d63bc",
+      "object_id": 135682642988688
+    },
+    "42:mixed__r0p03__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "9614ce7c055d58382a4d3ac71cd6ce4cf8b181b96a86f2ee3c2dc432ff1cd65a",
+      "object_id": 135682653034768
+    },
+    "42:mixed__r0p05__high": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "b25c9e3283b34a10111a0eebe9e9691a3c63cdc8b3030ec95e05cc2d0fb7362b",
+      "object_id": 135682635528192
+    },
+    "42:mixed__r0p05__low": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "94f18ae31cfda994e0848f0254784bd1fd36643d525b5f84c57df9d1e15a5fac",
+      "object_id": 135682638360704
+    },
+    "42:mixed__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "8218a521bbf219f46806866ed0abbbf6dfbdab3a330e52df2b62a5aaba3ccdd8",
+      "object_id": 135682637837136
+    },
+    "42:mixed__r0p10__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "1da50ca6e69008b6d54cca78436f6bda0aaef38fa6f02c02f397b1960abb40f3",
+      "object_id": 135682638360992
+    },
+    "42:quantity_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "04efb765ee64516b64c405dfd0ceeddcdf2f867751392b9c9c5ad6657014f129",
+      "object_id": 135682640340336
+    },
+    "42:shipping_delivery_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "26cad719da64e1e8c054aa05edbf4c50b48eb0cb8f12a6e694f92439998a908f",
+      "object_id": 135682658955488
+    },
+    "42:timestamp_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "9c8b5e3d0e7a6f68669c41c3216c07963bc96488733e34e38ce7184fdd1efb8a",
+      "object_id": 135682645675184
+    },
+    "42:transaction_record_tampering__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "a5ae514585b39417ee4951ece1e8dfb6d35c11ef12550564b0430528c7067ef0",
+      "object_id": 135682642181776
+    },
+    "42:transaction_status_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "080e1a7ff0e3b79249db0ce3599e44e9e9009077efb65a14ee125c99b01968c8",
+      "object_id": 135682640702608
+    },
+    "42:value_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "cb5cb8b553651378ea3ab833f6852803ee347019db48127716d943d09549a702",
+      "object_id": 135682649939968
+    },
+    "43:geographic_route_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "e58435468b775ccb771392c45e47d88ff2687bdd2f2bdd96d86d659dd474ebf7",
+      "object_id": 135682636477408
+    },
+    "43:mixed__r0p01__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "1d1784efa312cc0436361a9f767708776b0f362abb1fbe1dc6ec2c1a7ce59e37",
+      "object_id": 135682636478800
+    },
+    "43:mixed__r0p03__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "2f1aa735fa8e485e5a76d413f7fd45b5f844da8a3406e055b9e7432a986c3fe3",
+      "object_id": 135682636468192
+    },
+    "43:mixed__r0p05__high": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "8cf6952d1de36128fb390a5d091e9bc1aabcdfa84aef3ef42eb0c2a86b13e5ef",
+      "object_id": 135682595772016
+    },
+    "43:mixed__r0p05__low": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "a4c152ee80d734a9a0605dfae0510fae98645a71298d0b3b2797e2eff2297793",
+      "object_id": 135682595775712
+    },
+    "43:mixed__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "d648dacdb41680c57598f0d85afe241876e5979e1432dad1599208c56b981810",
+      "object_id": 135682595878864
+    },
+    "43:mixed__r0p10__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "60341ae4280834fac35d77569fd9cb4f6c49fe8c177ec95634317cbeabee183c",
+      "object_id": 135682595880832
+    },
+    "43:quantity_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "b0c5ca9a1ea01896cde4cfca4a8466e8afba5a70d361f95d8f448dba312ac50d",
+      "object_id": 135682637825472
+    },
+    "43:shipping_delivery_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "ce4ef516c9a4b795a46e516f0ea930a2795a56917e02e6ac9e0ec0b8be8b8a4b",
+      "object_id": 135682638554240
+    },
+    "43:timestamp_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "b96154e26d94e6a215687fc1980e40ad834be0536590b9cdd86d01043929deb3",
+      "object_id": 135682634855152
+    },
+    "43:transaction_record_tampering__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "68dde08d6f1b027bc271a8c539469dbdc124559d82c5460897584ab2a4cfcdd9",
+      "object_id": 135682634854480
+    },
+    "43:transaction_status_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "477c8e5059f91b89ed8f7211f19d78c0667d5152114b75887d5f66e1ea634560",
+      "object_id": 135682636256544
+    },
+    "43:value_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "d600aa501e48b2461cb8bef1994f44febf4761b4388a7030e95e1d832ac8c309",
+      "object_id": 135682635388768
+    },
+    "44:geographic_route_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "f0baa01aa13db4e7a7022a7ce991bf9edc3d54892cd990adf0c5d9a8ccfe65c9",
+      "object_id": 135682641940880
+    },
+    "44:mixed__r0p01__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "03fdc55138f08caad5f24f877462b0c42fee9038342e30ec69989fd5b3afbf41",
+      "object_id": 135682639739744
+    },
+    "44:mixed__r0p03__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "967c19d1c2bb55e04f3fe1aae4d81d99552875969cbd5fcd7fa31ee66f4889a5",
+      "object_id": 135682638559280
+    },
+    "44:mixed__r0p05__high": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "95651a205d0378d0a70b3689ffa50aff242ca5fd14d051ef37cfddac11e487fb",
+      "object_id": 135682639495344
+    },
+    "44:mixed__r0p05__low": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "e5e7a6c0292df969660f3fbfee5d0638560732444a7e5e7492d8b26ccede5884",
+      "object_id": 135682593754384
+    },
+    "44:mixed__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "e6cc7ea5578bb27bd426f57534be36ab158f44c75443ecbd6372013d5f4ee280",
+      "object_id": 135682639510560
+    },
+    "44:mixed__r0p10__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "b7e958b1826b9be15df455b60014165d36c372b33cbabba8834fd7bf27e0bcbe",
+      "object_id": 135682639740656
+    },
+    "44:quantity_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "899a2b60ba8d26f9f64531c0bb530b86d3d016f2b714691b38d5c5093a469a0c",
+      "object_id": 135682595977984
+    },
+    "44:shipping_delivery_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "278f6d4718e8972cb8f8dfa8c8d2f4bc3b6be2fe8b8099817a81681ff378652c",
+      "object_id": 135682637084912
+    },
+    "44:timestamp_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "13d9e8f6c583fe5e30d6e407bc0594d0ad9e4eec8471d0052a4b2eab28bb9c06",
+      "object_id": 135682636911712
+    },
+    "44:transaction_record_tampering__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "3733381cb05f1dfcce3aebd04e976a60f2219403a6de3f52d1ecc6e167a29cc6",
+      "object_id": 135682643164864
+    },
+    "44:transaction_status_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "e99325755eb24ac91a258df20d5effa4593d60f29ceb6ac15669dfb365003122",
+      "object_id": 135682637328656
+    },
+    "44:value_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "40526cfffe0ba5a5d0f5483ab7823c6c242f9ba2be40497f0234a2190e9441ba",
+      "object_id": 135682637050320
+    },
+    "45:geographic_route_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "e58205e87f5bcb41779ab8330248d8758e6e924a071b32f8fec266270c2e7d0c",
+      "object_id": 135682599942528
+    },
+    "45:mixed__r0p01__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "e82a687df9fd91ecede90b2f4fad00ff64b868e4ef41244d7d594ed63df39899",
+      "object_id": 135682634879088
+    },
+    "45:mixed__r0p03__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "3e41cf17a417e41331ce14544f7f67b6f0e9ae4ea95ba0f446b15b9d5b68b6a4",
+      "object_id": 135682599871376
+    },
+    "45:mixed__r0p05__high": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "5a31b2471f1e80fecb694e3607165d153afbf850d461b2aa0f23224d1b21b7a9",
+      "object_id": 135682597588240
+    },
+    "45:mixed__r0p05__low": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "d435fa3cfb88f93a90844b18e3a7286be1ef120de7fe8f19b79f8321fec96399",
+      "object_id": 135682597623168
+    },
+    "45:mixed__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "0e5a942f9913a0777e33998719f08c3384086647d5b333b547eb47a7ba4d52aa",
+      "object_id": 135682639505520
+    },
+    "45:mixed__r0p10__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "a3f02f7ccbac92862d8b7c221a76a65d5b33df102349e681ece04a42ace0b57d",
+      "object_id": 135682649500096
+    },
+    "45:quantity_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "a00bd5b2d16a443a3153e54e9c658f1d95f0efd78c63cf15d63d870263dbafe7",
+      "object_id": 135682594134720
+    },
+    "45:shipping_delivery_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "80f4eb6d93b102b367ab9b44099d4ba8398e917b1ec87b86f22cff26ed7deca7",
+      "object_id": 135682594137456
+    },
+    "45:timestamp_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "dfa8705bdb6767e67a4b03e6e86c3c67d99f950ba70ca647749b67ff056d2925",
+      "object_id": 135682599941616
+    },
+    "45:transaction_record_tampering__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "92849b6cfbc22767ed6342cebef15ad492a5cc779ed631c309ab6942121fdb0c",
+      "object_id": 135682599938016
+    },
+    "45:transaction_status_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "28a294c210539cb53acf3a3daef1c209f94751cabc4c177319855e8b64138594",
+      "object_id": 135682599931920
+    },
+    "45:value_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "989b2aa28c03f550ea51d776221bc0b487584bcb9777113911bd771157c167b3",
+      "object_id": 135682594226736
+    },
+    "46:geographic_route_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "638ec88b183e523dc31eb4c0f839569030a798712218efb4771b00d9185d92e4",
+      "object_id": 135682591650688
+    },
+    "46:mixed__r0p01__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "3eace02824fb1d9b4dd279dab4b69de98d6d8562816497e00cd10ba7e13716cb",
+      "object_id": 135682639495536
+    },
+    "46:mixed__r0p03__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "7b5555b296a3cd5660daffcfb13b152e7c5444b73b5160d10ad216dc5031e48a",
+      "object_id": 135682642793280
+    },
+    "46:mixed__r0p05__high": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "c3396ae46d1a7bce92848ab974b19966e9d7ac70aa616995a90f42232a5829eb",
+      "object_id": 135682598810496
+    },
+    "46:mixed__r0p05__low": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "cd34e11b4ce702ff7c857987a8c009ccc3c44f380c480deb2aebd81150287aa0",
+      "object_id": 135682593337376
+    },
+    "46:mixed__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "d8f29bda3cdb39957663e99af3fd59717cbd16317342538bf6b825bdafbcf0e7",
+      "object_id": 135682642797408
+    },
+    "46:mixed__r0p10__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "f4f06ba26edba044ba19ec541db3830b73399d6fe4b05ccef88830b0d60c6373",
+      "object_id": 135682598288704
+    },
+    "46:quantity_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "bc97702257b76855e28c5eb1200c579ab05d7a35181ea8a7c9ddf4c31f395404",
+      "object_id": 135682592025360
+    },
+    "46:shipping_delivery_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "dd1adafab99faece1322cc614365975968937f847942b47e173457def6f86e0b",
+      "object_id": 135682597589200
+    },
+    "46:timestamp_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "96df51d02831288b90d1148e7f8bf816d6418f43af0846ec3eee60d6a6e78701",
+      "object_id": 135682591651216
+    },
+    "46:transaction_record_tampering__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "84c8507fa1c0240d31957962e1f709e6c6ffe5ed5cdb1067a8622007a8a56397",
+      "object_id": 135682641945680
+    },
+    "46:transaction_status_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "536e7037e7b0691d2e5e897d2ed7f28e1ba594933c4fabaacf83c76b751b45f8",
+      "object_id": 135682591649248
+    },
+    "46:value_manipulation__r0p05__medium": {
+      "cell_count": 6,
+      "cells": [
+        "none_natural:decision_tree",
+        "none_natural:logistic_regression",
+        "pairwise_correlation_filter_natural:decision_tree",
+        "pairwise_correlation_filter_natural:logistic_regression",
+        "mutual_information_select_k_best_k11:decision_tree",
+        "mutual_information_select_k_best_k11:logistic_regression"
+      ],
+      "manifestation_sha256": "a4f68f6797534ebfe38d9e687c844ef7f9aa80d81d49cdf18391b0e95d570277",
+      "object_id": 135682592538400
+    }
+  },
+  "schema_version": "v0.6-g-locked-robustness-1",
+  "semantic_lock_sha256": "487b7aea89a9998b92e1d6bb6eac87d557a2328db82d82e7cbffb660de5de70c",
+  "source_hashes": {
+    "/mnt/e/PhD-Blockchain-AI/config/attack_scenarios.yaml": "3c6d6a5fe181cb7df319ea32edc91fd3879aabac5be20e4f6497cc25641a4e26",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_anova_f_select_k_best_k11.joblib": "5f3d95f5656666099324153bd01898ece172247e8e9c47da1234aba75fe0274c",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_anova_f_select_k_best_k22.joblib": "ddf6eedf2be786bf1c25919ae3dd4436870f79274555816a14b4fec7abf142ad",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_anova_f_select_k_best_k32.joblib": "28f6b07b22fff22d69f6c95124ed72c6d73e91d9229554e117301dcf26b55da5",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_correlation_redundancy_ranking_k11.joblib": "1f10e93797fd3853108ae5a104669ca8b3b9bef2bc73c2bc08db45bacd0a9989",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_correlation_redundancy_ranking_k22.joblib": "36e8697c8214b5668d5b78742a8b65ca0bf3a2cecd4b93df759c5c010e192f4c",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_correlation_redundancy_ranking_k32.joblib": "3a54911e918d8bfc3feeb49187fcb20e0438efe49f2aa7ada2321d2cdb594986",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_mutual_information_select_k_best_k11.joblib": "1e43e0655ec53978be4df11931c10f03c531ac893538e6fd3390c8124b7d593c",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_mutual_information_select_k_best_k22.joblib": "0f36dbb9b5757ddc05b8a42956ed1a953316b9a618d04d0f7b0d1186aba5a6c5",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_mutual_information_select_k_best_k32.joblib": "d2383dd0049ab22140122e5992fcf97abad426e0dc9797f1930bccf528034ea2",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_none_natural.joblib": "e01fdbbeaf4805602efe812b6e075aecf8b9be71788e464fd8d5b7e72ea92c49",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_pairwise_correlation_filter_natural.joblib": "b3be72469205a79a9108a40d882b3664ddfa94c799065684a04dd89542f3f6a2",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s42_variance_threshold_natural.joblib": "e01fdbbeaf4805602efe812b6e075aecf8b9be71788e464fd8d5b7e72ea92c49",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_anova_f_select_k_best_k11.joblib": "c6858985363dc44a3a32f208e3752e0e80196dfe95ccc0cf4b0cdc114b9ab41a",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_anova_f_select_k_best_k22.joblib": "76505c863145294adf67b81f5e9c804db8707abc953ade071eb45f6e2eda7c2d",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_anova_f_select_k_best_k32.joblib": "74ecc3f6d5a7dc67417c092a2022a1a2d8fbc25d11a7dca0b15fd62692154c64",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_correlation_redundancy_ranking_k11.joblib": "550f7f9c6b4bf396fe7dc55cc0c08c307cdec09ecc60819ed91bffdc250d4575",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_correlation_redundancy_ranking_k22.joblib": "58616fa374e4c49bd0f342129f815fa2f7f9d22640240890d3e0840f29cf8276",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_correlation_redundancy_ranking_k32.joblib": "78f201690b13ca803b0a46cd9cc8ae3e851f9217791645d5d4c07f2274817fd3",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_mutual_information_select_k_best_k11.joblib": "2c2425fa343e32cee162c2f8a27e310e45c333db9ebc75e629934704a44c5cc8",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_mutual_information_select_k_best_k22.joblib": "bde92afd9bced737436247744c0247a103fdd482a0909d9867fd975fd6c8674a",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_mutual_information_select_k_best_k32.joblib": "e1983e0d7c10010dde757c8f9a1ce395809633cd1ef96dbdbfec541ff4f2ca4a",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_none_natural.joblib": "5ff1ae4ae58b9f112f6d2718243f1929e41676d238e34264e5637d7b39cc5a4d",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_pairwise_correlation_filter_natural.joblib": "b5da22eecf2b959249a657cd7979777c1cbbacc060740f98aa9b70d506f42b8d",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s43_variance_threshold_natural.joblib": "5ff1ae4ae58b9f112f6d2718243f1929e41676d238e34264e5637d7b39cc5a4d",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_anova_f_select_k_best_k11.joblib": "0125d69a0ffb95dc8a071e02e55d500314c7d73560f6dccbd27b5de1eb867cd1",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_anova_f_select_k_best_k22.joblib": "526252eefb9d15a8e1452775e5cb9aaebcc0a36e14f771b54b0c288137178cb2",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_anova_f_select_k_best_k32.joblib": "2538e84cc972db7bc9d600d0b1af06368b4d3f432fbd5e9731b249ba193d87af",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_correlation_redundancy_ranking_k11.joblib": "a56ad86069923bd4e76bba139f807822f90f1bd38157df37a0662bcf2ccafac7",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_correlation_redundancy_ranking_k22.joblib": "e0bfc7f13a4c9dd19e06911ce9c563f6edd451f88af69a607cba9036c0ea41fc",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_correlation_redundancy_ranking_k32.joblib": "4d182fb884919df84f6115efad3075a6a29d03cef11820518f16db88bb245002",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_mutual_information_select_k_best_k11.joblib": "4a09ca852a5eb41dd1b19ae40dd16297ee1c6c187baef5cfbb808efbed05b5d9",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_mutual_information_select_k_best_k22.joblib": "f7c8a0dba8babf31e0e5f9a456806565949c514423a80caafe37ba8ebf175cd5",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_mutual_information_select_k_best_k32.joblib": "b283b3de828f06eeaca34b0136987d2092b757e7a9354f871bc658d7859c307b",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_none_natural.joblib": "8a7d2a1a943ce3520748e82dd37f4cfc2c6459452b87593f0170a3696a1f25a3",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_pairwise_correlation_filter_natural.joblib": "5cf9b1bb19986b9a146c6ddb3b70359deb5ac49c06811edae3a4063a6dd4b39b",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s44_variance_threshold_natural.joblib": "8a7d2a1a943ce3520748e82dd37f4cfc2c6459452b87593f0170a3696a1f25a3",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_anova_f_select_k_best_k11.joblib": "e601390f602ead988a527ee5395abbd9a55c5791c7868816c19c1ccb61667e0d",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_anova_f_select_k_best_k22.joblib": "7bd15d5dbbe6e49ed455597cfe1459fedbccf1554eb342d8f66e78bab8cc46fa",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_anova_f_select_k_best_k32.joblib": "93fb4b6901ce338ca8dbbe698267c160ea0a12ce631db4f42579a13fc8f8fde2",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_correlation_redundancy_ranking_k11.joblib": "96d9cdc0a7dbf819238b37a0af63268c31c31afb64039823c0b7ec94daa20faf",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_correlation_redundancy_ranking_k22.joblib": "6f2a2511eb2f13d1a7b3ffd8c314240e70cae29aa96ac517b2dee26021033376",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_correlation_redundancy_ranking_k32.joblib": "dc826305642293b378bd4519549588c4801d401c5c7b836ceaeb18d40c7607a7",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_mutual_information_select_k_best_k11.joblib": "c6f5ae8b2ca8f517a0759fe2771b47fafd800ea16b6e7e8601b044f42d26a80f",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_mutual_information_select_k_best_k22.joblib": "def5a9cba36e38c1e5ab1e4d48ed7f959f8de3482929e828a8f0aa2e9f209571",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_mutual_information_select_k_best_k32.joblib": "39ba67fb260817b3e2182355c50f4db62a2ed38c528edded68c6a714a0266a9e",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_none_natural.joblib": "d8510e171b06bfcbb7de8508cddf9bcfcda85a8f9d51374ce6e421a1585fddaa",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_pairwise_correlation_filter_natural.joblib": "086eac2907db5a138e7473e1bde4891a509e538630e51ba0990e6f26eec2bd86",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s45_variance_threshold_natural.joblib": "d8510e171b06bfcbb7de8508cddf9bcfcda85a8f9d51374ce6e421a1585fddaa",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_anova_f_select_k_best_k11.joblib": "8503f666f0b6d91b17ec5444cd9b8999728a43b94b6829c026919af0b270ff35",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_anova_f_select_k_best_k22.joblib": "4df3bfc9b60b83ae9e3b5e24a4594354b7548f2c05ed1a2f49e98a006a39f556",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_anova_f_select_k_best_k32.joblib": "b6ccd0951f5031c6b4cc2706d2c29b18c267f1c12065bf84d02584e01cf6c016",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_correlation_redundancy_ranking_k11.joblib": "5e60fe3e0864c2735848402be951fa1b07416184623be074aef39b04615bf577",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_correlation_redundancy_ranking_k22.joblib": "d8dafc11b551bdf92b66c1c5b98c52e10d96289b15b74d89c1b524918dc9197b",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_correlation_redundancy_ranking_k32.joblib": "255f20af5c763757cfd71a6e220bbac0f425aa60f6384edfd8f3ece08a7c6233",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_mutual_information_select_k_best_k11.joblib": "c8214d9e1ef50b055c2e958e7a49f572509cf8da80d8c14c1340c3f53244aaf9",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_mutual_information_select_k_best_k22.joblib": "1231916809951f95a0a1c0bef3f78a99d6d6a844fb7b64bd82c38e2a40d71772",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_mutual_information_select_k_best_k32.joblib": "9c2a975ecd3f3fca8d3269c5305d9e622d19e992778087fbb52005a28b89be68",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_none_natural.joblib": "1a36eb3b9af647736611b588722253e1cf26115fdd519aaecbdc3043ec41cae9",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_pairwise_correlation_filter_natural.joblib": "a5df2086b225afcce7476bf4d555cf2109baa855d0228482d2cff4131b6828a1",
+    "/mnt/e/PhD-Blockchain-AI/models/feature_selection/core/v06d_s46_variance_threshold_natural.joblib": "1a36eb3b9af647736611b588722253e1cf26115fdd519aaecbdc3043ec41cae9",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/candidate_selection.csv": "5fffa4f364984b36ffa0e941e82a63c2191fa26137f8fabae9ce318acbd3df90",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/candidate_selection.json": "46ca5bf8b49e54974045c200b176a51bdd5a43386e29fec25860db9b120e2f02",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/core_runs.csv": "032ed7959dcfd8c22d0e59822c8f745ab0a6c8474a524d1a0b39f536d9026488",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/core_runs.json": "5140e3abd39ecae99fdc5472eed77f093e00e590caf6f8b0a90e7aa749bcc15c",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/deterministic_unsupervised_stability.csv": "d1a9dacc72f3f56c5c86ac971fc65dc1cfee4bcf9505cd86f2ba7394796aa435",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/feature_selection_rankings.csv": "9f78d039537733279145ba3de9f4f0d96de9cfb917040eff7cdae625fc4519e6",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/figures/final_test_metrics.png": "3b2b790f31c04d06cefe5994eea72bba9b1a27ad5a48b72f23b1a78624523fa1",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/figures/inference_resources.png": "03d1d2c75260c580173e2cb587f68b1ee5e8bbddffc5f0f114c261a959dd950e",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_artifact_hashes.json": "5c8f8b7300f0df07a389c6a7af7774e0d15d45bcaeceff759c7514925b91be58",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_generalization.csv": "0162fdc6cbd312677e6bc1162104e86f3c786262f8d327236af2fa136f31931a",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_generalization.json": "f1e18a6ce5cec5ff7f299509d6135c80298c73850098fbe6c39736922f3a6c37",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_governance_audit.json": "4d1981b091e4140081efc3bec870bee609ea33f51898fa0caa4e0c0a882600fe",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_metadata.json": "d0df16e26952ecf5c3e70e2936d0e0d17a45d2357d2280b4bbb0e9f337c86ae5",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_paired_comparison.csv": "3526a112c283aaa5c5c9f4effb729dbb073b5d476585ab53f50fa53e40f0e58f",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_paired_comparison.json": "7ad7b4dd7e8275be989786ed115f629255aa310335a4ec2bd3543bf0403dc383",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_preservation.csv": "3b5d1da5d900348da8860c07da1629d01bf00f611ff3f6e169dc301fbf004055",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_preservation.json": "2e3e8fb148141beaecc240b4b9cd42f73febf881bcd7c87b610a479f7cb7100a",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_resource_summary.csv": "bfa922793fc86bab33e8fed68729802b4d22f9dad5b455ec8ad2725a7c888890",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_resource_summary.json": "7d6fa75488d84c72209a59af8575c2ec6558148d76c052aa10fd792242f6b011",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_role_mapping.json": "67fc4ed9bf558fef557af504bd1e4097c77a9d5f31bfc6bae275b6ec6d3fd0fb",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_runs.csv": "9449811b0384c79ab63bec897e638c5c8e31625a3324f2e6f620088d62e64a31",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_runs.json": "78c69836d47eef121b0ff7b4ee994aabce994bc2e7b5ea1b813bcd0e20c7bc1d",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_summary.csv": "96149df4eec6520453f8ad865491bc29f47f795bf3c73b8b3cc06de5273bec50",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/final_test_summary.json": "4a01d5cdcaf69f297aa25aa71b58a45c8456352e94a4022a8b126e38c9e68b50",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/final_test/test_access_state.json": "a1444ef6fda8441f4e5ec018a6fbc71c36bbc4bf2ea218229a5c1a6e2670cf83",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/leakage_audit.json": "8ca35b9a6e52e0cd0e08e95737c0fd49938cd028d4457f04ac572746b6b5ba06",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/non_inferiority_sensitivity.csv": "861621d4eb1f3b29b0b678edf1755617a82404296035def06762e1795a449d85",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/paired_baseline_comparisons.csv": "d35b31c4e007ff8371d77a83058bf048ab98447c6ec420abaf3a24d9859fabe3",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/paired_baseline_differences.csv": "ac11a4bc9ad9515136faf6412580e50140710b7b8e40855579791e456dcd557f",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/preservation_primary.csv": "34cf136cbf0b2027cddd732f16c861843c45bc8443eaf3959eb7ad65c60cf9e8",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/ranking_stability.csv": "3621e4f96f4178fc5663d4d7df476aac3c4e453845e9fbc06a9fc9b386821610",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/resource_comparison.csv": "93e8f4c5bf6e288a79664396df53ec487a114fd6f2334d06d45442f42e07a43f",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/run_metadata.json": "c73acebf91dc28ef727dc6444af8cc26409be481c186fdb6c6e42c568d0030d7",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/selected_feature_sets.json": "caa03038cba6fb174ce2349f235148c820726d831b72b3fbe71550b216003ed4",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/selected_set_stability.csv": "87cd49a602967ec28fb21180f21560fa257bb7d93adf0adda5ed36fa625c3611",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.json": "71dc92b8a34db1bb3c2f55a69e56f43733544329128ec60c5cdbbce2445d1604",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.sha256": "c1df43012dd3edff09c8443edb3da736c874488f8030980eef2d24be2d9fcb53",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock_audit.json": "78629e1d5a423e3fbfe2fb6fca79c53f716030f9e00f28d97e5ad54b9c436c1e",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_summary.csv": "605df69149730288fcd15e08f1881744dbda5b8b52210e160bc07f817b29401f"
+  },
+  "stage": "V0.6-G",
+  "status": "PASS"
+}
