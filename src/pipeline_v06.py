@@ -33,6 +33,7 @@ from src.feature_selection import (
 )
 from src.lightweight.feature_reduction import validate_model_features
 from src.lightweight.models import LightweightDetector, create_model
+from src.lightweight.resource_monitor import measure_call, measure_model_size
 from src.security.attack_generator import DEFAULT_ATTACK_CONFIG, load_attack_config
 from src.security.evaluation import evaluate_detection
 from src.security.experiment_data import (
@@ -412,22 +413,45 @@ def run_validation_experiment(
     selector: BaseFeatureSelector | None,
     config: V06ProtocolConfig,
     run_id: str,
+    measure_resources: bool = False,
+    model_artifact_path: Path | str | None = None,
 ) -> ValidationExperiment:
-    """Fit one candidate on training and evaluate validation only."""
+    """Fit one candidate on training and evaluate validation only.
+
+    Resource measurement is opt-in so the V0.6-C API retains its deferred
+    resource record. Measured runs must name their development-model artifact.
+    """
     _validate_run_id(run_id)
+    if measure_resources and model_artifact_path is None:
+        raise ValueError("Measured validation requires model_artifact_path.")
+    if not measure_resources and model_artifact_path is not None:
+        raise ValueError("model_artifact_path is only valid for measured validation.")
     preliminary_audit = audit_development_data(data, config)
     _require_passing_audit(preliminary_audit)
     _validate_selector_candidates(selector, data.candidate_features)
 
     selector_snapshot: dict[str, Any] | None = None
+    selector_fit_measurement = None
     if isinstance(selector, UnsupervisedFeatureSelector):
-        selector.fit(data.train.clean_features)
+        if measure_resources:
+            _, selector_fit_measurement = measure_call(
+                lambda: selector.fit(data.train.clean_features),
+                label="v0.6-d-selector-fit",
+            )
+        else:
+            selector.fit(data.train.clean_features)
         selector_snapshot = selector.result.to_dict()
         selected_train = selector.transform(data.train.features)
         selected_validation = selector.transform(data.validation.features)
         selector_details = selector.result.to_dict()
     elif isinstance(selector, SupervisedFeatureSelector):
-        selector.fit(data.train.features, data.train.labels)
+        if measure_resources:
+            _, selector_fit_measurement = measure_call(
+                lambda: selector.fit(data.train.features, data.train.labels),
+                label="v0.6-d-selector-fit",
+            )
+        else:
+            selector.fit(data.train.features, data.train.labels)
         selector_snapshot = selector.result.to_dict()
         selected_train = selector.transform(data.train.features)
         selected_validation = selector.transform(data.validation.features)
@@ -448,8 +472,22 @@ def run_validation_experiment(
         selector is None or selector.result.to_dict() == selector_snapshot
     )
     model = _create_frozen_decision_tree(selected_features, config)
-    model.fit(selected_train, data.train.labels)
-    predictions = _prediction_frame(model, selected_validation, data.validation.features)
+    if measure_resources:
+        _, model_fit_measurement = measure_call(
+            lambda: model.fit(selected_train, data.train.labels),
+            label="v0.6-d-model-fit",
+        )
+        predictions, inference_measurement = measure_call(
+            lambda: _prediction_frame(
+                model, selected_validation, data.validation.features
+            ),
+            label="v0.6-d-attacked-validation-inference",
+        )
+    else:
+        model.fit(selected_train, data.train.labels)
+        predictions = _prediction_frame(model, selected_validation, data.validation.features)
+        model_fit_measurement = None
+        inference_measurement = None
     metrics = _normalized_metrics(
         evaluate_detection(data.validation.ground_truth, predictions)
     )
@@ -476,6 +514,46 @@ def run_validation_experiment(
         metrics=metrics,
         audit=audit,
     )
+    if measure_resources:
+        artifact = model.save(Path(model_artifact_path))
+        size = measure_model_size(artifact)
+        selector_fit_seconds = (
+            0.0
+            if selector_fit_measurement is None
+            else selector_fit_measurement.wall_time_sec
+        )
+        measured = [model_fit_measurement, inference_measurement]
+        if selector_fit_measurement is not None:
+            measured.append(selector_fit_measurement)
+        resource_measurement = {
+            "performed": True,
+            "measurement_stage": "V0.6-D",
+            "selector_fit_wall_time_sec": selector_fit_seconds,
+            "model_fit_wall_time_sec": model_fit_measurement.wall_time_sec,
+            "combined_train_wall_time_sec": (
+                selector_fit_seconds + model_fit_measurement.wall_time_sec
+            ),
+            "attacked_validation_inference_wall_time_sec": (
+                inference_measurement.wall_time_sec
+            ),
+            "per_record_inference_sec": (
+                inference_measurement.wall_time_sec / len(selected_validation)
+            ),
+            "peak_rss_bytes": max(item.peak_rss_bytes for item in measured),
+            "peak_rss_mib": max(item.peak_rss_bytes for item in measured)
+            / (1024.0 * 1024.0),
+            "serialized_model_bytes": int(size["model_size_bytes"]),
+            "serialized_model_kib": float(size["model_size_kb"]),
+            "selected_feature_count": len(selected_features),
+            "model_artifact_path": str(artifact),
+            "energy_claim": False,
+        }
+        record = ExperimentRunRecord(
+            **{
+                **record.__dict__,
+                "resource_measurement": resource_measurement,
+            }
+        )
     return ValidationExperiment(
         record=record,
         model=model,
