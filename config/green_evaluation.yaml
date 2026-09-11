@@ -1,0 +1,54 @@
+version: "v0.7-b-computational-benchmark-1"
+stage: "V0.7-B"
+authoritative_prd: "docs/PhD_PRD.md"
+validation_lock: "results/feature_selection/validation_lock.json"
+
+semantic_roles:
+  - full_baseline
+  - best_unsupervised
+  - best_supervised
+
+seeds: [42, 43, 44, 45, 46]
+classifiers:
+  - decision_tree
+  - logistic_regression
+
+workload:
+  attack_type: mixed
+  attack_rate: 0.05
+  severity: MEDIUM
+  training_records: 28000
+  inference_records: 6000
+  policy: reuse_one_verified_manifestation_per_seed_and_phase
+
+measurement:
+  warmup_calls: 3
+  outer_repetitions: 10
+  worker_policy: fresh_process_per_outer_repetition
+  training_inner_operation_count: 1
+  training_boundary: model.fit_only
+  inference_boundary: prediction_only_model_loading_excluded
+  inference_calibration:
+    target_duration_sec: 1.0
+    geometric_growth_factor: 2
+    maximum_inner_operation_count: 16384
+    pairing_scope: all_feature_configurations_and_classifiers
+
+energy_governance:
+  tier: 1
+  direct_energy_enabled: false
+  computational_timing_is_energy: false
+  tdp_time_classification: ESTIMATED
+  current_evidence:
+    linux_rapl: unavailable_under_wsl2
+    windows_emi: unavailable_in_wsl
+    external_meter: not_configured
+    sklearn_workload: cpu_only
+
+governance:
+  selector_fitting: prohibited
+  feature_reselection: prohibited
+  classifier_tuning: prohibited
+  threshold_tuning: prohibited
+  final_matrix_execution: deferred_to_v07d
+  notebook_creation: deferred_to_v07f
