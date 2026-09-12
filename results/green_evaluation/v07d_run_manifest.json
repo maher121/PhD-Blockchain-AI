@@ -1,0 +1,52 @@
+{
+  "accounting": {
+    "failed_inference_observations": 0,
+    "failed_total_observations": 0,
+    "failed_training_observations": 0,
+    "planned_inference_observations": 300,
+    "planned_total_observations": 600,
+    "planned_training_observations": 300,
+    "retained_total_observations": 600,
+    "run_complete": true,
+    "successful_inference_observations": 300,
+    "successful_total_observations": 600,
+    "successful_training_observations": 300
+  },
+  "carbon_reported": false,
+  "classifiers": [
+    "decision_tree",
+    "logistic_regression"
+  ],
+  "completed_at_utc": "2026-09-12T18:01:02.306248+00:00",
+  "configuration_ids": [
+    "none_natural",
+    "pairwise_correlation_filter_natural",
+    "mutual_information_select_k_best_k11"
+  ],
+  "direct_energy_decision": "DIRECT_ENERGY_UNAVAILABLE",
+  "electrical_energy_reported": false,
+  "environment_id": "5b390d6532854ad704f8fe56280d2ea9b6cfebd95ced1b804d0e0ec3e1ecf82e",
+  "measurement_kind": "DIRECT_COMPUTATIONAL",
+  "outer_repetitions": 10,
+  "pareto_analysis_performed": false,
+  "protocol_sha256": "a6103df51f3cd489f8dbb76a107395e3d5e3b034f9f71160b681a2d135ea7d50",
+  "run_completeness": "COMPLETE",
+  "schema_version": "v0.7-d-tier1-computational-1",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "selected_inner_operation_count": 512,
+  "stage": "V0.7-D",
+  "started_at_utc": "2026-09-12T12:55:32.765850+00:00",
+  "statistical_inference_performed": false,
+  "status": "COMPLETED",
+  "workload": {
+    "attack_rate": 0.05,
+    "attack_type": "mixed",
+    "severity": "MEDIUM"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "calibration_results.csv": "418d909db8eb40e31ec69e8dc5ddc76cab0707f7f9b57c40910a041ab6792174",
+  "calibration_results.json": "48f319365a97273dc9c6cc9f961f6c2558e872ab56c510f890a516eddd93f626",
+  "computational_observations.csv": "82668a612b84726da011776906f1fa9539bc3ebd0b8bd0b9108242492aa8fa46",
+  "computational_observations.json": "0297247d66399252da314ecffe4a84a1e450966996ed586ad345bc886ec1a28b",
+  "environment_metadata.json": "dbd7fff77a82bd8c01774c53581e8fc713f8e0796af5a147ec89f51b30f35606",
+  "inference_descriptive_summary.csv": "0495d7413c087f23f15773e1e45af9cfd3e89448be46b4b657d57ea7f382f4eb",
+  "inference_descriptive_summary.json": "c66022b733a3fc508486f9650600c97c584775b876078b605306c867c664a28c",
+  "inference_observations.csv": "11088dedcf58482dee2e6aad2a9d2b5dc80cda963ccb2c9d778816c2c170f8fe",
+  "inference_observations.json": "1ca842b43754fc6b70db3820a332dd2a0270428834b3d3c51f24b62d47a30cc4",
+  "measurement_failures.csv": "873d44aa288c05f55ba01ecbb0d71dda16ef2651221eabd3c89bca6c103bfd33",
+  "measurement_failures.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "training_descriptive_summary.csv": "b67c8098f15d532e13e2b1e7e2062f51dc50ad40c99bac8303ba409fb8c718c4",
+  "training_descriptive_summary.json": "f0aa912a71f041e3be95cb55656dac9a1c9a291f021bae2b0d1165c90b743491",
+  "training_observations.csv": "8a50e3786d3d1aa167996b2f62f53a7cb05232895ea1aa078cc14b59c4c89c59",
+  "training_observations.json": "caee23b9db887ba48ed02e2e3edbfb51ca9bbcb8c8183841e30bdf9d22e68a93",
+  "v07d_governance_audit.json": "f176936e6ef299d67e7cb3f804a658c173fd0c5acd9e27ddcc70dcda7c51fc69",
+  "v07d_preflight.json": "b6cbe37a3af25287969957016bbb66518a3f1221e5e2b38082106e2de64444e4",
+  "v07d_run_manifest.json": "c2f0656c9ebe3e7e414e6616c669f12c6b62d7ac44a64f93dba4ee298cb4eba1"
+}
