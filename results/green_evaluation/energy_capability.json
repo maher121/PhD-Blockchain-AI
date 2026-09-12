@@ -1,0 +1,228 @@
+{
+  "accepted_direct_energy_backend": null,
+  "authoritative_prd": "docs/PhD_PRD.md",
+  "backends": [
+    {
+      "accepted_as_direct_energy": false,
+      "backend": "linux_rapl",
+      "capability": {
+        "available": false,
+        "backend": "linux_rapl",
+        "cumulative_energy_unit": null,
+        "instantaneous_power_unit": null,
+        "metadata": {
+          "automatic_aggregation": false,
+          "domains": [],
+          "root": "/sys/class/powercap"
+        },
+        "reason": "No energy_uj counters were found under Linux powercap.",
+        "reason_code": "NO_ENERGY_COUNTERS",
+        "supports_cumulative_energy": false,
+        "supports_instantaneous_power": false,
+        "workload_relevant": true
+      },
+      "evidence": null,
+      "rejection_reasons": [
+        "CAPABILITY_NO_ENERGY_COUNTERS"
+      ],
+      "reported_measurement_classification": null
+    },
+    {
+      "accepted_as_direct_energy": false,
+      "backend": "windows_emi",
+      "capability": {
+        "available": false,
+        "backend": "windows_emi",
+        "cumulative_energy_unit": null,
+        "instantaneous_power_unit": null,
+        "metadata": {
+          "is_wsl": true,
+          "system": "Linux",
+          "verification": "not_verified"
+        },
+        "reason": "WSL is not equivalent to native Windows EMI access.",
+        "reason_code": "WSL_NOT_NATIVE_WINDOWS",
+        "supports_cumulative_energy": false,
+        "supports_instantaneous_power": false,
+        "workload_relevant": true
+      },
+      "evidence": null,
+      "rejection_reasons": [
+        "CAPABILITY_WSL_NOT_NATIVE_WINDOWS"
+      ],
+      "reported_measurement_classification": null
+    },
+    {
+      "accepted_as_direct_energy": false,
+      "backend": "nvml",
+      "capability": {
+        "available": false,
+        "backend": "nvml",
+        "cumulative_energy_unit": null,
+        "instantaneous_power_unit": null,
+        "metadata": {
+          "workload": "cpu_only"
+        },
+        "reason": "Optional pynvml dependency is unavailable: ModuleNotFoundError",
+        "reason_code": "OPTIONAL_DEPENDENCY_MISSING",
+        "supports_cumulative_energy": false,
+        "supports_instantaneous_power": false,
+        "workload_relevant": false
+      },
+      "evidence": null,
+      "rejection_reasons": [
+        "CAPABILITY_OPTIONAL_DEPENDENCY_MISSING",
+        "WORKLOAD_IRRELEVANT"
+      ],
+      "reported_measurement_classification": null
+    },
+    {
+      "accepted_as_direct_energy": false,
+      "backend": "external_meter",
+      "capability": {
+        "available": false,
+        "backend": "external_meter",
+        "cumulative_energy_unit": null,
+        "instantaneous_power_unit": null,
+        "metadata": {
+          "configuration": null
+        },
+        "reason": "No external power meter is configured or claimed to be attached.",
+        "reason_code": "NOT_CONFIGURED",
+        "supports_cumulative_energy": false,
+        "supports_instantaneous_power": false,
+        "workload_relevant": true
+      },
+      "evidence": null,
+      "rejection_reasons": [
+        "CAPABILITY_NOT_CONFIGURED"
+      ],
+      "reported_measurement_classification": null
+    },
+    {
+      "accepted_as_direct_energy": false,
+      "backend": "historical_estimate",
+      "capability": {
+        "available": true,
+        "backend": "historical_estimate",
+        "cumulative_energy_unit": null,
+        "instantaneous_power_unit": null,
+        "metadata": {
+          "direct_energy": false,
+          "method": "TDP_x_wall_time",
+          "provenance": "ESTIMATED"
+        },
+        "reason": "Historical TDP x time is available only as an ESTIMATED quantity.",
+        "reason_code": "ESTIMATE_ONLY",
+        "supports_cumulative_energy": false,
+        "supports_instantaneous_power": false,
+        "workload_relevant": true
+      },
+      "evidence": null,
+      "rejection_reasons": [
+        "ESTIMATED_ONLY"
+      ],
+      "reported_measurement_classification": "ESTIMATED"
+    }
+  ],
+  "carbon": {
+    "claim_reported": false,
+    "claim_supported": false,
+    "reason": "Direct energy is unavailable; no carbon claim is scientifically supported."
+  },
+  "classification_policy": {
+    "electrical_energy": "DIRECT_ENERGY",
+    "estimated_energy_may_be_direct": false,
+    "historical_tdp_time": "ESTIMATED",
+    "instantaneous_watts_are_joules": false,
+    "timing_cpu_rss_and_bytes": "DIRECT_COMPUTATIONAL"
+  },
+  "current_runtime": {
+    "cpu": {
+      "logical_count": 12,
+      "model": "12th Gen Intel(R) Core(TM) i7-1255U",
+      "physical_count": 6
+    },
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5",
+      "psutil": "7.2.2",
+      "pytest": "9.1.1",
+      "scikit-learn": "1.9.0"
+    },
+    "execution_environment": {
+      "is_native": false,
+      "is_wsl": true,
+      "kind": "wsl"
+    },
+    "git": {
+      "available": true,
+      "commit": "45f7f208f076679df982ebe39f60671bb7d929bd",
+      "dirty": true,
+      "reason": null
+    },
+    "gpu": {
+      "detection": "nvidia_smi",
+      "devices": [
+        "NVIDIA GeForce MX550"
+      ],
+      "present": true
+    },
+    "kernel": "6.6.87.2-microsoft-standard-WSL2",
+    "os": {
+      "release": "6.6.87.2-microsoft-standard-WSL2",
+      "system": "Linux",
+      "version": "#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025"
+    },
+    "power_source": {
+      "available": true,
+      "reason": "WSL battery telemetry is not accepted as wall-power instrumentation.",
+      "reliable": false,
+      "source": "virtual_battery"
+    },
+    "python": {
+      "implementation": "CPython",
+      "version": "3.12.3"
+    },
+    "ram": {
+      "total_bytes": 8184340480
+    },
+    "thread_environment": {
+      "BLIS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "VECLIB_MAXIMUM_THREADS": null
+    },
+    "virtualization": {
+      "detected": true,
+      "evidence": "kernel_or_environment",
+      "type": "WSL"
+    }
+  },
+  "direct_energy_decision": "DIRECT_ENERGY_UNAVAILABLE",
+  "experiments_executed": false,
+  "final_observations_executed": 0,
+  "generated_at_utc": "2026-09-12T07:24:33.026782+00:00",
+  "integrity": {
+    "v06_hashes_unchanged": true,
+    "v06_verified_file_count": 147,
+    "v07b_artifact_hashes": {
+      "config/green_evaluation.yaml": "82bee8ee27b0d12bff0647ba2071510ed96feb440587497506047e28c65969c8",
+      "src/pipeline_v07b.py": "adab4c3a8c2a4e17ca0d698f35bf687c595a0e6f68319e4a76c7fc3042b0d0ed",
+      "tests/test_pipeline_v07b.py": "9b5c7924977f423d218f862460445697ad454efeb0bdc987f267198601e481d4"
+    },
+    "v07b_artifacts_unchanged": true
+  },
+  "recommendation_for_v07d": "Proceed with Tier 1 DIRECT_COMPUTATIONAL efficiency evaluation only.",
+  "schema_version": "v0.7-c-energy-capability-1",
+  "stage": "V0.7-C",
+  "workload": {
+    "description": "scikit-learn Decision Tree and Logistic Regression on CPU",
+    "gpu_energy_is_total_workload_energy": false,
+    "uses_cpu": true,
+    "uses_gpu": false
+  }
+}
