@@ -1,0 +1,23 @@
+{
+  "figures/01_feature_count_vs_inference_latency.png": "1f68435d7c99de07a8c6cff7c3158d0cc9466936fb4a5d9c9b3c604bb7ed403e",
+  "figures/02_feature_count_vs_training_time.png": "7cc50d83a01f111c20a8a483edeb4756dab6bf86c79e9c75eb3b6dab00387f62",
+  "figures/03_input_memory_vs_predictive_ap.png": "4405e63da9d39436e20a2d95318282dfcc0d135ae461c8f0f64d91793b626334",
+  "figures/04_model_size_vs_ap.png": "5630893320dd5824dc84c275bf4705f71774653e69e0fcbdd21756abca970789",
+  "figures/05_relative_computational_savings.png": "f30925715ef0a19cfa04d6748172d8351923d7e973a3c91c66e1c4c8622e1ff4",
+  "figures/06_dt_vs_lr_computational_comparison.png": "509a810478022bb3deae84f8544f69fe4a8e15e9b56d6b0bb980712dcee866d3",
+  "figures/07_pareto_performance_efficiency.png": "bccefc124b22ba54a9f581a7130e29f37eca56d3af63c268b892dca41d9edd55",
+  "figures/08_measurement_variability_cv.png": "be5bfc2fa64060298bb8cc006812f003e179387c47cc6816d4da6d73c07bdac9",
+  "v07e_efficiency_summary.csv": "3c80923c162669bd46b8ea6c5d061e655285a75fc899453f3e82844cb2c19b36",
+  "v07e_efficiency_summary.json": "8e96d6e89f86f41131890abd969b475f7238448a2aa938000fbed2f3ec246ec9",
+  "v07e_governance_audit.json": "91e4dec4b73d7ce7aa840698c9bd8cf4e357a09a37360706319d7415b17a8fe0",
+  "v07e_paired_comparisons.csv": "cd42b1c7301976c060594aa286d05047abbddd6d433e6ea887b5ec10406a3d5c",
+  "v07e_paired_comparisons.json": "9c9cf2ae106240aa7f9a8efe10535be56c5f1601d0fe0e461d9b0d6d8210d06c",
+  "v07e_pareto_analysis.csv": "c3bfdc77167c6962ce17b6f221595af53100b3acf37017967be1496d266b3017",
+  "v07e_pareto_analysis.json": "623e20d8b8756e9bd9858190dafa7b966a23091b6f0bfc5106c41aa27454e98e",
+  "v07e_performance_efficiency.csv": "4f35ea46496bd054a191ff9b10232344957b401a967676adb5010051bbb60270",
+  "v07e_performance_efficiency.json": "f8cb7fdc613cf9ea5ebab4682613207fe161c77c7e68b28b72b066ff04ee3548",
+  "v07e_seed_summaries.csv": "6c2b73117d6a35b363e8d3d2fde9a6100f46cd4d231790034266032374ee3dc7",
+  "v07e_seed_summaries.json": "0b21f32f5a70ec97ef0b3c6dabc533402f884a06cdecd802b20acdc3be9b53d1",
+  "v07e_variability_analysis.csv": "ea1ccdf70aade50f6bf7f1b4da5d84fd08c22dc2d3f84770072c0df9f5ec56d4",
+  "v07e_variability_analysis.json": "18d6166652d25618e13395ff0620f547ccf4112ca22e9edb709b75f15fe5fac8"
+}
