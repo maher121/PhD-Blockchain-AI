@@ -37,7 +37,10 @@ def sha256_frame(df: pd.DataFrame) -> str:
     """Deterministic SHA-256 of a DataFrame's canonical CSV serialisation."""
     canonical = df.copy()
     canonical = canonical.sort_index()
-    return hashlib.sha256(canonical.to_csv(index=False).encode("utf-8")).hexdigest()
+    # Scientific hashes must not depend on the host operating system's newline.
+    return hashlib.sha256(
+        canonical.to_csv(index=False, lineterminator="\n").encode("utf-8")
+    ).hexdigest()
 
 
 def _version(package_name: str) -> str:

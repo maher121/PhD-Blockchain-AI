@@ -1360,7 +1360,9 @@ def fingerprint_feature_names(feature_names: Sequence[str]) -> str:
         {"position": np.arange(len(feature_names), dtype=int), "feature": list(feature_names)}
     )
     canonical = frame.copy().sort_index()
-    return hashlib.sha256(canonical.to_csv(index=False).encode("utf-8")).hexdigest()
+    return hashlib.sha256(
+        canonical.to_csv(index=False, lineterminator="\n").encode("utf-8")
+    ).hexdigest()
 
 
 def _parse_feature_list(value: Any) -> list[str]:

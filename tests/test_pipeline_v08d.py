@@ -108,7 +108,9 @@ def _artifact_hashes():
 def test_01_v08c_is_committed_pushed_and_exact() -> None:
     result = v08d.verify_v08c_prerequisites()
     assert result["status"] == "PASS"
-    assert result["starting_head"].startswith("48d770c")
+    assert result["winner_semantic_lock_sha256"] == v08d.EXPECTED_WINNER[
+        "semantic_lock_sha256"
+    ]
     assert result["v08c_committed_and_pushed"] is True
     assert result["ahead"] == result["behind"] == 0
 
