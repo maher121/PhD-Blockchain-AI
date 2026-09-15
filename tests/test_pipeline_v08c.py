@@ -210,7 +210,7 @@ def _five_analysis_records(basis):
 def test_01_v08b_prerequisites_are_committed_and_pass() -> None:
     result = v08c.verify_v08b_prerequisites()
     assert result["status"] == "PASS"
-    assert result["starting_head"].startswith("59c2235")
+    assert result["v08b_source_commit"].startswith("59c2235")
     assert result["final_test_prohibition_pass"] is True
     assert result["pilot_label"] == "QUARANTINED_PILOT"
 

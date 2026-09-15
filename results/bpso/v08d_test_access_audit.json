@@ -1,0 +1,48 @@
+{
+  "campaign_completed": true,
+  "campaign_completed_at_utc": "2026-09-15T19:17:39.932398+00:00",
+  "checks": {
+    "feature_selection_invoked": false,
+    "final_test_used_only_for_evaluation": true,
+    "optimizer_invoked": false,
+    "test_driven_classifier_tuning": false,
+    "test_driven_configuration_change": false,
+    "test_driven_threshold_change": false,
+    "v08c_committed_and_pushed": true,
+    "winner_lock_verified": true,
+    "winner_replacement_allowed": false,
+    "winner_selected_before_test_access": true
+  },
+  "events": [
+    {
+      "event": "WINNER_LOCK_VERIFIED",
+      "timestamp_utc": "2026-09-15T19:13:24.609115+00:00"
+    },
+    {
+      "event": "TEST_ACCESS_ACTIVATED",
+      "timestamp_utc": "2026-09-15T19:13:24.609137+00:00"
+    },
+    {
+      "event": "FINAL_TEST_OPENED_FOR_EVALUATION",
+      "timestamp_utc": "2026-09-15T19:13:24.609137+00:00"
+    },
+    {
+      "event": "CAMPAIGN_COMPLETED",
+      "timestamp_utc": "2026-09-15T19:17:39.932398+00:00"
+    }
+  ],
+  "final_test_opened": true,
+  "governed_evaluation_count": 40,
+  "locked_mask_sha256": "5da981b5b87db97338ecdde9ca8a8b87db3a62771d03dc6a4ad901f6548a3299",
+  "locked_selected_features_sha256": "5157d5bb6b17dc6c92b790671dac029e2b0d2b4454db9824870db1290a6c4121",
+  "partial_metrics_used_for_configuration": false,
+  "rerun_count": 0,
+  "schema_version": "v0.8-d-governed-final-test-1",
+  "source_winner_semantic_lock_sha256": "0f356ccab422774b128ab82f5da8881f24816902d4ccc6a7cecc9760c6202ca8",
+  "stage": "V0.8-D",
+  "status": "PASS",
+  "test_access_activated_at_utc": "2026-09-15T19:13:24.609137+00:00",
+  "winner_lock_verified_at_utc": "2026-09-15T19:13:24.609115+00:00",
+  "winner_lock_verified_before_test_access": true,
+  "winner_modified_after_access": false
+}

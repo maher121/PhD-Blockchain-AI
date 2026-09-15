@@ -1,0 +1,1209 @@
+{
+  "artifact_kind": "FINAL_TEST_AGGREGATION",
+  "schema_version": "v0.8-d-governed-final-test-1",
+  "scientific_unit": "paired model/attack seed",
+  "stage": "V0.8-D",
+  "summaries": [
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 0.22917337773289193,
+      "mean": 0.22208384690725302,
+      "metric": "average_precision",
+      "min": 0.2183880606900212,
+      "n": 5,
+      "std": 0.004786465708754925
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 0.324556061589544,
+      "mean": 0.2701610170033604,
+      "metric": "pr_auc_trapezoidal",
+      "min": 0.24223550783747616,
+      "n": 5,
+      "std": 0.03266022586731958
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 0.28337874659400547,
+      "mean": 0.18900476213886785,
+      "metric": "f1",
+      "min": 0.11518737672583826,
+      "n": 5,
+      "std": 0.07131060379599996
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 0.4866666666666667,
+      "mean": 0.30533333333333335,
+      "metric": "recall",
+      "min": 0.17333333333333334,
+      "n": 5,
+      "std": 0.1423337236528606
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 0.7761194029850746,
+      "mean": 0.26538479924591335,
+      "metric": "precision",
+      "min": 0.06532438478747203,
+      "n": 5,
+      "std": 0.29434746579123955
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 0.6154149122807018,
+      "mean": 0.6035330994152047,
+      "metric": "roc_auc",
+      "min": 0.5873637426900585,
+      "n": 5,
+      "std": 0.011182470453636862
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 0.9561666666666667,
+      "mean": 0.8221666666666667,
+      "metric": "accuracy",
+      "min": 0.6261666666666666,
+      "n": 5,
+      "std": 0.15171537679337438
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 0.3664912280701754,
+      "mean": 0.1506315789473684,
+      "metric": "false_positive_rate",
+      "min": 0.002631578947368421,
+      "n": 5,
+      "std": 0.16717901858073128
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 0.8266666666666667,
+      "mean": 0.6946666666666667,
+      "metric": "false_negative_rate",
+      "min": 0.5133333333333333,
+      "n": 5,
+      "std": 0.1423337236528606
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 0.05,
+      "mean": 0.05,
+      "metric": "attack_prevalence",
+      "min": 0.05,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 146.0,
+      "mean": 91.6,
+      "metric": "true_positives",
+      "min": 52.0,
+      "n": 5,
+      "std": 42.70011709585818
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 5685.0,
+      "mean": 4841.4,
+      "metric": "true_negatives",
+      "min": 3611.0,
+      "n": 5,
+      "std": 952.9204059101684
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 2089.0,
+      "mean": 858.6,
+      "metric": "false_positives",
+      "min": 15.0,
+      "n": 5,
+      "std": 952.9204059101684
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 248.0,
+      "mean": 208.4,
+      "metric": "false_negatives",
+      "min": 154.0,
+      "n": 5,
+      "std": 42.70011709585818
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "max": 0.57,
+      "mean": 0.57,
+      "metric": "selected_feature_visibility_rate",
+      "min": 0.57,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 0.055502056864562326,
+      "mean": 0.051149797360171737,
+      "metric": "average_precision",
+      "min": 0.047586258876705076,
+      "n": 5,
+      "std": 0.003092591785531444
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 0.05463989404205821,
+      "mean": 0.050380619786730196,
+      "metric": "pr_auc_trapezoidal",
+      "min": 0.04702662980790401,
+      "n": 5,
+      "std": 0.002956490081326287
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 0.09510776599384195,
+      "mean": 0.08734827100957092,
+      "metric": "f1",
+      "min": 0.0824295010845987,
+      "n": 5,
+      "std": 0.005279231126490594
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 0.49333333333333335,
+      "mean": 0.42333333333333334,
+      "metric": "recall",
+      "min": 0.30666666666666664,
+      "n": 5,
+      "std": 0.07824463062870336
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 0.05299275638581777,
+      "mean": 0.04882437644706992,
+      "metric": "precision",
+      "min": 0.046228710462287104,
+      "n": 5,
+      "std": 0.0025431218874503985
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 0.5108198830409357,
+      "mean": 0.49400000000000005,
+      "metric": "roc_auc",
+      "min": 0.4780204678362573,
+      "n": 5,
+      "std": 0.015421630169901876
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 0.6588333333333334,
+      "mean": 0.5595666666666667,
+      "metric": "accuracy",
+      "min": 0.496,
+      "n": 5,
+      "std": 0.06515266260441277
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 0.503859649122807,
+      "mean": 0.43326315789473685,
+      "metric": "false_positive_rate",
+      "min": 0.32263157894736844,
+      "n": 5,
+      "std": 0.07251819695006825
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 0.6933333333333334,
+      "mean": 0.5766666666666667,
+      "metric": "false_negative_rate",
+      "min": 0.5066666666666667,
+      "n": 5,
+      "std": 0.07824463062870336
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 0.05,
+      "mean": 0.05,
+      "metric": "attack_prevalence",
+      "min": 0.05,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 148.0,
+      "mean": 127.0,
+      "metric": "true_positives",
+      "min": 92.0,
+      "n": 5,
+      "std": 23.473389188611005
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 3861.0,
+      "mean": 3230.4,
+      "metric": "true_negatives",
+      "min": 2828.0,
+      "n": 5,
+      "std": 413.3537226153891
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 2872.0,
+      "mean": 2469.6,
+      "metric": "false_positives",
+      "min": 1839.0,
+      "n": 5,
+      "std": 413.3537226153891
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 208.0,
+      "mean": 173.0,
+      "metric": "false_negatives",
+      "min": 152.0,
+      "n": 5,
+      "std": 23.473389188611005
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "max": 0.57,
+      "mean": 0.57,
+      "metric": "selected_feature_visibility_rate",
+      "min": 0.57,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 0.22917337773289193,
+      "mean": 0.22208384690725302,
+      "metric": "average_precision",
+      "min": 0.2183880606900212,
+      "n": 5,
+      "std": 0.004786465708754925
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 0.324556061589544,
+      "mean": 0.2701610170033604,
+      "metric": "pr_auc_trapezoidal",
+      "min": 0.24223550783747616,
+      "n": 5,
+      "std": 0.03266022586731958
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 0.28337874659400547,
+      "mean": 0.18900476213886785,
+      "metric": "f1",
+      "min": 0.11518737672583826,
+      "n": 5,
+      "std": 0.07131060379599996
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 0.4866666666666667,
+      "mean": 0.30533333333333335,
+      "metric": "recall",
+      "min": 0.17333333333333334,
+      "n": 5,
+      "std": 0.1423337236528606
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 0.7761194029850746,
+      "mean": 0.26538479924591335,
+      "metric": "precision",
+      "min": 0.06532438478747203,
+      "n": 5,
+      "std": 0.29434746579123955
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 0.6154149122807018,
+      "mean": 0.6035330994152047,
+      "metric": "roc_auc",
+      "min": 0.5873637426900585,
+      "n": 5,
+      "std": 0.011182470453636862
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 0.9561666666666667,
+      "mean": 0.8221666666666667,
+      "metric": "accuracy",
+      "min": 0.6261666666666666,
+      "n": 5,
+      "std": 0.15171537679337438
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 0.3664912280701754,
+      "mean": 0.1506315789473684,
+      "metric": "false_positive_rate",
+      "min": 0.002631578947368421,
+      "n": 5,
+      "std": 0.16717901858073128
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 0.8266666666666667,
+      "mean": 0.6946666666666667,
+      "metric": "false_negative_rate",
+      "min": 0.5133333333333333,
+      "n": 5,
+      "std": 0.1423337236528606
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 0.05,
+      "mean": 0.05,
+      "metric": "attack_prevalence",
+      "min": 0.05,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 146.0,
+      "mean": 91.6,
+      "metric": "true_positives",
+      "min": 52.0,
+      "n": 5,
+      "std": 42.70011709585818
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 5685.0,
+      "mean": 4841.4,
+      "metric": "true_negatives",
+      "min": 3611.0,
+      "n": 5,
+      "std": 952.9204059101684
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 2089.0,
+      "mean": 858.6,
+      "metric": "false_positives",
+      "min": 15.0,
+      "n": 5,
+      "std": 952.9204059101684
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 248.0,
+      "mean": 208.4,
+      "metric": "false_negatives",
+      "min": 154.0,
+      "n": 5,
+      "std": 42.70011709585818
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "max": 0.57,
+      "mean": 0.57,
+      "metric": "selected_feature_visibility_rate",
+      "min": 0.57,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 0.055501364632668505,
+      "mean": 0.05114995951986866,
+      "metric": "average_precision",
+      "min": 0.04758644944195165,
+      "n": 5,
+      "std": 0.0030920143607348345
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 0.054639207130961515,
+      "mean": 0.05038077168126144,
+      "metric": "pr_auc_trapezoidal",
+      "min": 0.04702682016668273,
+      "n": 5,
+      "std": 0.0029559505591219334
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 0.09510776599384195,
+      "mean": 0.08734827100957092,
+      "metric": "f1",
+      "min": 0.0824295010845987,
+      "n": 5,
+      "std": 0.005279231126490594
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 0.49333333333333335,
+      "mean": 0.42333333333333334,
+      "metric": "recall",
+      "min": 0.30666666666666664,
+      "n": 5,
+      "std": 0.07824463062870336
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 0.05299275638581777,
+      "mean": 0.04882437644706992,
+      "metric": "precision",
+      "min": 0.046228710462287104,
+      "n": 5,
+      "std": 0.0025431218874503985
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 0.5108181286549708,
+      "mean": 0.4939989473684211,
+      "metric": "roc_auc",
+      "min": 0.47802105263157896,
+      "n": 5,
+      "std": 0.01541962070029456
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 0.6588333333333334,
+      "mean": 0.5595666666666667,
+      "metric": "accuracy",
+      "min": 0.496,
+      "n": 5,
+      "std": 0.06515266260441277
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 0.503859649122807,
+      "mean": 0.43326315789473685,
+      "metric": "false_positive_rate",
+      "min": 0.32263157894736844,
+      "n": 5,
+      "std": 0.07251819695006825
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 0.6933333333333334,
+      "mean": 0.5766666666666667,
+      "metric": "false_negative_rate",
+      "min": 0.5066666666666667,
+      "n": 5,
+      "std": 0.07824463062870336
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 0.05,
+      "mean": 0.05,
+      "metric": "attack_prevalence",
+      "min": 0.05,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 148.0,
+      "mean": 127.0,
+      "metric": "true_positives",
+      "min": 92.0,
+      "n": 5,
+      "std": 23.473389188611005
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 3861.0,
+      "mean": 3230.4,
+      "metric": "true_negatives",
+      "min": 2828.0,
+      "n": 5,
+      "std": 413.3537226153891
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 2872.0,
+      "mean": 2469.6,
+      "metric": "false_positives",
+      "min": 1839.0,
+      "n": 5,
+      "std": 413.3537226153891
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 208.0,
+      "mean": 173.0,
+      "metric": "false_negatives",
+      "min": 152.0,
+      "n": 5,
+      "std": 23.473389188611005
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "max": 0.57,
+      "mean": 0.57,
+      "metric": "selected_feature_visibility_rate",
+      "min": 0.57,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 0.23491953570092283,
+      "mean": 0.2249411903498859,
+      "metric": "average_precision",
+      "min": 0.21636359931502117,
+      "n": 5,
+      "std": 0.006803165525792342
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 0.3218654698963904,
+      "mean": 0.2708705498427765,
+      "metric": "pr_auc_trapezoidal",
+      "min": 0.23938042299937512,
+      "n": 5,
+      "std": 0.030792457650717527
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 0.287292817679558,
+      "mean": 0.19212084336663468,
+      "metric": "f1",
+      "min": 0.11746031746031746,
+      "n": 5,
+      "std": 0.07266582112113847
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 0.49333333333333335,
+      "mean": 0.3,
+      "metric": "recall",
+      "min": 0.17333333333333334,
+      "n": 5,
+      "std": 0.14994443415256645
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 0.8387096774193549,
+      "mean": 0.2934696602397577,
+      "metric": "precision",
+      "min": 0.06666666666666667,
+      "n": 5,
+      "std": 0.3199970476565835
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 0.6132549707602339,
+      "mean": 0.6054946198830409,
+      "metric": "roc_auc",
+      "min": 0.5904052631578948,
+      "n": 5,
+      "std": 0.009091297091635784
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 0.957,
+      "mean": 0.8266,
+      "metric": "accuracy",
+      "min": 0.6293333333333333,
+      "n": 5,
+      "std": 0.15259953946340873
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 0.36350877192982456,
+      "mean": 0.1456842105263158,
+      "metric": "false_positive_rate",
+      "min": 0.0017543859649122807,
+      "n": 5,
+      "std": 0.16852270324249002
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 0.8266666666666667,
+      "mean": 0.7,
+      "metric": "false_negative_rate",
+      "min": 0.5066666666666667,
+      "n": 5,
+      "std": 0.14994443415256645
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 0.05,
+      "mean": 0.05,
+      "metric": "attack_prevalence",
+      "min": 0.05,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 148.0,
+      "mean": 90.0,
+      "metric": "true_positives",
+      "min": 52.0,
+      "n": 5,
+      "std": 44.983330245769935
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 5690.0,
+      "mean": 4869.6,
+      "metric": "true_negatives",
+      "min": 3628.0,
+      "n": 5,
+      "std": 960.5794084821931
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 2072.0,
+      "mean": 830.4,
+      "metric": "false_positives",
+      "min": 10.0,
+      "n": 5,
+      "std": 960.5794084821931
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 248.0,
+      "mean": 210.0,
+      "metric": "false_negatives",
+      "min": 152.0,
+      "n": 5,
+      "std": 44.983330245769935
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K11",
+      "max": 0.57,
+      "mean": 0.57,
+      "metric": "selected_feature_visibility_rate",
+      "min": 0.57,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 0.05344652233903964,
+      "mean": 0.051170517943451344,
+      "metric": "average_precision",
+      "min": 0.04706797808848327,
+      "n": 5,
+      "std": 0.0028387336228927027
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 0.052856844867664586,
+      "mean": 0.050537236693520504,
+      "metric": "pr_auc_trapezoidal",
+      "min": 0.046608194926036996,
+      "n": 5,
+      "std": 0.0027610497236367267
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 0.0966643975493533,
+      "mean": 0.09245737320194357,
+      "metric": "f1",
+      "min": 0.08834782608695652,
+      "n": 5,
+      "std": 0.0033443712102911374
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 0.59,
+      "mean": 0.51,
+      "metric": "recall",
+      "min": 0.42333333333333334,
+      "n": 5,
+      "std": 0.06745368781616021
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 0.053828658074298714,
+      "mean": 0.050907153006341,
+      "metric": "precision",
+      "min": 0.04932038834951456,
+      "n": 5,
+      "std": 0.0019093928694846438
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 0.5208152046783626,
+      "mean": 0.5006446783625731,
+      "metric": "roc_auc",
+      "min": 0.48280789473684216,
+      "n": 5,
+      "std": 0.016847902266689908
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 0.5631666666666667,
+      "mean": 0.4995333333333333,
+      "metric": "accuracy",
+      "min": 0.415,
+      "n": 5,
+      "std": 0.06304334928355956
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 0.5942105263157895,
+      "mean": 0.5010175438596491,
+      "metric": "false_positive_rate",
+      "min": 0.42947368421052634,
+      "n": 5,
+      "std": 0.0697787472021082
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 0.5766666666666667,
+      "mean": 0.48999999999999994,
+      "metric": "false_negative_rate",
+      "min": 0.41,
+      "n": 5,
+      "std": 0.06745368781616021
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 0.05,
+      "mean": 0.05,
+      "metric": "attack_prevalence",
+      "min": 0.05,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 177.0,
+      "mean": 153.0,
+      "metric": "true_positives",
+      "min": 127.0,
+      "n": 5,
+      "std": 20.23610634484806
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 3252.0,
+      "mean": 2844.2,
+      "metric": "true_negatives",
+      "min": 2313.0,
+      "n": 5,
+      "std": 397.73885905201666
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 3387.0,
+      "mean": 2855.8,
+      "metric": "false_positives",
+      "min": 2448.0,
+      "n": 5,
+      "std": 397.73885905201666
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 173.0,
+      "mean": 147.0,
+      "metric": "false_negatives",
+      "min": 123.0,
+      "n": 5,
+      "std": 20.23610634484806
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K11",
+      "max": 0.57,
+      "mean": 0.57,
+      "metric": "selected_feature_visibility_rate",
+      "min": 0.57,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 0.22829929078711225,
+      "mean": 0.21961151547107932,
+      "metric": "average_precision",
+      "min": 0.21190100236716547,
+      "n": 5,
+      "std": 0.006330604974879911
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 0.3186621158373161,
+      "mean": 0.26029004477926304,
+      "metric": "pr_auc_trapezoidal",
+      "min": 0.22905042264201142,
+      "n": 5,
+      "std": 0.0353821007639282
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 0.27979274611398963,
+      "mean": 0.18725821411669835,
+      "metric": "f1",
+      "min": 0.11577311577311578,
+      "n": 5,
+      "std": 0.06975650039747891
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 0.49666666666666665,
+      "mean": 0.2986666666666667,
+      "metric": "recall",
+      "min": 0.18,
+      "n": 5,
+      "std": 0.15359759836085402
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 0.627906976744186,
+      "mean": 0.2458741416080094,
+      "metric": "precision",
+      "min": 0.06552330694810905,
+      "n": 5,
+      "std": 0.22977404673648455
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 0.6119327485380117,
+      "mean": 0.5999093567251462,
+      "metric": "roc_auc",
+      "min": 0.5863233918128655,
+      "n": 5,
+      "std": 0.010907216203066379
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 0.9536666666666667,
+      "mean": 0.8230666666666668,
+      "metric": "accuracy",
+      "min": 0.6206666666666667,
+      "n": 5,
+      "std": 0.15705296346561987
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 0.37280701754385964,
+      "mean": 0.14933333333333335,
+      "metric": "false_positive_rate",
+      "min": 0.005614035087719298,
+      "n": 5,
+      "std": 0.1733904746356255
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 0.82,
+      "mean": 0.7013333333333334,
+      "metric": "false_negative_rate",
+      "min": 0.5033333333333333,
+      "n": 5,
+      "std": 0.15359759836085402
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 0.05,
+      "mean": 0.05,
+      "metric": "attack_prevalence",
+      "min": 0.05,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 149.0,
+      "mean": 89.6,
+      "metric": "true_positives",
+      "min": 54.0,
+      "n": 5,
+      "std": 46.0792795082562
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 5668.0,
+      "mean": 4848.8,
+      "metric": "true_negatives",
+      "min": 3575.0,
+      "n": 5,
+      "std": 988.3257054230655
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 2125.0,
+      "mean": 851.2,
+      "metric": "false_positives",
+      "min": 32.0,
+      "n": 5,
+      "std": 988.3257054230655
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 246.0,
+      "mean": 210.4,
+      "metric": "false_negatives",
+      "min": 151.0,
+      "n": 5,
+      "std": 46.0792795082562
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "max": 0.4266666666666667,
+      "mean": 0.42666666666666664,
+      "metric": "selected_feature_visibility_rate",
+      "min": 0.4266666666666667,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 0.05376494934160834,
+      "mean": 0.05073160798921733,
+      "metric": "average_precision",
+      "min": 0.047472794931193045,
+      "n": 5,
+      "std": 0.002844689390821729
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 0.05266273080717623,
+      "mean": 0.04996332342670157,
+      "metric": "pr_auc_trapezoidal",
+      "min": 0.04710325110147508,
+      "n": 5,
+      "std": 0.0025223608631187123
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 0.0898655296818629,
+      "mean": 0.08693996654716712,
+      "metric": "f1",
+      "min": 0.08319685555191615,
+      "n": 5,
+      "std": 0.002979413741630324
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 0.53,
+      "mean": 0.46799999999999997,
+      "metric": "recall",
+      "min": 0.42333333333333334,
+      "n": 5,
+      "std": 0.04862555341016127
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 0.04983630411058567,
+      "mean": 0.04794919983874797,
+      "metric": "precision",
+      "min": 0.046131492916818014,
+      "n": 5,
+      "std": 0.0014799730328073607
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 0.4977877192982456,
+      "mean": 0.4898604678362573,
+      "metric": "roc_auc",
+      "min": 0.48193625730994155,
+      "n": 5,
+      "std": 0.006800480983176428
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 0.5401666666666667,
+      "mean": 0.5091333333333333,
+      "metric": "accuracy",
+      "min": 0.455,
+      "n": 5,
+      "std": 0.03927474450019446
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 0.5489473684210526,
+      "mean": 0.4887017543859649,
+      "metric": "false_positive_rate",
+      "min": 0.4536842105263158,
+      "n": 5,
+      "std": 0.043793388545199964
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 0.5766666666666667,
+      "mean": 0.532,
+      "metric": "false_negative_rate",
+      "min": 0.47,
+      "n": 5,
+      "std": 0.048625553410161254
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 0.05,
+      "mean": 0.05,
+      "metric": "attack_prevalence",
+      "min": 0.05,
+      "n": 5,
+      "std": 0.0
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 159.0,
+      "mean": 140.4,
+      "metric": "true_positives",
+      "min": 127.0,
+      "n": 5,
+      "std": 14.587666023048376
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 3114.0,
+      "mean": 2914.4,
+      "metric": "true_negatives",
+      "min": 2571.0,
+      "n": 5,
+      "std": 249.62231470763987
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 3129.0,
+      "mean": 2785.6,
+      "metric": "false_positives",
+      "min": 2586.0,
+      "n": 5,
+      "std": 249.62231470763987
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 173.0,
+      "mean": 159.6,
+      "metric": "false_negatives",
+      "min": 141.0,
+      "n": 5,
+      "std": 14.587666023048376
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "max": 0.4266666666666667,
+      "mean": 0.42666666666666664,
+      "metric": "selected_feature_visibility_rate",
+      "min": 0.4266666666666667,
+      "n": 5,
+      "std": 0.0
+    }
+  ],
+  "test_driven_selection": false
+}

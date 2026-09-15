@@ -1,0 +1,837 @@
+{
+  "artifact_kind": "PAIRED_FINAL_TEST_COMPARISONS",
+  "comparisons": [
+    {
+      "ci95_high": 0.008284553646923296,
+      "ci95_low": -0.013229216519270656,
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.0024723314361736804,
+      "metric": "average_precision",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.22917337773289193,
+          "bpso_value": 0.21925865507760403,
+          "difference_bpso_minus_baseline": -0.009914722655287894,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.2183880606900212,
+          "bpso_value": 0.21190100236716547,
+          "difference_bpso_minus_baseline": -0.006487058322855732,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.22491771019802317,
+          "bpso_value": 0.21575972872076193,
+          "difference_bpso_minus_baseline": -0.00915798147726124,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.21935630815766338,
+          "bpso_value": 0.22283890040275306,
+          "difference_bpso_minus_baseline": 0.0034825922450896774,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.21858377775766547,
+          "bpso_value": 0.22829929078711225,
+          "difference_bpso_minus_baseline": 0.009715513029446787,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K43",
+      "std_difference": 0.008663281772410453
+    },
+    {
+      "ci95_high": 0.04717236594389267,
+      "ci95_low": -0.05066546198823165,
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.0017465480221694918,
+      "metric": "f1",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.22750424448217318,
+          "bpso_value": 0.27979274611398963,
+          "difference_bpso_minus_baseline": 0.05228850163181645,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.12233285917496443,
+          "bpso_value": 0.12126865671641791,
+          "difference_bpso_minus_baseline": -0.0010642024585465204,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.1966205837173579,
+          "bpso_value": 0.1951219512195122,
+          "difference_bpso_minus_baseline": -0.0014986324978457088,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.28337874659400547,
+          "bpso_value": 0.22433460076045628,
+          "difference_bpso_minus_baseline": -0.059044145833549194,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.11518737672583826,
+          "bpso_value": 0.11577311577311578,
+          "difference_bpso_minus_baseline": 0.000585739047277517,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K43",
+      "std_difference": 0.0393978677297803
+    },
+    {
+      "ci95_high": 0.027463412107472426,
+      "ci95_low": -0.040796745440805776,
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.006666666666666677,
+      "metric": "recall",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.22333333333333333,
+          "bpso_value": 0.18,
+          "difference_bpso_minus_baseline": -0.043333333333333335,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.43,
+          "bpso_value": 0.43333333333333335,
+          "difference_bpso_minus_baseline": 0.003333333333333355,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.21333333333333335,
+          "bpso_value": 0.18666666666666668,
+          "difference_bpso_minus_baseline": -0.026666666666666672,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.17333333333333334,
+          "bpso_value": 0.19666666666666666,
+          "difference_bpso_minus_baseline": 0.023333333333333317,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.4866666666666667,
+          "bpso_value": 0.49666666666666665,
+          "difference_bpso_minus_baseline": 0.009999999999999953,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K43",
+      "std_difference": 0.027487370837451064
+    },
+    {
+      "ci95_high": 0.008284553646923296,
+      "ci95_low": -0.013229216519270656,
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.0024723314361736804,
+      "metric": "average_precision",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.22917337773289193,
+          "bpso_value": 0.21925865507760403,
+          "difference_bpso_minus_baseline": -0.009914722655287894,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.2183880606900212,
+          "bpso_value": 0.21190100236716547,
+          "difference_bpso_minus_baseline": -0.006487058322855732,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.22491771019802317,
+          "bpso_value": 0.21575972872076193,
+          "difference_bpso_minus_baseline": -0.00915798147726124,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.21935630815766338,
+          "bpso_value": 0.22283890040275306,
+          "difference_bpso_minus_baseline": 0.0034825922450896774,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.21858377775766547,
+          "bpso_value": 0.22829929078711225,
+          "difference_bpso_minus_baseline": 0.009715513029446787,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K42",
+      "std_difference": 0.008663281772410453
+    },
+    {
+      "ci95_high": 0.04717236594389267,
+      "ci95_low": -0.05066546198823165,
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.0017465480221694918,
+      "metric": "f1",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.22750424448217318,
+          "bpso_value": 0.27979274611398963,
+          "difference_bpso_minus_baseline": 0.05228850163181645,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.12233285917496443,
+          "bpso_value": 0.12126865671641791,
+          "difference_bpso_minus_baseline": -0.0010642024585465204,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.1966205837173579,
+          "bpso_value": 0.1951219512195122,
+          "difference_bpso_minus_baseline": -0.0014986324978457088,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.28337874659400547,
+          "bpso_value": 0.22433460076045628,
+          "difference_bpso_minus_baseline": -0.059044145833549194,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.11518737672583826,
+          "bpso_value": 0.11577311577311578,
+          "difference_bpso_minus_baseline": 0.000585739047277517,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K42",
+      "std_difference": 0.0393978677297803
+    },
+    {
+      "ci95_high": 0.027463412107472426,
+      "ci95_low": -0.040796745440805776,
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.006666666666666677,
+      "metric": "recall",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.22333333333333333,
+          "bpso_value": 0.18,
+          "difference_bpso_minus_baseline": -0.043333333333333335,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.43,
+          "bpso_value": 0.43333333333333335,
+          "difference_bpso_minus_baseline": 0.003333333333333355,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.21333333333333335,
+          "bpso_value": 0.18666666666666668,
+          "difference_bpso_minus_baseline": -0.026666666666666672,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.17333333333333334,
+          "bpso_value": 0.19666666666666666,
+          "difference_bpso_minus_baseline": 0.023333333333333317,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.4866666666666667,
+          "bpso_value": 0.49666666666666665,
+          "difference_bpso_minus_baseline": 0.009999999999999953,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K42",
+      "std_difference": 0.027487370837451064
+    },
+    {
+      "ci95_high": -6.903877354190371e-05,
+      "ci95_low": -0.010590310984071198,
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": false,
+      "mean_difference": -0.0053296748788065505,
+      "metric": "average_precision",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.22390462301070638,
+          "bpso_value": 0.21925865507760403,
+          "difference_bpso_minus_baseline": -0.004645967933102346,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.21636359931502117,
+          "bpso_value": 0.21190100236716547,
+          "difference_bpso_minus_baseline": -0.004462596947855696,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.22708815384369013,
+          "bpso_value": 0.21575972872076193,
+          "difference_bpso_minus_baseline": -0.011328425122928198,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.222430039879089,
+          "bpso_value": 0.22283890040275306,
+          "difference_bpso_minus_baseline": 0.00040886052366406744,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.23491953570092283,
+          "bpso_value": 0.22829929078711225,
+          "difference_bpso_minus_baseline": -0.00662024491381058,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K11",
+      "std_difference": 0.004236763015497641
+    },
+    {
+      "ci95_high": -0.0004451208459543589,
+      "ci95_low": -0.009280137653918316,
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": false,
+      "mean_difference": -0.0048626292499363375,
+      "metric": "f1",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.287292817679558,
+          "bpso_value": 0.27979274611398963,
+          "difference_bpso_minus_baseline": -0.007500071565568367,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.12362242453282224,
+          "bpso_value": 0.12126865671641791,
+          "difference_bpso_minus_baseline": -0.0023537678164043258,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.19814241486068113,
+          "bpso_value": 0.1951219512195122,
+          "difference_bpso_minus_baseline": -0.0030204636411689245,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.23408624229979466,
+          "bpso_value": 0.22433460076045628,
+          "difference_bpso_minus_baseline": -0.009751641539338385,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.11746031746031746,
+          "bpso_value": 0.11577311577311578,
+          "difference_bpso_minus_baseline": -0.0016872016872016837,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K11",
+      "std_difference": 0.003557732535027589
+    },
+    {
+      "ci95_high": 0.01637217414791451,
+      "ci95_low": -0.019038840814581195,
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.001333333333333342,
+      "metric": "recall",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.17333333333333334,
+          "bpso_value": 0.18,
+          "difference_bpso_minus_baseline": 0.006666666666666654,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.43,
+          "bpso_value": 0.43333333333333335,
+          "difference_bpso_minus_baseline": 0.003333333333333355,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.21333333333333335,
+          "bpso_value": 0.18666666666666668,
+          "difference_bpso_minus_baseline": -0.026666666666666672,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.19,
+          "bpso_value": 0.19666666666666666,
+          "difference_bpso_minus_baseline": 0.006666666666666654,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.49333333333333335,
+          "bpso_value": 0.49666666666666665,
+          "difference_bpso_minus_baseline": 0.0033333333333332993,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K11",
+      "std_difference": 0.014259499757471622
+    },
+    {
+      "ci95_high": 0.0011870574497180114,
+      "ci95_low": -0.002023436191626817,
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.0004181893709544027,
+      "metric": "average_precision",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.052943903625345755,
+          "bpso_value": 0.05376494934160834,
+          "difference_bpso_minus_baseline": 0.0008210457162625834,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.055502056864562326,
+          "bpso_value": 0.053484405334579876,
+          "difference_bpso_minus_baseline": -0.002017651529982449,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.049683439718372524,
+          "bpso_value": 0.050410396214364675,
+          "difference_bpso_minus_baseline": 0.000726956495992151,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.05003332771587299,
+          "bpso_value": 0.04852549412434072,
+          "difference_bpso_minus_baseline": -0.0015078335915322677,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.047586258876705076,
+          "bpso_value": 0.047472794931193045,
+          "difference_bpso_minus_baseline": -0.00011346394551203093,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K43",
+      "std_difference": 0.0012928190098083047
+    },
+    {
+      "ci95_high": 0.009325344672951116,
+      "ci95_low": -0.010141953597758697,
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.00040830446240379127,
+      "metric": "f1",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.09510776599384195,
+          "bpso_value": 0.08430136076999668,
+          "difference_bpso_minus_baseline": -0.010806405223845267,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.0891566265060241,
+          "bpso_value": 0.08319685555191615,
+          "difference_bpso_minus_baseline": -0.0059597709541079485,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.0824295010845987,
+          "bpso_value": 0.08862876254180602,
+          "difference_bpso_minus_baseline": 0.006199261457207311,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.08247422680412371,
+          "bpso_value": 0.0898655296818629,
+          "difference_bpso_minus_baseline": 0.007391302877739189,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.08757323465926611,
+          "bpso_value": 0.08870732419025387,
+          "difference_bpso_minus_baseline": 0.0011340895309877586,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K43",
+      "std_difference": 0.007839197358895753
+    },
+    {
+      "ci95_high": 0.17285841082876352,
+      "ci95_low": -0.08352507749543014,
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": 0.04466666666666669,
+      "metric": "recall",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.4633333333333333,
+          "bpso_value": 0.42333333333333334,
+          "difference_bpso_minus_baseline": -0.03999999999999998,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.49333333333333335,
+          "bpso_value": 0.42333333333333334,
+          "difference_bpso_minus_baseline": -0.07,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.38,
+          "bpso_value": 0.53,
+          "difference_bpso_minus_baseline": 0.15000000000000002,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.30666666666666664,
+          "bpso_value": 0.45666666666666667,
+          "difference_bpso_minus_baseline": 0.15000000000000002,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.47333333333333333,
+          "bpso_value": 0.5066666666666667,
+          "difference_bpso_minus_baseline": 0.03333333333333338,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K43",
+      "std_difference": 0.10324189502759473
+    },
+    {
+      "ci95_high": 0.0011872372293077723,
+      "ci95_low": -0.0020239402906104213,
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.0004183515306513244,
+      "metric": "average_precision",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.052943241571915454,
+          "bpso_value": 0.05376494934160834,
+          "difference_bpso_minus_baseline": 0.0008217077696928837,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.055501364632668505,
+          "bpso_value": 0.053484405334579876,
+          "difference_bpso_minus_baseline": -0.002016959298088629,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.04968361176383365,
+          "bpso_value": 0.050410396214364675,
+          "difference_bpso_minus_baseline": 0.0007267844505310234,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.050035130188974014,
+          "bpso_value": 0.04852549412434072,
+          "difference_bpso_minus_baseline": -0.0015096360646332935,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.04758644944195165,
+          "bpso_value": 0.047472794931193045,
+          "difference_bpso_minus_baseline": -0.00011365451075860677,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K42",
+      "std_difference": 0.0012930943977451197
+    },
+    {
+      "ci95_high": 0.009325344672951116,
+      "ci95_low": -0.010141953597758697,
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.00040830446240379127,
+      "metric": "f1",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.09510776599384195,
+          "bpso_value": 0.08430136076999668,
+          "difference_bpso_minus_baseline": -0.010806405223845267,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.0891566265060241,
+          "bpso_value": 0.08319685555191615,
+          "difference_bpso_minus_baseline": -0.0059597709541079485,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.0824295010845987,
+          "bpso_value": 0.08862876254180602,
+          "difference_bpso_minus_baseline": 0.006199261457207311,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.08247422680412371,
+          "bpso_value": 0.0898655296818629,
+          "difference_bpso_minus_baseline": 0.007391302877739189,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.08757323465926611,
+          "bpso_value": 0.08870732419025387,
+          "difference_bpso_minus_baseline": 0.0011340895309877586,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K42",
+      "std_difference": 0.007839197358895753
+    },
+    {
+      "ci95_high": 0.17285841082876352,
+      "ci95_low": -0.08352507749543014,
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": 0.04466666666666669,
+      "metric": "recall",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.4633333333333333,
+          "bpso_value": 0.42333333333333334,
+          "difference_bpso_minus_baseline": -0.03999999999999998,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.49333333333333335,
+          "bpso_value": 0.42333333333333334,
+          "difference_bpso_minus_baseline": -0.07,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.38,
+          "bpso_value": 0.53,
+          "difference_bpso_minus_baseline": 0.15000000000000002,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.30666666666666664,
+          "bpso_value": 0.45666666666666667,
+          "difference_bpso_minus_baseline": 0.15000000000000002,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.47333333333333333,
+          "bpso_value": 0.5066666666666667,
+          "difference_bpso_minus_baseline": 0.03333333333333338,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K42",
+      "std_difference": 0.10324189502759473
+    },
+    {
+      "ci95_high": 0.0011524078367347267,
+      "ci95_low": -0.002030227745202746,
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.0004389099542340097,
+      "metric": "average_precision",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.05344652233903964,
+          "bpso_value": 0.05376494934160834,
+          "difference_bpso_minus_baseline": 0.0003184270025686983,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.05306826450409439,
+          "bpso_value": 0.053484405334579876,
+          "difference_bpso_minus_baseline": 0.0004161408304854883,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.05295406432953683,
+          "bpso_value": 0.050410396214364675,
+          "difference_bpso_minus_baseline": -0.0025436681151721555,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.04931576045610257,
+          "bpso_value": 0.04852549412434072,
+          "difference_bpso_minus_baseline": -0.0007902663317618519,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.04706797808848327,
+          "bpso_value": 0.047472794931193045,
+          "difference_bpso_minus_baseline": 0.0004048168427097723,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K11",
+      "std_difference": 0.0012816009752000467
+    },
+    {
+      "ci95_high": 0.002193353246245468,
+      "ci95_low": -0.013228166555798365,
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.005517406654776449,
+      "metric": "f1",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.0966643975493533,
+          "bpso_value": 0.08430136076999668,
+          "difference_bpso_minus_baseline": -0.012363036779356615,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.09497049733071088,
+          "bpso_value": 0.08319685555191615,
+          "difference_bpso_minus_baseline": -0.011773641778794725,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.09068923821039904,
+          "bpso_value": 0.08862876254180602,
+          "difference_bpso_minus_baseline": -0.0020604756685930203,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.08834782608695652,
+          "bpso_value": 0.0898655296818629,
+          "difference_bpso_minus_baseline": 0.0015177035949063833,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.09161490683229814,
+          "bpso_value": 0.08870732419025387,
+          "difference_bpso_minus_baseline": -0.0029075826420442707,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K11",
+      "std_difference": 0.0062100213199195314
+    },
+    {
+      "ci95_high": 0.05057593046089323,
+      "ci95_low": -0.1345759304608932,
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "df": 4,
+      "direction_uncertain": true,
+      "mean_difference": -0.04199999999999998,
+      "metric": "recall",
+      "n": 5,
+      "p_value_reported": false,
+      "pairs": [
+        {
+          "baseline_value": 0.47333333333333333,
+          "bpso_value": 0.42333333333333334,
+          "difference_bpso_minus_baseline": -0.04999999999999999,
+          "seed": 42
+        },
+        {
+          "baseline_value": 0.5633333333333334,
+          "bpso_value": 0.42333333333333334,
+          "difference_bpso_minus_baseline": -0.14,
+          "seed": 43
+        },
+        {
+          "baseline_value": 0.5,
+          "bpso_value": 0.53,
+          "difference_bpso_minus_baseline": 0.030000000000000027,
+          "seed": 44
+        },
+        {
+          "baseline_value": 0.42333333333333334,
+          "bpso_value": 0.45666666666666667,
+          "difference_bpso_minus_baseline": 0.033333333333333326,
+          "seed": 45
+        },
+        {
+          "baseline_value": 0.59,
+          "bpso_value": 0.5066666666666667,
+          "difference_bpso_minus_baseline": -0.08333333333333326,
+          "seed": 46
+        }
+      ],
+      "reference_configuration_id": "K11",
+      "std_difference": 0.07455795657667187
+    }
+  ],
+  "confidence_interval": "two-sided 95% Student-t interval, n=5, df=4",
+  "difference_definition": "BPSO-K10 minus baseline within matched seed",
+  "schema_version": "v0.8-d-governed-final-test-1",
+  "stage": "V0.8-D"
+}

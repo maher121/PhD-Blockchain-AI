@@ -1,0 +1,76 @@
+{
+  "artifact_kind": "FINAL_TEST_PRESERVATION",
+  "cross_classifier_interpretation": "PRESERVATION_HOLDS_FOR_BOTH_CLASSIFIERS",
+  "domain_validated_margins": false,
+  "margin_semantics": "preregistered descriptive engineering preservation criteria",
+  "margins": {
+    "average_precision": 0.05,
+    "f1": 0.05,
+    "recall": 0.1
+  },
+  "results": [
+    {
+      "classifier": "decision_tree",
+      "metric_checks": [
+        {
+          "bpso_k10_mean": 0.21961151547107932,
+          "k43_mean": 0.22208384690725302,
+          "margin": 0.05,
+          "metric": "average_precision",
+          "preserved": true,
+          "relative_loss": 0.011132423499518184
+        },
+        {
+          "bpso_k10_mean": 0.18725821411669835,
+          "k43_mean": 0.18900476213886785,
+          "margin": 0.05,
+          "metric": "f1",
+          "preserved": true,
+          "relative_loss": 0.009240761991416165
+        },
+        {
+          "bpso_k10_mean": 0.2986666666666667,
+          "k43_mean": 0.30533333333333335,
+          "margin": 0.1,
+          "metric": "recall",
+          "preserved": true,
+          "relative_loss": 0.021834061135371136
+        }
+      ],
+      "overall_preserved": true
+    },
+    {
+      "classifier": "logistic_regression",
+      "metric_checks": [
+        {
+          "bpso_k10_mean": 0.05073160798921733,
+          "k43_mean": 0.051149797360171737,
+          "margin": 0.05,
+          "metric": "average_precision",
+          "preserved": true,
+          "relative_loss": 0.008175777667499275
+        },
+        {
+          "bpso_k10_mean": 0.08693996654716712,
+          "k43_mean": 0.08734827100957092,
+          "margin": 0.05,
+          "metric": "f1",
+          "preserved": true,
+          "relative_loss": 0.00467444240950179
+        },
+        {
+          "bpso_k10_mean": 0.46799999999999997,
+          "k43_mean": 0.42333333333333334,
+          "margin": 0.1,
+          "metric": "recall",
+          "preserved": true,
+          "relative_loss": 0.0
+        }
+      ],
+      "overall_preserved": true
+    }
+  ],
+  "schema_version": "v0.8-d-governed-final-test-1",
+  "stage": "V0.8-D",
+  "winner_reselection_performed": false
+}

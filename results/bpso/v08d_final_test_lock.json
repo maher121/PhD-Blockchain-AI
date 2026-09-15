@@ -1,0 +1,63 @@
+{
+  "bpso_mask_sha256": "5da981b5b87db97338ecdde9ca8a8b87db3a62771d03dc6a4ad901f6548a3299",
+  "bpso_selected_features_sha256": "5157d5bb6b17dc6c92b790671dac029e2b0d2b4454db9824870db1290a6c4121",
+  "classifier_configurations": {
+    "decision_tree": {
+      "parameters": {
+        "class_weight": "balanced",
+        "max_depth": 5,
+        "min_samples_leaf": 20
+      },
+      "prediction_threshold": 0.5
+    },
+    "logistic_regression": {
+      "parameters": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "max_iter": 500,
+        "solver": "liblinear"
+      },
+      "prediction_threshold": 0.5
+    }
+  },
+  "classifier_configurations_sha256": "34c523350d4ca7530b8119d4f095eab2c0d816430ceb5704ec64cb181c909dd1",
+  "direct_energy_measured": false,
+  "execution_metadata": {
+    "completed_at_utc": "2026-09-15T19:17:40.138362+00:00",
+    "governed_evaluation_count": 40,
+    "rerun_count": 0,
+    "started_at_utc": "2026-09-15T19:13:18.225615+00:00",
+    "wall_time_sec": 261.9127399480003
+  },
+  "feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+  "feature_reselection_performed": false,
+  "historical_test_statement": "The final test was historically accessed in V0.6 but remained untouched by V0.8 search and selection.",
+  "optimizer_invoked": false,
+  "preservation_result": {
+    "decision_tree": true,
+    "logistic_regression": true
+  },
+  "resource_benchmark_executed": false,
+  "result_artifact_hashes": {
+    "v08d_final_test_raw.json": "16c996410f905bf77e0342548cde022eccaf8c1e24a9c2b4bfe2c61b7a70e63e",
+    "v08d_final_test_summary.json": "2847a2f4093c2860fa28dd633069dbff66dc01bd83d06bf6e45bb370ed1e44df",
+    "v08d_paired_comparisons.json": "ecbc5c19bf06ec27b80d7d79ab9e106c2bd8a62d657c288036d4d84ab89eba6b",
+    "v08d_preservation.json": "10e233695a63080561698d33cb2e21da64f77c1cbbbfd27d5f56ca69f5110d78",
+    "v08d_test_access_audit.json": "1df5a64129960fcaffd91e24a4fc7318335c8f7eda64b0cf7598a335e50b8405"
+  },
+  "schema_version": "v0.8-d-governed-final-test-1",
+  "seed_namespace": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "semantic_result_lock_sha256": "ac19e5a0dba5d058f88485e6ab8ab9a96f97c30f697e95a744ccaa6563d2b657",
+  "source_winner_semantic_lock_sha256": "0f356ccab422774b128ab82f5da8881f24816902d4ccc6a7cecc9760c6202ca8",
+  "stage": "V0.8-D",
+  "status": "FINAL_TEST_EVALUATED",
+  "test_access_audit_sha256": "1df5a64129960fcaffd91e24a4fc7318335c8f7eda64b0cf7598a335e50b8405",
+  "test_driven_tuning_performed": false,
+  "winner_unchanged_statement": "The V0.8-C winner was not modified after final-test access."
+}
