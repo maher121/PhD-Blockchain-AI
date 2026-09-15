@@ -1,0 +1,261 @@
+{
+  "actual_decision_tree_fits": 4860,
+  "artifact_hashes": {
+    "v08c_convergence.json": "06833199f0666d0305b78feb20bd373895bc7fee57a62b580678348eae4092ff",
+    "v08c_stability.json": "c0a3ea684607d58ab1bfa6d65fc372abe545e866ebebca05178a61222b838efd",
+    "v08c_validation_comparison.json": "fd64c44bf1522380bdaa9b317d6bbdee2d05de63b5dcce41f0d4563e962be4a0",
+    "v08c_winner_lock.json": "789b109c2c48ed55f1c94a20153f39aa6b9c19e50cfcce5f1dc89b7d5a22fbe9"
+  },
+  "cache_hits": 0,
+  "completed_run_count": 5,
+  "direct_energy_measured": false,
+  "dry_validation": {
+    "final_test_accessed": false,
+    "fitness_evaluations": 0,
+    "initializations": [
+      {
+        "cardinalities": [
+          43,
+          42,
+          4,
+          8,
+          11,
+          14,
+          18,
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "initial_population_sha256": "294febdfbf114bbd9d5478cea4f2993f0175eba82b7bd37db983fe693a3bb9f4",
+        "initial_velocities_sha256": "df5d5f389c5b83864bb10912b2cd7bdbdad5e7d161de3376985519f15b08fb8f",
+        "optimizer_seed": 1042
+      },
+      {
+        "cardinalities": [
+          43,
+          42,
+          4,
+          8,
+          11,
+          14,
+          18,
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "initial_population_sha256": "42b7a4b80df56318f8b33b9e3b8f1ba28f49f2e4ab8b0c8f42a17c5130cdf213",
+        "initial_velocities_sha256": "4251cd8ee24c50ae55dce7b2b84a997ee602b676e42a8ccf5ffdece5647a3a86",
+        "optimizer_seed": 1043
+      },
+      {
+        "cardinalities": [
+          43,
+          42,
+          4,
+          8,
+          11,
+          14,
+          18,
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "initial_population_sha256": "9bc28eadf0a14e7ec953de2cfff2c9262b7f7a335072aef08508fe2066c16f20",
+        "initial_velocities_sha256": "9937aadc5ec2043a07c9ee95aa5308779200871f0fd108e6ec4b2803b1c3184e",
+        "optimizer_seed": 1044
+      },
+      {
+        "cardinalities": [
+          43,
+          42,
+          4,
+          8,
+          11,
+          14,
+          18,
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "initial_population_sha256": "31cfb5381f80783167803b95c709d283ba408d356a271744af30746c252d1fbd",
+        "initial_velocities_sha256": "ef40595d49c0c73a5b4dd09ed7a484f5e5629c297abb4687f24f75580a80b63c",
+        "optimizer_seed": 1045
+      },
+      {
+        "cardinalities": [
+          43,
+          42,
+          4,
+          8,
+          11,
+          14,
+          18,
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "initial_population_sha256": "b597a01007d42e293913a7fb07ddf4e958a6c780778f2167b67215666e8aae4d",
+        "initial_velocities_sha256": "064892e923df73a5d8d682a6f4ed2d9c91d6cc7787ccc21e826b9f9ea061e3b9",
+        "optimizer_seed": 1046
+      }
+    ],
+    "status": "PASS"
+  },
+  "execution_mode": "FRESH",
+  "final_scientific_claims_supported": false,
+  "final_test_accessed": false,
+  "fitness_requests": 972,
+  "immutable_hashes_after": {
+    "/mnt/e/PhD-Blockchain-AI/config/bpso.yaml": "a105022b6d6eb344b938396aa6f8ef62a3311f81f8a0b06538f3ec5ea1c0b0f6",
+    "/mnt/e/PhD-Blockchain-AI/config/feature_selection.yaml": "60577e713f64f2c59acc75e6fde0f1b14d781cf8a4070e20025b2cde77629ebf",
+    "/mnt/e/PhD-Blockchain-AI/data/processed/dataset_metadata.json": "139f84f1443c39ff8b5a9c114b54a6a69ce177bf6f1a3d01982ceddcbce9d811",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08a_protocol_validation.json": "eb495cfbf426ecfffa4ef625d24e4123c57bba58a6891832b852c1256318445e",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08b_budget_projection.json": "1546f4c9a602a1cf2dab199af265f4c392ff7c1a8f67d8ab5b282774356253fd",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08b_leakage_audit.json": "06fcfbb4ac8cde5ff36107873ce571c9d79ba2d07e4a959e94dccd0254ac998e",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08b_pilot.json": "0b3974f99f4c4574c8c40fdc71bbfb023ec867b6ef3a0d7c36dc709690532590",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08b_preflight.json": "b5578c5125dbea47a9f59e2051bcbe956e7fec62728b27e93257e1b28820a21e",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/core_runs.csv": "032ed7959dcfd8c22d0e59822c8f745ab0a6c8474a524d1a0b39f536d9026488",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/leakage_audit.json": "8ca35b9a6e52e0cd0e08e95737c0fd49938cd028d4457f04ac572746b6b5ba06",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/run_metadata.json": "c73acebf91dc28ef727dc6444af8cc26409be481c186fdb6c6e42c568d0030d7",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.json": "71dc92b8a34db1bb3c2f55a69e56f43733544329128ec60c5cdbbce2445d1604",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.sha256": "c1df43012dd3edff09c8443edb3da736c874488f8030980eef2d24be2d9fcb53",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_summary.csv": "605df69149730288fcd15e08f1881744dbda5b8b52210e160bc07f817b29401f",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/energy_capability.json": "6e9b4556993d719edd54bbc7ad866bf716ed868fcbf6760de525b6e68ae88f2c",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_artifact_hashes.json": "fb39eb040fcfec1be569956b28a12d2972c02b5aa9fd99f13ea9539336190c4d",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_governance_audit.json": "f176936e6ef299d67e7cb3f804a658c173fd0c5acd9e27ddcc70dcda7c51fc69",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_artifact_hashes.json": "d4562db7b47c1b773619ed4a09ba4e32a2cd186fda37e351df68b2dfa3e719ea",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_governance_audit.json": "91e4dec4b73d7ce7aa840698c9bd8cf4e357a09a37360706319d7415b17a8fe0",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/__init__.py": "d213f8421e6e4f41005b68fe07d0be920e031813948ca0d90d322df19220a19e",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/bpso.py": "96116f255a6f87d404d6cb290d5acfe771f0abbf47ad5cbed1fd75bc21615bc2",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/feature_fitness.py": "a18c57ef7db84451d5d932f1ca44964f2b761bb51b4994ee48f217cb2f0e54f9",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v08a.py": "6701784dded601b3efd71632a50c47640ac27e3c06d460994ca03bfacb4852c0",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v08b.py": "e49b40ba18c24e72a0df0c210b23726b7f4e95c8d0e8738eb19bc122842393f4",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_bpso.py": "243f5476412c74288cb5a12ebd50e421d50fcfbfe63b29c265a604f57497c921",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_bpso_fitness.py": "76f4edf98c1a285c7849b8a269068975b913d83001708757ffc932c736b15ee4",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_pipeline_v08a.py": "1fc2b1d48d8654345a00f82280c3aa9696f59d6e9bcf824624cffa079fdf69f2",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_pipeline_v08b.py": "a7443748ca45aa02ae9fb5bf268e8b025e43ff887b8f72a69e56972f1c3890e6"
+  },
+  "immutable_hashes_before": {
+    "/mnt/e/PhD-Blockchain-AI/config/bpso.yaml": "a105022b6d6eb344b938396aa6f8ef62a3311f81f8a0b06538f3ec5ea1c0b0f6",
+    "/mnt/e/PhD-Blockchain-AI/config/feature_selection.yaml": "60577e713f64f2c59acc75e6fde0f1b14d781cf8a4070e20025b2cde77629ebf",
+    "/mnt/e/PhD-Blockchain-AI/data/processed/dataset_metadata.json": "139f84f1443c39ff8b5a9c114b54a6a69ce177bf6f1a3d01982ceddcbce9d811",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08a_protocol_validation.json": "eb495cfbf426ecfffa4ef625d24e4123c57bba58a6891832b852c1256318445e",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08b_budget_projection.json": "1546f4c9a602a1cf2dab199af265f4c392ff7c1a8f67d8ab5b282774356253fd",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08b_leakage_audit.json": "06fcfbb4ac8cde5ff36107873ce571c9d79ba2d07e4a959e94dccd0254ac998e",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08b_pilot.json": "0b3974f99f4c4574c8c40fdc71bbfb023ec867b6ef3a0d7c36dc709690532590",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08b_preflight.json": "b5578c5125dbea47a9f59e2051bcbe956e7fec62728b27e93257e1b28820a21e",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/core_runs.csv": "032ed7959dcfd8c22d0e59822c8f745ab0a6c8474a524d1a0b39f536d9026488",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/leakage_audit.json": "8ca35b9a6e52e0cd0e08e95737c0fd49938cd028d4457f04ac572746b6b5ba06",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/run_metadata.json": "c73acebf91dc28ef727dc6444af8cc26409be481c186fdb6c6e42c568d0030d7",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.json": "71dc92b8a34db1bb3c2f55a69e56f43733544329128ec60c5cdbbce2445d1604",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.sha256": "c1df43012dd3edff09c8443edb3da736c874488f8030980eef2d24be2d9fcb53",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_summary.csv": "605df69149730288fcd15e08f1881744dbda5b8b52210e160bc07f817b29401f",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/energy_capability.json": "6e9b4556993d719edd54bbc7ad866bf716ed868fcbf6760de525b6e68ae88f2c",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_artifact_hashes.json": "fb39eb040fcfec1be569956b28a12d2972c02b5aa9fd99f13ea9539336190c4d",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_governance_audit.json": "f176936e6ef299d67e7cb3f804a658c173fd0c5acd9e27ddcc70dcda7c51fc69",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_artifact_hashes.json": "d4562db7b47c1b773619ed4a09ba4e32a2cd186fda37e351df68b2dfa3e719ea",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_governance_audit.json": "91e4dec4b73d7ce7aa840698c9bd8cf4e357a09a37360706319d7415b17a8fe0",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/__init__.py": "d213f8421e6e4f41005b68fe07d0be920e031813948ca0d90d322df19220a19e",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/bpso.py": "96116f255a6f87d404d6cb290d5acfe771f0abbf47ad5cbed1fd75bc21615bc2",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/feature_fitness.py": "a18c57ef7db84451d5d932f1ca44964f2b761bb51b4994ee48f217cb2f0e54f9",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v08a.py": "6701784dded601b3efd71632a50c47640ac27e3c06d460994ca03bfacb4852c0",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v08b.py": "e49b40ba18c24e72a0df0c210b23726b7f4e95c8d0e8738eb19bc122842393f4",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_bpso.py": "243f5476412c74288cb5a12ebd50e421d50fcfbfe63b29c265a604f57497c921",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_bpso_fitness.py": "76f4edf98c1a285c7849b8a269068975b913d83001708757ffc932c736b15ee4",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_pipeline_v08a.py": "1fc2b1d48d8654345a00f82280c3aa9696f59d6e9bcf824624cffa079fdf69f2",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_pipeline_v08b.py": "a7443748ca45aa02ae9fb5bf268e8b025e43ff887b8f72a69e56972f1c3890e6"
+  },
+  "logistic_regression_evaluated": false,
+  "model_attack_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "optimization_cpu_time_sec": 645.218273799,
+  "optimization_wall_time_sec": 645.5028752319995,
+  "optimizer_seeds": [
+    1042,
+    1043,
+    1044,
+    1045,
+    1046
+  ],
+  "pipeline_wall_time_sec": 857.1113503500001,
+  "prerequisites": {
+    "deterministic_repeat_pass": true,
+    "evidence_hashes": {
+      "v08b_budget_projection.json": "1546f4c9a602a1cf2dab199af265f4c392ff7c1a8f67d8ab5b282774356253fd",
+      "v08b_leakage_audit.json": "06fcfbb4ac8cde5ff36107873ce571c9d79ba2d07e4a959e94dccd0254ac998e",
+      "v08b_pilot.json": "0b3974f99f4c4574c8c40fdc71bbfb023ec867b6ef3a0d7c36dc709690532590",
+      "v08b_preflight.json": "b5578c5125dbea47a9f59e2051bcbe956e7fec62728b27e93257e1b28820a21e"
+    },
+    "final_test_prohibition_pass": true,
+    "integrity_pass": true,
+    "k43_reproduction_pass": true,
+    "leakage_pass": true,
+    "pilot_label": "QUARANTINED_PILOT",
+    "starting_head": "59c2235c1615bca0f4901952efe033fb6ceaac7c",
+    "status": "PASS",
+    "tracked_and_unmodified": true,
+    "v08b_source_commit": "59c2235c1615bca0f4901952efe033fb6ceaac7c"
+  },
+  "protocol_identity": {
+    "comparator_sha256": "a2b980353d4d79b7e21dbbbf99cce1054ebb014a77418f5f3d5edfbf5bf01fbc",
+    "feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+    "fitness_protocol_sha256": "a1a595ed5593b4bf1f9e290cc8872ed85f80877fe3e9ad637b275462b2958015",
+    "optimizer_config_sha256": "a105022b6d6eb344b938396aa6f8ef62a3311f81f8a0b06538f3ec5ea1c0b0f6",
+    "production_protocol_sha256": "0cc89d25df259046e975164dc02aba9c02c34bc88e9c342c0d438f845b3246b3",
+    "real_k42_mask_sha256": "f76b908b72b7adf5e354c4207c07a1fb5667d0bce84c3f3af490a239f2e75360"
+  },
+  "readiness_for_v08d": "GO",
+  "resource_benchmark_executed": false,
+  "run_artifact_sha256": {
+    "1042": "d55a4329113ff8587cea01d89b89b60a77b18cd40bcf31a06f202a7636e84448",
+    "1043": "095f36050c27671ea35fea63564f0d3d0ea1c4d04681a820973f64869ed515bd",
+    "1044": "ea82b81e3c9767ca0547abb21c54f96ad9f74c4ce29a379c1237f98e6424d433",
+    "1045": "dedd16fe6a8a37082693d4cb13217bc079b641deb64b99abadd962e57a3590cf",
+    "1046": "8cf3a010e2e1c029cdf004e282a3238c2f8eb59d9b0fe508bfb38454ca44a39d"
+  },
+  "run_execution_modes": {
+    "1042": "FRESH",
+    "1043": "FRESH",
+    "1044": "FRESH",
+    "1045": "FRESH",
+    "1046": "FRESH"
+  },
+  "schema_version": "v0.8-c-five-run-validation-1",
+  "selection_scope": "TRAIN_AND_DEVELOPMENT_VALIDATION_ONLY",
+  "stage": "V0.8-C",
+  "starting_head": "59c2235c1615bca0f4901952efe033fb6ceaac7c",
+  "status": "COMPLETED",
+  "stop_reasons": {
+    "1042": "EARLY_STOP_NO_IMPROVEMENT",
+    "1043": "EARLY_STOP_NO_IMPROVEMENT",
+    "1044": "EARLY_STOP_NO_IMPROVEMENT",
+    "1045": "EARLY_STOP_NO_IMPROVEMENT",
+    "1046": "EARLY_STOP_NO_IMPROVEMENT"
+  },
+  "total_repairs": 0,
+  "unique_evaluations": 972,
+  "winner": {
+    "feasible": true,
+    "mask_sha256": "5da981b5b87db97338ecdde9ca8a8b87db3a62771d03dc6a4ad901f6548a3299",
+    "normalized_violation": 0.0,
+    "selected_feature_count": 10,
+    "selected_features_sha256": "5157d5bb6b17dc6c92b790671dac029e2b0d2b4454db9824870db1290a6c4121",
+    "semantic_lock_sha256": "0f356ccab422774b128ab82f5da8881f24816902d4ccc6a7cecc9760c6202ca8",
+    "source_optimizer_seed": 1042
+  }
+}

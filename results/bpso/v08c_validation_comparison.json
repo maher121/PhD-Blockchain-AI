@@ -1,0 +1,153 @@
+{
+  "artifact_kind": "VALIDATION_COMPARISON",
+  "bpso_run_winners": [
+    {
+      "average_precision": 0.2302848102260538,
+      "average_precision_relative_change_vs_k43_percent": -0.17307260245796444,
+      "average_precision_relative_loss_vs_k43": 0.0017307260245796442,
+      "f1": 0.20330805088258272,
+      "f1_relative_change_vs_k43_percent": 2.8360889335993407,
+      "f1_relative_loss_vs_k43": 0.0,
+      "feasible": true,
+      "feature_count_difference_vs_k11": -1,
+      "feature_reduction_vs_k43_percent": 76.74418604651163,
+      "interpretation": {
+        "compactness_advantage_k_le_10": true,
+        "competitive_with_k11_cardinality": true,
+        "substantial_reduction_k_le_21": true
+      },
+      "normalized_violation": 0.0,
+      "optimizer_seed": 1042,
+      "recall": 0.31866666666666665,
+      "recall_relative_change_vs_k43_percent": -1.03519668737059,
+      "recall_relative_loss_vs_k43": 0.0103519668737059,
+      "selected_feature_count": 10
+    },
+    {
+      "average_precision": 0.23681939821799639,
+      "average_precision_relative_change_vs_k43_percent": 2.659627654255279,
+      "average_precision_relative_loss_vs_k43": 0.0,
+      "f1": 0.21573834453900234,
+      "f1_relative_change_vs_k43_percent": 9.12350735295439,
+      "f1_relative_loss_vs_k43": 0.0,
+      "feasible": true,
+      "feature_count_difference_vs_k11": 3,
+      "feature_reduction_vs_k43_percent": 67.44186046511628,
+      "interpretation": {
+        "compactness_advantage_k_le_10": false,
+        "competitive_with_k11_cardinality": false,
+        "substantial_reduction_k_le_21": true
+      },
+      "normalized_violation": 0.0,
+      "optimizer_seed": 1043,
+      "recall": 0.31733333333333336,
+      "recall_relative_change_vs_k43_percent": -1.449275362318819,
+      "recall_relative_loss_vs_k43": 0.014492753623188191,
+      "selected_feature_count": 14
+    },
+    {
+      "average_precision": 0.23417530850822232,
+      "average_precision_relative_change_vs_k43_percent": 1.513432422224554,
+      "average_precision_relative_loss_vs_k43": 0.0,
+      "f1": 0.18929821344452352,
+      "f1_relative_change_vs_k43_percent": -4.2502850809623745,
+      "f1_relative_loss_vs_k43": 0.042502850809623745,
+      "feasible": true,
+      "feature_count_difference_vs_k11": 1,
+      "feature_reduction_vs_k43_percent": 72.09302325581395,
+      "interpretation": {
+        "compactness_advantage_k_le_10": false,
+        "competitive_with_k11_cardinality": false,
+        "substantial_reduction_k_le_21": true
+      },
+      "normalized_violation": 0.0,
+      "optimizer_seed": 1044,
+      "recall": 0.32666666666666666,
+      "recall_relative_change_vs_k43_percent": 1.4492753623188537,
+      "recall_relative_loss_vs_k43": 0.0,
+      "selected_feature_count": 12
+    },
+    {
+      "average_precision": 0.23652075066499334,
+      "average_precision_relative_change_vs_k43_percent": 2.530165934388375,
+      "average_precision_relative_loss_vs_k43": 0.0,
+      "f1": 0.20816621054250914,
+      "f1_relative_change_vs_k43_percent": 5.293414832268993,
+      "f1_relative_loss_vs_k43": 0.0,
+      "feasible": true,
+      "feature_count_difference_vs_k11": 1,
+      "feature_reduction_vs_k43_percent": 72.09302325581395,
+      "interpretation": {
+        "compactness_advantage_k_le_10": false,
+        "competitive_with_k11_cardinality": false,
+        "substantial_reduction_k_le_21": true
+      },
+      "normalized_violation": 0.0,
+      "optimizer_seed": 1045,
+      "recall": 0.32333333333333336,
+      "recall_relative_change_vs_k43_percent": 0.41407867494826356,
+      "recall_relative_loss_vs_k43": 0.0,
+      "selected_feature_count": 12
+    },
+    {
+      "average_precision": 0.22964720524962318,
+      "average_precision_relative_change_vs_k43_percent": -0.44947010183263003,
+      "average_precision_relative_loss_vs_k43": 0.0044947010183263,
+      "f1": 0.20507689723096933,
+      "f1_relative_change_vs_k43_percent": 3.7307964456870573,
+      "f1_relative_loss_vs_k43": 0.0,
+      "feasible": true,
+      "feature_count_difference_vs_k11": 0,
+      "feature_reduction_vs_k43_percent": 74.4186046511628,
+      "interpretation": {
+        "compactness_advantage_k_le_10": false,
+        "competitive_with_k11_cardinality": true,
+        "substantial_reduction_k_le_21": true
+      },
+      "normalized_violation": 0.0,
+      "optimizer_seed": 1046,
+      "recall": 0.316,
+      "recall_relative_change_vs_k43_percent": -1.8633540372670654,
+      "recall_relative_loss_vs_k43": 0.018633540372670655,
+      "selected_feature_count": 11
+    }
+  ],
+  "bpso_selection_semantics": "one universal subset candidate per optimizer run",
+  "final_test_comparison_performed": false,
+  "historical_validation_anchors": {
+    "K11": {
+      "feature_count": 11,
+      "metrics": {
+        "average_precision": 0.2326279315072121,
+        "f1": 0.20561017140035243,
+        "precision": 0.3104048046958846,
+        "recall": 0.3166666666666667,
+        "roc_auc": 0.616519298245614
+      },
+      "selection_semantics": "seed-specific historical MI rule"
+    },
+    "K42": {
+      "feature_count": 42,
+      "metrics": {
+        "average_precision": 0.23068406113411433,
+        "f1": 0.1977010726398371,
+        "precision": 0.2853430012253541,
+        "recall": 0.32199999999999995,
+        "roc_auc": 0.6196106432748538
+      }
+    },
+    "K43": {
+      "feature_count": 43,
+      "metrics": {
+        "average_precision": 0.23068406113411433,
+        "f1": 0.1977010726398371,
+        "precision": 0.2853430012253541,
+        "recall": 0.32199999999999995,
+        "roc_auc": 0.6196106432748538
+      }
+    }
+  },
+  "schema_version": "v0.8-c-five-run-validation-1",
+  "stage": "V0.8-C",
+  "statistical_significance_claimed": false
+}
