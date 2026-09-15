@@ -1,0 +1,26 @@
+{
+  "approved_budget_changed": false,
+  "approved_full_search": {
+    "evaluated_generations": 20,
+    "maximum_decision_tree_fits": 6000,
+    "maximum_fitness_requests": 1200,
+    "optimizer_runs": 5,
+    "particles": 12
+  },
+  "cache_adjusted_projection_defensible": false,
+  "cache_adjusted_projection_sec": null,
+  "cache_projection_reason": "three-generation pilot cache behavior is too small to extrapolate",
+  "direct_energy_claim": false,
+  "full_search_executed": false,
+  "label": "FULL_SEARCH_BUDGET_PROJECTION_ONLY",
+  "naive_mean_cost_projection_sec": 538.1025305996445,
+  "observed_max_cost_projection_sec": 776.6934731997026,
+  "pilot_cache_hit_rate": 0.0,
+  "pilot_max_unique_evaluation_wall_time_sec": 0.6472445609997521,
+  "pilot_mean_unique_evaluation_wall_time_sec": 0.44841877549970377,
+  "planning_estimate_only": true,
+  "runtime_review_required": false,
+  "runtime_review_threshold_sec": 7200.0,
+  "schema_version": "v0.8-b-real-fitness-preflight-1",
+  "stage": "V0.8-B"
+}

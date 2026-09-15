@@ -1,0 +1,121 @@
+{
+  "actual_decision_tree_fits": 60,
+  "cache_hits": 0,
+  "configuration": {
+    "cache_enabled": true,
+    "cognitive_coefficient": 2.0,
+    "dimensions": 43,
+    "early_stopping": {
+      "not_before_generation_index": 10,
+      "patience_evaluated_generations": 7
+    },
+    "evaluated_generations": 3,
+    "generation_index_origin": 0,
+    "generation_semantics": "generation 0 evaluates initialization and counts toward the configured evaluated-generation budget",
+    "inertia_schedule": {
+      "end": 0.4,
+      "kind": "linear_decay",
+      "start": 0.9
+    },
+    "maximum_fitness_requests": 12,
+    "minimum_selected_features": 1,
+    "optimizer_name": "BPSO",
+    "particle_count": 4,
+    "random_cardinalities": [
+      4,
+      11
+    ],
+    "social_coefficient": 2.0,
+    "transfer_function": "standard_logistic_sigmoid",
+    "velocity_clamp": [
+      -6.0,
+      6.0
+    ],
+    "velocity_initialization": [
+      -1.0,
+      1.0
+    ]
+  },
+  "convergence_history": [
+    {
+      "best_feasible": true,
+      "best_mask_sha256": "f76b908b72b7adf5e354c4207c07a1fb5667d0bce84c3f3af490a239f2e75360",
+      "best_selected_feature_count": 42,
+      "cumulative_cache_hits": 0,
+      "cumulative_unique_evaluations": 4,
+      "generation_index": 0,
+      "inertia": null,
+      "population_diversity": 0.5968992248062016,
+      "repair_count": 0
+    },
+    {
+      "best_feasible": true,
+      "best_mask_sha256": "e6d34211be026cda273e713e3ef659b0002bfe963279b572081a57137c5dac15",
+      "best_selected_feature_count": 27,
+      "cumulative_cache_hits": 0,
+      "cumulative_unique_evaluations": 8,
+      "generation_index": 1,
+      "inertia": 0.9,
+      "population_diversity": 0.5155038759689923,
+      "repair_count": 0
+    },
+    {
+      "best_feasible": true,
+      "best_mask_sha256": "e6d34211be026cda273e713e3ef659b0002bfe963279b572081a57137c5dac15",
+      "best_selected_feature_count": 27,
+      "cumulative_cache_hits": 0,
+      "cumulative_unique_evaluations": 12,
+      "generation_index": 2,
+      "inertia": 0.4,
+      "population_diversity": 0.5387596899224806,
+      "repair_count": 0
+    }
+  ],
+  "direct_energy_measured": false,
+  "eligibility": "NOT_ELIGIBLE_FOR_FINAL_SELECTION",
+  "evaluated_generations": 3,
+  "evaluation_timing": {
+    "decision_tree_fits": 60,
+    "max_evaluation_wall_time_sec": 0.6472445609997521,
+    "mean_evaluation_cpu_time_sec": 0.45343845508333186,
+    "mean_evaluation_wall_time_sec": 0.44841877549970377,
+    "min_evaluation_wall_time_sec": 0.22230022199983068,
+    "objective_evaluations": 12,
+    "total_evaluation_cpu_time_sec": 5.441261460999982,
+    "total_evaluation_wall_time_sec": 5.381025305996445
+  },
+  "final_selection_performed": false,
+  "fit_accounting_valid": true,
+  "fitness_requests": 12,
+  "full_search_configuration_modified": false,
+  "initial_cardinalities": [
+    43,
+    42,
+    4,
+    11
+  ],
+  "initial_population_sha256": "da1ec6857a326e6d239db02c1a814933f547805f558b3b80090c20fbf6646e07",
+  "label": "QUARANTINED_PILOT",
+  "optimizer_seed": 1042,
+  "process_cpu_time_sec": 5.4491528849999895,
+  "purpose": "engineering validation of real evaluator connectivity only",
+  "quarantined_candidate": {
+    "feasible": true,
+    "feature_names_published": false,
+    "mask_sha256": "e6d34211be026cda273e713e3ef659b0002bfe963279b572081a57137c5dac15",
+    "selected_feature_count": 27
+  },
+  "real_k42_anchor_mask_sha256": "f76b908b72b7adf5e354c4207c07a1fb5667d0bce84c3f3af490a239f2e75360",
+  "repair_count": 0,
+  "rerun_count": 0,
+  "resource_benchmark": false,
+  "schema_version": "v0.8-b-real-fitness-preflight-1",
+  "scientific_experiment": false,
+  "scientific_superiority_claim_supported": false,
+  "stage": "V0.8-B",
+  "status": "PASS",
+  "stop_reason": "MAX_GENERATIONS",
+  "test_accessed": false,
+  "unique_masks": 12,
+  "wall_time_sec": 5.389915859001121
+}

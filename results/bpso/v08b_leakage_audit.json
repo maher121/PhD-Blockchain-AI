@@ -1,0 +1,131 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "feature_count": 43,
+        "manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d"
+      },
+      "name": "exact_43_feature_manifest",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "forbidden_columns": []
+      },
+      "name": "forbidden_columns_absent",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "candidate_features_pass_existing_governance",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "workload_count": 5
+      },
+      "name": "only_train_and_development_validation_exposed",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "allowed_splits": [
+          "train",
+          "validation"
+        ],
+        "test_accessed": false
+      },
+      "name": "test_access_prohibited",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "configured": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "workloads": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ]
+      },
+      "name": "exact_attack_model_seeds",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "train_validation_split_identity_and_separation",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "feature_order_and_fingerprint_preserved",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "ground_truth": "controlled experiment-generated is_attack"
+      },
+      "name": "controlled_is_attack_is_target_only",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "late_delivery_risk_not_cyber_ground_truth",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "suspected_fraud_not_cyber_ground_truth",
+      "passed": true
+    },
+    {
+      "evidence": {},
+      "name": "attack_metadata_predictions_visibility_and_row_ids_excluded",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "split_seed": 42
+      },
+      "name": "preprocessing_frozen_and_training_derived",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "attack_rate": 0.05,
+        "attack_type": "mixed",
+        "severity": "MEDIUM"
+      },
+      "name": "controlled_attack_protocol_frozen",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "model": "decision_tree",
+        "parameters": {
+          "class_weight": "balanced",
+          "max_depth": 5,
+          "min_samples_leaf": 20
+        },
+        "threshold": 0.5
+      },
+      "name": "frozen_decision_tree_and_threshold",
+      "passed": true
+    }
+  ],
+  "final_test_statement": "untouched by V0.8 search and selection",
+  "ground_truth": "controlled experiment-generated is_attack only",
+  "label": "REAL_FITNESS_LEAKAGE_AUDIT",
+  "schema_version": "v0.8-b-real-fitness-1",
+  "scope": "training_and_development_validation_only",
+  "stage": "V0.8-B",
+  "status": "PASS",
+  "test_accessed": false
+}

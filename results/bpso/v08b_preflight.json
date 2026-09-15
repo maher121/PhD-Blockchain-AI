@@ -1,0 +1,144 @@
+{
+  "candidate_manifest": {
+    "feature_count": 43,
+    "sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d"
+  },
+  "checks": {
+    "aggregate_primary_metrics_match": true,
+    "deterministic_repeat_identical": true,
+    "exact_43_features": true,
+    "exact_five_seeds": true,
+    "fit_count_is_ten_for_two_checks": true,
+    "frozen_model_parameters": true,
+    "per_seed_metrics_match": true,
+    "test_not_accessed": true,
+    "threshold_is_point_five": true
+  },
+  "deterministic_repeat": true,
+  "differences": {
+    "average_precision": 0.0,
+    "f1": 5.551115123125783e-17,
+    "recall": 0.0
+  },
+  "direct_energy_measured": false,
+  "final_selection_performed": false,
+  "final_test_accessed": false,
+  "frozen_metrics": {
+    "average_precision": 0.23068406113411433,
+    "f1": 0.1977010726398371,
+    "recall": 0.32199999999999995
+  },
+  "full_search_executed": false,
+  "generated_artifact_hashes": {
+    "v08b_budget_projection.json": "1546f4c9a602a1cf2dab199af265f4c392ff7c1a8f67d8ab5b282774356253fd",
+    "v08b_leakage_audit.json": "06fcfbb4ac8cde5ff36107873ce571c9d79ba2d07e4a959e94dccd0254ac998e",
+    "v08b_pilot.json": "0b3974f99f4c4574c8c40fdc71bbfb023ec867b6ef3a0d7c36dc709690532590"
+  },
+  "immutable_hashes_after": {
+    "/mnt/e/PhD-Blockchain-AI/config/bpso.yaml": "a105022b6d6eb344b938396aa6f8ef62a3311f81f8a0b06538f3ec5ea1c0b0f6",
+    "/mnt/e/PhD-Blockchain-AI/config/feature_selection.yaml": "60577e713f64f2c59acc75e6fde0f1b14d781cf8a4070e20025b2cde77629ebf",
+    "/mnt/e/PhD-Blockchain-AI/data/processed/dataset_metadata.json": "139f84f1443c39ff8b5a9c114b54a6a69ce177bf6f1a3d01982ceddcbce9d811",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08a_protocol_validation.json": "eb495cfbf426ecfffa4ef625d24e4123c57bba58a6891832b852c1256318445e",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/core_runs.csv": "032ed7959dcfd8c22d0e59822c8f745ab0a6c8474a524d1a0b39f536d9026488",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/leakage_audit.json": "8ca35b9a6e52e0cd0e08e95737c0fd49938cd028d4457f04ac572746b6b5ba06",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/run_metadata.json": "c73acebf91dc28ef727dc6444af8cc26409be481c186fdb6c6e42c568d0030d7",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.json": "71dc92b8a34db1bb3c2f55a69e56f43733544329128ec60c5cdbbce2445d1604",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.sha256": "c1df43012dd3edff09c8443edb3da736c874488f8030980eef2d24be2d9fcb53",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_summary.csv": "605df69149730288fcd15e08f1881744dbda5b8b52210e160bc07f817b29401f",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/energy_capability.json": "6e9b4556993d719edd54bbc7ad866bf716ed868fcbf6760de525b6e68ae88f2c",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_artifact_hashes.json": "fb39eb040fcfec1be569956b28a12d2972c02b5aa9fd99f13ea9539336190c4d",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_governance_audit.json": "f176936e6ef299d67e7cb3f804a658c173fd0c5acd9e27ddcc70dcda7c51fc69",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_artifact_hashes.json": "d4562db7b47c1b773619ed4a09ba4e32a2cd186fda37e351df68b2dfa3e719ea",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_governance_audit.json": "91e4dec4b73d7ce7aa840698c9bd8cf4e357a09a37360706319d7415b17a8fe0",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/__init__.py": "d213f8421e6e4f41005b68fe07d0be920e031813948ca0d90d322df19220a19e",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/bpso.py": "96116f255a6f87d404d6cb290d5acfe771f0abbf47ad5cbed1fd75bc21615bc2",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v08a.py": "6701784dded601b3efd71632a50c47640ac27e3c06d460994ca03bfacb4852c0",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_bpso.py": "243f5476412c74288cb5a12ebd50e421d50fcfbfe63b29c265a604f57497c921",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_pipeline_v08a.py": "1fc2b1d48d8654345a00f82280c3aa9696f59d6e9bcf824624cffa079fdf69f2"
+  },
+  "immutable_hashes_before": {
+    "/mnt/e/PhD-Blockchain-AI/config/bpso.yaml": "a105022b6d6eb344b938396aa6f8ef62a3311f81f8a0b06538f3ec5ea1c0b0f6",
+    "/mnt/e/PhD-Blockchain-AI/config/feature_selection.yaml": "60577e713f64f2c59acc75e6fde0f1b14d781cf8a4070e20025b2cde77629ebf",
+    "/mnt/e/PhD-Blockchain-AI/data/processed/dataset_metadata.json": "139f84f1443c39ff8b5a9c114b54a6a69ce177bf6f1a3d01982ceddcbce9d811",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08a_protocol_validation.json": "eb495cfbf426ecfffa4ef625d24e4123c57bba58a6891832b852c1256318445e",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/core_runs.csv": "032ed7959dcfd8c22d0e59822c8f745ab0a6c8474a524d1a0b39f536d9026488",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/leakage_audit.json": "8ca35b9a6e52e0cd0e08e95737c0fd49938cd028d4457f04ac572746b6b5ba06",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/run_metadata.json": "c73acebf91dc28ef727dc6444af8cc26409be481c186fdb6c6e42c568d0030d7",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.json": "71dc92b8a34db1bb3c2f55a69e56f43733544329128ec60c5cdbbce2445d1604",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.sha256": "c1df43012dd3edff09c8443edb3da736c874488f8030980eef2d24be2d9fcb53",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_summary.csv": "605df69149730288fcd15e08f1881744dbda5b8b52210e160bc07f817b29401f",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/energy_capability.json": "6e9b4556993d719edd54bbc7ad866bf716ed868fcbf6760de525b6e68ae88f2c",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_artifact_hashes.json": "fb39eb040fcfec1be569956b28a12d2972c02b5aa9fd99f13ea9539336190c4d",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_governance_audit.json": "f176936e6ef299d67e7cb3f804a658c173fd0c5acd9e27ddcc70dcda7c51fc69",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_artifact_hashes.json": "d4562db7b47c1b773619ed4a09ba4e32a2cd186fda37e351df68b2dfa3e719ea",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_governance_audit.json": "91e4dec4b73d7ce7aa840698c9bd8cf4e357a09a37360706319d7415b17a8fe0",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/__init__.py": "d213f8421e6e4f41005b68fe07d0be920e031813948ca0d90d322df19220a19e",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/bpso.py": "96116f255a6f87d404d6cb290d5acfe771f0abbf47ad5cbed1fd75bc21615bc2",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v08a.py": "6701784dded601b3efd71632a50c47640ac27e3c06d460994ca03bfacb4852c0",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_bpso.py": "243f5476412c74288cb5a12ebd50e421d50fcfbfe63b29c265a604f57497c921",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_pipeline_v08a.py": "1fc2b1d48d8654345a00f82280c3aa9696f59d6e9bcf824624cffa079fdf69f2"
+  },
+  "integrity": {
+    "commit": "e0a36d985e3ec702a4b6a1d9e7294a75d35a8f4a",
+    "status": "PASS",
+    "tracked_paths": [
+      "config/bpso.yaml",
+      "src/optimization/__init__.py",
+      "src/optimization/bpso.py",
+      "src/pipeline_v08a.py",
+      "tests/test_bpso.py",
+      "tests/test_pipeline_v08a.py"
+    ],
+    "validation_artifact_sha256": "eb495cfbf426ecfffa4ef625d24e4123c57bba58a6891832b852c1256318445e",
+    "working_tree_changes_for_v08a": false
+  },
+  "k11_governance": {
+    "configuration_id": "mutual_information_select_k_best_k11",
+    "converted_to_universal_subset": false,
+    "feature_hashes_by_seed": {
+      "42": "87f36d590c80453381ee2babc4cd9e8120ca6a3931271398ff525fb55496264f",
+      "43": "b17729dc1b6efb27a473318624ef9abb590db29ae240b2882aae2d13c97b70e1",
+      "44": "3cdda0adb573d35876faa4e7b65da09f98d49d65f431984b791306872e074533",
+      "45": "4fa144442646a56a7c24866ed65aa027952c6ea6011073bd2b5c44d5f8de2de7",
+      "46": "a3d5391e823bf90e173e65d136bbab1787e3003e437f579b5b402fd49165150f"
+    },
+    "seed_specific": true
+  },
+  "label": "REAL_FITNESS_PREFLIGHT",
+  "pilot_eligibility": "NOT_ELIGIBLE_FOR_FINAL_SELECTION",
+  "pilot_executed": true,
+  "pilot_label": "QUARANTINED_PILOT",
+  "preflight_decision_tree_fits": 10,
+  "preflight_objective_evaluations": 2,
+  "readiness_for_v08c": "GO",
+  "real_k42_binding": {
+    "configuration_id": "pairwise_correlation_filter_natural",
+    "deterministic_across_seeds": true,
+    "feature_count": 42,
+    "mask_sha256": "f76b908b72b7adf5e354c4207c07a1fb5667d0bce84c3f3af490a239f2e75360",
+    "selected_features_sha256": "c355fe6d1f8ed5557b3f94f48cd0c4400d9f4a6894f52916c79a7721a912eef6"
+  },
+  "reproduced_metrics": {
+    "average_precision": 0.23068406113411433,
+    "f1": 0.19770107263983716,
+    "recall": 0.32199999999999995
+  },
+  "resource_benchmark_executed": false,
+  "schema_version": "v0.8-b-real-fitness-preflight-1",
+  "source_hashes": {
+    "config/feature_selection.yaml": "60577e713f64f2c59acc75e6fde0f1b14d781cf8a4070e20025b2cde77629ebf",
+    "data/processed/dataset_metadata.json": "139f84f1443c39ff8b5a9c114b54a6a69ce177bf6f1a3d01982ceddcbce9d811",
+    "results/feature_selection/core_runs.csv": "032ed7959dcfd8c22d0e59822c8f745ab0a6c8474a524d1a0b39f536d9026488",
+    "results/feature_selection/run_metadata.json": "c73acebf91dc28ef727dc6444af8cc26409be481c186fdb6c6e42c568d0030d7",
+    "results/feature_selection/validation_lock.json": "71dc92b8a34db1bb3c2f55a69e56f43733544329128ec60c5cdbbce2445d1604",
+    "results/feature_selection/validation_summary.csv": "605df69149730288fcd15e08f1881744dbda5b8b52210e160bc07f817b29401f"
+  },
+  "stage": "V0.8-B",
+  "status": "PASS",
+  "test_accessed": false,
+  "tolerance": {
+    "justification": "deterministic replay under frozen data, code, model, and seeds",
+    "kind": "absolute",
+    "value": 1e-12
+  }
+}
