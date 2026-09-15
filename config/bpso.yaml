@@ -1,0 +1,65 @@
+version: "v0.8-a-bpso-protocol-1"
+stage: "V0.8-A"
+validation_kind: "SYNTHETIC_PROTOCOL_VALIDATION"
+scientific_experiment: false
+
+optimizer:
+  name: "BPSO"
+  dimensions: 43
+  particles: 12
+  evaluated_generations: 20
+  generation_index_origin: 0
+  generation_zero: "initialized population evaluation; included in the 20-generation budget"
+  maximum_fitness_requests_per_run: 240
+  optimizer_seeds: [1042, 1043, 1044, 1045, 1046]
+
+  initialization:
+    k43_anchor: "all dimensions active"
+    k42_anchor:
+      binding: "synthetic canonical inactive index; real mask deferred to V0.8-B"
+      synthetic_inactive_index: 42
+    random_cardinalities: [4, 8, 11, 14, 18, 22, 26, 30, 34, 38]
+    canonical_feature_order: "externally supplied in V0.8-B; indexed dimensions only in V0.8-A"
+
+  velocity:
+    initialization_distribution: "uniform"
+    initialization_bounds: [-1.0, 1.0]
+    clamp: [-6.0, 6.0]
+
+  transfer_function: "standard_logistic_sigmoid"
+
+  inertia:
+    schedule: "linear_decay"
+    start: 0.9
+    end: 0.4
+    first_update_destination_generation: 1
+    last_update_destination_generation: 19
+
+  cognitive_coefficient: 2.0
+  social_coefficient: 2.0
+  minimum_selected_features: 1
+
+  early_stopping:
+    criterion: "no injected-comparator rank improvement"
+    patience_evaluated_generations: 7
+    not_before_generation_index: 10
+
+  cache:
+    enabled: true
+    scope: "one optimizer run"
+    key: "canonical binary mask"
+
+governance:
+  objective_formulation: "constrained minimum cardinality; evaluator and comparator injected"
+  weighted_multi_objective: false
+  pareto_optimization: false
+  dataset_access: "PROHIBITED"
+  classifier_fitting: "PROHIBITED"
+  real_feature_selection: "PROHIBITED"
+  resource_or_energy_objective: false
+  next_stage_fitness_evaluator: "deferred to V0.8-B"
+
+artifact:
+  path: "results/bpso/v08a_protocol_validation.json"
+  label: "SYNTHETIC_PROTOCOL_VALIDATION"
+  scientific_experiment: false

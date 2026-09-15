@@ -1,0 +1,142 @@
+{
+  "checks": {
+    "approved_initial_cardinalities": true,
+    "cache_accounting_valid": true,
+    "cache_does_not_change_decisions": true,
+    "cache_hit_recorded": true,
+    "cache_invocations_equal_unique_evaluations": true,
+    "configuration_matches_frozen_protocol": true,
+    "constrained_comparator_returns_feasible": true,
+    "different_seed_changes_stochastic_state": true,
+    "early_stop_boundary_valid": true,
+    "early_stop_reason_valid": true,
+    "generation_zero_is_inside_budget": true,
+    "maximum_request_budget_is_240": true,
+    "observed_requests_within_budget": true,
+    "same_seed_complete_replay_identical": true,
+    "scientific_experiment_is_false": true,
+    "synthetic_validation_only": true,
+    "uncached_invocations_equal_requests": true
+  },
+  "configuration": {
+    "cache_enabled": true,
+    "cognitive_coefficient": 2.0,
+    "dimensions": 43,
+    "early_stopping": {
+      "not_before_generation_index": 10,
+      "patience_evaluated_generations": 7
+    },
+    "evaluated_generations": 20,
+    "generation_index_origin": 0,
+    "generation_semantics": "generation 0 evaluates initialization and counts toward the configured evaluated-generation budget",
+    "inertia_schedule": {
+      "end": 0.4,
+      "kind": "linear_decay",
+      "start": 0.9
+    },
+    "maximum_fitness_requests": 240,
+    "minimum_selected_features": 1,
+    "optimizer_name": "BPSO",
+    "particle_count": 12,
+    "random_cardinalities": [
+      4,
+      8,
+      11,
+      14,
+      18,
+      22,
+      26,
+      30,
+      34,
+      38
+    ],
+    "social_coefficient": 2.0,
+    "transfer_function": "standard_logistic_sigmoid",
+    "velocity_clamp": [
+      -6.0,
+      6.0
+    ],
+    "velocity_initialization": [
+      -1.0,
+      1.0
+    ]
+  },
+  "generation_semantics": {
+    "evaluated_indices": [
+      0,
+      19
+    ],
+    "initialization_counts_toward_budget": true,
+    "initialization_generation": 0,
+    "maximum_requests_per_run": 240
+  },
+  "governance": {
+    "classifier_fitted": false,
+    "dataset_accessed": false,
+    "direct_energy_measured": false,
+    "next_stage_started": false,
+    "real_feature_subset_selected": false,
+    "resource_benchmark_executed": false
+  },
+  "initialization": {
+    "cardinalities": [
+      43,
+      42,
+      4,
+      8,
+      11,
+      14,
+      18,
+      22,
+      26,
+      30,
+      34,
+      38
+    ],
+    "population_sha256": "069518db9bac630997c986126529076d823a8fe6ecc9d14bb529217084703234",
+    "real_feature_identities_bound": false,
+    "velocities_sha256": "df5d5f389c5b83864bb10912b2cd7bdbdad5e7d161de3376985519f15b08fb8f"
+  },
+  "optimizer_seeds": [
+    1042,
+    1043,
+    1044,
+    1045,
+    1046
+  ],
+  "protocol_config_sha256": "a105022b6d6eb344b938396aa6f8ef62a3311f81f8a0b06538f3ec5ea1c0b0f6",
+  "schema_version": "v0.8-a-bpso-protocol-1",
+  "scientific_claims_supported": false,
+  "scientific_experiment": false,
+  "stage": "V0.8-A",
+  "status": "PASS",
+  "synthetic_cases": {
+    "cache": {
+      "cache_hits": 11,
+      "requests": 132,
+      "unique_evaluations": 121
+    },
+    "constrained_minimum_cardinality": {
+      "best_evaluation": {
+        "cardinality": 12,
+        "feasible": true,
+        "primary_score": 0.0,
+        "secondary_score": -10.0,
+        "tie_break_key": "1100000111010000001100000000000000001010110",
+        "violation": 0.0
+      },
+      "stop_reason": "MAX_GENERATIONS"
+    },
+    "early_stopping": {
+      "evaluated_generation_count": 11,
+      "last_generation_index": 10,
+      "stop_reason": "EARLY_STOP_NO_IMPROVEMENT"
+    },
+    "target_mask": {
+      "best_synthetic_score": -6.0,
+      "result_sha256": "0cc3986f0f19c1cd0b33b6272863228236a5ca5f6920118432807877b08736ce",
+      "stop_reason": "EARLY_STOP_NO_IMPROVEMENT"
+    }
+  },
+  "validation_kind": "SYNTHETIC_PROTOCOL_VALIDATION"
+}

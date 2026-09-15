@@ -1,0 +1,41 @@
+"""Generic optimization primitives for the staged research framework."""
+
+from src.optimization.bpso import (
+    BPSOConfig,
+    BPSOResult,
+    BinaryParticleSwarmOptimizer,
+    ComparatorContractError,
+    GenerationRecord,
+    STOP_EARLY_NO_IMPROVEMENT,
+    STOP_MAX_GENERATIONS,
+    build_initial_population,
+    canonical_mask_key,
+    initialize_velocities,
+    linear_inertia_schedule,
+    mean_pairwise_normalized_hamming,
+    repair_empty_mask,
+    sample_binary_position,
+    stable_sigmoid,
+    to_json_compatible,
+    update_velocity,
+)
+
+__all__ = [
+    "BPSOConfig",
+    "BPSOResult",
+    "BinaryParticleSwarmOptimizer",
+    "ComparatorContractError",
+    "GenerationRecord",
+    "STOP_EARLY_NO_IMPROVEMENT",
+    "STOP_MAX_GENERATIONS",
+    "build_initial_population",
+    "canonical_mask_key",
+    "initialize_velocities",
+    "linear_inertia_schedule",
+    "mean_pairwise_normalized_hamming",
+    "repair_empty_mask",
+    "sample_binary_position",
+    "stable_sigmoid",
+    "to_json_compatible",
+    "update_velocity",
+]
