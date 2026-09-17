@@ -1,0 +1,451 @@
+{
+  "absolute_hamming_distance": {
+    "count": 10,
+    "max": 26.0,
+    "mean": 19.2,
+    "median": 18.0,
+    "min": 13.0,
+    "std": 3.9665266081716046
+  },
+  "artifact_kind": "DERIVED_OPTIMIZER_STABILITY",
+  "cardinality": {
+    "count": 5,
+    "max": 25.0,
+    "mean": 20.6,
+    "median": 22.0,
+    "min": 14.0,
+    "std": 4.09878030638384
+  },
+  "consensus_used_for_selection": false,
+  "feature_frequency": [
+    {
+      "feature": "order_item_quantity",
+      "feature_index": 0,
+      "selection_count": 5,
+      "selection_frequency": 1.0
+    },
+    {
+      "feature": "order_item_product_price",
+      "feature_index": 1,
+      "selection_count": 3,
+      "selection_frequency": 0.6
+    },
+    {
+      "feature": "product_price",
+      "feature_index": 2,
+      "selection_count": 2,
+      "selection_frequency": 0.4
+    },
+    {
+      "feature": "order_item_discount",
+      "feature_index": 3,
+      "selection_count": 1,
+      "selection_frequency": 0.2
+    },
+    {
+      "feature": "order_item_discount_rate",
+      "feature_index": 4,
+      "selection_count": 1,
+      "selection_frequency": 0.2
+    },
+    {
+      "feature": "order_item_profit_ratio",
+      "feature_index": 5,
+      "selection_count": 0,
+      "selection_frequency": 0.0
+    },
+    {
+      "feature": "order_item_total",
+      "feature_index": 6,
+      "selection_count": 5,
+      "selection_frequency": 1.0
+    },
+    {
+      "feature": "days_schedule",
+      "feature_index": 7,
+      "selection_count": 2,
+      "selection_frequency": 0.4
+    },
+    {
+      "feature": "year",
+      "feature_index": 8,
+      "selection_count": 3,
+      "selection_frequency": 0.6
+    },
+    {
+      "feature": "month",
+      "feature_index": 9,
+      "selection_count": 1,
+      "selection_frequency": 0.2
+    },
+    {
+      "feature": "day",
+      "feature_index": 10,
+      "selection_count": 3,
+      "selection_frequency": 0.6
+    },
+    {
+      "feature": "day_of_week",
+      "feature_index": 11,
+      "selection_count": 0,
+      "selection_frequency": 0.0
+    },
+    {
+      "feature": "hour",
+      "feature_index": 12,
+      "selection_count": 4,
+      "selection_frequency": 0.8
+    },
+    {
+      "feature": "is_weekend",
+      "feature_index": 13,
+      "selection_count": 4,
+      "selection_frequency": 0.8
+    },
+    {
+      "feature": "item_count_per_order",
+      "feature_index": 14,
+      "selection_count": 2,
+      "selection_frequency": 0.4
+    },
+    {
+      "feature": "order_total_value",
+      "feature_index": 15,
+      "selection_count": 2,
+      "selection_frequency": 0.4
+    },
+    {
+      "feature": "Type_DEBIT",
+      "feature_index": 16,
+      "selection_count": 4,
+      "selection_frequency": 0.8
+    },
+    {
+      "feature": "Type_TRANSFER",
+      "feature_index": 17,
+      "selection_count": 1,
+      "selection_frequency": 0.2
+    },
+    {
+      "feature": "Type_PAYMENT",
+      "feature_index": 18,
+      "selection_count": 4,
+      "selection_frequency": 0.8
+    },
+    {
+      "feature": "Type_CASH",
+      "feature_index": 19,
+      "selection_count": 1,
+      "selection_frequency": 0.2
+    },
+    {
+      "feature": "Market_LATAM",
+      "feature_index": 20,
+      "selection_count": 2,
+      "selection_frequency": 0.4
+    },
+    {
+      "feature": "Market_Europe",
+      "feature_index": 21,
+      "selection_count": 2,
+      "selection_frequency": 0.4
+    },
+    {
+      "feature": "Market_Pacific Asia",
+      "feature_index": 22,
+      "selection_count": 3,
+      "selection_frequency": 0.6
+    },
+    {
+      "feature": "Market_USCA",
+      "feature_index": 23,
+      "selection_count": 3,
+      "selection_frequency": 0.6
+    },
+    {
+      "feature": "Market_Africa",
+      "feature_index": 24,
+      "selection_count": 2,
+      "selection_frequency": 0.4
+    },
+    {
+      "feature": "Shipping Mode_Standard Class",
+      "feature_index": 25,
+      "selection_count": 3,
+      "selection_frequency": 0.6
+    },
+    {
+      "feature": "Shipping Mode_Second Class",
+      "feature_index": 26,
+      "selection_count": 1,
+      "selection_frequency": 0.2
+    },
+    {
+      "feature": "Shipping Mode_First Class",
+      "feature_index": 27,
+      "selection_count": 3,
+      "selection_frequency": 0.6
+    },
+    {
+      "feature": "Shipping Mode_Same Day",
+      "feature_index": 28,
+      "selection_count": 0,
+      "selection_frequency": 0.0
+    },
+    {
+      "feature": "Customer Segment_Consumer",
+      "feature_index": 29,
+      "selection_count": 2,
+      "selection_frequency": 0.4
+    },
+    {
+      "feature": "Customer Segment_Corporate",
+      "feature_index": 30,
+      "selection_count": 2,
+      "selection_frequency": 0.4
+    },
+    {
+      "feature": "Customer Segment_Home Office",
+      "feature_index": 31,
+      "selection_count": 4,
+      "selection_frequency": 0.8
+    },
+    {
+      "feature": "Department Name_Fan Shop",
+      "feature_index": 32,
+      "selection_count": 1,
+      "selection_frequency": 0.2
+    },
+    {
+      "feature": "Department Name_Apparel",
+      "feature_index": 33,
+      "selection_count": 3,
+      "selection_frequency": 0.6
+    },
+    {
+      "feature": "Department Name_Golf",
+      "feature_index": 34,
+      "selection_count": 2,
+      "selection_frequency": 0.4
+    },
+    {
+      "feature": "Department Name_Footwear",
+      "feature_index": 35,
+      "selection_count": 1,
+      "selection_frequency": 0.2
+    },
+    {
+      "feature": "Department Name_Outdoors",
+      "feature_index": 36,
+      "selection_count": 5,
+      "selection_frequency": 1.0
+    },
+    {
+      "feature": "Department Name_Fitness",
+      "feature_index": 37,
+      "selection_count": 2,
+      "selection_frequency": 0.4
+    },
+    {
+      "feature": "Department Name_Discs Shop",
+      "feature_index": 38,
+      "selection_count": 3,
+      "selection_frequency": 0.6
+    },
+    {
+      "feature": "Department Name_Technology",
+      "feature_index": 39,
+      "selection_count": 3,
+      "selection_frequency": 0.6
+    },
+    {
+      "feature": "Department Name_Pet Shop",
+      "feature_index": 40,
+      "selection_count": 3,
+      "selection_frequency": 0.6
+    },
+    {
+      "feature": "Department Name_Health and Beauty",
+      "feature_index": 41,
+      "selection_count": 1,
+      "selection_frequency": 0.2
+    },
+    {
+      "feature": "Department Name_Book Shop",
+      "feature_index": 42,
+      "selection_count": 4,
+      "selection_frequency": 0.8
+    }
+  ],
+  "jaccard": {
+    "count": 10,
+    "max": 0.5666666666666667,
+    "mean": 0.3633660265855761,
+    "median": 0.39642857142857146,
+    "min": 0.16129032258064516,
+    "std": 0.13284910151018883
+  },
+  "majority_features": [
+    "order_item_quantity",
+    "order_item_total",
+    "hour",
+    "is_weekend",
+    "Type_DEBIT",
+    "Type_PAYMENT",
+    "Customer Segment_Home Office",
+    "Department Name_Outdoors",
+    "Department Name_Book Shop"
+  ],
+  "normalized_hamming": {
+    "count": 10,
+    "max": 0.6046511627906976,
+    "mean": 0.44651162790697674,
+    "median": 0.4186046511627907,
+    "min": 0.3023255813953488,
+    "std": 0.0922448048412001
+  },
+  "optimizer_run_count": 5,
+  "pairwise": [
+    {
+      "absolute_hamming_distance": 26,
+      "intersection": 5,
+      "jaccard": 0.16129032258064516,
+      "normalized_hamming": 0.6046511627906976,
+      "seed_left": 2042,
+      "seed_right": 2043,
+      "union": 31
+    },
+    {
+      "absolute_hamming_distance": 17,
+      "intersection": 11,
+      "jaccard": 0.39285714285714285,
+      "normalized_hamming": 0.3953488372093023,
+      "seed_left": 2042,
+      "seed_right": 2044,
+      "union": 28
+    },
+    {
+      "absolute_hamming_distance": 24,
+      "intersection": 5,
+      "jaccard": 0.1724137931034483,
+      "normalized_hamming": 0.5581395348837209,
+      "seed_left": 2042,
+      "seed_right": 2045,
+      "union": 29
+    },
+    {
+      "absolute_hamming_distance": 22,
+      "intersection": 7,
+      "jaccard": 0.2413793103448276,
+      "normalized_hamming": 0.5116279069767442,
+      "seed_left": 2042,
+      "seed_right": 2046,
+      "union": 29
+    },
+    {
+      "absolute_hamming_distance": 17,
+      "intersection": 15,
+      "jaccard": 0.46875,
+      "normalized_hamming": 0.3953488372093023,
+      "seed_left": 2043,
+      "seed_right": 2044,
+      "union": 32
+    },
+    {
+      "absolute_hamming_distance": 18,
+      "intersection": 12,
+      "jaccard": 0.4,
+      "normalized_hamming": 0.4186046511627907,
+      "seed_left": 2043,
+      "seed_right": 2045,
+      "union": 30
+    },
+    {
+      "absolute_hamming_distance": 16,
+      "intersection": 14,
+      "jaccard": 0.4666666666666667,
+      "normalized_hamming": 0.37209302325581395,
+      "seed_left": 2043,
+      "seed_right": 2046,
+      "union": 30
+    },
+    {
+      "absolute_hamming_distance": 21,
+      "intersection": 12,
+      "jaccard": 0.36363636363636365,
+      "normalized_hamming": 0.4883720930232558,
+      "seed_left": 2044,
+      "seed_right": 2045,
+      "union": 33
+    },
+    {
+      "absolute_hamming_distance": 13,
+      "intersection": 17,
+      "jaccard": 0.5666666666666667,
+      "normalized_hamming": 0.3023255813953488,
+      "seed_left": 2044,
+      "seed_right": 2046,
+      "union": 30
+    },
+    {
+      "absolute_hamming_distance": 18,
+      "intersection": 12,
+      "jaccard": 0.4,
+      "normalized_hamming": 0.4186046511627907,
+      "seed_left": 2045,
+      "seed_right": 2046,
+      "union": 30
+    }
+  ],
+  "schema_version": "v0.9-d-five-run-bgwo-search-1",
+  "stage": "V0.9-D",
+  "statistical_significance_claimed": false,
+  "strict_consensus_features": [
+    "order_item_quantity",
+    "order_item_total",
+    "Department Name_Outdoors"
+  ],
+  "test_accessed": false,
+  "winner_variation": {
+    "average_precision": {
+      "count": 5,
+      "max": 0.235588513402709,
+      "mean": 0.2341090859808216,
+      "median": 0.2346177845086236,
+      "min": 0.23079879501340658,
+      "std": 0.001976040418245852
+    },
+    "cardinality": {
+      "count": 5,
+      "max": 25.0,
+      "mean": 20.6,
+      "median": 22.0,
+      "min": 14.0,
+      "std": 4.09878030638384
+    },
+    "f1": {
+      "count": 5,
+      "max": 0.21469300694984933,
+      "mean": 0.20536911615858894,
+      "median": 0.20743616729790348,
+      "min": 0.18964396329310085,
+      "std": 0.009326049357769076
+    },
+    "normalized_violation": {
+      "count": 5,
+      "max": 0.0,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "std": 0.0
+    },
+    "recall": {
+      "count": 5,
+      "max": 0.32333333333333336,
+      "mean": 0.3212,
+      "median": 0.32066666666666666,
+      "min": 0.31866666666666665,
+      "std": 0.00184992492340156
+    }
+  }
+}

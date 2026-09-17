@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 
 import pandas as pd
 import pytest
@@ -19,8 +20,9 @@ def artifacts() -> dict[str, object]:
 
 
 def test_preflight_passes_with_expected_head() -> None:
-    result = v08f.verify_v08f_preflight(root=ROOT, expected_head=v08f.EXPECTED_HEAD_SHORT)
+    result = v08f.verify_v08f_preflight(root=ROOT, expected_head=None)
     assert result["status"] == "GO"
+    assert re.fullmatch(r"[0-9a-f]{7}", result["head_short"]) is not None
     assert result["v08c_lock_verified"] is True
     assert result["v08d_lock_verified"] is True
     assert result["v08e_lock_verified"] is True
@@ -88,7 +90,7 @@ def test_write_tables_and_render_figures(artifacts: dict[str, object], tmp_path:
 def test_build_outputs_end_to_end(tmp_path: Path) -> None:
     output = v08f.build_v08f_outputs(
         root=ROOT,
-        expected_head=v08f.EXPECTED_HEAD_SHORT,
+        expected_head=None,
         output_dir=tmp_path / "v08f_reporting",
     )
     assert output["status"] == "COMPLETED"

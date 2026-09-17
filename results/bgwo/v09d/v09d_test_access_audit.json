@@ -1,0 +1,45 @@
+{
+  "bpso_rerun": false,
+  "final_test_accessed": false,
+  "leakage_audit_status": "PASS",
+  "leakage_test_accessed": false,
+  "no_v09e_artifacts": true,
+  "run_test_flags": {
+    "2042": {
+      "test_accessed": false,
+      "test_authorized": false,
+      "test_used_for_winner_selection": false
+    },
+    "2043": {
+      "test_accessed": false,
+      "test_authorized": false,
+      "test_used_for_winner_selection": false
+    },
+    "2044": {
+      "test_accessed": false,
+      "test_authorized": false,
+      "test_used_for_winner_selection": false
+    },
+    "2045": {
+      "test_accessed": false,
+      "test_authorized": false,
+      "test_used_for_winner_selection": false
+    },
+    "2046": {
+      "test_accessed": false,
+      "test_authorized": false,
+      "test_used_for_winner_selection": false
+    }
+  },
+  "schema_version": "v0.9-d-five-run-bgwo-search-1",
+  "stage": "V0.9-D",
+  "status": "PASS",
+  "test_authorized": false,
+  "test_loader_referenced": false,
+  "test_used_for_winner_selection": false,
+  "winner_lock_test_flags": {
+    "final_test_accessed": false,
+    "test_authorized": false,
+    "test_used_for_winner_selection": false
+  }
+}

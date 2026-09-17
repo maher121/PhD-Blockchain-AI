@@ -1,0 +1,394 @@
+{
+  "actual_decision_tree_fits": 3840,
+  "artifact_hashes": {
+    "v09d_convergence.json": "b71a90d3ba6e146467b63eb2f4a37535e2a009eabc82d43db1c9b17b9f8dd2c2",
+    "v09d_stability.json": "cb254d5b2a34cf289a1f16464f0a85f96cd2c3e57ac91a18b47dd49d0cb4aa05",
+    "v09d_test_access_audit.json": "3619720dc888d43d114da7f3a142a0050e281c809c752898528c8614b456d04b",
+    "v09d_validation_comparison.json": "8b15b4391eaac978a9579ac263da43828c0296d1585520d6d70a6d8503001839",
+    "v09d_winner_lock.json": "0486aa87ea4843e3f2843fef91f36bf73446a97024cf51562f8412e42ae80825"
+  },
+  "bpso_rerun": false,
+  "cache_hits": 0,
+  "candidate_requests": 768,
+  "completed_run_count": 5,
+  "dataset_identity": {
+    "dimensions": 43,
+    "name": "DataCo SMART Supply Chain",
+    "row_cap": 40000,
+    "split_seed": 42,
+    "split_sizes": {
+      "test": 6000,
+      "train": 28000,
+      "validation": 6000
+    }
+  },
+  "direct_energy_measured": false,
+  "dry_validation": {
+    "final_test_accessed": false,
+    "fitness_evaluations": 0,
+    "initializations": [
+      {
+        "cardinalities": [
+          43,
+          42,
+          4,
+          8,
+          11,
+          14,
+          18,
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "initial_latent_positions_sha256": "b15957bea5bbed7c0c12f847f7af8667e066488fa10b67e330d9e8bda84d23da",
+        "initial_population_sha256": "8795ba55c298dbd9b494e9459715377a242b59e942c303be5f91409b476e6dd7",
+        "initialization_independence": {
+          "bpso_k10_present": false,
+          "checks": {
+            "bpso_k10_identity_not_present": true,
+            "mi_k11_seed_identities_not_present": true,
+            "real_k42_anchor_used": true
+          },
+          "mi_k11_present": false,
+          "status": "PASS"
+        },
+        "optimizer_seed": 2042
+      },
+      {
+        "cardinalities": [
+          43,
+          42,
+          4,
+          8,
+          11,
+          14,
+          18,
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "initial_latent_positions_sha256": "2fb80b2ef3e8927083d5480b211a755c06ab0e636b8618b0608ad88eea4e73f0",
+        "initial_population_sha256": "4632eb810fac5f0f3b79e49de95e9a209dbce316f4d0aeed16c31b591873a141",
+        "initialization_independence": {
+          "bpso_k10_present": false,
+          "checks": {
+            "bpso_k10_identity_not_present": true,
+            "mi_k11_seed_identities_not_present": true,
+            "real_k42_anchor_used": true
+          },
+          "mi_k11_present": false,
+          "status": "PASS"
+        },
+        "optimizer_seed": 2043
+      },
+      {
+        "cardinalities": [
+          43,
+          42,
+          4,
+          8,
+          11,
+          14,
+          18,
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "initial_latent_positions_sha256": "c1e483f071cb5da82205a3f4c448dc554d4025df28236932cfa26874eb86be8b",
+        "initial_population_sha256": "0c0b5a89d186f3bc9d5bb1aed755ed8e8f6fbbad50f82b1bde2d309f6100656e",
+        "initialization_independence": {
+          "bpso_k10_present": false,
+          "checks": {
+            "bpso_k10_identity_not_present": true,
+            "mi_k11_seed_identities_not_present": true,
+            "real_k42_anchor_used": true
+          },
+          "mi_k11_present": false,
+          "status": "PASS"
+        },
+        "optimizer_seed": 2044
+      },
+      {
+        "cardinalities": [
+          43,
+          42,
+          4,
+          8,
+          11,
+          14,
+          18,
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "initial_latent_positions_sha256": "56c5027f4a3848467aaa28bd845e9bbf8fba69e9dc8274029bb9a0a660fc3477",
+        "initial_population_sha256": "5f7ef1f8ff5c27b0ab275681f569bf4b363bd32c7ac377fddf97730171a4893c",
+        "initialization_independence": {
+          "bpso_k10_present": false,
+          "checks": {
+            "bpso_k10_identity_not_present": true,
+            "mi_k11_seed_identities_not_present": true,
+            "real_k42_anchor_used": true
+          },
+          "mi_k11_present": false,
+          "status": "PASS"
+        },
+        "optimizer_seed": 2045
+      },
+      {
+        "cardinalities": [
+          43,
+          42,
+          4,
+          8,
+          11,
+          14,
+          18,
+          22,
+          26,
+          30,
+          34,
+          38
+        ],
+        "initial_latent_positions_sha256": "f642783ee06a0450bf9de939efa6fe91c28d10a656378e4f6920ec00951979e9",
+        "initial_population_sha256": "694fd0ccc6a01a2d86f73a2d5e5d3487d747b6638c28eb03b5c23aa3856f0502",
+        "initialization_independence": {
+          "bpso_k10_present": false,
+          "checks": {
+            "bpso_k10_identity_not_present": true,
+            "mi_k11_seed_identities_not_present": true,
+            "real_k42_anchor_used": true
+          },
+          "mi_k11_present": false,
+          "status": "PASS"
+        },
+        "optimizer_seed": 2046
+      }
+    ],
+    "status": "PASS"
+  },
+  "execution_mode": "RESUMED",
+  "final_scientific_claims_supported": false,
+  "final_test_accessed": false,
+  "immutable_hashes_after": {
+    "/mnt/e/PhD-Blockchain-AI/config/bgwo_v09.yaml": "6b2ccf82a9d5bc382916567dd1eac076ad5b5a4927048b5c97f7ef457a6d27b2",
+    "/mnt/e/PhD-Blockchain-AI/config/bpso.yaml": "a105022b6d6eb344b938396aa6f8ef62a3311f81f8a0b06538f3ec5ea1c0b0f6",
+    "/mnt/e/PhD-Blockchain-AI/config/feature_selection.yaml": "60577e713f64f2c59acc75e6fde0f1b14d781cf8a4070e20025b2cde77629ebf",
+    "/mnt/e/PhD-Blockchain-AI/data/processed/dataset_metadata.json": "139f84f1443c39ff8b5a9c114b54a6a69ce177bf6f1a3d01982ceddcbce9d811",
+    "/mnt/e/PhD-Blockchain-AI/docs/v09_bgwo_protocol.md": "e9c6c0333b8285b0a12f4958f645549e6bd6cf68121c092f6d1bcb706f0853d2",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08a_protocol_validation.json": "eb495cfbf426ecfffa4ef625d24e4123c57bba58a6891832b852c1256318445e",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/core_runs.csv": "032ed7959dcfd8c22d0e59822c8f745ab0a6c8474a524d1a0b39f536d9026488",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/leakage_audit.json": "8ca35b9a6e52e0cd0e08e95737c0fd49938cd028d4457f04ac572746b6b5ba06",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/run_metadata.json": "c73acebf91dc28ef727dc6444af8cc26409be481c186fdb6c6e42c568d0030d7",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.json": "71dc92b8a34db1bb3c2f55a69e56f43733544329128ec60c5cdbbce2445d1604",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.sha256": "c1df43012dd3edff09c8443edb3da736c874488f8030980eef2d24be2d9fcb53",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_summary.csv": "605df69149730288fcd15e08f1881744dbda5b8b52210e160bc07f817b29401f",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/energy_capability.json": "6e9b4556993d719edd54bbc7ad866bf716ed868fcbf6760de525b6e68ae88f2c",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_artifact_hashes.json": "fb39eb040fcfec1be569956b28a12d2972c02b5aa9fd99f13ea9539336190c4d",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_governance_audit.json": "f176936e6ef299d67e7cb3f804a658c173fd0c5acd9e27ddcc70dcda7c51fc69",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_artifact_hashes.json": "d4562db7b47c1b773619ed4a09ba4e32a2cd186fda37e351df68b2dfa3e719ea",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_governance_audit.json": "91e4dec4b73d7ce7aa840698c9bd8cf4e357a09a37360706319d7415b17a8fe0",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/__init__.py": "d213f8421e6e4f41005b68fe07d0be920e031813948ca0d90d322df19220a19e",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/bgwo.py": "947f0d73ec7856fee9192dff78a77177ebde009ab981aae50757c109d59aa098",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/bpso.py": "96116f255a6f87d404d6cb290d5acfe771f0abbf47ad5cbed1fd75bc21615bc2",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v08a.py": "6701784dded601b3efd71632a50c47640ac27e3c06d460994ca03bfacb4852c0",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v09b.py": "9c04e23a068f1cc61ef475341725c41e46824e257a2ad5b90edf95d75bd7fc33",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v09c.py": "04d5ccd76fbbdc0d082ddec5dce70ad9145fd4cfd8231827d31a63e98013cfd7",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_bpso.py": "243f5476412c74288cb5a12ebd50e421d50fcfbfe63b29c265a604f57497c921",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_pipeline_v08a.py": "1fc2b1d48d8654345a00f82280c3aa9696f59d6e9bcf824624cffa079fdf69f2"
+  },
+  "immutable_hashes_before": {
+    "/mnt/e/PhD-Blockchain-AI/config/bgwo_v09.yaml": "6b2ccf82a9d5bc382916567dd1eac076ad5b5a4927048b5c97f7ef457a6d27b2",
+    "/mnt/e/PhD-Blockchain-AI/config/bpso.yaml": "a105022b6d6eb344b938396aa6f8ef62a3311f81f8a0b06538f3ec5ea1c0b0f6",
+    "/mnt/e/PhD-Blockchain-AI/config/feature_selection.yaml": "60577e713f64f2c59acc75e6fde0f1b14d781cf8a4070e20025b2cde77629ebf",
+    "/mnt/e/PhD-Blockchain-AI/data/processed/dataset_metadata.json": "139f84f1443c39ff8b5a9c114b54a6a69ce177bf6f1a3d01982ceddcbce9d811",
+    "/mnt/e/PhD-Blockchain-AI/docs/v09_bgwo_protocol.md": "e9c6c0333b8285b0a12f4958f645549e6bd6cf68121c092f6d1bcb706f0853d2",
+    "/mnt/e/PhD-Blockchain-AI/results/bpso/v08a_protocol_validation.json": "eb495cfbf426ecfffa4ef625d24e4123c57bba58a6891832b852c1256318445e",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/core_runs.csv": "032ed7959dcfd8c22d0e59822c8f745ab0a6c8474a524d1a0b39f536d9026488",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/leakage_audit.json": "8ca35b9a6e52e0cd0e08e95737c0fd49938cd028d4457f04ac572746b6b5ba06",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/run_metadata.json": "c73acebf91dc28ef727dc6444af8cc26409be481c186fdb6c6e42c568d0030d7",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.json": "71dc92b8a34db1bb3c2f55a69e56f43733544329128ec60c5cdbbce2445d1604",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_lock.sha256": "c1df43012dd3edff09c8443edb3da736c874488f8030980eef2d24be2d9fcb53",
+    "/mnt/e/PhD-Blockchain-AI/results/feature_selection/validation_summary.csv": "605df69149730288fcd15e08f1881744dbda5b8b52210e160bc07f817b29401f",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/energy_capability.json": "6e9b4556993d719edd54bbc7ad866bf716ed868fcbf6760de525b6e68ae88f2c",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_artifact_hashes.json": "fb39eb040fcfec1be569956b28a12d2972c02b5aa9fd99f13ea9539336190c4d",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07d_governance_audit.json": "f176936e6ef299d67e7cb3f804a658c173fd0c5acd9e27ddcc70dcda7c51fc69",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_artifact_hashes.json": "d4562db7b47c1b773619ed4a09ba4e32a2cd186fda37e351df68b2dfa3e719ea",
+    "/mnt/e/PhD-Blockchain-AI/results/green_evaluation/v07e_governance_audit.json": "91e4dec4b73d7ce7aa840698c9bd8cf4e357a09a37360706319d7415b17a8fe0",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/__init__.py": "d213f8421e6e4f41005b68fe07d0be920e031813948ca0d90d322df19220a19e",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/bgwo.py": "947f0d73ec7856fee9192dff78a77177ebde009ab981aae50757c109d59aa098",
+    "/mnt/e/PhD-Blockchain-AI/src/optimization/bpso.py": "96116f255a6f87d404d6cb290d5acfe771f0abbf47ad5cbed1fd75bc21615bc2",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v08a.py": "6701784dded601b3efd71632a50c47640ac27e3c06d460994ca03bfacb4852c0",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v09b.py": "9c04e23a068f1cc61ef475341725c41e46824e257a2ad5b90edf95d75bd7fc33",
+    "/mnt/e/PhD-Blockchain-AI/src/pipeline_v09c.py": "04d5ccd76fbbdc0d082ddec5dce70ad9145fd4cfd8231827d31a63e98013cfd7",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_bpso.py": "243f5476412c74288cb5a12ebd50e421d50fcfbfe63b29c265a604f57497c921",
+    "/mnt/e/PhD-Blockchain-AI/tests/test_pipeline_v08a.py": "1fc2b1d48d8654345a00f82280c3aa9696f59d6e9bcf824624cffa079fdf69f2"
+  },
+  "logistic_regression_evaluated": false,
+  "model_attack_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "optimizer_cpu_time_sec": 325.25378715999994,
+  "optimizer_seeds": [
+    2042,
+    2043,
+    2044,
+    2045,
+    2046
+  ],
+  "optimizer_wall_time_sec": 325.42544312802784,
+  "pipeline_wall_time_sec": 111.89105836400995,
+  "preflight": {
+    "checks": {
+      "v08_frozen_integrity": true,
+      "v08c_winner_unchanged": true,
+      "v08d_lock_unchanged": true,
+      "v08e_lock_unchanged": true,
+      "v09a_budget_per_run": true,
+      "v09a_dimensions": true,
+      "v09a_optimizer_name": true,
+      "v09a_population": true,
+      "v09a_schema": true,
+      "v09a_stage": true,
+      "v09b_implementation_status": true,
+      "v09c_artifact_hashes_intact": true,
+      "v09c_execution_passed": true,
+      "v09c_no_test_access": true,
+      "v09c_no_winner_or_search": true,
+      "v09c_pilot_quarantined": true,
+      "v09d_budget_limits": true,
+      "v09d_protocol_seeds": true,
+      "v09e_artifacts_absent": true
+    },
+    "frozen_v08_integrity": {
+      "immutable_hash_count": 53,
+      "status": "PASS",
+      "v08d_semantic_result_lock_sha256": "ac19e5a0dba5d058f88485e6ab8ab9a96f97c30f697e95a744ccaa6563d2b657",
+      "v08e_semantic_result_lock_sha256": "7307fda1cdb5f100cb6268dc0f4eff05b65bfcefadeb06707c8a3e13fd6888d5"
+    },
+    "protocol_config": "config/bgwo_v09.yaml",
+    "protocol_config_sha256": "6b2ccf82a9d5bc382916567dd1eac076ad5b5a4927048b5c97f7ef457a6d27b2",
+    "protocol_document": "docs/v09_bgwo_protocol.md",
+    "schema_version": "v0.9-d-five-run-bgwo-search-1",
+    "stage": "V0.9-D",
+    "starting_head": "cdf6be1",
+    "status": "PASS",
+    "v09c_artifacts": {
+      "checks": {
+        "v09c_artifact_hashes_intact": true,
+        "v09c_execution_passed": true,
+        "v09c_no_test_access": true,
+        "v09c_no_winner_or_search": true,
+        "v09c_pilot_quarantined": true
+      },
+      "status": "PASS",
+      "v09c_artifact_hashes": {
+        "v09c_baseline_reproduction.json": "6bf1f6aa05ff87dca22b20ba8c56195faf23cf74634eb1019038cca0b245671d",
+        "v09c_comparator_consistency.json": "75a78dfcc87fa9f3dfb28a5ca952849c9bc0c34de864cd085710d8c9d9b8b9f5",
+        "v09c_execution_summary.json": "d3746d71c0567bcf2e5105922dfe635461c526d72a735c19b49a20547c543fc0",
+        "v09c_leakage_audit.json": "d8bab71b38f863b627098ceaaa0f5d7ea5dce1beb9963be0a8e5a55b88150759",
+        "v09c_pilot_summary.json": "f9fb17f63db196afd05b7de70302af868dbaa5cf73660baf04a307fb0bd40f95",
+        "v09c_preflight.json": "af370ffb5966353ae2f38d3a896829771e641963d9e7f0dbc85bc2b29a048690"
+      }
+    },
+    "v09c_preflight": {
+      "checks": {
+        "v08_frozen_integrity": true,
+        "v08c_winner_unchanged": true,
+        "v08d_lock_unchanged": true,
+        "v08e_lock_unchanged": true,
+        "v09a_budget_per_run": true,
+        "v09a_dimensions": true,
+        "v09a_optimizer_name": true,
+        "v09a_population": true,
+        "v09a_schema": true,
+        "v09a_stage": true,
+        "v09b_implementation_status": true
+      },
+      "frozen_v08_integrity": {
+        "immutable_hash_count": 53,
+        "status": "PASS",
+        "v08d_semantic_result_lock_sha256": "ac19e5a0dba5d058f88485e6ab8ab9a96f97c30f697e95a744ccaa6563d2b657",
+        "v08e_semantic_result_lock_sha256": "7307fda1cdb5f100cb6268dc0f4eff05b65bfcefadeb06707c8a3e13fd6888d5"
+      },
+      "protocol_config": "config/bgwo_v09.yaml",
+      "protocol_config_sha256": "6b2ccf82a9d5bc382916567dd1eac076ad5b5a4927048b5c97f7ef457a6d27b2",
+      "protocol_document": "docs/v09_bgwo_protocol.md",
+      "schema_version": "v0.9-c-real-fitness-integration-1",
+      "stage": "V0.9-C",
+      "starting_head": "cdf6be1",
+      "status": "PASS",
+      "v09b_status": {
+        "status": "PASS",
+        "validation_kind": "SYNTHETIC_BGWO_IMPLEMENTATION_VALIDATION"
+      }
+    }
+  },
+  "protocol_identity": {
+    "comparator_sha256": "a2b980353d4d79b7e21dbbbf99cce1054ebb014a77418f5f3d5edfbf5bf01fbc",
+    "feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+    "fitness_protocol_sha256": "db6c92b4ddaf152e5a3d835584dcf20a3ba924c725cc9e4df3b49b481e740a29",
+    "optimizer_config_sha256": "6b2ccf82a9d5bc382916567dd1eac076ad5b5a4927048b5c97f7ef457a6d27b2",
+    "production_protocol_sha256": "e0b9985bc4185abf2331f0750bc5b599cf18bf8b038a3d29a46b153456cc4fb0",
+    "real_k42_mask_sha256": "f76b908b72b7adf5e354c4207c07a1fb5667d0bce84c3f3af490a239f2e75360"
+  },
+  "readiness_for_v09e": "GO",
+  "resource_benchmark_executed": false,
+  "run_artifact_sha256": {
+    "2042": "853373f39e359aa7b2ebcee7a72756d56dd73a583b84baa94acbc634a94f41dd",
+    "2043": "a3c8976faa8002cb9e18abf7bce4ab14e6f16ae38410002572ab456695c113d0",
+    "2044": "dd12bc2890a6d04f441d0e0be1667a83e25f5a099725f8f515bbf8eed4017571",
+    "2045": "3a7320d0949490f5725c2fed93de5c9f5736455ed0d2ff647b45725650d7ff9c",
+    "2046": "4800cbfeabc80d46c7bd462bb0bc4ebd877d1be6dd00aa021c78c98b4a4dc121"
+  },
+  "run_execution_modes": {
+    "2042": "RESUMED",
+    "2043": "RESUMED",
+    "2044": "RESUMED",
+    "2045": "RESUMED",
+    "2046": "RESUMED"
+  },
+  "schema_version": "v0.9-d-five-run-bgwo-search-1",
+  "selection_scope": "TRAIN_AND_DEVELOPMENT_VALIDATION_ONLY",
+  "stage": "V0.9-D",
+  "starting_head": "cdf6be1",
+  "status": "COMPLETED",
+  "stop_reasons": {
+    "2042": "EARLY_STOP_NO_IMPROVEMENT",
+    "2043": "EARLY_STOP_NO_IMPROVEMENT",
+    "2044": "EARLY_STOP_NO_IMPROVEMENT",
+    "2045": "EARLY_STOP_NO_IMPROVEMENT",
+    "2046": "EARLY_STOP_NO_IMPROVEMENT"
+  },
+  "test_authorized": false,
+  "test_used_for_winner_selection": false,
+  "total_repairs": 0,
+  "unique_evaluations": 768,
+  "winner": {
+    "feasible": true,
+    "mask_sha256": "7ebb823374255f4f10c737c62a2111604aa50193a8f0d91b8483f3864cac7ad6",
+    "normalized_violation": 0.0,
+    "optimizer": "BGWO",
+    "selected_feature_count": 14,
+    "selected_features_sha256": "0d5219835f3dc96acb3c82f94d286813b834eceefc4156aa383234a842b9c359",
+    "semantic_lock_sha256": "e228f4c619de7e2028e4089723c6ae066fe8c2ab9ed1d94d98e0439a63df2744",
+    "source_optimizer_seed": 2042,
+    "validation_metrics": {
+      "average_precision": 0.2346177845086236,
+      "f1": 0.18964396329310085,
+      "recall": 0.32266666666666666
+    }
+  }
+}

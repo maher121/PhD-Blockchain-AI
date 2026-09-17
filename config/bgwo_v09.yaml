@@ -1,0 +1,259 @@
+version: "v0.9-a-bgwo-protocol-1"
+stage: "V0.9-A"
+kind: "SCIENTIFIC_PROTOCOL_LOCK"
+scientific_experiment: false
+
+scope:
+  optimizer_execution_allowed: false
+  model_training_execution_allowed: false
+  final_test_access_allowed: false
+  bpso_rerun_allowed: false
+  v10_hybrid_start_allowed: false
+
+governed_sources:
+  v08c_winner_lock: "results/bpso/v08c_winner_lock.json"
+  v08d_final_test_lock: "results/bpso/v08d_final_test_lock.json"
+  v08e_result_lock: "results/bpso/v08e_e4_analysis/v08e_scientific_result_lock.json"
+  v08d_semantic_result_lock_sha256: "ac19e5a0dba5d058f88485e6ab8ab9a96f97c30f697e95a744ccaa6563d2b657"
+  v08e_semantic_result_lock_sha256: "7307fda1cdb5f100cb6268dc0f4eff05b65bfcefadeb06707c8a3e13fd6888d5"
+  v08_final_classification: "STRUCTURAL_GAIN_TIMING_UNCERTAIN"
+
+data_governance:
+  dataset: "DataCo SMART Supply Chain"
+  row_cap: 40000
+  split:
+    strategy: "order_grouped"
+    seed: 42
+    train_rows: 28000
+    validation_rows: 6000
+    test_rows: 6000
+  feature_space_count: 43
+  ground_truth: "is_attack"
+  forbidden_as_cyber_ground_truth:
+    - "Late_delivery_risk"
+    - "SUSPECTED_FRAUD"
+  optimizer_visible_splits: ["train", "validation"]
+  optimizer_forbidden_splits: ["test"]
+
+predictive_baseline:
+  source: "V0.6 validation K43"
+  average_precision: 0.2306840611
+  f1: 0.1977010726
+  recall: 0.322
+  preservation_constraints:
+    average_precision_relative_loss_max: 0.05
+    f1_relative_loss_max: 0.05
+    recall_relative_loss_max: 0.10
+  note: "governance thresholds, not domain-calibrated risk thresholds"
+
+optimization_objective:
+  formulation: "constrained_minimum_cardinality"
+  weighted_multiobjective: false
+  resource_or_energy_in_fitness: false
+  excluded_metrics:
+    - "wall_time_sec"
+    - "process_cpu_time_sec"
+    - "absolute_peak_rss_mib"
+    - "incremental_peak_rss_mib"
+    - "serialized_model_bytes"
+    - "throughput_records_sec"
+    - "direct_energy"
+
+deterministic_ranking:
+  feasible:
+    - "smaller_k"
+    - "higher_average_precision"
+    - "higher_f1"
+    - "higher_recall"
+    - "canonical_tie_break"
+  infeasible:
+    - "lower_total_normalized_constraint_violation"
+    - "higher_average_precision"
+    - "higher_f1"
+    - "higher_recall"
+    - "smaller_k"
+    - "canonical_tie_break"
+
+search_classifier:
+  name: "decision_tree"
+  parameters:
+    class_weight: "balanced"
+    max_depth: 5
+    min_samples_leaf: 20
+  prediction_threshold: 0.5
+
+optimizer:
+  name: "BGWO"
+  dimensions: 43
+  wolves: 12
+  independent_runs: 5
+  optimizer_seeds: [2042, 2043, 2044, 2045, 2046]
+
+  evaluated_iterations:
+    count_including_initialization: 20
+    index_origin: 0
+    index_zero_semantics: "initialized population evaluation; included in budget"
+    iterative_updates_after_initialization: 19
+
+  budget:
+    maximum_fitness_requests_per_run: 240
+    maximum_fitness_requests_five_runs: 1200
+    budget_tuning_after_results_allowed: false
+
+  initialization:
+    anchors:
+      k43: "all_features_active"
+      k42: "governed_pairwise_correlation_k42_identity_bound_pre_search"
+    random_exact_cardinalities: [4, 8, 11, 14, 18, 22, 26, 30, 34, 38]
+    prohibited_seeded_identities:
+      - "BPSO-K10"
+      - "MI-K11"
+
+  canonical_binary_gwo:
+    leadership_roles: ["alpha", "beta", "delta"]
+    control_parameter_a:
+      schedule: "linear"
+      start: 2.0
+      end: 0.0
+      formula: "a(t)=2-2*t/T"
+    update_equations:
+      A: "A=2*a*r1-a"
+      C: "C=2*r2"
+      D_alpha: "|C1*z_alpha-z_i|"
+      D_beta: "|C2*z_beta-z_i|"
+      D_delta: "|C3*z_delta-z_i|"
+      X1: "z_alpha-A1*D_alpha"
+      X2: "z_beta-A2*D_beta"
+      X3: "z_delta-A3*D_delta"
+      next_position: "(X1+X2+X3)/3"
+
+  binary_transfer:
+    function: "standard_logistic_sigmoid"
+    expression: "S(x)=1/(1+exp(-x))"
+    input_clamp: [-6.0, 6.0]
+    sampling_rule: "bit=1 if u<S(z) else 0"
+
+  repair:
+    minimum_selected_features: 1
+    all_zero_policy: "activate_index_with_max_abs_latent_value_then_lowest_index_tie_break"
+
+  cache:
+    enabled: true
+    scope: "one_optimizer_run"
+    key: "canonical_binary_mask_sha256"
+
+  stopping:
+    criterion: "no_best_rank_improvement"
+    not_before_evaluated_iteration_index: 10
+    patience_evaluated_iterations: 7
+    stop_reason_on_patience: "EARLY_STOP_NO_IMPROVEMENT"
+
+stability_reporting:
+  required:
+    - "selected_k_per_run"
+    - "selected_feature_identities"
+    - "feature_selection_frequency"
+    - "pairwise_jaccard"
+    - "hamming_distance"
+    - "consensus_features"
+    - "majority_features"
+    - "convergence_behavior"
+    - "final_feasibility_and_rank"
+    - "optimizer_runtime"
+    - "fitness_requests"
+    - "unique_candidate_evaluations"
+    - "cache_behavior"
+
+winner_selection:
+  data_scope: "validation_only"
+  deterministic_ranking_required: true
+  final_test_access_allowed_only_after_winner_lock: true
+  winner_lock_schema_fields:
+    - "optimizer"
+    - "source_optimizer_seed"
+    - "selected_feature_count"
+    - "ordered_selected_features"
+    - "mask"
+    - "mask_sha256"
+    - "selected_features_sha256"
+    - "validation_metrics"
+    - "feasible"
+    - "normalized_violation"
+    - "search_protocol_identity"
+    - "semantic_lock_sha256"
+
+final_test_plan:
+  configurations:
+    - "K43"
+    - "K42"
+    - "MI-K11"
+    - "BPSO-K10"
+    - "BGWO-winner"
+  classifiers:
+    - "decision_tree"
+    - "logistic_regression"
+  model_attack_seeds: [42, 43, 44, 45, 46]
+  reselection_allowed: false
+
+statistics:
+  scientific_unit: "paired_model_attack_seed"
+  n: 5
+  df: 4
+  confidence_interval: "paired_95pct_t_interval"
+  p_values_computed: false
+
+resource_energy_plan_for_later_stages:
+  execute_in_v09a: false
+  sleep_governance_improvements:
+    - "sleep_disabled"
+    - "hibernate_disabled"
+    - "stable_ac_power"
+    - "campaign_start_end_metadata"
+    - "observation_level_or_fine_grained_external_timestamps"
+    - "fresh_worker_isolation"
+    - "warmup_and_repetition_lock"
+    - "single_thread_governance"
+    - "checkpoint_resume"
+  direct_energy_status_default: "DIRECT_ENERGY_UNAVAILABLE"
+  prohibit_cpu_wall_as_energy: true
+
+comparison_plan:
+  bpso_vs_bgwo:
+    - "winner_k"
+    - "validation_preservation"
+    - "final_test_predictive_behavior"
+    - "optimizer_stability"
+    - "fitness_requests"
+    - "unique_candidates"
+    - "optimizer_runtime"
+    - "downstream_structural_resource_characteristics"
+  subjective_single_score_winner_allowed: false
+
+novelty_boundary:
+  v09_role: "independent_bgwo_baseline"
+  hybrid_features_allowed: false
+  prohibited:
+    - "consume_bpso_final_population"
+    - "consume_bpso_winner"
+    - "combine_bpso_bgwo_trajectories"
+
+roadmap:
+  - id: "V0.9-A"
+    goal: "BGWO scientific protocol lock"
+  - id: "V0.9-B"
+    goal: "deterministic BGWO implementation and unit tests"
+  - id: "V0.9-C"
+    goal: "leakage-safe real fitness integration and quarantined pilot"
+  - id: "V0.9-D"
+    goal: "five full validation-only BGWO runs and winner lock"
+  - id: "V0.9-E"
+    goal: "governed final-test predictive evaluation"
+  - id: "V0.9-F"
+    goal: "controlled resource and overhead evaluation"
+  - id: "V0.9-G"
+    goal: "notebook, figures, synthesis, and BPSO-vs-BGWO comparison"
+
+artifact:
+  protocol_document: "docs/v09_bgwo_protocol.md"
+  protocol_config: "config/bgwo_v09.yaml"
+  final_protocol_classification: "BGWO_PROTOCOL_LOCKED_FAIR_COMPARISON"
