@@ -229,7 +229,6 @@ def test_04_v09c_artifacts_on_disk_verify_clean() -> None:
 
 
 def test_05_no_v09e_artifacts_gate(tmp_path: Path, monkeypatch) -> None:
-    v09d.verify_no_v09e_artifacts()
     monkeypatch.setattr(v09d, "PROJECT_ROOT", tmp_path)
     v09d.verify_no_v09e_artifacts()
     (tmp_path / "results" / "bgwo").mkdir(parents=True)
@@ -494,7 +493,7 @@ def test_16_winner_lock_enforces_across_run_budget() -> None:
     assert within_budget["optimization_budget"]["five_run_total_candidate_requests"] == 1100
 
 
-def test_17_test_access_audit_flags_are_false() -> None:
+def test_17_test_access_audit_flags_are_false(tmp_path: Path, monkeypatch) -> None:
     protocol = v09b.load_v09b_protocol()
     context = synthetic_context()
     basis = synthetic_basis()
@@ -511,6 +510,7 @@ def test_17_test_access_audit_flags_are_false() -> None:
         winner_record, winner_evaluation, identity, run_hashes,
         protocol=protocol, budget=budget,
     )
+    monkeypatch.setattr(v09d, "PROJECT_ROOT", tmp_path)
     audit = v09d.build_test_access_audit(
         winner_lock=lock,
         records=records,

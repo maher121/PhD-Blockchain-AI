@@ -1,0 +1,228 @@
+{
+  "artifact_kind": "FEATURE_OVERLAP_ANALYSIS",
+  "bgwo_feature_count": 14,
+  "bgwo_vs_bpso": {
+    "bgwo_only_features": [
+      "product_price",
+      "order_item_discount",
+      "order_item_discount_rate",
+      "days_schedule",
+      "is_weekend",
+      "item_count_per_order",
+      "Market_Pacific Asia",
+      "Market_USCA",
+      "Department Name_Outdoors",
+      "Department Name_Discs Shop",
+      "Department Name_Book Shop"
+    ],
+    "bpso_only_features": [
+      "order_item_profit_ratio",
+      "hour",
+      "Type_PAYMENT",
+      "Shipping Mode_Same Day",
+      "Customer Segment_Corporate",
+      "Department Name_Apparel",
+      "Department Name_Health and Beauty"
+    ],
+    "intersection_size": 3,
+    "jaccard": 0.14285714285714285,
+    "left_only_features": [
+      "product_price",
+      "order_item_discount",
+      "order_item_discount_rate",
+      "days_schedule",
+      "is_weekend",
+      "item_count_per_order",
+      "Market_Pacific Asia",
+      "Market_USCA",
+      "Department Name_Outdoors",
+      "Department Name_Discs Shop",
+      "Department Name_Book Shop"
+    ],
+    "right_only_features": [
+      "order_item_profit_ratio",
+      "hour",
+      "Type_PAYMENT",
+      "Shipping Mode_Same Day",
+      "Customer Segment_Corporate",
+      "Department Name_Apparel",
+      "Department Name_Health and Beauty"
+    ],
+    "shared_features": [
+      "order_item_quantity",
+      "order_item_total",
+      "Market_LATAM"
+    ],
+    "union_size": 21
+  },
+  "bgwo_vs_mi_k11": {
+    "intersection_jaccard": 0.26666666666666666,
+    "mean_seed_jaccard": 0.34502923976608185,
+    "per_seed": [
+      {
+        "intersection_size": 6,
+        "jaccard": 0.3157894736842105,
+        "left_only_features": [
+          "order_item_discount",
+          "order_item_discount_rate",
+          "Market_LATAM",
+          "Market_Pacific Asia",
+          "Market_USCA",
+          "Department Name_Outdoors",
+          "Department Name_Discs Shop",
+          "Department Name_Book Shop"
+        ],
+        "mi_k11_feature_count": 11,
+        "right_only_features": [
+          "year",
+          "day",
+          "day_of_week",
+          "hour",
+          "order_total_value"
+        ],
+        "seed": 42,
+        "shared_features": [
+          "order_item_quantity",
+          "product_price",
+          "order_item_total",
+          "days_schedule",
+          "is_weekend",
+          "item_count_per_order"
+        ],
+        "union_size": 19
+      },
+      {
+        "intersection_size": 7,
+        "jaccard": 0.3888888888888889,
+        "left_only_features": [
+          "order_item_discount",
+          "Market_LATAM",
+          "Market_Pacific Asia",
+          "Market_USCA",
+          "Department Name_Outdoors",
+          "Department Name_Discs Shop",
+          "Department Name_Book Shop"
+        ],
+        "mi_k11_feature_count": 11,
+        "right_only_features": [
+          "order_item_profit_ratio",
+          "year",
+          "hour",
+          "Department Name_Fitness"
+        ],
+        "seed": 43,
+        "shared_features": [
+          "order_item_quantity",
+          "product_price",
+          "order_item_discount_rate",
+          "order_item_total",
+          "days_schedule",
+          "is_weekend",
+          "item_count_per_order"
+        ],
+        "union_size": 18
+      },
+      {
+        "intersection_size": 7,
+        "jaccard": 0.3888888888888889,
+        "left_only_features": [
+          "order_item_discount",
+          "Market_LATAM",
+          "Market_Pacific Asia",
+          "Market_USCA",
+          "Department Name_Outdoors",
+          "Department Name_Discs Shop",
+          "Department Name_Book Shop"
+        ],
+        "mi_k11_feature_count": 11,
+        "right_only_features": [
+          "order_item_profit_ratio",
+          "year",
+          "month",
+          "day_of_week"
+        ],
+        "seed": 44,
+        "shared_features": [
+          "order_item_quantity",
+          "product_price",
+          "order_item_discount_rate",
+          "order_item_total",
+          "days_schedule",
+          "is_weekend",
+          "item_count_per_order"
+        ],
+        "union_size": 18
+      },
+      {
+        "intersection_size": 6,
+        "jaccard": 0.3157894736842105,
+        "left_only_features": [
+          "order_item_discount_rate",
+          "item_count_per_order",
+          "Market_LATAM",
+          "Market_Pacific Asia",
+          "Market_USCA",
+          "Department Name_Outdoors",
+          "Department Name_Discs Shop",
+          "Department Name_Book Shop"
+        ],
+        "mi_k11_feature_count": 11,
+        "right_only_features": [
+          "order_item_product_price",
+          "year",
+          "day",
+          "day_of_week",
+          "order_total_value"
+        ],
+        "seed": 45,
+        "shared_features": [
+          "order_item_quantity",
+          "product_price",
+          "order_item_discount",
+          "order_item_total",
+          "days_schedule",
+          "is_weekend"
+        ],
+        "union_size": 19
+      },
+      {
+        "intersection_size": 6,
+        "jaccard": 0.3157894736842105,
+        "left_only_features": [
+          "order_item_discount",
+          "days_schedule",
+          "Market_LATAM",
+          "Market_Pacific Asia",
+          "Market_USCA",
+          "Department Name_Outdoors",
+          "Department Name_Discs Shop",
+          "Department Name_Book Shop"
+        ],
+        "mi_k11_feature_count": 11,
+        "right_only_features": [
+          "order_item_product_price",
+          "year",
+          "month",
+          "day_of_week",
+          "hour"
+        ],
+        "seed": 46,
+        "shared_features": [
+          "order_item_quantity",
+          "product_price",
+          "order_item_discount_rate",
+          "order_item_total",
+          "is_weekend",
+          "item_count_per_order"
+        ],
+        "union_size": 19
+      }
+    ],
+    "union_jaccard": 0.34782608695652173
+  },
+  "bpso_feature_count": 10,
+  "descriptive_only": true,
+  "mutated_any_subset": false,
+  "schema_version": "v0.9-e-governed-final-test-1",
+  "stage": "V0.9-E"
+}

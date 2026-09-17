@@ -1,0 +1,82 @@
+{
+  "artifact_kind": "FINAL_TEST_PRESERVATION",
+  "cross_classifier_interpretation": "PRESERVATION_HOLDS_FOR_BOTH_CLASSIFIERS",
+  "domain_validated_margins": false,
+  "margin_semantics": "preregistered descriptive engineering preservation criteria",
+  "margins": {
+    "average_precision": 0.05,
+    "f1": 0.05,
+    "recall": 0.1
+  },
+  "results": [
+    {
+      "classifier": "decision_tree",
+      "metric_checks": [
+        {
+          "bgwo_mean": 0.22603467292251583,
+          "k43_mean": 0.22208384690725302,
+          "margin": 0.05,
+          "metric": "average_precision",
+          "preserved": true,
+          "relative_change": 0.01778979457660763,
+          "relative_loss": 0.0
+        },
+        {
+          "bgwo_mean": 0.17971681232152606,
+          "k43_mean": 0.18900476213886785,
+          "margin": 0.05,
+          "metric": "f1",
+          "preserved": true,
+          "relative_change": -0.04914135343593957,
+          "relative_loss": 0.04914135343593957
+        },
+        {
+          "bgwo_mean": 0.308,
+          "k43_mean": 0.30533333333333335,
+          "margin": 0.1,
+          "metric": "recall",
+          "preserved": true,
+          "relative_change": 0.008733624454148419,
+          "relative_loss": 0.0
+        }
+      ],
+      "overall_preserved": true
+    },
+    {
+      "classifier": "logistic_regression",
+      "metric_checks": [
+        {
+          "bgwo_mean": 0.05081015500471263,
+          "k43_mean": 0.051149797360171737,
+          "margin": 0.05,
+          "metric": "average_precision",
+          "preserved": true,
+          "relative_change": -0.006640150557538149,
+          "relative_loss": 0.006640150557538149
+        },
+        {
+          "bgwo_mean": 0.08848584846370547,
+          "k43_mean": 0.08734827100957092,
+          "margin": 0.05,
+          "metric": "f1",
+          "preserved": true,
+          "relative_change": 0.013023468478384691,
+          "relative_loss": 0.0
+        },
+        {
+          "bgwo_mean": 0.46799999999999997,
+          "k43_mean": 0.42333333333333334,
+          "margin": 0.1,
+          "metric": "recall",
+          "preserved": true,
+          "relative_change": 0.10551181102362196,
+          "relative_loss": 0.0
+        }
+      ],
+      "overall_preserved": true
+    }
+  ],
+  "schema_version": "v0.9-e-governed-final-test-1",
+  "stage": "V0.9-E",
+  "winner_reselection_performed": false
+}

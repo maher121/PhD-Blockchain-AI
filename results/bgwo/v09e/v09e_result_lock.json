@@ -1,0 +1,171 @@
+{
+  "bgwo_feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+  "bgwo_mask_sha256": "7ebb823374255f4f10c737c62a2111604aa50193a8f0d91b8483f3864cac7ad6",
+  "bgwo_ordered_selected_features": [
+    "order_item_quantity",
+    "product_price",
+    "order_item_discount",
+    "order_item_discount_rate",
+    "order_item_total",
+    "days_schedule",
+    "is_weekend",
+    "item_count_per_order",
+    "Market_LATAM",
+    "Market_Pacific Asia",
+    "Market_USCA",
+    "Department Name_Outdoors",
+    "Department Name_Discs Shop",
+    "Department Name_Book Shop"
+  ],
+  "bgwo_rerun": false,
+  "bgwo_selected_feature_count": 14,
+  "bgwo_selected_features_sha256": "0d5219835f3dc96acb3c82f94d286813b834eceefc4156aa383234a842b9c359",
+  "bpso_mask_sha256": "5da981b5b87db97338ecdde9ca8a8b87db3a62771d03dc6a4ad901f6548a3299",
+  "bpso_ordered_selected_features": [
+    "order_item_quantity",
+    "order_item_profit_ratio",
+    "order_item_total",
+    "hour",
+    "Type_PAYMENT",
+    "Market_LATAM",
+    "Shipping Mode_Same Day",
+    "Customer Segment_Corporate",
+    "Department Name_Apparel",
+    "Department Name_Health and Beauty"
+  ],
+  "bpso_rerun": false,
+  "bpso_selected_feature_count": 10,
+  "bpso_selected_features_sha256": "5157d5bb6b17dc6c92b790671dac029e2b0d2b4454db9824870db1290a6c4121",
+  "bpso_source_semantic_lock_sha256": "0f356ccab422774b128ab82f5da8881f24816902d4ccc6a7cecc9760c6202ca8",
+  "classifier_configurations": {
+    "decision_tree": {
+      "parameters": {
+        "class_weight": "balanced",
+        "max_depth": 5,
+        "min_samples_leaf": 20
+      },
+      "prediction_threshold": 0.5
+    },
+    "logistic_regression": {
+      "parameters": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "max_iter": 500,
+        "solver": "liblinear"
+      },
+      "prediction_threshold": 0.5
+    }
+  },
+  "classifier_configurations_sha256": "34c523350d4ca7530b8119d4f095eab2c0d816430ceb5704ec64cb181c909dd1",
+  "configuration_ids": [
+    "K43",
+    "K42",
+    "MI-K11",
+    "BPSO-K10",
+    "BGWO"
+  ],
+  "configuration_plan": [
+    {
+      "configuration_id": "K43",
+      "feature_count": 43,
+      "selection_scope": "frozen V0.6 full baseline",
+      "selection_semantics": "universal full candidate manifest",
+      "source_configuration_id": "none_natural",
+      "source_semantic_lock_sha256": null
+    },
+    {
+      "configuration_id": "K42",
+      "feature_count": 42,
+      "selection_scope": "frozen V0.6 pairwise-correlation baseline",
+      "selection_semantics": "universal deterministic training-derived subset",
+      "source_configuration_id": "pairwise_correlation_filter_natural",
+      "source_semantic_lock_sha256": null
+    },
+    {
+      "configuration_id": "MI-K11",
+      "feature_count": 11,
+      "selection_scope": "frozen V0.6 historical MI rule",
+      "selection_semantics": "seed-specific supervised training-derived subsets",
+      "source_configuration_id": "mutual_information_select_k_best_k11",
+      "source_semantic_lock_sha256": null
+    },
+    {
+      "configuration_id": "BPSO-K10",
+      "feature_count": 10,
+      "selection_scope": "V0.8-C train and development-validation lock",
+      "selection_semantics": "one universal locked BPSO subset across all seeds",
+      "source_configuration_id": "v08c_locked_bpso_k10",
+      "source_semantic_lock_sha256": "0f356ccab422774b128ab82f5da8881f24816902d4ccc6a7cecc9760c6202ca8"
+    },
+    {
+      "configuration_id": "BGWO",
+      "feature_count": 14,
+      "selection_scope": "V0.9-D train and development-validation lock",
+      "selection_semantics": "one universal locked BGWO subset across all seeds",
+      "source_configuration_id": "v09d_locked_bgwo_winner",
+      "source_semantic_lock_sha256": "e228f4c619de7e2028e4089723c6ae066fe8c2ab9ed1d94d98e0439a63df2744"
+    }
+  ],
+  "configuration_plan_sha256": "a7cabee4ec0ae5c31379b98f5f8b4f70f96baa63c0e3500f4df1b254051b840d",
+  "direct_energy_measured": false,
+  "execution_metadata": {
+    "completed_at_utc": "2026-09-17T20:39:41.221543+00:00",
+    "governed_evaluation_count": 50,
+    "rerun_count": 0,
+    "started_at_utc": "2026-09-17T20:36:17.742551+00:00",
+    "wall_time_sec": 203.4790281290043
+  },
+  "feature_reselection_performed": false,
+  "governed_evaluation_count": 50,
+  "historical_test_statement": "The final test was historically accessed in V0.6 but remained untouched by V0.9-D search and selection; V0.9-E accesses it once for governed evaluation only.",
+  "optimizer_invoked": false,
+  "preservation_result": {
+    "decision_tree": true,
+    "logistic_regression": true
+  },
+  "resource_benchmark_executed": false,
+  "result_artifact_hashes": {
+    "v09e_feature_overlap.json": "43a030f43681fdc042a23bd89a84dd45852599fe743f49d5deeaca077b185281",
+    "v09e_paired_statistics.csv": "00f3cbcac4ddc7030d63d3ab54cda1c3a5c0900edf6ff5c33aaf71158542af0d",
+    "v09e_preservation_analysis.json": "90fe6207dd6cefe9e834b6a473c8c95b2a86af70fc40162513472c3b0cb231ab",
+    "v09e_raw_final_test.json": "ff441419d87150a903a5b16a2c82760d4d9c4215862ce3cfb9efe83a36d974f4",
+    "v09e_test_access_audit.json": "996dba9cf5c0e48a1c327dbad185a957e6b56a85c6579e5c1e103ff138d8e3cb",
+    "v09e_test_metrics.csv": "f4ec281da28c03763d582bd83dd6bd3572c28f366e799d4215755773d085cad9",
+    "v09e_test_summary.json": "8ace915d1e54390f5c85f1cc0589dcf2b9c49ef6151494e8605c70d75f014d98"
+  },
+  "schema_version": "v0.9-e-governed-final-test-1",
+  "seed_namespace": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "semantic_result_lock_sha256": "8398f51ad4a17e559f741c1bc04690809903b7f688ab65fe4146fb1bc25d0556",
+  "source_winner_semantic_lock_sha256": "e228f4c619de7e2028e4089723c6ae066fe8c2ab9ed1d94d98e0439a63df2744",
+  "source_winner_stage": "V0.9-D",
+  "stage": "V0.9-E",
+  "starting_head": "1007d3f",
+  "status": "FINAL_TEST_EVALUATED",
+  "test_access_audit_sha256": "996dba9cf5c0e48a1c327dbad185a957e6b56a85c6579e5c1e103ff138d8e3cb",
+  "test_dataset_identity": {
+    "dimensions": 43,
+    "feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+    "name": "DataCo SMART Supply Chain",
+    "split_seed": 42,
+    "split_sizes": {
+      "test": 6000,
+      "train": 28000,
+      "validation": 6000
+    },
+    "test_rows": 6000
+  },
+  "test_driven_tuning_performed": false,
+  "test_used_for_evaluation_only": true,
+  "test_used_for_feature_selection": false,
+  "test_used_for_selection": false,
+  "test_used_for_tuning": false,
+  "threshold_tuning_performed": false,
+  "winner_replaced_after_test": false,
+  "winner_unchanged_statement": "The V0.9-D BGWO winner was not modified after final-test access."
+}
