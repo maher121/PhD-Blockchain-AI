@@ -19,6 +19,17 @@
 | Research Duration | 3–4 Years |
 | Expected Publications | 3–4 Scopus-indexed Research Papers |
 
+### Implementation Status Snapshot (Governed)
+
+| Stage | Status | Primary governed artifacts |
+|---|---|---|
+| V0.8-A | Complete | `results/bpso/v08a_protocol_validation.json` |
+| V0.8-B | Complete | `results/bpso/v08b_preflight.json`, `results/bpso/v08b_leakage_audit.json` |
+| V0.8-C | Complete | `results/bpso/v08c_execution_summary.json`, `results/bpso/v08c_winner_lock.json` |
+| V0.8-D | Complete | `results/bpso/v08d_execution_summary.json`, `results/bpso/v08d_final_test_lock.json` |
+| V0.8-E | Complete | `results/bpso/v08e_e4_analysis/v08e_e4_execution_summary.json`, `results/bpso/v08e_e4_analysis/v08e_scientific_result_lock.json` |
+| V0.8-F | Complete | `notebooks/v08_bpso_feature_selection_evaluation.ipynb`, `docs/v08_bpso_evaluation_report.md` |
+
 ---
 
 # 2. Research Title
