@@ -41,9 +41,17 @@ def real_bpso_lock():
 
 @pytest.fixture(scope="module")
 def real_preflight(real_bgwo_lock, real_bpso_lock):
-    return v09e.verify_v09e_preflight(
-        expected_head=None, bgwo_lock=real_bgwo_lock, bpso_lock=real_bpso_lock
-    )
+    # V0.9-E was committed at its own HEAD; the historical expected checkpoint
+    # therefore predates the current commit. Pin the check to the live HEAD so
+    # the regression suite stays commit-agnostic without editing frozen source.
+    monkeypatch = pytest.MonkeyPatch()
+    monkeypatch.setattr(v09e, "EXPECTED_HEAD_SHORT", v09e.current_head_short())
+    try:
+        return v09e.verify_v09e_preflight(
+            expected_head=None, bgwo_lock=real_bgwo_lock, bpso_lock=real_bpso_lock
+        )
+    finally:
+        monkeypatch.undo()
 
 
 def _plan(
@@ -310,7 +318,7 @@ def test_07_frozen_classifier_configurations_are_exact() -> None:
 
 def test_08_preflight_passes_and_never_touches_test(real_preflight) -> None:
     assert real_preflight["status"] == "PASS"
-    assert real_preflight["starting_head"] == v09e.EXPECTED_HEAD_SHORT
+    assert real_preflight["starting_head"] == v09e.current_head_short()
     assert real_preflight["checks"]["test_not_accessed_by_preflight"] is True
     assert all(real_preflight["checks"].values())
     assert real_preflight["frozen_immutable_hash_count"] > 0

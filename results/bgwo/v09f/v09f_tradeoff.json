@@ -1,0 +1,124 @@
+{
+  "artifact_kind": "DESCRIPTIVE_POST_HOC_TRADEOFF_ANALYSIS",
+  "entries": [
+    {
+      "configuration_id": "K43",
+      "feature_count": 43,
+      "inference_per_record_latency_sec": 4.291786975584463e-07,
+      "input_dataframe_memory_bytes": 9632132,
+      "serialized_model_bytes": 2358,
+      "test_average_precision": {
+        "decision_tree": 0.22208384690725302,
+        "logistic_regression": 0.051149797360171737
+      },
+      "test_f1": {
+        "decision_tree": 0.18900476213886785,
+        "logistic_regression": 0.08734827100957092
+      },
+      "test_recall": {
+        "decision_tree": 0.30533333333333335,
+        "logistic_regression": 0.42333333333333334
+      },
+      "training_wall_time_sec": 0.24062104417884256
+    },
+    {
+      "configuration_id": "K42",
+      "feature_count": 42,
+      "inference_per_record_latency_sec": 4.150608060351147e-07,
+      "input_dataframe_memory_bytes": 9408132,
+      "serialized_model_bytes": 2326,
+      "test_average_precision": {
+        "decision_tree": 0.22208384690725302,
+        "logistic_regression": 0.05114995951986866
+      },
+      "test_f1": {
+        "decision_tree": 0.18900476213886785,
+        "logistic_regression": 0.08734827100957092
+      },
+      "test_recall": {
+        "decision_tree": 0.30533333333333335,
+        "logistic_regression": 0.42333333333333334
+      },
+      "training_wall_time_sec": 0.21880709699937145
+    },
+    {
+      "configuration_id": "MI-K11",
+      "feature_count": 11,
+      "inference_per_record_latency_sec": 3.2052760488937794e-07,
+      "input_dataframe_memory_bytes": 2464132,
+      "serialized_model_bytes": 1350,
+      "test_average_precision": {
+        "decision_tree": 0.2249411903498859,
+        "logistic_regression": 0.051170517943451344
+      },
+      "test_f1": {
+        "decision_tree": 0.19212084336663468,
+        "logistic_regression": 0.09245737320194357
+      },
+      "test_recall": {
+        "decision_tree": 0.3,
+        "logistic_regression": 0.51
+      },
+      "training_wall_time_sec": 0.03664887496008305
+    },
+    {
+      "configuration_id": "BPSO-K10",
+      "feature_count": 10,
+      "inference_per_record_latency_sec": 3.214985763538417e-07,
+      "input_dataframe_memory_bytes": 2240132,
+      "serialized_model_bytes": 1382,
+      "test_average_precision": {
+        "decision_tree": 0.21961151547107932,
+        "logistic_regression": 0.05073160798921733
+      },
+      "test_f1": {
+        "decision_tree": 0.18725821411669835,
+        "logistic_regression": 0.08693996654716712
+      },
+      "test_recall": {
+        "decision_tree": 0.2986666666666667,
+        "logistic_regression": 0.46799999999999997
+      },
+      "training_wall_time_sec": 0.04792257869936293
+    },
+    {
+      "configuration_id": "BGWO",
+      "feature_count": 14,
+      "inference_per_record_latency_sec": 3.3398851126946737e-07,
+      "input_dataframe_memory_bytes": 3136132,
+      "serialized_model_bytes": 1494,
+      "test_average_precision": {
+        "decision_tree": 0.22603467292251583,
+        "logistic_regression": 0.05081015500471263
+      },
+      "test_f1": {
+        "decision_tree": 0.17971681232152606,
+        "logistic_regression": 0.08848584846370547
+      },
+      "test_recall": {
+        "decision_tree": 0.308,
+        "logistic_regression": 0.46799999999999997
+      },
+      "training_wall_time_sec": 0.06942050248093437
+    }
+  ],
+  "interpretation": "This is a descriptive comparison of feature count, frozen V0.9-E predictive metrics, and V0.9-F measured resources. No multi-objective optimization, ranking, or winner replacement is performed.",
+  "label": "DESCRIPTIVE_POST_HOC_TRADEOFF_ANALYSIS",
+  "nsga_or_mopso_used": false,
+  "objective_function_introduced": false,
+  "optimization_performed": false,
+  "schema_version": "v0.9-f-resource-efficiency-1",
+  "sources": {
+    "predictive": {
+      "path": "/mnt/e/PhD-Blockchain-AI/results/bgwo/v09e/v09e_test_summary.json",
+      "provenance": "IMPORTED_HISTORICAL",
+      "sha256": "8ace915d1e54390f5c85f1cc0589dcf2b9c49ef6151494e8605c70d75f014d98",
+      "stage": "V0.9-E"
+    },
+    "resource": {
+      "provenance": "DIRECT_COMPUTATIONAL",
+      "stage": "V0.9-F"
+    }
+  },
+  "stage": "V0.9-F"
+}

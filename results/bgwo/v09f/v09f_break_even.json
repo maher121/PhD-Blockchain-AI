@@ -1,0 +1,35 @@
+{
+  "artifact_kind": "DESCRIPTIVE_BREAK_EVEN_ANALYSIS",
+  "energy_break_even_status": "NOT_APPLICABLE_DIRECT_ENERGY_UNAVAILABLE",
+  "interpretation": "Break-even is descriptive and only reported when the per-model saving is positive. It is a computational-timing statement and must not be presented as an energy result.",
+  "overhead_source": "V0.9-D BGWO optimizer search",
+  "rows": [
+    {
+      "break_even_repetitions": 2846.899965182381,
+      "candidate_configuration_id": "BGWO",
+      "metric": "wall_time_sec",
+      "optimizer_overhead_sec": 325.42544312802784,
+      "per_model_recurring_saving_sec": 0.11430870318872624,
+      "phase": "training",
+      "provenance": "IMPORTED_HISTORICAL",
+      "reference_configuration_id": "K43",
+      "status": "APPLICABLE",
+      "unit": "seconds"
+    },
+    {
+      "break_even_repetitions": null,
+      "candidate_configuration_id": "BGWO",
+      "metric": "wall_time_sec",
+      "optimizer_overhead_sec": 325.42544312802784,
+      "per_model_recurring_saving_sec": -0.012908687151648335,
+      "phase": "training",
+      "provenance": "IMPORTED_HISTORICAL",
+      "reference_configuration_id": "BPSO-K10",
+      "status": "NOT_APPLICABLE",
+      "unit": "seconds"
+    }
+  ],
+  "schema_version": "v0.9-f-resource-efficiency-1",
+  "stage": "V0.9-F",
+  "timing_break_even_is_not_energy_break_even": true
+}

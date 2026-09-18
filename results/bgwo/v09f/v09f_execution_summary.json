@@ -1,0 +1,51 @@
+{
+  "artifact_hashes": {
+    "v09f_break_even.json": "05bffaad26a5b478f5cb8faf077ee9e0c00ef7d12e4eed691af87477a6948f61",
+    "v09f_environment.json": "330498360400bb641b5b91f1e2e806e8a751bc98cd4adb6f6613135c7a854f4e",
+    "v09f_feature_reduction.json": "2be74f07834993d35218955ef053aed5e6a9e692a36f79fb4b07ce6fd32b48a0",
+    "v09f_model_size_comparison.json": "4afe747e1bd3ee16e91c191ef12845c1fb6677cbf22015445c60f4e7fdff97d7",
+    "v09f_optimizer_overhead.json": "572701e8dda25075f7f83a7004fee520000695acf4aa0b06251741a0903e5ecb",
+    "v09f_raw_resource_observations.csv": "4cb8c84cb31632457c2ecf33c1cd86e6d3952df56c04a343fbe1b65e0883754c",
+    "v09f_raw_resource_observations.json": "3e8e83d63e50907ce89afe6aec9f60871e197a54d63239d866cbee4f713bc173",
+    "v09f_resource_comparisons.csv": "31bdb33b97ee2b7d66e9b28a9cca46f9e6460cfe18084755c50edc08ccb230d3",
+    "v09f_resource_comparisons.json": "6ff844a49df9156edc690cb2c344a633e9f0072181d6c56ed88531ac714ca6b8",
+    "v09f_resource_summary.csv": "fc101a344393489e113a3af48c9a4ee5542f6b792b4475c343dbd8d5efa5ac82",
+    "v09f_resource_summary.json": "edea84e18024ee951a2b62ad41bbbbfca6e7a4f6fc95b17dfd3ce0773eedb656",
+    "v09f_result_lock.json": "1556baf8fa8a592c12d2711d5ce7772d76c98e68b5e720dcba3d25318209d143",
+    "v09f_timing_quality.json": "d91acfa71c982075e73a4495446bba7f24d05b56f3fe1c981cf8da5eaf4ec56e",
+    "v09f_tradeoff.json": "b7046081af2d842e82626f3571140a587ef0e51ba2e2f72fe523df2cc8ffcde6"
+  },
+  "direct_energy_status": "DIRECT_ENERGY_UNAVAILABLE",
+  "ending_head": "9c1b276",
+  "environment_id": "d13fb4d8df548a4e6d93e6485f6691c6a33bc7fedceeaf6f06970c3e4e2e38d4",
+  "feature_reselection_performed": false,
+  "final_test_accessed": false,
+  "model_tuning_performed": false,
+  "observation_counts": {
+    "cells": 100,
+    "failure_count": 0,
+    "inference": 500,
+    "total": 1000,
+    "training": 500
+  },
+  "optimizer_invoked": false,
+  "optimizer_rerun": false,
+  "outliers_removed": false,
+  "readiness_for_v09g": "GO",
+  "resource_protocol_identity": {
+    "protocol_config_lf_sha256": "e3d3eadbcd7a36194627ef5f757451f3ef6fdf00cf724d0786e87c5e962780a6",
+    "protocol_config_path": "/mnt/e/PhD-Blockchain-AI/config/resource_benchmark_v08e.yaml",
+    "resource_engine_path": "/mnt/e/PhD-Blockchain-AI/src/pipeline_v08e.py",
+    "resource_engine_sha256": "0755d646fce3336f5ba3cf9e872cb3a1840aba194edffd0d74bd6ad9b0a49991",
+    "source_stage": "V0.8-E2",
+    "v08e_semantic_result_lock_sha256": "7307fda1cdb5f100cb6268dc0f4eff05b65bfcefadeb06707c8a3e13fd6888d5"
+  },
+  "schema_version": "v0.9-f-resource-efficiency-1",
+  "semantic_result_lock_sha256": "d76795c7c329c52b2b97212ee15e5f4c32c55547d501308868a5ae6e12a3d2c1",
+  "stage": "V0.9-F",
+  "standby_affected_cell_count": 0,
+  "starting_head": "9c1b276",
+  "status": "COMPLETED",
+  "threshold_tuning_performed": false,
+  "timing_interpretation": "OBSERVATION_LEVEL_TIMESTAMPED"
+}

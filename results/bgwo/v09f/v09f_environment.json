@@ -1,0 +1,81 @@
+{
+  "artifact_kind": "V09F_ENVIRONMENT_IDENTITY",
+  "direct_energy_status": "DIRECT_ENERGY_UNAVAILABLE",
+  "environment": {
+    "cpu": {
+      "logical_count": 12,
+      "model": "12th Gen Intel(R) Core(TM) i7-1255U",
+      "physical_count": 6
+    },
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5",
+      "psutil": "7.2.2",
+      "pytest": "9.1.1",
+      "scikit-learn": "1.9.0"
+    },
+    "execution_environment": {
+      "is_native": false,
+      "is_wsl": true,
+      "kind": "wsl"
+    },
+    "git": {
+      "available": true,
+      "commit": "9c1b2762a49a1c5f5156f56ce426959452aaabfd",
+      "dirty": true,
+      "reason": null
+    },
+    "gpu": {
+      "detection": "nvidia_smi",
+      "devices": [
+        "NVIDIA GeForce MX550"
+      ],
+      "present": true
+    },
+    "kernel": "6.6.87.2-microsoft-standard-WSL2",
+    "os": {
+      "release": "6.6.87.2-microsoft-standard-WSL2",
+      "system": "Linux",
+      "version": "#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025"
+    },
+    "power_source": {
+      "available": true,
+      "reason": "WSL battery telemetry is not accepted as wall-power instrumentation.",
+      "reliable": false,
+      "source": "virtual_battery"
+    },
+    "python": {
+      "implementation": "CPython",
+      "version": "3.12.3"
+    },
+    "ram": {
+      "total_bytes": 8184352768
+    },
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "virtualization": {
+      "detected": true,
+      "evidence": "kernel_or_environment",
+      "type": "WSL"
+    }
+  },
+  "environment_id": "d13fb4d8df548a4e6d93e6485f6691c6a33bc7fedceeaf6f06970c3e4e2e38d4",
+  "environment_sha256": "2ef02e5d8aa4500e9bb453a41bab3703b21afe2da9a8e0eaa7073334b1555cfd",
+  "schema_version": "v0.9-f-resource-efficiency-1",
+  "stage": "V0.9-F",
+  "thread_environment": {
+    "BLIS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "artifact_kind": "OPTIMIZER_OVERHEAD_EVIDENCE",
+  "bgwo": {
+    "cache_hits": 0,
+    "candidate_requests": 768,
+    "core_optimization_cpu_time_sec": 325.25378715999994,
+    "core_optimization_wall_time_sec": 325.42544312802784,
+    "decision_tree_fits": 3840,
+    "measurement_provenance": "IMPORTED_HISTORICAL",
+    "optimizer": "BGWO",
+    "optimizer_rerun": false,
+    "optimizer_runs": 5,
+    "pipeline_wall_time_sec": 111.89105836400995,
+    "source_artifact": "/mnt/e/PhD-Blockchain-AI/results/bgwo/v09d/v09d_execution_summary.json",
+    "source_artifact_sha256": "dfc23bc29031d8131aeb1955461521f5e68d30dd938066426ed75c970af6a710",
+    "stage": "V0.9-D",
+    "unique_evaluations": 768
+  },
+  "bpso": {
+    "cache_hits": 0,
+    "candidate_requests": 972,
+    "core_optimization_cpu_time_sec": 645.218273799,
+    "core_optimization_wall_time_sec": 645.5028752319995,
+    "decision_tree_fits": 4860,
+    "measurement_provenance": "IMPORTED_HISTORICAL",
+    "optimizer": "BPSO",
+    "optimizer_rerun": false,
+    "optimizer_runs": 5,
+    "pipeline_wall_time_sec": 857.1113503500001,
+    "source_artifact": "/mnt/e/PhD-Blockchain-AI/results/bpso/v08c_execution_summary.json",
+    "source_artifact_sha256": "86d199896dc6b6b684889806390a5607be8df922ce33560f490a5c1eeb689a1d",
+    "stage": "V0.8-C",
+    "unique_evaluations": 972
+  },
+  "core_and_pipeline_overheads_kept_separate": true,
+  "optimizer_rerun": false,
+  "overhead_role": "ONE_TIME_IMPORTED_HISTORICAL_SEARCH_COST",
+  "schema_version": "v0.9-f-resource-efficiency-1",
+  "separation_statement": "One-time optimizer search cost is reported separately from per-model training and inference cost measured in V0.9-F.",
+  "stage": "V0.9-F"
+}
