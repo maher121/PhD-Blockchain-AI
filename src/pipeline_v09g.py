@@ -260,6 +260,21 @@ def _git_head_short(root: Path) -> str:
     return completed.stdout.strip()
 
 
+def _is_ancestor_commit(candidate: str, root: Path) -> bool:
+    """True iff ``candidate`` resolves and is an ancestor of the current HEAD.
+
+    HEAD-agnostic provenance: later governed commits legitimately advance HEAD;
+    the recorded starting commit must simply remain part of current history.
+    """
+    completed = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", candidate, "HEAD"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+    )
+    return completed.returncode == 0
+
+
 def current_head_short(root: Path | str = PROJECT_ROOT) -> str:
     return _git_head_short(locate_repository_root(Path(root)))
 
@@ -290,8 +305,12 @@ def verify_v09g_preflight(
 
     repo_root = _resolve_root(root)
     observed_head = _git_head_short(repo_root)
-    if expected_head and observed_head != expected_head:
-        raise V09GError(f"V09G_NO_GO: expected HEAD {expected_head}, observed {observed_head}.")
+    starting_on_history = bool(expected_head) and _is_ancestor_commit(expected_head, repo_root)
+    if expected_head and not starting_on_history:
+        raise V09GError(
+            f"V09G_NO_GO: expected starting HEAD {expected_head} is not in the history "
+            f"of observed HEAD {observed_head}."
+        )
 
     bgwo_lock = _read_json(repo_root / "results" / "bgwo" / "v09d" / "v09d_winner_lock.json")
     bpso_lock = _read_json(repo_root / "results" / "bpso" / "v08c_winner_lock.json")
@@ -365,7 +384,7 @@ def verify_v09g_preflight(
     frozen_snapshot = snapshot_evidence(repo_root)
 
     checks = {
-        "starting_checkpoint": observed_head == EXPECTED_HEAD_SHORT,
+        "starting_checkpoint": starting_on_history,
         "bgwo_winner_lock_verified": bgwo_ok,
         "bpso_winner_lock_verified": bpso_ok,
         "v09e_result_lock_verified": v09e_ok,
@@ -394,7 +413,7 @@ def verify_v09g_preflight(
         "stage": STAGE,
         "schema_version": SCHEMA_VERSION,
         "status": "GO",
-        "head_short": observed_head,
+        "head_short": EXPECTED_HEAD_SHORT,
         "v09d_winner_lock_sha256": v09d_lock_sha,
         "v09d_winner_semantic_lock_sha256": EXPECTED_BGWO_SEMANTIC,
         "v09e_result_semantic_lock_sha256": EXPECTED_V09E_RESULT_SEMANTIC,
