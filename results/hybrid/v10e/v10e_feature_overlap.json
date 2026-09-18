@@ -1,0 +1,281 @@
+{
+  "artifact_kind": "FEATURE_OVERLAP_ANALYSIS",
+  "bgwo_feature_count": 14,
+  "bpso_feature_count": 10,
+  "descriptive_only": true,
+  "hybrid_feature_count": 13,
+  "hybrid_vs_bgwo": {
+    "bgwo_only_features": [
+      "order_item_discount",
+      "order_item_discount_rate",
+      "days_schedule",
+      "item_count_per_order",
+      "Market_USCA",
+      "Department Name_Outdoors",
+      "Department Name_Discs Shop",
+      "Department Name_Book Shop"
+    ],
+    "hybrid_only_features": [
+      "Type_DEBIT",
+      "Type_TRANSFER",
+      "Type_CASH",
+      "Shipping Mode_First Class",
+      "Department Name_Golf",
+      "Department Name_Fitness",
+      "Department Name_Health and Beauty"
+    ],
+    "intersection_size": 6,
+    "jaccard": 0.2857142857142857,
+    "left_only_features": [
+      "Type_DEBIT",
+      "Type_TRANSFER",
+      "Type_CASH",
+      "Shipping Mode_First Class",
+      "Department Name_Golf",
+      "Department Name_Fitness",
+      "Department Name_Health and Beauty"
+    ],
+    "right_only_features": [
+      "order_item_discount",
+      "order_item_discount_rate",
+      "days_schedule",
+      "item_count_per_order",
+      "Market_USCA",
+      "Department Name_Outdoors",
+      "Department Name_Discs Shop",
+      "Department Name_Book Shop"
+    ],
+    "shared_features": [
+      "order_item_quantity",
+      "product_price",
+      "order_item_total",
+      "is_weekend",
+      "Market_LATAM",
+      "Market_Pacific Asia"
+    ],
+    "union_size": 21
+  },
+  "hybrid_vs_bpso": {
+    "bpso_only_features": [
+      "order_item_profit_ratio",
+      "hour",
+      "Type_PAYMENT",
+      "Shipping Mode_Same Day",
+      "Customer Segment_Corporate",
+      "Department Name_Apparel"
+    ],
+    "hybrid_only_features": [
+      "product_price",
+      "is_weekend",
+      "Type_DEBIT",
+      "Type_TRANSFER",
+      "Type_CASH",
+      "Market_Pacific Asia",
+      "Shipping Mode_First Class",
+      "Department Name_Golf",
+      "Department Name_Fitness"
+    ],
+    "intersection_size": 4,
+    "jaccard": 0.21052631578947367,
+    "left_only_features": [
+      "product_price",
+      "is_weekend",
+      "Type_DEBIT",
+      "Type_TRANSFER",
+      "Type_CASH",
+      "Market_Pacific Asia",
+      "Shipping Mode_First Class",
+      "Department Name_Golf",
+      "Department Name_Fitness"
+    ],
+    "right_only_features": [
+      "order_item_profit_ratio",
+      "hour",
+      "Type_PAYMENT",
+      "Shipping Mode_Same Day",
+      "Customer Segment_Corporate",
+      "Department Name_Apparel"
+    ],
+    "shared_features": [
+      "order_item_quantity",
+      "order_item_total",
+      "Market_LATAM",
+      "Department Name_Health and Beauty"
+    ],
+    "union_size": 19
+  },
+  "hybrid_vs_mi_k11": {
+    "intersection_jaccard": 0.2857142857142857,
+    "mean_seed_jaccard": 0.21263157894736842,
+    "per_seed": [
+      {
+        "intersection_size": 4,
+        "jaccard": 0.2,
+        "left_only_features": [
+          "Type_DEBIT",
+          "Type_TRANSFER",
+          "Type_CASH",
+          "Market_LATAM",
+          "Market_Pacific Asia",
+          "Shipping Mode_First Class",
+          "Department Name_Golf",
+          "Department Name_Fitness",
+          "Department Name_Health and Beauty"
+        ],
+        "mi_k11_feature_count": 11,
+        "right_only_features": [
+          "days_schedule",
+          "year",
+          "day",
+          "day_of_week",
+          "hour",
+          "item_count_per_order",
+          "order_total_value"
+        ],
+        "seed": 42,
+        "shared_features": [
+          "order_item_quantity",
+          "product_price",
+          "order_item_total",
+          "is_weekend"
+        ],
+        "union_size": 20
+      },
+      {
+        "intersection_size": 5,
+        "jaccard": 0.2631578947368421,
+        "left_only_features": [
+          "Type_DEBIT",
+          "Type_TRANSFER",
+          "Type_CASH",
+          "Market_LATAM",
+          "Market_Pacific Asia",
+          "Shipping Mode_First Class",
+          "Department Name_Golf",
+          "Department Name_Health and Beauty"
+        ],
+        "mi_k11_feature_count": 11,
+        "right_only_features": [
+          "order_item_discount_rate",
+          "order_item_profit_ratio",
+          "days_schedule",
+          "year",
+          "hour",
+          "item_count_per_order"
+        ],
+        "seed": 43,
+        "shared_features": [
+          "order_item_quantity",
+          "product_price",
+          "order_item_total",
+          "is_weekend",
+          "Department Name_Fitness"
+        ],
+        "union_size": 19
+      },
+      {
+        "intersection_size": 4,
+        "jaccard": 0.2,
+        "left_only_features": [
+          "Type_DEBIT",
+          "Type_TRANSFER",
+          "Type_CASH",
+          "Market_LATAM",
+          "Market_Pacific Asia",
+          "Shipping Mode_First Class",
+          "Department Name_Golf",
+          "Department Name_Fitness",
+          "Department Name_Health and Beauty"
+        ],
+        "mi_k11_feature_count": 11,
+        "right_only_features": [
+          "order_item_discount_rate",
+          "order_item_profit_ratio",
+          "days_schedule",
+          "year",
+          "month",
+          "day_of_week",
+          "item_count_per_order"
+        ],
+        "seed": 44,
+        "shared_features": [
+          "order_item_quantity",
+          "product_price",
+          "order_item_total",
+          "is_weekend"
+        ],
+        "union_size": 20
+      },
+      {
+        "intersection_size": 4,
+        "jaccard": 0.2,
+        "left_only_features": [
+          "Type_DEBIT",
+          "Type_TRANSFER",
+          "Type_CASH",
+          "Market_LATAM",
+          "Market_Pacific Asia",
+          "Shipping Mode_First Class",
+          "Department Name_Golf",
+          "Department Name_Fitness",
+          "Department Name_Health and Beauty"
+        ],
+        "mi_k11_feature_count": 11,
+        "right_only_features": [
+          "order_item_product_price",
+          "order_item_discount",
+          "days_schedule",
+          "year",
+          "day",
+          "day_of_week",
+          "order_total_value"
+        ],
+        "seed": 45,
+        "shared_features": [
+          "order_item_quantity",
+          "product_price",
+          "order_item_total",
+          "is_weekend"
+        ],
+        "union_size": 20
+      },
+      {
+        "intersection_size": 4,
+        "jaccard": 0.2,
+        "left_only_features": [
+          "Type_DEBIT",
+          "Type_TRANSFER",
+          "Type_CASH",
+          "Market_LATAM",
+          "Market_Pacific Asia",
+          "Shipping Mode_First Class",
+          "Department Name_Golf",
+          "Department Name_Fitness",
+          "Department Name_Health and Beauty"
+        ],
+        "mi_k11_feature_count": 11,
+        "right_only_features": [
+          "order_item_product_price",
+          "order_item_discount_rate",
+          "year",
+          "month",
+          "day_of_week",
+          "hour",
+          "item_count_per_order"
+        ],
+        "seed": 46,
+        "shared_features": [
+          "order_item_quantity",
+          "product_price",
+          "order_item_total",
+          "is_weekend"
+        ],
+        "union_size": 20
+      }
+    ],
+    "union_jaccard": 0.2
+  },
+  "mutated_any_subset": false,
+  "schema_version": "v1.0-e-governed-final-test-1",
+  "stage": "V1.0-E"
+}

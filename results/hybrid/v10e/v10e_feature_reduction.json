@@ -1,0 +1,63 @@
+{
+  "artifact_kind": "FEATURE_REDUCTION_ANALYSIS",
+  "configurations": [
+    {
+      "configuration_id": "K43",
+      "feature_count": 43,
+      "reduced_feature_count": 0,
+      "reduction_fraction": 0.0,
+      "reduction_percent": 0.0,
+      "retained_fraction": 1.0,
+      "total_feature_count": 43
+    },
+    {
+      "configuration_id": "K42",
+      "feature_count": 42,
+      "reduced_feature_count": 1,
+      "reduction_fraction": 0.023255813953488372,
+      "reduction_percent": 2.3255813953488373,
+      "retained_fraction": 0.9767441860465116,
+      "total_feature_count": 43
+    },
+    {
+      "configuration_id": "MI-K11",
+      "feature_count": 11,
+      "reduced_feature_count": 32,
+      "reduction_fraction": 0.7441860465116279,
+      "reduction_percent": 74.4186046511628,
+      "retained_fraction": 0.2558139534883721,
+      "total_feature_count": 43
+    },
+    {
+      "configuration_id": "BPSO-K10",
+      "feature_count": 10,
+      "reduced_feature_count": 33,
+      "reduction_fraction": 0.7674418604651163,
+      "reduction_percent": 76.74418604651163,
+      "retained_fraction": 0.23255813953488372,
+      "total_feature_count": 43
+    },
+    {
+      "configuration_id": "BGWO-K14",
+      "feature_count": 14,
+      "reduced_feature_count": 29,
+      "reduction_fraction": 0.6744186046511628,
+      "reduction_percent": 67.44186046511628,
+      "retained_fraction": 0.32558139534883723,
+      "total_feature_count": 43
+    },
+    {
+      "configuration_id": "HYBRID-K13",
+      "feature_count": 13,
+      "reduced_feature_count": 30,
+      "reduction_fraction": 0.6976744186046512,
+      "reduction_percent": 69.76744186046511,
+      "retained_fraction": 0.3023255813953488,
+      "total_feature_count": 43
+    }
+  ],
+  "descriptive_only": true,
+  "schema_version": "v1.0-e-governed-final-test-1",
+  "stage": "V1.0-E",
+  "total_feature_count": 43
+}

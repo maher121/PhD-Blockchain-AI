@@ -1,0 +1,66 @@
+{
+  "artifact_kind": "FINAL_TEST_EVALUATION_AUTHORIZATION",
+  "campaign_completed": true,
+  "campaign_completed_at_utc": "2026-09-18T21:41:40.868750+00:00",
+  "checks": {
+    "bgwo_rerun": false,
+    "bpso_rerun": false,
+    "feature_selection_invoked": false,
+    "final_test_used_only_for_evaluation": true,
+    "hybrid_optimizer_rerun": false,
+    "hyperparameter_search_invoked": false,
+    "optimizer_invoked": false,
+    "test_driven_classifier_tuning": false,
+    "test_driven_configuration_change": false,
+    "test_driven_threshold_change": false,
+    "threshold_tuning_invoked": false,
+    "winner_lock_verified_before_test_access": true,
+    "winner_replacement_allowed": false
+  },
+  "classification": "TEST_USED_ONLY_AFTER_LOCK_FOR_FINAL_EVALUATION",
+  "events": [
+    {
+      "event": "WINNER_LOCK_VERIFIED",
+      "timestamp_utc": "2026-09-18T21:39:06.908511+00:00"
+    },
+    {
+      "event": "FINAL_TEST_EVALUATION_AUTHORIZED",
+      "timestamp_utc": "2026-09-18T21:39:06.908511+00:00"
+    },
+    {
+      "event": "FINAL_TEST_OPENED_FOR_EVALUATION",
+      "timestamp_utc": "2026-09-18T21:39:06.908511+00:00"
+    },
+    {
+      "event": "CAMPAIGN_COMPLETED",
+      "timestamp_utc": "2026-09-18T21:41:40.868750+00:00"
+    }
+  ],
+  "final_test_accessed": true,
+  "governed_evaluation_count": 60,
+  "hybrid_winner_lock_sha256": "1603cf0faff9027c2e5bcfb53345338317963d55ffc048afcfca5f974923bf79",
+  "locked_feature_list_sha256": "8be4b0818f6ca59a057ef91d47738fa692548a6ddbed983b4496c644296b906a",
+  "locked_feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+  "locked_mask_sha256": "d1cc8c8b8643ce5d5daff3bdb6ff4c74dab6b1d78069a7f0052bcda10cb68c62",
+  "partial_metrics_used_for_configuration": false,
+  "provenance_policy": "HEAD_AGNOSTIC_ANCESTRY",
+  "rerun_count": 0,
+  "schema_version": "v1.0-e-governed-final-test-1",
+  "source_winner_semantic_lock_sha256": "1c258dc1a90ad78197d25e62bbc9fca24904cbcb77edafd24b12726059e49d84",
+  "source_winner_stage": "V1.0-D",
+  "stage": "V1.0-E",
+  "starting_checkpoint": "e7465e9",
+  "starting_head": "e7465e9",
+  "status": "PASS",
+  "test_access_activated_at_utc": "2026-09-18T21:39:06.908511+00:00",
+  "test_authorization_reason": "POST_WINNER_LOCK_FINAL_TEST_EVALUATION_ONLY",
+  "test_authorized": true,
+  "test_authorized_before": false,
+  "test_used_for_evaluation_only": true,
+  "test_used_for_feature_selection": false,
+  "test_used_for_selection": false,
+  "test_used_for_tuning": false,
+  "test_used_for_winner_selection": false,
+  "winner_lock_verified_at_utc": "2026-09-18T21:39:06.908511+00:00",
+  "winner_lock_verified_before_test_access": true
+}

@@ -1,0 +1,183 @@
+{
+  "artifact_hashes": {
+    "v10e_feature_overlap.json": "406f37ccd1aa17a0538d1030761c6ff90da682d69c699be733f53044472ff8a3",
+    "v10e_feature_reduction.json": "4f1b57db572939045e0ad7a5589595bf535549e05c1e95cda2a7d96c41a51642",
+    "v10e_final_test_raw.csv": "d84a8a7d5362e00fe72a50b5799f3670b7ac564c8a8e073c0a37f6ab7428af0b",
+    "v10e_final_test_summary.csv": "1f05f9bfd45b948e323d30be810464524ee5f775e7f43ebac1bd21574833b740",
+    "v10e_immutability_after.json": "2ca22ad2d14d2eedaf5d00aa73d1a0c1c072de73dab552d561a18fc26e6de891",
+    "v10e_immutability_before.json": "a17e985caaecb2f3142ce5dcb96767cb8ac16036fd7f18300912a050fd63d274",
+    "v10e_paired_comparisons.csv": "5cebcc8a253b55beff23089fb5c05f03818b77fe97a6ebb162ace6c7a42f3569",
+    "v10e_preflight.json": "95395241af0f9a9bdb4fbd825b180172dfa83829cf2267141ef722c629af8857",
+    "v10e_preservation_analysis.json": "346faffc0fb59c0eed9d0cb0d279ede681b3dd8049ca8f4b6b176b153e65dd79",
+    "v10e_result_lock.json": "245039afc408df4d850dedea3859bfcd1fe6a6f2821f1b9dd362e62156d357db",
+    "v10e_test_access_audit.json": "f0e6b756b415778746b4288a9229b7b717ad4d93b02370b54b2c116cf8285ebf",
+    "v10e_test_authorization.json": "f1cb4907858523a901ccb2a2bc7ef98dd194264bb7869687b9c92617813c9461"
+  },
+  "bgwo_rerun": false,
+  "bpso_rerun": false,
+  "campaign_rerun_count": 0,
+  "campaign_wall_time_sec": 159.27743754998664,
+  "classification": "TEST_USED_ONLY_AFTER_LOCK_FOR_FINAL_EVALUATION",
+  "classifiers": [
+    "decision_tree",
+    "logistic_regression"
+  ],
+  "configuration_ids": [
+    "K43",
+    "K42",
+    "MI-K11",
+    "BPSO-K10",
+    "BGWO-K14",
+    "HYBRID-K13"
+  ],
+  "cross_classifier_interpretation": "PRESERVATION_HOLDS_FOR_BOTH_CLASSIFIERS",
+  "dataset_identity": {
+    "dimensions": 43,
+    "feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+    "name": "DataCo SMART Supply Chain",
+    "split_seed": 42,
+    "split_sizes": {
+      "test": 6000,
+      "train": 28000,
+      "validation": 6000
+    },
+    "test_rows": 6000
+  },
+  "direct_energy_measured": false,
+  "ending_head": "e7465e9",
+  "feature_reduction": {
+    "hybrid_k13_reduction_percent": 69.76744186046511
+  },
+  "feature_reduction_percent": {
+    "BGWO-K14": 67.44186046511628,
+    "BPSO-K10": 76.74418604651163,
+    "HYBRID-K13": 69.76744186046511,
+    "K42": 2.3255813953488373,
+    "K43": 0.0,
+    "MI-K11": 74.4186046511628
+  },
+  "feature_reselection_performed": false,
+  "final_test_accessed": true,
+  "governed_evaluation_count": 60,
+  "hybrid_optimizer_rerun": false,
+  "immutable_hashes_after_count": 30,
+  "immutable_hashes_before_count": 30,
+  "optimizer_invoked": false,
+  "paired_comparison_count": 50,
+  "preflight": {
+    "bgwo_winner_mask_sha256": "7ebb823374255f4f10c737c62a2111604aa50193a8f0d91b8483f3864cac7ad6",
+    "bgwo_winner_semantic_lock_sha256": "e228f4c619de7e2028e4089723c6ae066fe8c2ab9ed1d94d98e0439a63df2744",
+    "bpso_winner_mask_sha256": "5da981b5b87db97338ecdde9ca8a8b87db3a62771d03dc6a4ad901f6548a3299",
+    "bpso_winner_semantic_lock_sha256": "0f356ccab422774b128ab82f5da8881f24816902d4ccc6a7cecc9760c6202ca8",
+    "checks": {
+      "bgwo_winner_exact": true,
+      "bgwo_winner_lock_verified": true,
+      "bpso_winner_exact": true,
+      "bpso_winner_lock_verified": true,
+      "dataset_identity": true,
+      "feature_ordering": true,
+      "hybrid_winner_exact": true,
+      "hybrid_winner_feature_manifest": true,
+      "hybrid_winner_features_recomputed": true,
+      "hybrid_winner_lock_verified": true,
+      "hybrid_winner_mask_recomputed": true,
+      "hybrid_winner_validation_only_provenance": true,
+      "k42_governed_subset": true,
+      "k43_baseline": true,
+      "live_head_never_pinned": true,
+      "mi_k11_governed_subset": true,
+      "preprocessing_artifacts": true,
+      "starting_checkpoint": true,
+      "starting_checkpoint_commit_exists": true,
+      "starting_checkpoint_in_history": true,
+      "test_not_accessed_by_preflight": true,
+      "v06_validation_lock_verified": true,
+      "v10d_evidence_valid": true,
+      "v10d_implementation_tracked": true
+    },
+    "dataset_identity": {
+      "dimensions": 43,
+      "feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+      "name": "DataCo SMART Supply Chain",
+      "split_seed": 42,
+      "split_sizes": {
+        "test": 6000,
+        "train": 28000,
+        "validation": 6000
+      },
+      "test_rows": 6000
+    },
+    "frozen_immutable_hash_count": 30,
+    "hybrid_winner_feature_list_sha256": "8be4b0818f6ca59a057ef91d47738fa692548a6ddbed983b4496c644296b906a",
+    "hybrid_winner_feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+    "hybrid_winner_lock_sha256": "1603cf0faff9027c2e5bcfb53345338317963d55ffc048afcfca5f974923bf79",
+    "hybrid_winner_mask_sha256": "d1cc8c8b8643ce5d5daff3bdb6ff4c74dab6b1d78069a7f0052bcda10cb68c62",
+    "hybrid_winner_selected_feature_count": 13,
+    "hybrid_winner_semantic_lock_sha256": "1c258dc1a90ad78197d25e62bbc9fca24904cbcb77edafd24b12726059e49d84",
+    "provenance_policy": "HEAD_AGNOSTIC_ANCESTRY",
+    "schema_version": "v1.0-e-governed-final-test-1",
+    "stage": "V1.0-E",
+    "starting_checkpoint": "e7465e9",
+    "starting_head": "e7465e9",
+    "status": "PASS",
+    "v10d_evidence": {
+      "checks": {
+        "v10d_final_test_not_evaluated": true,
+        "v10d_summary_status_pass": true,
+        "v10d_test_access_classification": true,
+        "v10d_test_access_pass": true,
+        "v10d_test_used_for_winner_selection_false": true,
+        "v10d_winner_k_13": true,
+        "v10d_winner_seed_3045": true,
+        "v10d_winner_semantic_expected": true,
+        "v10d_winner_semantic_matches_lock": true
+      },
+      "schema_version": "v1.0-e-governed-final-test-1",
+      "stage": "V1.0-E",
+      "status": "PASS"
+    }
+  },
+  "preservation": {
+    "decision_tree": true,
+    "logistic_regression": true
+  },
+  "provenance_policy": "HEAD_AGNOSTIC_ANCESTRY",
+  "readiness_for_v10f": "GO",
+  "reference_optimizers": {
+    "bgwo_k14_semantic_lock_sha256": "e228f4c619de7e2028e4089723c6ae066fe8c2ab9ed1d94d98e0439a63df2744",
+    "bpso_k10_semantic_lock_sha256": "0f356ccab422774b128ab82f5da8881f24816902d4ccc6a7cecc9760c6202ca8"
+  },
+  "resource_benchmark_executed": false,
+  "schema_version": "v1.0-e-governed-final-test-1",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "semantic_result_lock_sha256": "ffca0957006bff3115705f9dfb0334e13a27c9abbc502f2c9d04f784a28141e9",
+  "stage": "V1.0-E",
+  "starting_checkpoint": "e7465e9",
+  "starting_head": "e7465e9",
+  "status": "COMPLETED",
+  "test_accessed": true,
+  "test_authorized": true,
+  "test_driven_tuning_performed": false,
+  "test_used_for_evaluation_only": true,
+  "test_used_for_feature_selection": false,
+  "test_used_for_selection": false,
+  "test_used_for_tuning": false,
+  "test_used_for_winner_selection": false,
+  "threshold_tuning_performed": false,
+  "winner": {
+    "feature_list_sha256": "8be4b0818f6ca59a057ef91d47738fa692548a6ddbed983b4496c644296b906a",
+    "feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+    "mask_sha256": "d1cc8c8b8643ce5d5daff3bdb6ff4c74dab6b1d78069a7f0052bcda10cb68c62",
+    "optimizer": "GOVERNED_HYBRID_BPSO_BGWO",
+    "selected_feature_count": 13,
+    "semantic_lock_sha256": "1c258dc1a90ad78197d25e62bbc9fca24904cbcb77edafd24b12726059e49d84",
+    "source_optimizer_seed": 3045
+  },
+  "winner_modified_after_test_access": false
+}

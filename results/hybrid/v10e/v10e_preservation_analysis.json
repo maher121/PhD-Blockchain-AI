@@ -1,0 +1,84 @@
+{
+  "artifact_kind": "FINAL_TEST_PRESERVATION",
+  "candidate_configuration_id": "HYBRID-K13",
+  "cross_classifier_interpretation": "PRESERVATION_HOLDS_FOR_BOTH_CLASSIFIERS",
+  "domain_validated_margins": false,
+  "margin_semantics": "preregistered descriptive engineering preservation criteria",
+  "margins": {
+    "average_precision": 0.05,
+    "f1": 0.05,
+    "recall": 0.1
+  },
+  "reference_configuration_id": "K43",
+  "results": [
+    {
+      "classifier": "decision_tree",
+      "metric_checks": [
+        {
+          "hybrid_k13_mean": 0.22445437744894364,
+          "k43_mean": 0.22208384690725302,
+          "margin": 0.05,
+          "metric": "average_precision",
+          "preserved": true,
+          "relative_change": 0.010674034040308223,
+          "relative_loss": 0.0
+        },
+        {
+          "hybrid_k13_mean": 0.1915858136331366,
+          "k43_mean": 0.18900476213886785,
+          "margin": 0.05,
+          "metric": "f1",
+          "preserved": true,
+          "relative_change": 0.013656013028774146,
+          "relative_loss": 0.0
+        },
+        {
+          "hybrid_k13_mean": 0.296,
+          "k43_mean": 0.30533333333333335,
+          "margin": 0.1,
+          "metric": "recall",
+          "preserved": true,
+          "relative_change": -0.030567685589519736,
+          "relative_loss": 0.030567685589519736
+        }
+      ],
+      "overall_preserved": true
+    },
+    {
+      "classifier": "logistic_regression",
+      "metric_checks": [
+        {
+          "hybrid_k13_mean": 0.05260624307855133,
+          "k43_mean": 0.051149797360171737,
+          "margin": 0.05,
+          "metric": "average_precision",
+          "preserved": true,
+          "relative_change": 0.028474124894845968,
+          "relative_loss": 0.0
+        },
+        {
+          "hybrid_k13_mean": 0.08874469360810269,
+          "k43_mean": 0.08734827100957092,
+          "margin": 0.05,
+          "metric": "f1",
+          "preserved": true,
+          "relative_change": 0.015986837316777174,
+          "relative_loss": 0.0
+        },
+        {
+          "hybrid_k13_mean": 0.4573333333333333,
+          "k43_mean": 0.42333333333333334,
+          "margin": 0.1,
+          "metric": "recall",
+          "preserved": true,
+          "relative_change": 0.0803149606299212,
+          "relative_loss": 0.0
+        }
+      ],
+      "overall_preserved": true
+    }
+  ],
+  "schema_version": "v1.0-e-governed-final-test-1",
+  "stage": "V1.0-E",
+  "winner_reselection_performed": false
+}
