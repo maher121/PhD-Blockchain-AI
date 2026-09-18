@@ -1,0 +1,3 @@
+pair,bgwo_feature_count,other_feature_count,intersection_size,union_size,jaccard,mean_seed_jaccard,aggregation,shared_features,bgwo_only_features,other_only_features
+BGWO_vs_BPSO-K10,14,10,3.0,21.0,0.14285714285714285,,single_set,order_item_quantity|order_item_total|Market_LATAM,product_price|order_item_discount|order_item_discount_rate|days_schedule|is_weekend|item_count_per_order|Market_Pacific Asia|Market_USCA|Department Name_Outdoors|Department Name_Discs Shop|Department Name_Book Shop,order_item_profit_ratio|hour|Type_PAYMENT|Shipping Mode_Same Day|Customer Segment_Corporate|Department Name_Apparel|Department Name_Health and Beauty
+BGWO_vs_MI-K11,14,11,6.4,18.6,0.34782608695652173,0.34502923976608185,mean_across_5_mi_seeds; per-seed sets vary,,,

@@ -1,0 +1,19 @@
+dimension,value_type,BPSO-K10,BGWO-K14,interpretation
+feature_count,structural,10.0,14.0,BPSO-K10 locked fewer features than BGWO-K14; both are metaheuristic winners.
+feature_reduction_vs_k43_percent,structural,76.74418604651163,67.44186046511628,Both reduce the 43-feature space; BPSO-K10 by more.
+validation_average_precision,validation,0.2302848102260538,0.2346177845086236,Descriptive validation comparison; not a superiority claim.
+validation_f1,validation,0.20330805088258272,0.18964396329310085,Descriptive validation comparison.
+validation_recall,validation,0.31866666666666665,0.32266666666666666,Descriptive validation comparison.
+final_test_dt_average_precision,final_test_mean,0.21961151547107932,0.22603467292251583,Metric-specific final-test means (n=5 pairs); no overall winner asserted.
+final_test_dt_f1,final_test_mean,0.18725821411669835,0.17971681232152606,Difference is small; the paired 95% CI crosses zero.
+final_test_lr_average_precision,final_test_mean,0.05073160798921733,0.05081015500471263,LR means are very close; metric-specific.
+final_test_lr_f1,final_test_mean,0.08693996654716712,0.08848584846370547,LR means are very close; metric-specific.
+decision_tree_training_wall_time_sec,resource_timing,12.915536646842957,12.623808016777039,Indicative timing proxy; BPSO-K10 stays lighter for some resource metrics.
+decision_tree_inference_latency_per_record_sec,resource_timing,3.4369611951168127e-07,3.429522373955744e-07,Indicative timing proxy; BPSO-K10 stays lighter for some resource metrics.
+logistic_regression_training_wall_time_sec,resource_timing,12.46888243675232,12.21513337135315,Indicative timing proxy; BPSO-K10 stays lighter for some resource metrics.
+logistic_regression_inference_latency_per_record_sec,resource_timing,3.214985763538417e-07,3.3398851126946737e-07,Indicative timing proxy; BPSO-K10 stays lighter for some resource metrics.
+decision_tree_serialized_model_bytes,resource_structural,3732.0,3812.0,Fewer features do not guarantee a smaller serialized model.
+logistic_regression_serialized_model_bytes,resource_structural,1382.0,1494.0,Fewer features do not guarantee a smaller serialized model.
+optimizer_candidate_requests,one_time_overhead,972.0,768.0,"One-time historical search cost; reported separately, not rerun."
+optimizer_decision_tree_fits,one_time_overhead,4860.0,3840.0,"One-time historical search cost; reported separately, not rerun."
+optimizer_wall_time_sec,one_time_overhead,645.5028752319995,325.42544312802784,"One-time historical search cost; reported separately, not rerun."

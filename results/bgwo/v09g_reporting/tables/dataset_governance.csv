@@ -1,0 +1,13 @@
+item,value
+dataset,DataCo SMART Supply Chain for Big Data Analysis
+working_rows,40000
+train_rows,28000
+validation_rows,6000
+test_rows,6000
+split_strategy,order_grouped
+split_seed,42
+feature_space_dimensions,43
+cyber_target,is_attack (controlled synthetic attack scenario)
+test_availability,test unavailable during optimizer/feature selection; opened only after the BGWO winner lock
+late_delivery_risk_ground_truth,Late_delivery_risk is NOT cyber ground truth
+direct_energy_measured,False

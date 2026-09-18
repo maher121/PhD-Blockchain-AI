@@ -1,0 +1,6 @@
+configuration_id,feature_count,reduction_vs_k43_percent,selection_origin,selection_category,test_used_during_selection
+K43,43,0.0,frozen V0.6 full baseline,baseline,False
+K42,42,2.3255813953488373,"frozen V0.6 unsupervised filter (pairwise correlation, natural)",unsupervised,False
+MI-K11,11,74.4186046511628,frozen V0.6 supervised MI select-k-best K11 (seed-specific feature set),supervised,False
+BPSO-K10,10,76.74418604651163,governed V0.8 BPSO winner lock (v08c_winner_lock),metaheuristic,False
+BGWO,14,67.44186046511628,governed V0.9-D BGWO winner lock (v09d_winner_lock),metaheuristic,False
