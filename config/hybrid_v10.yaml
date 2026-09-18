@@ -1,0 +1,418 @@
+# =============================================================================
+# V1.0-A HYBRID BPSO+BGWO FEATURE-SELECTION PROTOCOL LOCK
+# =============================================================================
+# Design-stage constant lock only. No optimizer execution, no model training,
+# no final-test access in V1.0-A.
+# =============================================================================
+
+stage: "V1.0-A"
+kind: "SCIENTIFIC_PROTOCOL_LOCK"
+protocol_classification: "HYBRID_PROTOCOL_LOCKED_FAIR_BUDGET"
+scientific_experiment: false
+
+scope:
+  hybrid_optimizer_execution_allowed: false
+  model_training_execution_allowed: false
+  final_test_access_allowed: false
+  bpso_rerun_allowed: false
+  bgwo_rerun_allowed: false
+  optimizer_parameter_tuning_allowed: false
+  resource_benchmark_execution_allowed: false
+
+# -----------------------------------------------------------------------------
+# 1. Dataset / split / feature space (frozen from V0.6)
+# -----------------------------------------------------------------------------
+dataset:
+  name: "DataCo SMART Supply Chain"
+  row_cap: 40000
+  split:
+    strategy: "order_grouped"
+    seed: 42
+    train_rows: 28000
+    validation_rows: 6000
+    test_rows: 6000
+  feature_space_count: 43
+  feature_manifest_sha256: "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d"
+  ground_truth: "is_attack"
+  forbidden_as_cyber_ground_truth:
+    - "Late_delivery_risk"
+    - "SUSPECTED_FRAUD"
+  optimizer_visible_splits: ["train", "validation"]
+  optimizer_forbidden_splits: ["test"]
+
+# -----------------------------------------------------------------------------
+# 2. Frozen predictive baseline and preservation margins (V0.6 validation lock)
+# -----------------------------------------------------------------------------
+predictive_baseline:
+  source: "results/feature_selection/validation_lock.json"
+  stage_of_origin: "V0.6-E"
+  metrics:
+    average_precision: 0.23068406113411433
+    f1: 0.1977010726398371
+    recall: 0.322
+  preservation_constraints:
+    average_precision_relative_loss_max: 0.05
+    f1_relative_loss_max: 0.05
+    recall_relative_loss_max: 0.10
+  feasibility_semantics: "five-seed configuration means; relative loss = (baseline - candidate_mean) / baseline; feasible if loss <= margin within NUMERICAL_BOUNDARY_TOLERANCE"
+  normalized_violation_semantics: "sum over AP/F1/Recall of max(0, (loss - margin) / margin); set to 0.0 when feasible"
+  note: "governance thresholds, not domain-calibrated risk thresholds"
+
+# -----------------------------------------------------------------------------
+# 3. Optimization objective (identical to frozen standalone objective)
+# -----------------------------------------------------------------------------
+optimization_objective:
+  formulation: "constrained_minimum_cardinality"
+  weighted_multiobjective: false
+  resource_or_energy_in_fitness: false
+  excluded_from_fitness:
+    - "wall_time_sec"
+    - "process_cpu_time_sec"
+    - "absolute_peak_rss_mib"
+    - "incremental_peak_rss_mib"
+    - "serialized_model_bytes"
+    - "inference_latency_sec"
+    - "throughput_records_sec"
+    - "direct_energy"
+    - "model_size"
+  note: "post-lock evaluation metrics only; never enter optimizer fitness"
+
+deterministic_ranking:
+  feasible:
+    - "smaller_k"
+    - "higher_average_precision"
+    - "higher_f1"
+    - "higher_recall"
+    - "canonical_tie_break"
+  infeasible:
+    - "lower_total_normalized_constraint_violation"
+    - "higher_average_precision"
+    - "higher_f1"
+    - "higher_recall"
+    - "smaller_k"
+    - "canonical_tie_break"
+  canonical_tie_break_semantics: "lexicographic comparison of the canonical binary mask over canonical feature index 0..42, matching feature_fitness_is_better"
+
+# -----------------------------------------------------------------------------
+# 4. Search classifier (frozen)
+# -----------------------------------------------------------------------------
+search_classifier:
+  name: "decision_tree"
+  parameters:
+    class_weight: "balanced"
+    max_depth: 5
+    min_samples_leaf: 20
+  prediction_threshold: 0.5
+  model_fits_per_candidate: 5
+
+# -----------------------------------------------------------------------------
+# 5. Hybrid architecture (ONE locked mechanism)
+# -----------------------------------------------------------------------------
+hybrid_design:
+  name: "BPSO_BGWO_SEQUENTIAL_50_50_ELITE3"
+  version: "v1.0-hybrid-design-1"
+  architecture: "sequential cooperative: BPSO exploration phase -> elite knowledge transfer -> BGWO refinement phase, within one run"
+  bpso_phase_role: "exploration: governed population search across cardinalities; produces a ranked elite set"
+  bgwo_phase_role: "refinement: alpha/beta/delta exploration around elite-anchored population under the same objective"
+  population_size_per_phase: 12
+  phase_budget_ratio_bpso_bgwo: [50, 50]
+
+  phase_budgets:
+    bpso_exploration_per_run_requests: 96
+    bgwo_refinement_per_run_requests: 96
+    per_run_requests_total: 192
+    five_run_requests_total: 960
+    bpso_evaluated_generations_per_run: 8
+    bgwo_evaluated_iterations_per_run: 8
+    iteration_zero_semantics: "iteration/generation 0 evaluates the initialization population and counts toward the phase budget"
+    allocated_decision_tree_fits_total: 4800
+    fits_per_request: 5
+
+  budget_derivation: |
+    Fixed primary budget. Agent count 12 matches both frozen standalone swarms
+    (particle_count=12, wolf_count=12). Phase ratio 50/50 for simplicity and
+    fairness. Per-run R = 12 * (8+8) = 192 requests, which is the largest value
+    expressible as an even 50/50 split (96/96) with 12 agents and integer
+    evaluated iterations that is simultaneously (a) inside the common frozen
+    per-run request envelope [132, 204] (BPSO per-run range 132..228, BGWO
+    per-run range 132..204), (b) no larger than the observed BPSO per-run mean
+    (194.4), and (c) no smaller than the observed BGWO per-run mean (153.6).
+    Five runs collide to a total of 960 requests, which is <= the frozen BPSO
+    total (972) and > the frozen BGWO total (768); the fixed-budget design
+    makes allocated == consumed, removing the early-stop confound present in
+    the standalone runs.
+
+# -----------------------------------------------------------------------------
+# 6. Seeds
+# -----------------------------------------------------------------------------
+seeds:
+  optimizer_seed_family_primary: [3042, 3043, 3044, 3045, 3046]
+  optimizer_seed_family_ablation: [3042, 3043, 3044, 3045, 3046]
+  optimizer_seed_phase_rng_offset_bgwo: 10000
+  model_attack_seeds: [42, 43, 44, 45, 46]
+  dataset_split_seed: 42
+  forbidden_optimizer_seed_families:
+    - [1042, 1043, 1044, 1045, 1046]
+    - [2042, 2043, 2044, 2045, 2046]
+  rng_rule: "BPSO phase uses numpy.default_rng(optimizer_seed); BGWO random initialization uses numpy.default_rng(optimizer_seed + 10000); both streams are per-run and reproducible from the optimizer seed alone"
+
+# -----------------------------------------------------------------------------
+# 7. Initialization and forbidden injections
+# -----------------------------------------------------------------------------
+initialization:
+  governed_anchors:
+    - "wolf_0: canonical all-ones 43-mask (K=43); a-priori known, not data-derived"
+    - "wolves_1_11: deterministic random exact-K masks; cardinalities drawn from [4,8,11,14,18,22,26,30,34,38]; feature identity generated under the phase RNG of the run"
+  cardinality_repair:
+    minimum_selected_features: 1
+    all_zero_policy: "activate_index_with_max_abs_latent_value_then_lowest_index_tie_break"
+    deterministic_repair_required: true
+    dry_run_repair_budget: 0
+  phase_rng_note: "the random exact-K masks are cardinality anchors only; their feature identity is necessarily seed-derived, never copied from frozen winners"
+
+forbidden_injected_subsets:
+  - "BPSO-K10 frozen winner mask (v08c_winner_lock mask_sha256 5da981b5b87db97338ecdde9ca8a8b87db3a62771d03dc6a4ad901f6548a3299)"
+  - "BGWO-K14 frozen winner mask (v09d_winner_lock mask_sha256 7ebb823374255f4f10c737c62a2111604aa50193a8f0d91b8483f3864cac7ad6)"
+  - "BGWO alpha/beta/delta latent positions or populations from any v09d run artifact"
+  - "BPSO initial population or velocity vectors from any v08c run artifact"
+  - "MI-K11 feature identity (mutual_information_select_k_best_k11 ordered features)"
+  - "real K42 leave-one-out mask identity (real_k42_mask_sha256)"
+  - "any TEST-derived information of any kind"
+
+# -----------------------------------------------------------------------------
+# 8. Knowledge transfer (elite set -> BGWO population seeding)
+# -----------------------------------------------------------------------------
+knowledge_transfer:
+  mechanism: "top-3 ranked distinct evaluated masks from the BPSO exploration phase seed wolves 1..3 of the BGWO refinement phase; wolves 4..12 are fresh governed random exact-K initialization; wolf 0 is the all-ones K43 anchor in both phases"
+  elite_count: 3
+  elite_ranking_rule: "frozen deterministic ranking over ALL distinct masks evaluated during the BPSO phase of the same run"
+  feasible_preference: "the deterministic ranking places every feasible mask before any infeasible mask"
+  fewer_than_N_feasible_elites: "elite slots are filled with the top distinct evaluated masks by the overall deterministic ranking (feasible-first by construction); unfilled slots become fresh random exact-K wolves"
+  duplicate_handling: "elites are distinct masks; later duplicates within the BGWO phase are permitted and count as candidate requests with cache-hit evaluation; no new DT fits"
+  remaining_wolves_initialization: "governed random exact-K under the BGWO phase RNG (seed + 10000)"
+  transferred_candidates_count_against_budget: true
+  transfer_evaluation_cost: "transferred elites occupy BGWO wolves and their iteration-0 evaluation is counted against the 96 BGWO-phase requests; cached metrics are reused; no hidden evaluations between phases"
+  transition_evaluations_between_phases: 0
+
+# -----------------------------------------------------------------------------
+# 9. Cache and candidate accounting
+# -----------------------------------------------------------------------------
+cache_and_accounting:
+  canonical_mask_representation: "uint8 binary mask over the canonical 43-feature manifest, canonical feature index 0..42"
+  mask_hash_method: "sha256(mask.tobytes()); matches frozen mask_sha256 convention"
+  cache_scope: "one optimizer run (both phases), cleared between runs"
+  cache_hit_semantics: "candidate request counted; no evaluator call; previously recorded evaluation for that mask in the same run is reused"
+  candidate_request_definition: "every mask submitted by the optimizer to the fitness layer, counted even when cached"
+  unique_evaluation_definition: "a mask evaluated by the fit-on-train/evaluate-on-validation evaluator for the first time in the run; 5 decision-tree fits"
+  decision_tree_fit_definition: "one decision-tree fit on train for one model/attack seed; 5 per unique evaluation"
+  no_hidden_evaluations_between_phases: true
+  expected_allocated_fits_total: 4800
+  expected_cache_hits_primary_runs: 15
+
+# -----------------------------------------------------------------------------
+# 10. Early-stopping policy
+# -----------------------------------------------------------------------------
+early_stopping_policy:
+  method: "A_fixed_budget_no_early_stopping"
+  rationale: "standalone BPSO/BGWO runs early-stopped at heterogeneous budgets (per-run 132..228 and 132..204; totals 972 and 768); a fixed budget makes allocated == consumed so all methods can be compared on a clear evaluation budget without an early-stop confound"
+  report_both_allocated_and_consumed: true
+  stop_condition: "phase ends when its 96-request allocation is fully consumed"
+
+# -----------------------------------------------------------------------------
+# 11. Validation-only and TEST-access gate (fail-closed)
+# -----------------------------------------------------------------------------
+test_access_gate:
+  policy: "fail_closed"
+  allowed_before_winner_lock: ["train", "validation"]
+  test_accessible_only_after:
+    - "all five hybrid production runs complete"
+    - "winner selection complete"
+    - "hybrid winner lock exists and verifies"
+  audit_fields_per_run: ["test_accessed", "test_authorized", "test_used_for_winner_selection"]
+  required_states_during_search: {test_accessed: false, test_authorized: false, test_used_for_winner_selection: false}
+  artifact: "results/hybrid/v10d_test_access_audit.json"
+  preflight_requirement: "TEST split identity hashes recorded without loading TEST feature frames"
+
+# -----------------------------------------------------------------------------
+# 12. Production runs and reporting
+# -----------------------------------------------------------------------------
+production_runs:
+  run_count: 5
+  optimizer_family: "GOVERNED_HYBRID_BPSO_BGWO"
+  event_scope: "TRAIN_AND_DEVELOPMENT_VALIDATION_ONLY"
+  per_run_report_fields:
+    - "seed"
+    - "best_k"
+    - "average_precision"
+    - "f1"
+    - "recall"
+    - "feasible"
+    - "normalized_violation"
+    - "requests"
+    - "unique_evaluations"
+    - "cache_hits"
+    - "decision_tree_fits"
+    - "phase_specific_counts"
+    - "runtime"
+    - "convergence"
+    - "selected_features"
+  run_artifact_pattern: "results/hybrid/v10d_run_<seed>.json"
+
+# -----------------------------------------------------------------------------
+# 13. Hybrid winner selection (validation only)
+# -----------------------------------------------------------------------------
+winner_selection:
+  data_scope: "validation_only"
+  ranking: "deterministic_ranking above"
+  lock_schema_fields:
+    - "optimizer"
+    - "hybrid_design"
+    - "hybrid_design_version"
+    - "seed"
+    - "selected_feature_count"
+    - "ordered_selected_features"
+    - "mask_sha256"
+    - "selected_features_sha256"
+    - "validation_metrics"
+    - "feasibility"
+    - "normalized_violation"
+    - "budget"
+    - "phase_allocation"
+    - "protocol_hash"
+    - "semantic_lock_sha256"
+  lock_artifact: "results/hybrid/v10d_winner_lock.json"
+  selection_scope: "TRAIN_AND_DEVELOPMENT_VALIDATION_ONLY"
+
+# -----------------------------------------------------------------------------
+# 14. Final-test plan (V1.0-E, not executed in V1.0-A)
+# -----------------------------------------------------------------------------
+final_test_plan:
+  participants:
+    - "K43"
+    - "K42"
+    - "MI-K11"
+    - "BPSO-K10"
+    - "BGWO-K14"
+    - "Hybrid-V1.0-winner"
+  classifiers:
+    decision_tree:
+      parameters:
+        class_weight: "balanced"
+        max_depth: 5
+        min_samples_leaf: 20
+      prediction_threshold: 0.5
+    logistic_regression:
+      parameters:
+        C: 1.0
+        class_weight: "balanced"
+        max_iter: 500
+        solver: "liblinear"
+      prediction_threshold: 0.5
+  seeds: [42, 43, 44, 45, 46]
+  metrics: ["average_precision", "f1", "recall", "precision", "roc_auc"]
+  additional_recorded_metrics: ["accuracy", "false_positive_rate", "false_negative_rate", "attack_prevalence", "pr_auc_trapezoidal"]
+  statistics: "paired by model/attack seed over the shared split; n=5; df=4; t critical ~ 2.776; 95% confidence intervals"
+  winner_selection_forbidden_on_test: true
+  purposes: "evaluation only; never used to choose the hybrid winner"
+
+# -----------------------------------------------------------------------------
+# 15. Resource plan (V1.0-F, after hybrid winner lock)
+# -----------------------------------------------------------------------------
+resource_policy:
+  execution_trigger: "after hybrid winner lock exists and verifies"
+  primary_comparison: ["K43", "BPSO-K10", "BGWO-K14", "Hybrid-V1.0-winner"]
+  secondary_references: ["MI-K11", "K42"]
+  methodology: "accepted V0.9-F measurement methodology"
+  reported_metrics:
+    - "training_wall_time_sec"
+    - "process_cpu_time_sec"
+    - "inference_latency_sec"
+    - "throughput_records_sec"
+    - "absolute_peak_rss_mib"
+    - "incremental_peak_rss_mib"
+    - "input_memory_footprint_bytes"
+    - "serialized_model_bytes"
+
+energy_policy:
+  direct_energy_policy: "report Joules only if a valid measurement backend is available"
+  fallback_marker: "DIRECT_ENERGY_UNAVAILABLE"
+  forbidden_inference: "never infer Joules from TDP * time"
+
+# -----------------------------------------------------------------------------
+# 16. Optimizer-efficiency comparison (V1.0-F)
+# -----------------------------------------------------------------------------
+optimizer_efficiency_comparison:
+  distinguishes:
+    - "search_quality"
+    - "selected_k"
+    - "predictive_performance"
+    - "resource_efficiency_after_selection"
+    - "optimizer_search_overhead"
+  reported_per_method: ["allocated_requests", "actual_requests", "unique_evaluations", "cache_hits", "decision_tree_fits", "optimizer_wall_time_sec"]
+  methods: ["BPSO", "BGWO", "Hybrid"]
+
+# -----------------------------------------------------------------------------
+# 17. Ablation plan (V1.0-G, secondary, not used for winner selection)
+# -----------------------------------------------------------------------------
+ablation_plan:
+  purpose: "demonstrate whether the elite knowledge-transfer component matters"
+  primary_contrast: "hybrid without elite transfer vs hybrid with elite transfer"
+  budget: "identical total budget (960 candidate requests over five runs)"
+  seeds: "paired by optimizer seed; both arms use seeds 3042..3046"
+  no_transfer_bpso_phase: "BPSO exploration phase runs identically"
+  no_transfer_bgwo_init: "BGWO phase wolves 1..12 all fresh governed random exact-K (no elite seeding)"
+  evaluation_scope: "validation only; no TEST access; not used for production winner selection"
+  scale: "single controlled ablation; no hyperparameter sweep"
+
+# -----------------------------------------------------------------------------
+# 18. Statistics (V1.0-F / V1.0-G reporting)
+# -----------------------------------------------------------------------------
+statistics:
+  predictive_comparisons: "paired by shared model/attack seed namespace (42..46); n=5; df=4; paired 95% CI; t critical ~ 2.776"
+  optimizer_level_comparisons: "BPSO (104x), BGWO (204x), Hybrid (304x) use different optimizer-seed families -> INDEPENDENT samples; never falsely paired merely because each method has five runs"
+  ablation_comparison: "paired by identical optimizer seeds across the two arms"
+  significance_guard: "no unsupported significance claims; metric-specific differences only"
+
+# -----------------------------------------------------------------------------
+# 19. Claim governance
+# -----------------------------------------------------------------------------
+claim_governance:
+  prohibited_statements_without_direct_evidence:
+    - "Hybrid is universally superior"
+    - "Hybrid is greener"
+    - "Hybrid consumes less energy"
+  allowed_language: "metric-specific statements tied to locked statistical comparisons"
+
+# -----------------------------------------------------------------------------
+# 20. Roadmap
+# -----------------------------------------------------------------------------
+roadmap:
+  stages:
+    - "V1.0-A: protocol/design lock (this document)"
+    - "V1.0-B: pure hybrid optimizer implementation + synthetic tests"
+    - "V1.0-C: real fitness integration + baseline reproduction + quarantined pilot"
+    - "V1.0-D: five production validation-only hybrid runs + winner lock"
+    - "V1.0-E: governed one-time final-test evaluation"
+    - "V1.0-F: resource efficiency + optimizer overhead"
+    - "V1.0-G: ablation"
+    - "V1.0-H: final notebook + integrated BPSO/BGWO/Hybrid synthesis"
+  ordering_justification: "kept as specified: protocol -> pure implementation -> integration/pilot -> production -> final test -> resource -> ablation -> synthesis isolates selection decisions from hindsight; ablation after winner lock prevents ablation evidence from influencing production or winner choices"
+
+governed_sources:
+  v06_validation_lock: "results/feature_selection/validation_lock.json"
+  v06_feature_manifest_sha256: "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d"
+  v08c_winner_lock: "results/bpso/v08c_winner_lock.json"
+  v08c_execution_summary: "results/bpso/v08c_execution_summary.json"
+  v08d_final_test_lock: "results/bpso/v08d_final_test_lock.json"
+  v09d_winner_lock: "results/bgwo/v09d/v09d_winner_lock.json"
+  v09d_execution_summary: "results/bgwo/v09d/v09d_execution_summary.json"
+  v09e_result_lock: "results/bgwo/v09e/v09e_result_lock.json"
+  v09f_result_lock: "results/bgwo/v09f/v09f_result_lock.json"
+  bpso_frozen_budget_requests: 972
+  bpso_frozen_unique_evaluations: 972
+  bpso_frozen_decision_tree_fits: 4860
+  bpso_frozen_optimizer_wall_time_sec: 645.5028752319995
+  bgwo_frozen_budget_requests: 768
+  bgwo_frozen_unique_evaluations: 768
+  bgwo_frozen_decision_tree_fits: 3840
+  bgwo_frozen_optimizer_wall_time_sec: 325.42544312802784
