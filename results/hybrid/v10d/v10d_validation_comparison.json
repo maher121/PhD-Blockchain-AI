@@ -1,0 +1,54 @@
+{
+  "budget_comparison": {
+    "equal_budget_statement": "controlled/comparable search budgets, not identical",
+    "frozen_bgwo_actual_requests": 768,
+    "frozen_bpso_actual_requests": 972,
+    "hybrid_allocated_requests": 960
+  },
+  "disclaimer": "DESCRIPTIVE VALIDATION-ONLY COMPARISON. Budgets are NOT identical: frozen BPSO actual=972, frozen BGWO actual=768, Hybrid allocated/actual=960. Therefore these are 'controlled/comparable search budgets', not identical search budgets. No overall winner is declared; the Hybrid result is never claimed to be universally better.",
+  "frozen_bgwo_winner": {
+    "candidate_requests": 768,
+    "decision_tree_fits": 3840,
+    "k": 14,
+    "key": "V0.9-D BGWO winner",
+    "source_seed": 2042,
+    "unique_evaluations": 768,
+    "validation": {
+      "average_precision": 0.2346177845086236,
+      "f1": 0.18964396329310085,
+      "recall": 0.32266666666666666
+    }
+  },
+  "frozen_bpso_winner": {
+    "candidate_requests": 972,
+    "decision_tree_fits": 4860,
+    "k": 10,
+    "key": "V0.8-C BPSO winner",
+    "source_seed": 1042,
+    "unique_evaluations": 972,
+    "validation": {
+      "average_precision": 0.2302848102260538,
+      "f1": 0.20330805088258272,
+      "recall": 0.31866666666666665
+    }
+  },
+  "hybrid_validation_winner": {
+    "key": "V1.0-D hybrid winner",
+    "validation": {
+      "ap": 0.23774839679450363,
+      "f1": 0.20784294985714763,
+      "feasible": true,
+      "k": 13,
+      "mask_sha256": "d1cc8c8b8643ce5d5daff3bdb6ff4c74dab6b1d78069a7f0052bcda10cb68c62",
+      "precision": 0.31197557163619344,
+      "recall": 0.322,
+      "roc_auc": 0.6179497660818714,
+      "source_seed": 3045,
+      "violation": 0.0
+    }
+  },
+  "no_overall_winner_declared": true,
+  "no_universal_superiority_claim": true,
+  "schema_version": "v1.0-d-production-hybrid-validation-runs-1",
+  "stage": "V1.0-D"
+}

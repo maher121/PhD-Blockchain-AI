@@ -1,0 +1,41 @@
+{
+  "allowed_splits": [
+    "train",
+    "validation"
+  ],
+  "checks": {
+    "frozen_test_split_identity_recorded": true,
+    "test_accessed_false": true,
+    "test_authorized_false": true,
+    "test_observations_never_loaded_by_v10d": true,
+    "test_used_for_fitness_false": true,
+    "test_used_for_selection_false": true,
+    "test_used_for_winner_selection_false": true,
+    "winner_lock_created_before_any_final_test_authorization": true,
+    "winner_selected_from_validation_only": true
+  },
+  "classification": "TEST_LOCKED_DURING_V10D_SELECTION",
+  "frozen_test_split": {
+    "raw_file_sha256": "fa6d022ed437155e1a2f0378710602848703c8a7f203f7ff5d77805bf8480aa6",
+    "seed": 42,
+    "sizes": {
+      "test": 6000,
+      "train": 28000,
+      "validation": 6000
+    },
+    "strategy": "order_grouped"
+  },
+  "optimizer_forbidden_splits": [
+    "test"
+  ],
+  "schema_version": "v1.0-d-production-hybrid-validation-runs-1",
+  "stage": "V1.0-D",
+  "status": "PASS",
+  "test_accessed": false,
+  "test_authorized": false,
+  "test_used_for_fitness": false,
+  "test_used_for_selection": false,
+  "test_used_for_winner_selection": false,
+  "winner_lock_exists": true,
+  "winner_lock_path": "results/hybrid/v10d/v10d_winner_lock.json"
+}

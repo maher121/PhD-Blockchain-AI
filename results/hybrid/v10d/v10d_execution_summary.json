@@ -1,0 +1,75 @@
+{
+  "ablation_executed": false,
+  "actual_requests": 960,
+  "allocated_requests": 960,
+  "cache_hits": 20,
+  "decision_tree_fits": 4700,
+  "energy_in_fitness": false,
+  "final_test_evaluated": false,
+  "label": "PRODUCTION_HYBRID_VALIDATION_RUNS",
+  "optimizer_wall_time_sec": 475.54950684303185,
+  "outputs": {
+    "v10d_execution_summary.json": "/mnt/e/PhD-Blockchain-AI/results/hybrid/v10d/v10d_execution_summary.json",
+    "v10d_run_3042.json": "/mnt/e/PhD-Blockchain-AI/results/hybrid/v10d/v10d_run_3042.json",
+    "v10d_run_3043.json": "/mnt/e/PhD-Blockchain-AI/results/hybrid/v10d/v10d_run_3043.json",
+    "v10d_run_3044.json": "/mnt/e/PhD-Blockchain-AI/results/hybrid/v10d/v10d_run_3044.json",
+    "v10d_run_3045.json": "/mnt/e/PhD-Blockchain-AI/results/hybrid/v10d/v10d_run_3045.json",
+    "v10d_run_3046.json": "/mnt/e/PhD-Blockchain-AI/results/hybrid/v10d/v10d_run_3046.json",
+    "v10d_stability_summary.json": "/mnt/e/PhD-Blockchain-AI/results/hybrid/v10d/v10d_stability_summary.json",
+    "v10d_test_access_audit.json": "/mnt/e/PhD-Blockchain-AI/results/hybrid/v10d/v10d_test_access_audit.json",
+    "v10d_validation_comparison.json": "/mnt/e/PhD-Blockchain-AI/results/hybrid/v10d/v10d_validation_comparison.json",
+    "v10d_winner_lock.json": "/mnt/e/PhD-Blockchain-AI/results/hybrid/v10d/v10d_winner_lock.json"
+  },
+  "resource_benchmark_executed": false,
+  "run_statuses": {
+    "3042": "PASS",
+    "3043": "PASS",
+    "3044": "PASS",
+    "3045": "PASS",
+    "3046": "PASS"
+  },
+  "schema_version": "v1.0-d-production-hybrid-validation-runs-1",
+  "seeds": [
+    3042,
+    3043,
+    3044,
+    3045,
+    3046
+  ],
+  "selected_runs": {
+    "3042": "RESUMED_VALIDATED",
+    "3043": "RESUMED_VALIDATED",
+    "3044": "RESUMED_VALIDATED",
+    "3045": "RESUMED_VALIDATED",
+    "3046": "RESUMED_VALIDATED"
+  },
+  "stage": "V1.0-D",
+  "status": "PASS",
+  "steps": {
+    "five_production_runs": "PASS",
+    "frozen_artifact_integrity": "PASS",
+    "leakage_audit": "PASS",
+    "preflight": "PASS",
+    "semantic_lock_verification": "PASS",
+    "test_access_audit": "PASS",
+    "winner_lock": "PASS",
+    "winner_reconstruction": "PASS",
+    "winner_selection": "PASS"
+  },
+  "test_access_classification": "TEST_LOCKED_DURING_V10D_SELECTION",
+  "test_access_status": "PASS",
+  "unique_evaluations": 940,
+  "winner_k": 13,
+  "winner_metrics": {
+    "average_precision": 0.23774839679450363,
+    "f1": 0.20784294985714763,
+    "feasible": true,
+    "normalized_violation": 0.0,
+    "precision": 0.31197557163619344,
+    "recall": 0.322,
+    "roc_auc": 0.6179497660818714
+  },
+  "winner_seed": 3045,
+  "winner_semantic_lock_sha256": "1c258dc1a90ad78197d25e62bbc9fca24904cbcb77edafd24b12726059e49d84",
+  "winner_semantic_payload_sha256": "1c258dc1a90ad78197d25e62bbc9fca24904cbcb77edafd24b12726059e49d84"
+}
