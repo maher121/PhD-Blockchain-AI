@@ -1,0 +1,145 @@
+{
+  "artifact_kind": "DESCRIPTIVE_POST_HOC_TRADEOFF_ANALYSIS",
+  "entries": [
+    {
+      "configuration_id": "K43",
+      "feature_count": 43,
+      "inference_per_record_latency_sec": 5.650347285352571e-07,
+      "input_dataframe_memory_bytes": 9632132,
+      "serialized_model_bytes": 2358,
+      "test_average_precision": {
+        "decision_tree": 0.222083846907253,
+        "logistic_regression": 0.0511497973601717
+      },
+      "test_f1": {
+        "decision_tree": 0.1890047621388678,
+        "logistic_regression": 0.0873482710095709
+      },
+      "test_recall": {
+        "decision_tree": 0.3053333333333333,
+        "logistic_regression": 0.4233333333333333
+      },
+      "training_wall_time_sec": 0.2503962959197815
+    },
+    {
+      "configuration_id": "K42",
+      "feature_count": 42,
+      "inference_per_record_latency_sec": 6.62941791627721e-07,
+      "input_dataframe_memory_bytes": 9408132,
+      "serialized_model_bytes": 2326,
+      "test_average_precision": {
+        "decision_tree": 0.222083846907253,
+        "logistic_regression": 0.0511499595198686
+      },
+      "test_f1": {
+        "decision_tree": 0.1890047621388678,
+        "logistic_regression": 0.0873482710095709
+      },
+      "test_recall": {
+        "decision_tree": 0.3053333333333333,
+        "logistic_regression": 0.4233333333333333
+      },
+      "training_wall_time_sec": 0.23141361316025724
+    },
+    {
+      "configuration_id": "MI-K11",
+      "feature_count": 11,
+      "inference_per_record_latency_sec": 5.403922398047219e-07,
+      "input_dataframe_memory_bytes": 2464132,
+      "serialized_model_bytes": 1350,
+      "test_average_precision": {
+        "decision_tree": 0.2249411903498859,
+        "logistic_regression": 0.0511705179434513
+      },
+      "test_f1": {
+        "decision_tree": 0.1921208433666346,
+        "logistic_regression": 0.0924573732019435
+      },
+      "test_recall": {
+        "decision_tree": 0.3,
+        "logistic_regression": 0.51
+      },
+      "training_wall_time_sec": 0.03944783740051207
+    },
+    {
+      "configuration_id": "BPSO-K10",
+      "feature_count": 10,
+      "inference_per_record_latency_sec": 4.756655193551277e-07,
+      "input_dataframe_memory_bytes": 2240132,
+      "serialized_model_bytes": 1382,
+      "test_average_precision": {
+        "decision_tree": 0.2196115154710793,
+        "logistic_regression": 0.0507316079892173
+      },
+      "test_f1": {
+        "decision_tree": 0.1872582141166983,
+        "logistic_regression": 0.0869399665471671
+      },
+      "test_recall": {
+        "decision_tree": 0.2986666666666667,
+        "logistic_regression": 0.4679999999999999
+      },
+      "training_wall_time_sec": 0.050697755460278125
+    },
+    {
+      "configuration_id": "BGWO-K14",
+      "feature_count": 14,
+      "inference_per_record_latency_sec": 4.2655423231792616e-07,
+      "input_dataframe_memory_bytes": 3136132,
+      "serialized_model_bytes": 1494,
+      "test_average_precision": {
+        "decision_tree": 0.2260346729225158,
+        "logistic_regression": 0.0508101550047126
+      },
+      "test_f1": {
+        "decision_tree": 0.179716812321526,
+        "logistic_regression": 0.0884858484637054
+      },
+      "test_recall": {
+        "decision_tree": 0.308,
+        "logistic_regression": 0.4679999999999999
+      },
+      "training_wall_time_sec": 0.07489462794008432
+    },
+    {
+      "configuration_id": "HYBRID-K13",
+      "feature_count": 13,
+      "inference_per_record_latency_sec": 6.150815313149375e-07,
+      "input_dataframe_memory_bytes": 2912132,
+      "serialized_model_bytes": 1462,
+      "test_average_precision": {
+        "decision_tree": 0.2244543774489436,
+        "logistic_regression": 0.0526062430785513
+      },
+      "test_f1": {
+        "decision_tree": 0.1915858136331366,
+        "logistic_regression": 0.0887446936081026
+      },
+      "test_recall": {
+        "decision_tree": 0.296,
+        "logistic_regression": 0.4573333333333333
+      },
+      "training_wall_time_sec": 0.056675407739821826
+    }
+  ],
+  "interpretation": "This is a descriptive comparison of feature count, frozen V1.0-E predictive metrics, and V1.0-F measured resources. No multi-objective optimization, ranking, or winner replacement is performed.",
+  "label": "DESCRIPTIVE_POST_HOC_TRADEOFF_ANALYSIS",
+  "nsga_or_mopso_used": false,
+  "objective_function_introduced": false,
+  "optimization_performed": false,
+  "schema_version": "v1.0-f-resource-efficiency-1",
+  "sources": {
+    "predictive": {
+      "path": "/mnt/e/PhD-Blockchain-AI/results/hybrid/v10e/v10e_final_test_summary.csv",
+      "provenance": "IMPORTED_HISTORICAL",
+      "result_lock_semantic_sha256": "ffca0957006bff3115705f9dfb0334e13a27c9abbc502f2c9d04f784a28141e9",
+      "sha256": "1f05f9bfd45b948e323d30be810464524ee5f775e7f43ebac1bd21574833b740",
+      "stage": "V1.0-E"
+    },
+    "resource": {
+      "provenance": "DIRECT_COMPUTATIONAL",
+      "stage": "V1.0-F"
+    }
+  },
+  "stage": "V1.0-F"
+}

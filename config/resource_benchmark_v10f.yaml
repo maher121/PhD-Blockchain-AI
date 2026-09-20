@@ -1,0 +1,51 @@
+version: "v1.0-f-resource-efficiency-1"
+stage: "V1.0-F"
+authoritative_protocol: "V0.8-E1/E2 approved computational-resource protocol reused for V1.0-F"
+
+configurations:
+  - K43
+  - K42
+  - MI-K11
+  - BPSO-K10
+  - BGWO-K14
+  - HYBRID-K13
+
+configuration_source_ids:
+  K43: none_natural
+  K42: pairwise_correlation_filter_natural
+  MI-K11: mutual_information_select_k_best_k11
+  BPSO-K10: v08c_locked_bpso_k10
+  BGWO-K14: v09d_locked_bgwo_winner
+  HYBRID-K13: v10d_locked_hybrid_winner
+
+classifiers:
+  - decision_tree
+  - logistic_regression
+
+seeds: [42, 43, 44, 45, 46]
+phases: [training, inference]
+
+measurement:
+  worker_policy: fresh_process_per_outer_repetition
+  warmup_calls: 3
+  outer_repetitions: 10
+  training_inner_operation_count: 1
+  inference_inner_operation_count: 512
+  adaptive_calibration: false
+  training_boundary: model.fit_only_data_loading_selection_serialization_excluded
+  inference_boundary: prediction_only_model_loading_warmup_excluded
+  outlier_deletion: prohibited
+  per_observation_timestamps: required
+  timestamp_source: time.time_utc_and_time.perf_counter
+  standby_gap_threshold_sec: 1.0
+
+governance:
+  benchmark_stage_type: resource_only
+  final_test_predictive_rerun: prohibited
+  bpso_rerun: prohibited
+  bgwo_rerun: prohibited
+  hybrid_optimizer_rerun: prohibited
+  feature_selection: prohibited
+  model_tuning: prohibited
+  threshold_tuning: prohibited
+  energy_estimation_from_cpu_or_wall: prohibited

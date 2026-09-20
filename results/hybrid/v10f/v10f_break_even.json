@@ -1,0 +1,47 @@
+{
+  "artifact_kind": "DESCRIPTIVE_BREAK_EVEN_ANALYSIS",
+  "energy_break_even_status": "NOT_APPLICABLE_DIRECT_ENERGY_UNAVAILABLE",
+  "interpretation": "Break-even is descriptive and only reported when the per-model saving is positive. It is a computational-timing statement and must not be presented as an energy result.",
+  "overhead_source": "V1.0-D GOVERNED HYBRID BPSO+BGWO optimizer search",
+  "rows": [
+    {
+      "break_even_repetitions": 3606.7598815900556,
+      "candidate_configuration_id": "HYBRID-K13",
+      "metric": "wall_time_sec",
+      "optimizer_overhead_sec": 475.54950684303185,
+      "per_model_recurring_saving_sec": 0.13184950549948554,
+      "phase": "training",
+      "provenance": "IMPORTED_HISTORICAL",
+      "reference_configuration_id": "K43",
+      "status": "APPLICABLE",
+      "unit": "seconds"
+    },
+    {
+      "break_even_repetitions": null,
+      "candidate_configuration_id": "HYBRID-K13",
+      "metric": "wall_time_sec",
+      "optimizer_overhead_sec": 475.54950684303185,
+      "per_model_recurring_saving_sec": -0.0006760947001748716,
+      "phase": "training",
+      "provenance": "IMPORTED_HISTORICAL",
+      "reference_configuration_id": "BPSO-K10",
+      "status": "NOT_APPLICABLE",
+      "unit": "seconds"
+    },
+    {
+      "break_even_repetitions": 33880.33560794483,
+      "candidate_configuration_id": "HYBRID-K13",
+      "metric": "wall_time_sec",
+      "optimizer_overhead_sec": 475.54950684303185,
+      "per_model_recurring_saving_sec": 0.014036151009422619,
+      "phase": "training",
+      "provenance": "IMPORTED_HISTORICAL",
+      "reference_configuration_id": "BGWO-K14",
+      "status": "APPLICABLE",
+      "unit": "seconds"
+    }
+  ],
+  "schema_version": "v1.0-f-resource-efficiency-1",
+  "stage": "V1.0-F",
+  "timing_break_even_is_not_energy_break_even": true
+}

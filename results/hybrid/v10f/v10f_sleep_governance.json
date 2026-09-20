@@ -1,0 +1,97 @@
+{
+  "artifact_kind": "ENVIRONMENT_SLEEP_AND_ENERGY_GOVERNANCE",
+  "direct_energy_status": "DIRECT_ENERGY_UNAVAILABLE",
+  "energy": {
+    "accepted_backend": null,
+    "decision": "DIRECT_ENERGY_UNAVAILABLE",
+    "measurement_backend": {
+      "electrical_energy": "DIRECT_ENERGY",
+      "estimated_energy_may_be_direct": false,
+      "historical_tdp_time": "ESTIMATED",
+      "instantaneous_watts_are_joules": false,
+      "timing_cpu_rss_and_bytes": "DIRECT_COMPUTATIONAL"
+    },
+    "provenance": "DIRECT_ENERGY_UNAVAILABLE"
+  },
+  "energy_proxies_only": true,
+  "environment": {
+    "cpu": {
+      "logical_count": 12,
+      "model": "12th Gen Intel(R) Core(TM) i7-1255U",
+      "physical_count": 6
+    },
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5",
+      "psutil": "7.2.2",
+      "pytest": "9.1.1",
+      "scikit-learn": "1.9.0"
+    },
+    "execution_environment": {
+      "is_native": false,
+      "is_wsl": true,
+      "kind": "wsl"
+    },
+    "git": {
+      "available": true,
+      "commit": "29871a37defe98fbeba79d3d2a44fe6e98e7fab5",
+      "dirty": true,
+      "reason": null
+    },
+    "gpu": {
+      "detection": "nvidia_smi",
+      "devices": [
+        "NVIDIA GeForce MX550"
+      ],
+      "present": true
+    },
+    "kernel": "6.6.87.2-microsoft-standard-WSL2",
+    "os": {
+      "release": "6.6.87.2-microsoft-standard-WSL2",
+      "system": "Linux",
+      "version": "#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025"
+    },
+    "power_source": {
+      "available": true,
+      "reason": "WSL battery telemetry is not accepted as wall-power instrumentation.",
+      "reliable": false,
+      "source": "virtual_battery"
+    },
+    "python": {
+      "implementation": "CPython",
+      "version": "3.12.3"
+    },
+    "ram": {
+      "total_bytes": 8184348672
+    },
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "virtualization": {
+      "detected": true,
+      "evidence": "kernel_or_environment",
+      "type": "WSL"
+    }
+  },
+  "joule_estimation_from_cpu_or_wall_performed": false,
+  "schema_version": "v1.0-f-resource-efficiency-1",
+  "sleep_governance": {
+    "guest_mem_sleep_file": "[s2idle]",
+    "guest_power_state_file": "freeze mem disk",
+    "host_sleep_availability_verified": false,
+    "host_sleep_control_attempted": false,
+    "per_observation_timestamps_recorded": true,
+    "permanent_power_settings_modified": false,
+    "reason": "The measurement runs under a WSL2 virtual guest whose /sys/power view reflects the guest, not the Windows host. Windows host Modern Standby availability and intervals cannot be safely verified or controlled from here, so host sleep governance is recorded as unverified rather than assumed, and no power settings are modified. Every observation instead carries UTC and monotonic timestamps so standby gaps can be detected rather than inferred retrospectively.",
+    "standby_gap_threshold_sec": 1.0,
+    "temporary_sleep_prevention_used": false
+  },
+  "stage": "V1.0-F",
+  "tdp_multiplication_performed": false
+}

@@ -1,0 +1,225 @@
+{
+  "bgwo_mask_sha256": "7ebb823374255f4f10c737c62a2111604aa50193a8f0d91b8483f3864cac7ad6",
+  "bgwo_ordered_selected_features": [
+    "order_item_quantity",
+    "product_price",
+    "order_item_discount",
+    "order_item_discount_rate",
+    "order_item_total",
+    "days_schedule",
+    "is_weekend",
+    "item_count_per_order",
+    "Market_LATAM",
+    "Market_Pacific Asia",
+    "Market_USCA",
+    "Department Name_Outdoors",
+    "Department Name_Discs Shop",
+    "Department Name_Book Shop"
+  ],
+  "bgwo_rerun": false,
+  "bgwo_selected_feature_count": 14,
+  "bgwo_source_semantic_lock_sha256": "e228f4c619de7e2028e4089723c6ae066fe8c2ab9ed1d94d98e0439a63df2744",
+  "bpso_mask_sha256": "5da981b5b87db97338ecdde9ca8a8b87db3a62771d03dc6a4ad901f6548a3299",
+  "bpso_ordered_selected_features": [
+    "order_item_quantity",
+    "order_item_profit_ratio",
+    "order_item_total",
+    "hour",
+    "Type_PAYMENT",
+    "Market_LATAM",
+    "Shipping Mode_Same Day",
+    "Customer Segment_Corporate",
+    "Department Name_Apparel",
+    "Department Name_Health and Beauty"
+  ],
+  "bpso_rerun": false,
+  "bpso_selected_feature_count": 10,
+  "bpso_source_semantic_lock_sha256": "0f356ccab422774b128ab82f5da8881f24816902d4ccc6a7cecc9760c6202ca8",
+  "classifier_configurations": {
+    "decision_tree": {
+      "parameters": {
+        "class_weight": "balanced",
+        "max_depth": 5,
+        "min_samples_leaf": 20
+      },
+      "prediction_threshold": 0.5
+    },
+    "logistic_regression": {
+      "parameters": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "max_iter": 500,
+        "solver": "liblinear"
+      },
+      "prediction_threshold": 0.5
+    }
+  },
+  "classifier_configurations_sha256": "34c523350d4ca7530b8119d4f095eab2c0d816430ceb5704ec64cb181c909dd1",
+  "comparison_evidence_hash": "b7df8cfdae5993d055357ab76efe202a0c168a761ee328a77a95878983daae2e",
+  "configuration_ids": [
+    "K43",
+    "K42",
+    "MI-K11",
+    "BPSO-K10",
+    "BGWO-K14",
+    "HYBRID-K13"
+  ],
+  "configuration_plan": [
+    {
+      "configuration_id": "K43",
+      "feature_count": 43,
+      "selection_scope": "frozen V0.6 full baseline",
+      "selection_semantics": "universal full candidate manifest",
+      "source_configuration_id": "none_natural",
+      "source_semantic_lock_sha256": null
+    },
+    {
+      "configuration_id": "K42",
+      "feature_count": 42,
+      "selection_scope": "frozen V0.6 pairwise-correlation baseline",
+      "selection_semantics": "universal deterministic training-derived subset",
+      "source_configuration_id": "pairwise_correlation_filter_natural",
+      "source_semantic_lock_sha256": null
+    },
+    {
+      "configuration_id": "MI-K11",
+      "feature_count": 11,
+      "selection_scope": "frozen V0.6 historical MI rule",
+      "selection_semantics": "seed-specific supervised training-derived subsets",
+      "source_configuration_id": "mutual_information_select_k_best_k11",
+      "source_semantic_lock_sha256": null
+    },
+    {
+      "configuration_id": "BPSO-K10",
+      "feature_count": 10,
+      "selection_scope": "V0.8-C train and development-validation lock",
+      "selection_semantics": "one universal locked BPSO subset across all seeds",
+      "source_configuration_id": "v08c_locked_bpso_k10",
+      "source_semantic_lock_sha256": "0f356ccab422774b128ab82f5da8881f24816902d4ccc6a7cecc9760c6202ca8"
+    },
+    {
+      "configuration_id": "BGWO-K14",
+      "feature_count": 14,
+      "selection_scope": "V0.9-D train and development-validation lock",
+      "selection_semantics": "one universal locked BGWO subset across all seeds",
+      "source_configuration_id": "v09d_locked_bgwo_winner",
+      "source_semantic_lock_sha256": "e228f4c619de7e2028e4089723c6ae066fe8c2ab9ed1d94d98e0439a63df2744"
+    },
+    {
+      "configuration_id": "HYBRID-K13",
+      "feature_count": 13,
+      "selection_scope": "V1.0-D train and development-validation lock",
+      "selection_semantics": "one universal locked Hybrid subset across all seeds",
+      "source_configuration_id": "v10d_locked_hybrid_winner",
+      "source_semantic_lock_sha256": "1c258dc1a90ad78197d25e62bbc9fca24904cbcb77edafd24b12726059e49d84"
+    }
+  ],
+  "configuration_plan_sha256": "78234f7f3b40117f94f35c5315d2e48d268ddd96cec188e03a1026542a8b5cc6",
+  "dataset_identity": {
+    "dimensions": 43,
+    "feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+    "name": "DataCo SMART Supply Chain",
+    "split_seed": 42,
+    "split_sizes": {
+      "test": 6000,
+      "train": 28000,
+      "validation": 6000
+    },
+    "test_rows": 6000
+  },
+  "direct_energy_measured": false,
+  "direct_energy_status": "DIRECT_ENERGY_UNAVAILABLE",
+  "environment_id": "d13fb4d8df548a4e6d93e6485f6691c6a33bc7fedceeaf6f06970c3e4e2e38d4",
+  "environment_sha256": "b049f5df432119417c8a67dcf1cc86db7276b7f0bdbc41a5f3f66a057f219e40",
+  "execution_metadata": {
+    "completed_at_utc": "2026-09-20T20:09:01.579485+00:00",
+    "started_at_utc": "2026-09-20T14:28:36.924794+00:00",
+    "wall_time_sec": 20703.592395256004
+  },
+  "feature_reselection_performed": false,
+  "final_test_accessed": false,
+  "hybrid_feature_list_sha256": "8be4b0818f6ca59a057ef91d47738fa692548a6ddbed983b4496c644296b906a",
+  "hybrid_feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+  "hybrid_mask_sha256": "d1cc8c8b8643ce5d5daff3bdb6ff4c74dab6b1d78069a7f0052bcda10cb68c62",
+  "hybrid_optimizer_rerun": false,
+  "hybrid_ordered_selected_features": [
+    "order_item_quantity",
+    "product_price",
+    "order_item_total",
+    "is_weekend",
+    "Type_DEBIT",
+    "Type_TRANSFER",
+    "Type_CASH",
+    "Market_LATAM",
+    "Market_Pacific Asia",
+    "Shipping Mode_First Class",
+    "Department Name_Golf",
+    "Department Name_Fitness",
+    "Department Name_Health and Beauty"
+  ],
+  "hybrid_selected_feature_count": 13,
+  "joule_estimation_from_cpu_or_wall_performed": false,
+  "model_tuning_performed": false,
+  "observation_counts": {
+    "cells": 120,
+    "failure_count": 0,
+    "inference": 600,
+    "total": 1200,
+    "training": 600
+  },
+  "observation_level_timestamps_present": true,
+  "optimizer_invoked": false,
+  "optimizer_overhead_evidence_hash": "bc028575e3918c7680d734207f0fd52b4759349c720e1c09dfc58c581023af68",
+  "optimizer_rerun": false,
+  "outliers_removed": false,
+  "provenance_policy": "HEAD_AGNOSTIC_ANCESTRY",
+  "raw_observation_evidence_hash": "4202c29374c480c5b6da5503f129b79dcd930b59ad07dc4c6ee5f9dec77bf476",
+  "resource_protocol_identity": {
+    "protocol_config_lf_sha256": "e3d3eadbcd7a36194627ef5f757451f3ef6fdf00cf724d0786e87c5e962780a6",
+    "protocol_config_path": "/mnt/e/PhD-Blockchain-AI/config/resource_benchmark_v08e.yaml",
+    "resource_engine_path": "/mnt/e/PhD-Blockchain-AI/src/pipeline_v08e.py",
+    "resource_engine_sha256": "0755d646fce3336f5ba3cf9e872cb3a1840aba194edffd0d74bd6ad9b0a49991",
+    "source_stage": "V0.8-E2",
+    "v08e_semantic_result_lock_sha256": "7307fda1cdb5f100cb6268dc0f4eff05b65bfcefadeb06707c8a3e13fd6888d5"
+  },
+  "result_artifact_hashes": {
+    "v10f_break_even.json": "d3b7b4c6ae2007150e15d18c3de0ec21b0b67fa50018fe08c3b3cb6a6408ecb5",
+    "v10f_environment.json": "eb1c8ad3a2afc354674ddb72b668cd1ab5dc070d9607583423ff84f39bb2063d",
+    "v10f_feature_reduction.json": "88692fecbf00efb48be8e6b9ccbb61d3d9cd2aa849b82d710ef74a920486e8cd",
+    "v10f_model_size_comparison.json": "6c7cf1ad85b1ff1e15a99b66e2261942f0af5c0479fea2b8d03a266bfd1e90d1",
+    "v10f_optimizer_overhead.json": "bc028575e3918c7680d734207f0fd52b4759349c720e1c09dfc58c581023af68",
+    "v10f_raw_resource_observations.csv": "4202c29374c480c5b6da5503f129b79dcd930b59ad07dc4c6ee5f9dec77bf476",
+    "v10f_raw_resource_observations.json": "ecd0bde279d8eeb5a8b63358f87324f4df72898bd51e752e29f89c3fd956c37e",
+    "v10f_resource_comparisons.csv": "b7df8cfdae5993d055357ab76efe202a0c168a761ee328a77a95878983daae2e",
+    "v10f_resource_comparisons.json": "067a3b5656e721777cc038012f1ef4c6bf7d5c00e9936b201f9db7e7678ba941",
+    "v10f_resource_summary.csv": "a0762834a4863fddb35099b1a0d8ec7792cb20b8c8a58ce785b19e93971c0e11",
+    "v10f_resource_summary.json": "9319980390aa34d39979ff63c66e70e29f95ac9e95a92b4ddbba9c659bab3f6a",
+    "v10f_timing_quality.json": "48954e33929032a44c0a0ebbc7b67576cfee318fa16ce98a59e16a11babb143e",
+    "v10f_tradeoff.json": "d86263a1425e88c91cd9360602d4d524ed6b8ac3196f55b82240e0eab47a7ab6"
+  },
+  "schema_version": "v1.0-f-resource-efficiency-1",
+  "seed_namespace": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "semantic_result_lock_sha256": "f714b4a95070ee26718b3b2f8dc2ed820c5c2dadb7c5fb58fa1c09f95505b412",
+  "source_winner_semantic_lock_sha256": "1c258dc1a90ad78197d25e62bbc9fca24904cbcb77edafd24b12726059e49d84",
+  "source_winner_stage": "V1.0-D",
+  "stage": "V1.0-F",
+  "starting_checkpoint": "e7465e9",
+  "starting_head": "29871a3",
+  "status": "RESOURCE_RESULT_LOCKED",
+  "summary_evidence_hash": "a0762834a4863fddb35099b1a0d8ec7792cb20b8c8a58ce785b19e93971c0e11",
+  "tdp_multiplication_performed": false,
+  "test_used_for_selection": false,
+  "threshold_tuning_performed": false,
+  "timing_quality_evidence_hash": "48954e33929032a44c0a0ebbc7b67576cfee318fa16ce98a59e16a11babb143e",
+  "tradeoff_evidence_hash": "d86263a1425e88c91cd9360602d4d524ed6b8ac3196f55b82240e0eab47a7ab6",
+  "v09e_result_semantic_lock_sha256": "8398f51ad4a17e559f741c1bc04690809903b7f688ab65fe4146fb1bc25d0556",
+  "v10e_result_lock_sha256": "245039afc408df4d850dedea3859bfcd1fe6a6f2821f1b9dd362e62156d357db",
+  "v10e_result_semantic_lock_sha256": "ffca0957006bff3115705f9dfb0334e13a27c9abbc502f2c9d04f784a28141e9",
+  "winner_replaced": false
+}

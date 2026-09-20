@@ -1,0 +1,116 @@
+{
+  "artifact_kind": "SERIALIZED_MODEL_SIZE_COMPARISON",
+  "entries": [
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K43",
+      "difference_bytes_vs_k43": 0,
+      "percent_change_vs_k43": 0.0,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 4436,
+      "unit": "bytes"
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "K42",
+      "difference_bytes_vs_k43": -16,
+      "percent_change_vs_k43": -0.3606853020739405,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 4420,
+      "unit": "bytes"
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "MI-K11",
+      "difference_bytes_vs_k43": -736,
+      "percent_change_vs_k43": -16.591523895401263,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 3700,
+      "unit": "bytes"
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BPSO-K10",
+      "difference_bytes_vs_k43": -704,
+      "percent_change_vs_k43": -15.87015329125338,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 3732,
+      "unit": "bytes"
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "BGWO-K14",
+      "difference_bytes_vs_k43": -624,
+      "percent_change_vs_k43": -14.066726780883679,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 3812,
+      "unit": "bytes"
+    },
+    {
+      "classifier": "decision_tree",
+      "configuration_id": "HYBRID-K13",
+      "difference_bytes_vs_k43": -656,
+      "percent_change_vs_k43": -14.78809738503156,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 3780,
+      "unit": "bytes"
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K43",
+      "difference_bytes_vs_k43": 0,
+      "percent_change_vs_k43": 0.0,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 2358,
+      "unit": "bytes"
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "K42",
+      "difference_bytes_vs_k43": -32,
+      "percent_change_vs_k43": -1.3570822731128074,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 2326,
+      "unit": "bytes"
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "MI-K11",
+      "difference_bytes_vs_k43": -992,
+      "percent_change_vs_k43": -42.069550466497034,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 1366,
+      "unit": "bytes"
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BPSO-K10",
+      "difference_bytes_vs_k43": -976,
+      "percent_change_vs_k43": -41.39100932994063,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 1382,
+      "unit": "bytes"
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "BGWO-K14",
+      "difference_bytes_vs_k43": -864,
+      "percent_change_vs_k43": -36.6412213740458,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 1494,
+      "unit": "bytes"
+    },
+    {
+      "classifier": "logistic_regression",
+      "configuration_id": "HYBRID-K13",
+      "difference_bytes_vs_k43": -896,
+      "percent_change_vs_k43": -37.99830364715861,
+      "reference_configuration_id": "K43",
+      "serialized_model_bytes": 1462,
+      "unit": "bytes"
+    }
+  ],
+  "interpretation": "Serialized model size is a structural property of the fitted model and its feature cardinality; fewer features do not guarantee a smaller decision tree.",
+  "schema_version": "v1.0-f-resource-efficiency-1",
+  "stage": "V1.0-F"
+}

@@ -1,0 +1,76 @@
+{
+  "artifact_kind": "STRUCTURAL_FEATURE_REDUCTION",
+  "entries": [
+    {
+      "absolute_reduction": 0,
+      "configuration_id": "K43",
+      "feature_count": 43,
+      "reduction_is_structural_deterministic": true,
+      "reference_configuration_id": "K43",
+      "reference_feature_count": 43,
+      "relative_reduction_percent": 0.0,
+      "runtime_effect_distinguished": true,
+      "unit": "features"
+    },
+    {
+      "absolute_reduction": 1,
+      "configuration_id": "K42",
+      "feature_count": 42,
+      "reduction_is_structural_deterministic": true,
+      "reference_configuration_id": "K43",
+      "reference_feature_count": 43,
+      "relative_reduction_percent": 2.3255813953488373,
+      "runtime_effect_distinguished": true,
+      "unit": "features"
+    },
+    {
+      "absolute_reduction": 32,
+      "configuration_id": "MI-K11",
+      "feature_count": 11,
+      "reduction_is_structural_deterministic": true,
+      "reference_configuration_id": "K43",
+      "reference_feature_count": 43,
+      "relative_reduction_percent": 74.4186046511628,
+      "runtime_effect_distinguished": true,
+      "unit": "features"
+    },
+    {
+      "absolute_reduction": 33,
+      "configuration_id": "BPSO-K10",
+      "feature_count": 10,
+      "reduction_is_structural_deterministic": true,
+      "reference_configuration_id": "K43",
+      "reference_feature_count": 43,
+      "relative_reduction_percent": 76.74418604651163,
+      "runtime_effect_distinguished": true,
+      "unit": "features"
+    },
+    {
+      "absolute_reduction": 29,
+      "configuration_id": "BGWO-K14",
+      "feature_count": 14,
+      "reduction_is_structural_deterministic": true,
+      "reference_configuration_id": "K43",
+      "reference_feature_count": 43,
+      "relative_reduction_percent": 67.44186046511628,
+      "runtime_effect_distinguished": true,
+      "unit": "features"
+    },
+    {
+      "absolute_reduction": 30,
+      "configuration_id": "HYBRID-K13",
+      "feature_count": 13,
+      "reduction_is_structural_deterministic": true,
+      "reference_configuration_id": "K43",
+      "reference_feature_count": 43,
+      "relative_reduction_percent": 69.76744186046511,
+      "runtime_effect_distinguished": true,
+      "unit": "features"
+    }
+  ],
+  "hybrid_k": 13,
+  "hybrid_reduction_percent_vs_k43": 69.76744186046511,
+  "interpretation": "Feature reduction is a deterministic structural property of the frozen subsets. It must not be conflated with measured runtime changes.",
+  "schema_version": "v1.0-f-resource-efficiency-1",
+  "stage": "V1.0-F"
+}
