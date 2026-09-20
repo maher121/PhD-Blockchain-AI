@@ -1,0 +1,350 @@
+# V1.0-G1 BPSO -> BGWO ELITE-TRANSFER ABLATION PROTOCOL LOCK
+# Protocol persistence only. No optimizer execution and no TEST access.
+
+stage: "V1.0-G1"
+artifact_kind: "V10G_ABLATION_PROTOCOL"
+schema_version: "v1.0-g-ablation-protocol-1"
+status: "ABLATION_PROTOCOL_LOCKED"
+
+protocol_identity:
+  protocol_name: "V10G_BPSO_TO_BGWO_ELITE_TRANSFER_ABLATION"
+  protocol_version: "v1.0-g-ablation-protocol-1"
+  study_type: "PAIRED_VALIDATION_ONLY_MECHANISM_ABLATION"
+  manipulated_factor: "BPSO elite transfer into BGWO rows 1-3: present vs absent"
+
+ancestry:
+  starting_git_commit: "b086be7de998d18b6154301c0f29c5f43cb48d41"
+  v10d_winner_id: "HYBRID-K13"
+  v10d_winner_lock_path: "results/hybrid/v10d/v10d_winner_lock.json"
+  v10d_winner_semantic_lock_sha256: "1c258dc1a90ad78197d25e62bbc9fca24904cbcb77edafd24b12726059e49d84"
+  v10f_result_lock_path: "results/hybrid/v10f/v10f_result_lock.json"
+  v10f_semantic_result_lock_sha256: "f714b4a95070ee26718b3b2f8dc2ed820c5c2dadb7c5fb58fa1c09f95505b412"
+
+scientific_question: "Does transferring the top three BPSO elites into BGWO initialization provide measurable benefit compared with an otherwise identical pipeline using independent deterministic random exact-K filler masks?"
+
+study_role:
+  validation_only: true
+  fresh_execution_both_arms: true
+  historical_v10d_with_as_primary_arm: false
+  new_winner_selection: false
+  winner_replacement: false
+
+variant_definitions:
+  manipulated_factor: "elite transfer present vs absent"
+  with_elite_transfer:
+    variant_id: "WITH_ELITE_TRANSFER"
+    row_0_rule: "canonical K43 all-ones anchor"
+    rows_1_3_rule: "top three distinct BPSO-evaluated masks under the frozen deterministic ranking"
+    rows_4_11_rule: "governed common random exact-K masks"
+    elite_selection_called: true
+    elite_count_placed: 3
+    shadow_filler_generated: true
+    shadow_filler_evaluated: false
+  without_elite_transfer:
+    variant_id: "WITHOUT_ELITE_TRANSFER"
+    row_0_rule: "same canonical K43 all-ones anchor"
+    rows_1_3_rule: "three independent deterministic filler masks from the paired shadow block"
+    rows_4_11_rule: "byte-identical governed common random exact-K masks from paired WITH run"
+    elite_selection_called: false
+    elite_count_placed: 0
+    shadow_filler_generated: true
+    shadow_filler_evaluated: true
+  forbidden_injections:
+    - "BPSO-K10"
+    - "BGWO-K14"
+    - "MI-K11"
+    - "HYBRID-K13"
+    - "K42"
+    - "previous winner masks"
+    - "prior populations"
+    - "TEST information"
+  winner_non_replacement: true
+
+architecture:
+  architecture_id: "BPSO_BGWO_SEQUENTIAL_50_50_ELITE3"
+  dimensions: 43
+  population_size: 12
+  bpso_generations: 8
+  bgwo_iterations: 8
+  early_stopping: false
+  iteration_zero_counted: true
+
+budgets:
+  bpso_requests_per_run: 96
+  bgwo_requests_per_run: 96
+  total_requests_per_run: 192
+  production_run_count_per_arm: 5
+  requests_per_arm: 960
+  requests_total_ablation: 1920
+  fits_per_unique_evaluation: 5
+
+seed_policy:
+  optimizer_seeds: [3042, 3043, 3044, 3045, 3046]
+  model_attack_seeds: [42, 43, 44, 45, 46]
+  dataset_split_seed: 42
+  paired_by_optimizer_seed: true
+
+rng_policy:
+  bit_generator: "PCG64"
+  bpso_stream: "PCG64(optimizer_seed)"
+  bgwo_common_stream: "PCG64(optimizer_seed + 10000)"
+  bgwo_filler_stream: "PCG64(SeedSequence([optimizer_seed, 0x56313047, 0x46494C4C]))"
+  bgwo_offset: 10000
+  filler_protocol_tag_hex: "0x56313047"
+  filler_protocol_tag_uint32: 1446064199
+  filler_stream_tag_hex: "0x46494C4C"
+  filler_stream_tag_uint32: 1179208780
+  cardinality_pool: [4, 8, 11, 14, 18, 22, 26, 30, 34, 38]
+  duplicate_rejection: false
+  shadow_generation: "same three filler masks generated in both arms; WITH audits without placement/evaluation; WITHOUT places in rows 1-3"
+  filler_forbidden_inputs:
+    - "elites"
+    - "BPSO candidates"
+    - "fitness values"
+    - "cache contents"
+    - "previous winners"
+    - "TEST information"
+  common_random_number_invariants:
+    paired_bpso_outputs_byte_identical: true
+    row_0_byte_identical: true
+    rows_4_11_byte_identical: true
+    bgwo_common_rng_state_before_updates_identical: true
+
+paired_execution:
+  fresh_execution_both_arms: true
+  cache_independence_between_arms: true
+  cache_independence_between_seeds: true
+  execution_order:
+    - {optimizer_seed: 3042, first: "WITH_ELITE_TRANSFER", second: "WITHOUT_ELITE_TRANSFER"}
+    - {optimizer_seed: 3043, first: "WITHOUT_ELITE_TRANSFER", second: "WITH_ELITE_TRANSFER"}
+    - {optimizer_seed: 3044, first: "WITH_ELITE_TRANSFER", second: "WITHOUT_ELITE_TRANSFER"}
+    - {optimizer_seed: 3045, first: "WITHOUT_ELITE_TRANSFER", second: "WITH_ELITE_TRANSFER"}
+    - {optimizer_seed: 3046, first: "WITH_ELITE_TRANSFER", second: "WITHOUT_ELITE_TRANSFER"}
+  concurrency: "sequential_only"
+  environment_capture_required: true
+
+data_governance:
+  allowed_splits: ["train", "validation"]
+  test_features_accessible: false
+  test_labels_accessible: false
+  final_test_evaluation: false
+  test_derived_ranking: false
+  test_access_audit_required: true
+  fail_closed: true
+
+evaluator:
+  classifier: "decision_tree"
+  parameters:
+    class_weight: "balanced"
+    max_depth: 5
+    min_samples_leaf: 20
+  prediction_threshold: 0.5
+  model_attack_seed_count: 5
+  aggregation: "mean across model/attack seeds 42-46 for every unique candidate"
+
+fitness_metrics:
+  validation_average_precision: true
+  validation_f1: true
+  validation_recall: true
+  validation_precision: true
+  validation_roc_auc: true
+  selected_feature_count: true
+
+feasibility_constraints:
+  ap_relative_loss_max: 0.05
+  f1_relative_loss_max: 0.05
+  recall_relative_loss_max: 0.10
+  boundary_tolerance: 1.0e-12
+  normalized_violation_rule: "sum margin-normalized positive AP/F1/Recall excesses; zero when feasible"
+
+ranking_rules:
+  feasible_precedence: true
+  feasible_order: ["smaller_k", "higher_average_precision", "higher_f1", "higher_recall", "canonical_lexicographic_mask"]
+  infeasible_order: ["lower_total_normalized_constraint_violation", "higher_average_precision", "higher_f1", "higher_recall", "smaller_k", "canonical_lexicographic_mask"]
+  final_tie_break: "lexicographically smaller canonical 43-dimensional binary mask"
+  aggregate_score_permitted: false
+
+repair_and_clamping:
+  minimum_selected_features: 1
+  all_zero_repair: "activate index with maximum absolute latent value; lowest-index tie-break"
+  latent_clamping: "frozen BPSO and BGWO clamping rules"
+  transfer_functions: "frozen BPSO and BGWO transfer functions"
+
+cache_policy:
+  scope: "one arm and optimizer seed, shared across BPSO and BGWO"
+  independent_between_arms: true
+  independent_between_seeds: true
+  shared_within_run: true
+  cleared_between_runs: true
+  request_definition: "every submitted mask, including cache hits"
+  unique_evaluation_definition: "first evaluator call for a canonical mask within the run"
+  cache_hit_definition: "submitted mask already evaluated in the same run; metrics reused without DT fits"
+  incidental_collision_policy: "retain and report; never reject or redraw"
+  accounting_identity: "requests = unique_evaluations + cache_hits; evaluator_calls = unique_evaluations; decision_tree_fits = unique_evaluations * 5"
+
+endpoint_hierarchy:
+  primary_inferential_endpoints:
+    - endpoint_id: "validation_average_precision"
+      paired_difference_direction: "WITH_MINUS_WITHOUT"
+      favorable_direction: "positive"
+      required_statistics: ["five_paired_differences", "mean", "standard_deviation", "two_sided_95_percent_student_t_ci"]
+      interpretation_language: ["CI excludes zero.", "Direction uncertain."]
+    - endpoint_id: "validation_f1"
+      paired_difference_direction: "WITH_MINUS_WITHOUT"
+      favorable_direction: "positive"
+      required_statistics: ["five_paired_differences", "mean", "standard_deviation", "two_sided_95_percent_student_t_ci"]
+      interpretation_language: ["CI excludes zero.", "Direction uncertain."]
+  primary_supporting_endpoint:
+    endpoint_id: "selected_feature_count_k"
+    paired_difference_direction: "WITH_MINUS_WITHOUT"
+    favorable_direction: "negative"
+    discrete_outcome: true
+    required_integer_differences: 5
+    required_mean: true
+    required_median: true
+    required_range: ["minimum", "maximum"]
+    required_direction_counts: ["negative", "zero", "positive"]
+    approximate_t_ci_descriptive_only: true
+    standalone_inferential_evidence_permitted: false
+  safeguard_secondary_endpoint:
+    endpoint_id: "validation_recall"
+    role: "feasibility safeguard and secondary endpoint"
+    paired_difference_direction: "WITH_MINUS_WITHOUT"
+  additional_secondary_endpoints:
+    - "validation_precision"
+    - "validation_roc_auc"
+    - "feasibility"
+    - "normalized_constraint_violation"
+    - "candidate_requests"
+    - "unique_evaluations"
+    - "cache_hits"
+    - "evaluator_calls"
+    - "decision_tree_fits"
+    - "optimizer_wall_time"
+    - "phase_specific_best_rank"
+    - "bpso_to_bgwo_improvement"
+    - "convergence_behavior"
+
+stability_analysis:
+  paired_jaccard: "same-seed WITH vs WITHOUT final masks"
+  within_arm_jaccard: "all ten run-pair combinations per arm"
+  feature_frequency: "selection count 0-5 per arm"
+  consensus_threshold: 3
+  frequency_difference_direction: "WITH_MINUS_WITHOUT"
+
+convergence_analysis:
+  bpso_boundary_best: true
+  bgwo_phase_best: true
+  bgwo_newly_evaluated_best: true
+  final_run_best: true
+  bpso_to_bgwo_improvement: true
+  first_improvement_iteration: true
+  final_improvement_iteration: true
+
+statistical_analysis:
+  scientific_unit: "paired_optimizer_seed"
+  paired_sample_size: 5
+  degrees_of_freedom: 4
+  confidence_level: 0.95
+  t_critical: 2.7764451051977987
+  difference_definition: "WITH_MINUS_WITHOUT"
+  p_values_permitted: false
+  significance_language_permitted: false
+  allowed_interval_language: ["CI excludes zero.", "Direction uncertain."]
+  candidate_level_replication_permitted: false
+  k_interval_limitation: "approximate descriptive support only because K is discrete and n=5; never standalone inferential evidence"
+  feasibility_analysis: "paired transition counts; no t interval"
+
+interpretation_rules:
+  support: "AP or F1 favors WITH with CI excluding zero, feasibility preserved, and no resolved recall harm"
+  parsimony_support: "negative K difference may strengthen but cannot independently establish benefit"
+  uncertain: "interval crosses zero -> Direction uncertain."
+  unresolved: "similar arms -> experiment does not demonstrate a resolved elite-transfer contribution"
+  adverse: "report WITHOUT benefit or WITH harm directly"
+  overall_winner_claim_permitted: false
+
+computational_accounting:
+  required_phase_requests: {bpso: 96, bgwo: 96}
+  required_run_requests: 192
+  required_arm_requests: 960
+  required_full_ablation_requests: 1920
+  unique_evaluations_reported: true
+  cache_hits_reported: true
+  evaluator_calls_reported: true
+  dt_fits_reported: true
+  wall_time_reported: true
+  cache_differences_normalized_away: false
+
+v10f_relationship:
+  v10f_frozen: true
+  resource_campaign_rerun: false
+  resource_metrics_optimization_objective: false
+  physical_energy_claims: false
+
+winner_governance:
+  v10d_winner_id: "HYBRID-K13"
+  winner_reselection_performed: false
+  winner_replaced: false
+  ablation_result_role: "mechanism evidence only"
+  threshold_tuning_performed: false
+  model_tuning_performed: false
+  feature_reselection_performed: false
+
+roadmap:
+  - {stage: "V1.0-G1", purpose: "protocol persistence and semantic lock"}
+  - {stage: "V1.0-G2", purpose: "implementation and unit tests only"}
+  - {stage: "V1.0-G3", purpose: "pilot omitted by default"}
+  - {stage: "V1.0-G4", purpose: "five fresh paired production runs"}
+  - {stage: "V1.0-G5", purpose: "paired statistics, stability, and convergence analysis"}
+  - {stage: "V1.0-G6", purpose: "reporting and final ablation result lock"}
+
+fail_closed_conditions:
+  - "paired BPSO outputs differ"
+  - "BGWO row 0 differs"
+  - "BGWO rows 4-11 differ before updates"
+  - "BGWO common RNG states differ before updates"
+  - "WITHOUT calls elite selection"
+  - "WITHOUT filler construction inspects BPSO information"
+  - "BPSO or BGWO phase request count drifts"
+  - "per-run or per-arm request count drifts"
+  - "checkpoint protocol, arm, seed, or environment identity mismatch"
+  - "TEST features or labels are loaded"
+  - "frozen evaluator, ranking, constraints, or seeds drift"
+  - "V1.0-D or V1.0-F artifacts could be overwritten"
+
+required_audits:
+  test_access_audit: true
+  paired_bpso_identity_audit: true
+  initial_population_identity_audit: true
+  rng_state_identity_audit: true
+  budget_accounting_audit: true
+  cache_accounting_audit: true
+  frozen_artifact_immutability_audit: true
+
+governed_dependencies:
+  protocol_markdown: "docs/v10g_elite_transfer_ablation_protocol.md"
+  protocol_yaml: "config/ablation_v10g.yaml"
+  hybrid_config: "config/hybrid_v10.yaml"
+  bpso_config: "config/bpso.yaml"
+  bgwo_config: "config/bgwo_v09.yaml"
+  hybrid_optimizer_source: "src/optimization/hybrid_bpso_bgwo.py"
+  fitness_evaluator_source: "src/optimization/feature_fitness.py"
+  feature_manifest_sha256: "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d"
+  dataset_identity:
+    name: "DataCo SMART Supply Chain"
+    dimensions: 43
+    split_seed: 42
+
+semantic_lock_rules:
+  artifact_path: "results/hybrid/v10g/v10g_protocol_lock.json"
+  hash_algorithm: "SHA256"
+  hashed_field: "semantic_payload"
+  canonicalization: "json.dumps(payload, sort_keys=True, separators=(',', ':'), ensure_ascii=True, allow_nan=False).encode('utf-8')"
+  self_hash_excluded: true
+  arrays_order_significant: true
+  paths_repo_relative_posix: true
+  non_finite_numbers_permitted: false
+  unknown_semantic_fields_permitted: false
+  trailing_newline_in_hash_input: false
+  protocol_artifact_hash_mode: "LF_NORMALIZED_SHA256"
+  protocol_artifacts_embed_semantic_lock_hash: false
