@@ -1,0 +1,35 @@
+{
+  "artifact_kind": "V10G5_RECALL_SAFEGUARD",
+  "comparison_direction": "WITH_ELITE_TRANSFER - WITHOUT_ELITE_TRANSFER",
+  "paired_differences": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "protocol_name": "ELITE_TRANSFER_ABLATION_V10G",
+  "recall_safeguard_status": "PASS",
+  "resolved_recall_harm_detected": false,
+  "schema_version": 1,
+  "stage": "V1.0-G5",
+  "statistics": {
+    "all_zero": true,
+    "ci_excludes_zero": false,
+    "ci_lower_95": 0.0,
+    "ci_upper_95": 0.0,
+    "df": 4,
+    "mean_difference": 0.0,
+    "n": 5,
+    "paired_differences": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "sample_sd": 0.0,
+    "standard_error": 0.0,
+    "t_critical": 2.7764451051977987
+  }
+}

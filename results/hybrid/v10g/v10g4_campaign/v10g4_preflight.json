@@ -1,0 +1,118 @@
+{
+  "artifact_kind": "V10G4_PREFLIGHT",
+  "expected_head_sha256": "b302fa0b35c8f4b63f4ee1f27b886f733f941c6f",
+  "g1_semantic_lock_sha256": "2914819f4c63b50bf58a8dfa19af1c5b05539f6997b3f447c3a891b1852acf5c",
+  "gates": {
+    "evaluator_parity": {
+      "aggregate_score_permitted": false,
+      "boundary_tolerance_1e_12": true,
+      "classifier": "decision_tree",
+      "expect_ap_0_05": true,
+      "expect_f1_0_05": true,
+      "expect_recall_0_10": true,
+      "fits_per_unique_evaluation": 5,
+      "margins": {
+        "average_precision": 0.05,
+        "f1": 0.05,
+        "recall": 0.1
+      },
+      "margins_match_protocol": true,
+      "model_attack_seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "prediction_threshold": 0.5,
+      "status": "PASS"
+    },
+    "g1_protocol_verification": {
+      "checks": {
+        "doc_file_exists": true,
+        "lock_file_exists": true,
+        "markdown_lf_hash_matches": true,
+        "semantic_lock_recomputes_exactly": true,
+        "stage_locked": true,
+        "starting_commit_locked": true,
+        "status_locked": true,
+        "v10d_winner_id_locked": true,
+        "yaml_file_exists": true,
+        "yaml_lf_hash_matches": true
+      },
+      "semantic_lock_sha256": "2914819f4c63b50bf58a8dfa19af1c5b05539f6997b3f447c3a891b1852acf5c",
+      "stage": "V1.0-G1",
+      "status": "PASS"
+    },
+    "g1_semantic_lock": {
+      "expected": "2914819f4c63b50bf58a8dfa19af1c5b05539f6997b3f447c3a891b1852acf5c",
+      "matches": true,
+      "recomputed": "2914819f4c63b50bf58a8dfa19af1c5b05539f6997b3f447c3a891b1852acf5c",
+      "status": "PASS"
+    },
+    "g4_artifacts_sanctioned": {
+      "allowed": [
+        "v10g4_campaign",
+        "v10g_protocol_lock.json"
+      ],
+      "checks": {
+        "g1_protocol_lock_present": true,
+        "only_g1_lock_and_g4_campaign_present": true
+      },
+      "present": [
+        "v10g4_campaign",
+        "v10g_protocol_lock.json"
+      ],
+      "status": "PASS",
+      "unexpected": []
+    },
+    "head_equals_base": {
+      "expected": "b302fa0b35c8f4b63f4ee1f27b886f733f941c6f",
+      "head": "b302fa0b35c8f4b63f4ee1f27b886f733f941c6f",
+      "head_matches": true,
+      "origin_main": "b302fa0b35c8f4b63f4ee1f27b886f733f941c6f",
+      "origin_matches": true,
+      "status": "PASS"
+    },
+    "prior_locks_immutable": {
+      "checks": {
+        "v10d_winner_lock_exists": true,
+        "v10d_winner_lock_hash_locked": true,
+        "v10f_result_lock_exists": true,
+        "v10f_result_lock_hash_locked": true
+      },
+      "status": "PASS",
+      "v10d_winner_lock_sha256": "1603cf0faff9027c2e5bcfb53345338317963d55ffc048afcfca5f974923bf79",
+      "v10f_result_lock_sha256": "0e24e485b74489756725dc6da7ef5e197dd63951a667fa70761758cfa8997a8f"
+    },
+    "test_isolation_audit": {
+      "allowed_splits": [
+        "train",
+        "validation"
+      ],
+      "checks": {
+        "allowed_splits_train_validation_only": true,
+        "frozen_test_split_identity_recorded": true,
+        "test_accessed_false": true,
+        "test_authorized_false": true,
+        "test_used_for_fitness_false": true,
+        "test_used_for_selection_false": true,
+        "test_used_for_winner_selection_false": true
+      },
+      "classification": "TEST_LOCKED_DURING_V10G_ABLATION",
+      "optimizer_forbidden_splits": [
+        "test"
+      ],
+      "status": "PASS",
+      "test_accessed": false,
+      "test_authorized": false,
+      "test_used_for_fitness": false,
+      "test_used_for_selection": false,
+      "test_used_for_winner_selection": false
+    }
+  },
+  "protocol_name": "V10G_BPSO_TO_BGWO_ELITE_TRANSFER_ABLATION",
+  "schema_version": "v1.0-g4-production-ablation-1",
+  "stage": "V1.0-G4",
+  "status": "PASS"
+}

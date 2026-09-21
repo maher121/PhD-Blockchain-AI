@@ -665,13 +665,18 @@ class TestPipelineGovernance:
     def test_no_g2_result_lock_artifacts(self) -> None:
         result = p.no_g2_result_lock_artifacts()
         assert result["status"] == "PASS"
-        assert result["present_files"] == ["v10g_protocol_lock.json"]
+        assert result["created_result_locks"] == []
+        assert "v10g_protocol_lock.json" in result["present_files"]
+        allowed = {p.PROTOCOL_LOCK_PATH.name} | set(p.SANCTIONED_POST_G2_ARTIFACTS)
+        assert set(result["present_files"]) <= allowed
 
     def test_import_has_no_side_effects(self) -> None:
         clean = p.no_g2_result_lock_artifacts()
         assert clean["status"] == "PASS"
         assert clean["created_result_locks"] == []
-        assert clean["present_files"] == ["v10g_protocol_lock.json"]
+        assert "v10g_protocol_lock.json" in clean["present_files"]
+        allowed = {p.PROTOCOL_LOCK_PATH.name} | set(p.SANCTIONED_POST_G2_ARTIFACTS)
+        assert set(clean["present_files"]) <= allowed
         assert p.test_isolation_audit()["status"] == "PASS"
         assert p.g1_protocol_verification()["status"] == "PASS"
 
@@ -696,3 +701,29 @@ class TestPipelineGovernance:
         result = run_paired_seed(SAFE_SEED, production_ablation_config(), scalar_objective, scalar_is_better)
         assert result.status == "PASS"
         assert p.no_g2_result_lock_artifacts()["status"] == "PASS"
+
+    def test_lifecycle_aware_gate_accepts_sanctioned_later_stage_artifacts_and_fails_closed(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        lock = tmp_path / "v10g_protocol_lock.json"
+        lock.write_text("{}", encoding="utf-8")
+        (tmp_path / "v10g4_campaign").mkdir()
+        (tmp_path / "v10g5_analysis").mkdir()
+        monkeypatch.setattr(p, "V10G_RESULTS_DIR", tmp_path)
+        monkeypatch.setattr(p, "PROTOCOL_LOCK_PATH", lock)
+        ok = p.no_g2_result_lock_artifacts()
+        assert ok["status"] == "PASS"
+        assert set(ok["present_files"]) == {
+            "v10g_protocol_lock.json",
+            "v10g4_campaign",
+            "v10g5_analysis",
+        }
+        unexpected = tmp_path / "v10g2_result_lock.json"
+        unexpected.write_text("{}", encoding="utf-8")
+        with pytest.raises(p.V10GNoGoError, match="unexpected artifacts"):
+            p.no_g2_result_lock_artifacts()
+        unexpected.unlink()
+        lock.unlink()
+        result = p.no_g2_result_lock_artifacts()
+        assert result["status"] == "FAIL"
+        assert result["checks"]["protocol_lock_present"] is False

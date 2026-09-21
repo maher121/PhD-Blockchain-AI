@@ -1,0 +1,26 @@
+{
+  "artifact_kind": "V10G5_ENVIRONMENT",
+  "libraries": {
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.18.1"
+  },
+  "platform": {
+    "machine": "x86_64",
+    "release": "6.6.87.2-microsoft-standard-WSL2",
+    "system": "Linux"
+  },
+  "protocol_name": "ELITE_TRANSFER_ABLATION_V10G",
+  "python": {
+    "executable": "/mnt/e/PhD-Blockchain-AI/.venv/bin/python",
+    "implementation": "CPython",
+    "version": "3.12.3"
+  },
+  "repository": {
+    "expected_head_sha256": "b302fa0b35c8f4b63f4ee1f27b886f733f941c6f",
+    "head_sha256": "b302fa0b35c8f4b63f4ee1f27b886f733f941c6f"
+  },
+  "schema_version": 1,
+  "stage": "V1.0-G5"
+}

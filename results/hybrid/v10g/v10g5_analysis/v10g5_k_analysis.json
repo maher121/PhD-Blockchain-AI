@@ -1,0 +1,72 @@
+{
+  "artifact_kind": "V10G5_K_ANALYSIS",
+  "comparison_direction": "WITH_ELITE_TRANSFER - WITHOUT_ELITE_TRANSFER",
+  "descriptive_95_ci": {
+    "all_zero": true,
+    "ci_excludes_zero": false,
+    "ci_lower_95": 0.0,
+    "ci_upper_95": 0.0,
+    "descriptive_only": true,
+    "descriptive_rationale": "K cannot independently establish inferential benefit.",
+    "df": 4,
+    "mean_difference": 0.0,
+    "n": 5,
+    "paired_differences": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "sample_sd": 0.0,
+    "standard_error": 0.0,
+    "t_critical": 2.7764451051977987
+  },
+  "interpretation_role": "K is a primary-SUPPORTING endpoint only; it cannot independently establish inferential elite-transfer benefit.",
+  "k_distribution_with": {
+    "max": 16,
+    "mean": 14.2,
+    "median": 14.0,
+    "min": 13,
+    "values": [
+      16,
+      13,
+      14,
+      13,
+      15
+    ]
+  },
+  "k_distribution_without": {
+    "max": 16,
+    "mean": 14.2,
+    "median": 14.0,
+    "min": 13,
+    "values": [
+      16,
+      13,
+      14,
+      13,
+      15
+    ]
+  },
+  "paired_differences": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "protocol_name": "ELITE_TRANSFER_ABLATION_V10G",
+  "schema_version": 1,
+  "stage": "V1.0-G5",
+  "statistics": {
+    "max_difference": 0.0,
+    "mean_difference": 0.0,
+    "median_difference": 0.0,
+    "min_difference": 0.0,
+    "n": 5,
+    "negative_count": 0,
+    "positive_count": 0,
+    "zero_count": 5
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "artifact_kind": "V10G4_ENVIRONMENT",
+  "captured_at_iso": "2026-09-21T04:47:29+00:00",
+  "libraries": {
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.18.1"
+  },
+  "platform": {
+    "machine": "x86_64",
+    "release": "6.6.87.2-microsoft-standard-WSL2",
+    "system": "Linux"
+  },
+  "python": {
+    "executable": "/mnt/e/PhD-Blockchain-AI/.venv/bin/python",
+    "implementation": "CPython",
+    "version": "3.12.3"
+  },
+  "repository": {
+    "expected_head_sha256": "b302fa0b35c8f4b63f4ee1f27b886f733f941c6f",
+    "head_sha256": "b302fa0b35c8f4b63f4ee1f27b886f733f941c6f",
+    "origin_main_sha256": "b302fa0b35c8f4b63f4ee1f27b886f733f941c6f"
+  },
+  "schema_version": "v1.0-g4-production-ablation-1",
+  "stage": "V1.0-G4"
+}

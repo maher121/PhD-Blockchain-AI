@@ -1,0 +1,1198 @@
+{
+  "artifact_hashes": {
+    "v10d_winner_lock.json": "1603cf0faff9027c2e5bcfb53345338317963d55ffc048afcfca5f974923bf79",
+    "v10e_result_lock.json": "245039afc408df4d850dedea3859bfcd1fe6a6f2821f1b9dd362e62156d357db",
+    "v10f_result_lock.json": "0e24e485b74489756725dc6da7ef5e197dd63951a667fa70761758cfa8997a8f",
+    "v10g4_campaign": {
+      "v10g4_arm_s3042_WITHOUT_ELITE_TRANSFER.json": "ea39373ad3aee8c6a95c9f2f83fb5e68aae12d4625dd3c81c3dc152906831eb0",
+      "v10g4_arm_s3042_WITH_ELITE_TRANSFER.json": "ed2915f3651bd4642912d88201a8cbcdae0d35f7c0595b3b3739ae44a6c645a8",
+      "v10g4_arm_s3043_WITHOUT_ELITE_TRANSFER.json": "29804005bdb28d0ab6bf2cde7d896ec8fc0157a4c707e6131fd287269d8e1189",
+      "v10g4_arm_s3043_WITH_ELITE_TRANSFER.json": "ff5d9b6493711401d54387dff7a2bcc900612d4b575f18e110d2f0e9fa9ee6e4",
+      "v10g4_arm_s3044_WITHOUT_ELITE_TRANSFER.json": "da92556f8350f7f728d2535096a3419f6f7473a122b177fff8a1d473a4b12bd8",
+      "v10g4_arm_s3044_WITH_ELITE_TRANSFER.json": "116f03adc9a6836be98c6c310f159390c05077002b2e25e173b74f7028670671",
+      "v10g4_arm_s3045_WITHOUT_ELITE_TRANSFER.json": "686d2533a0646012be6a15bd0f1740a0a5684e9fa4d3f0d02926f6f437c44887",
+      "v10g4_arm_s3045_WITH_ELITE_TRANSFER.json": "3055ca9a6842052ac08d317025db3e3191fdc26e75e3c21c8e273b8413260b4f",
+      "v10g4_arm_s3046_WITHOUT_ELITE_TRANSFER.json": "1df85d26ef5510d7a742e63269b7d97f255a7e44857f05256299aace269f7b45",
+      "v10g4_arm_s3046_WITH_ELITE_TRANSFER.json": "919fa5fc9ba934489043052f13329ea86e3e398e4fa4a1b5de84d11b098b6c6d",
+      "v10g4_environment.json": "97c244887fedd5e40d17470847e5ccb0f384d736ba91cdf44e7fede4d6c02a28",
+      "v10g4_manifest.json": "a8c0eba9be4f576778f61c3609a662f755373080c22dbabe2ffbbbe235f31398",
+      "v10g4_paired_s3042.json": "db450a48ab7ccebc8710823dce983c3d90a1e4ce4a95692602cff6aed8dc4afc",
+      "v10g4_paired_s3043.json": "2ed98907752bb109ee5e2aa535bd31d96e0b9e32537ca32d79a7dfb4ed2b826c",
+      "v10g4_paired_s3044.json": "a127fada6f63563aad064ac5788e3af24d2c6764313e34535dbeada87d051020",
+      "v10g4_paired_s3045.json": "97c81df2f54da79c9bd73fef6ddd8657f78d4b2bf087134d660a94a08e4616e9",
+      "v10g4_paired_s3046.json": "689d843afd98e89d1d5c8294ad42a9d9fd0b44ba7795a60e3e179709c4a58ad4",
+      "v10g4_preflight.json": "f7f274d4013950d42bbc7153613b8cfd42a0c80cf1b8cadebf26d7a2998da472"
+    },
+    "v10g5_analysis": {
+      "v10g5_analysis_summary.json": "a15c48642216ef40efde4681e166c840b091aacf05c3cd1a12c15e7c04e82a60",
+      "v10g5_computational_accounting.json": "9c5a00d0c2ca9f5453268e5964a85d4705fdb31488ded6d8c39ec89c9b6242ad",
+      "v10g5_environment.json": "6d87743a6ad7a8aa40d6677a29781271efd4dc233f04eb5e3b0987b6c4b0f430",
+      "v10g5_feature_frequencies.json": "d954d4cdc04607568cc5ae9be5e3d9d3874bcb97ca2289ff720e4e82cc3403b2",
+      "v10g5_k_analysis.json": "86e156c93d608387338a53c6b8c7232791f278e814533f997d818926c7555077",
+      "v10g5_mechanistic_analysis.json": "3e1a185109ae84bddcac17699989db9f6e86896eaa25b25fbc25bd5fcae083c7",
+      "v10g5_paired_endpoint_table.json": "cbcc7a712bbb9c1ce3baff2c548a4d96b79c2e4ed545424586a8b87a70779829",
+      "v10g5_paired_statistics.json": "70835058dd2d5830911acfbc62b162fdf8e158a5163e38b5ffdfc340876e5c1c",
+      "v10g5_prevalidation.json": "8ac83c749523a8312384147f8068295ce2216adf6dd4f9550d722e2235c021ee",
+      "v10g5_recall_safeguard.json": "61a70a9598fbc3e0d25b3bfb095ca3f30f6da688a8adf5b7aba211570fa5eb86",
+      "v10g5_stability.json": "de30d449b1ebedc2447612e94c5069013e1be0466c4a82f4ee658ab2852bd658"
+    },
+    "v10g6_validation.json": "2180682bf002e9162e024914522629c9cce5aa18a061979dabfe70c662581f07",
+    "v10g_protocol_lock.json": "bfec591f462d2cb9248c6ab6731af5ffba4cf85140602336a46da77d92604d24"
+  },
+  "artifact_kind": "V10G_RESULT_LOCK",
+  "campaign_identity": {
+    "arm_count": 10,
+    "campaign_environment_sha256": "97c244887fedd5e40d17470847e5ccb0f384d736ba91cdf44e7fede4d6c02a28",
+    "campaign_manifest_sha256": "a8c0eba9be4f576778f61c3609a662f755373080c22dbabe2ffbbbe235f31398",
+    "campaign_preflight_sha256": "f7f274d4013950d42bbc7153613b8cfd42a0c80cf1b8cadebf26d7a2998da472",
+    "paired_seed_count": 5
+  },
+  "computational_accounting_summary": {
+    "nominal_per_arm_requests_per_phase": {
+      "bgwo": 96,
+      "bpso": 96,
+      "campaign_total": 1920,
+      "total_per_arm": 192
+    },
+    "rows": [
+      {
+        "bgwo_cache_hits": 4,
+        "bgwo_new_unique_evaluations": 92,
+        "bpso_cache_hits": 0,
+        "bpso_unique_evaluations": 96,
+        "cache_hits": 4,
+        "candidate_requests": 192,
+        "decision_tree_fits": 940,
+        "evaluator_calls": 188,
+        "final_phase": "BPSO",
+        "final_phase_index": 4,
+        "optimizer_cpu_time_sec": 79.972739,
+        "optimizer_seed": 3042,
+        "optimizer_wall_time_sec": 82.145217,
+        "unique_evaluations": 188,
+        "variant": "WITH_ELITE_TRANSFER"
+      },
+      {
+        "bgwo_cache_hits": 1,
+        "bgwo_new_unique_evaluations": 95,
+        "bpso_cache_hits": 0,
+        "bpso_unique_evaluations": 96,
+        "cache_hits": 1,
+        "candidate_requests": 192,
+        "decision_tree_fits": 955,
+        "evaluator_calls": 191,
+        "final_phase": "BPSO",
+        "final_phase_index": 4,
+        "optimizer_cpu_time_sec": 93.832687,
+        "optimizer_seed": 3042,
+        "optimizer_wall_time_sec": 96.048067,
+        "unique_evaluations": 191,
+        "variant": "WITHOUT_ELITE_TRANSFER"
+      },
+      {
+        "bgwo_cache_hits": 4,
+        "bgwo_new_unique_evaluations": 92,
+        "bpso_cache_hits": 0,
+        "bpso_unique_evaluations": 96,
+        "cache_hits": 4,
+        "candidate_requests": 192,
+        "decision_tree_fits": 940,
+        "evaluator_calls": 188,
+        "final_phase": "BPSO",
+        "final_phase_index": 6,
+        "optimizer_cpu_time_sec": 83.656005,
+        "optimizer_seed": 3043,
+        "optimizer_wall_time_sec": 85.667979,
+        "unique_evaluations": 188,
+        "variant": "WITH_ELITE_TRANSFER"
+      },
+      {
+        "bgwo_cache_hits": 1,
+        "bgwo_new_unique_evaluations": 95,
+        "bpso_cache_hits": 0,
+        "bpso_unique_evaluations": 96,
+        "cache_hits": 1,
+        "candidate_requests": 192,
+        "decision_tree_fits": 955,
+        "evaluator_calls": 191,
+        "final_phase": "BPSO",
+        "final_phase_index": 6,
+        "optimizer_cpu_time_sec": 89.050708,
+        "optimizer_seed": 3043,
+        "optimizer_wall_time_sec": 91.198306,
+        "unique_evaluations": 191,
+        "variant": "WITHOUT_ELITE_TRANSFER"
+      },
+      {
+        "bgwo_cache_hits": 4,
+        "bgwo_new_unique_evaluations": 92,
+        "bpso_cache_hits": 0,
+        "bpso_unique_evaluations": 96,
+        "cache_hits": 4,
+        "candidate_requests": 192,
+        "decision_tree_fits": 940,
+        "evaluator_calls": 188,
+        "final_phase": "BPSO",
+        "final_phase_index": 7,
+        "optimizer_cpu_time_sec": 89.818359,
+        "optimizer_seed": 3044,
+        "optimizer_wall_time_sec": 91.972681,
+        "unique_evaluations": 188,
+        "variant": "WITH_ELITE_TRANSFER"
+      },
+      {
+        "bgwo_cache_hits": 1,
+        "bgwo_new_unique_evaluations": 95,
+        "bpso_cache_hits": 0,
+        "bpso_unique_evaluations": 96,
+        "cache_hits": 1,
+        "candidate_requests": 192,
+        "decision_tree_fits": 955,
+        "evaluator_calls": 191,
+        "final_phase": "BPSO",
+        "final_phase_index": 7,
+        "optimizer_cpu_time_sec": 85.541587,
+        "optimizer_seed": 3044,
+        "optimizer_wall_time_sec": 87.625905,
+        "unique_evaluations": 191,
+        "variant": "WITHOUT_ELITE_TRANSFER"
+      },
+      {
+        "bgwo_cache_hits": 4,
+        "bgwo_new_unique_evaluations": 92,
+        "bpso_cache_hits": 0,
+        "bpso_unique_evaluations": 96,
+        "cache_hits": 4,
+        "candidate_requests": 192,
+        "decision_tree_fits": 940,
+        "evaluator_calls": 188,
+        "final_phase": "BPSO",
+        "final_phase_index": 6,
+        "optimizer_cpu_time_sec": 82.075132,
+        "optimizer_seed": 3045,
+        "optimizer_wall_time_sec": 84.037513,
+        "unique_evaluations": 188,
+        "variant": "WITH_ELITE_TRANSFER"
+      },
+      {
+        "bgwo_cache_hits": 1,
+        "bgwo_new_unique_evaluations": 95,
+        "bpso_cache_hits": 0,
+        "bpso_unique_evaluations": 96,
+        "cache_hits": 1,
+        "candidate_requests": 192,
+        "decision_tree_fits": 955,
+        "evaluator_calls": 191,
+        "final_phase": "BPSO",
+        "final_phase_index": 6,
+        "optimizer_cpu_time_sec": 86.744167,
+        "optimizer_seed": 3045,
+        "optimizer_wall_time_sec": 88.794074,
+        "unique_evaluations": 191,
+        "variant": "WITHOUT_ELITE_TRANSFER"
+      },
+      {
+        "bgwo_cache_hits": 4,
+        "bgwo_new_unique_evaluations": 92,
+        "bpso_cache_hits": 0,
+        "bpso_unique_evaluations": 96,
+        "cache_hits": 4,
+        "candidate_requests": 192,
+        "decision_tree_fits": 940,
+        "evaluator_calls": 188,
+        "final_phase": "BPSO",
+        "final_phase_index": 1,
+        "optimizer_cpu_time_sec": 87.861047,
+        "optimizer_seed": 3046,
+        "optimizer_wall_time_sec": 89.95292,
+        "unique_evaluations": 188,
+        "variant": "WITH_ELITE_TRANSFER"
+      },
+      {
+        "bgwo_cache_hits": 1,
+        "bgwo_new_unique_evaluations": 95,
+        "bpso_cache_hits": 0,
+        "bpso_unique_evaluations": 96,
+        "cache_hits": 1,
+        "candidate_requests": 192,
+        "decision_tree_fits": 955,
+        "evaluator_calls": 191,
+        "final_phase": "BPSO",
+        "final_phase_index": 1,
+        "optimizer_cpu_time_sec": 83.147365,
+        "optimizer_seed": 3046,
+        "optimizer_wall_time_sec": 85.152237,
+        "unique_evaluations": 191,
+        "variant": "WITHOUT_ELITE_TRANSFER"
+      }
+    ],
+    "with_minus_without": {
+      "bgwo_new_unique_evaluations": -15,
+      "cache_hits": 15,
+      "decision_tree_fits": -75,
+      "unique_evaluations": -15
+    },
+    "with_totals": {
+      "bgwo_new_unique_evaluations": 460,
+      "cache_hits": 20,
+      "decision_tree_fits": 4700,
+      "unique_evaluations": 940
+    },
+    "without_totals": {
+      "bgwo_new_unique_evaluations": 475,
+      "cache_hits": 5,
+      "decision_tree_fits": 4775,
+      "unique_evaluations": 955
+    }
+  },
+  "endpoint_summary": {
+    "average_precision": {
+      "all_zero": true,
+      "ci_excludes_zero": false,
+      "ci_lower_95": 0.0,
+      "ci_upper_95": 0.0,
+      "mean_difference": 0.0,
+      "n": 5,
+      "paired_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sample_sd": 0.0,
+      "standard_error": 0.0
+    },
+    "f1": {
+      "all_zero": true,
+      "ci_excludes_zero": false,
+      "ci_lower_95": 0.0,
+      "ci_upper_95": 0.0,
+      "mean_difference": 0.0,
+      "n": 5,
+      "paired_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sample_sd": 0.0,
+      "standard_error": 0.0
+    },
+    "k": {
+      "descriptive_95_ci": {
+        "all_zero": true,
+        "ci_lower_95": 0.0,
+        "ci_upper_95": 0.0,
+        "descriptive_only": true,
+        "mean_difference": 0.0
+      },
+      "interpretation_role": "K is a primary-SUPPORTING endpoint only; it cannot independently establish inferential elite-transfer benefit.",
+      "k_distribution_with": {
+        "max": 16,
+        "mean": 14.2,
+        "median": 14.0,
+        "min": 13,
+        "values": [
+          16,
+          13,
+          14,
+          13,
+          15
+        ]
+      },
+      "k_distribution_without": {
+        "max": 16,
+        "mean": 14.2,
+        "median": 14.0,
+        "min": 13,
+        "values": [
+          16,
+          13,
+          14,
+          13,
+          15
+        ]
+      },
+      "paired_differences": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "statistics": {
+        "max_difference": 0.0,
+        "mean_difference": 0.0,
+        "median_difference": 0.0,
+        "min_difference": 0.0,
+        "n": 5,
+        "negative_count": 0,
+        "positive_count": 0,
+        "zero_count": 5
+      }
+    },
+    "recall_safeguard": {
+      "paired_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "resolved_recall_harm_detected": false,
+      "status": "PASS"
+    }
+  },
+  "interpretation": {
+    "mechanistic_statement": "Elite transfer altered the search trajectory and the computational accounting but not the final selected solution: on every seed the paired arms converged to identical masks, identical metrics, and an identical final-phase (BPSO) selection.",
+    "preferred_direction_established": false,
+    "primary_conclusion": "This experiment does not demonstrate a resolved elite-transfer contribution."
+  },
+  "paired_seed_set": [
+    3042,
+    3043,
+    3044,
+    3045,
+    3046
+  ],
+  "protocol_lock_sha256": "2914819f4c63b50bf58a8dfa19af1c5b05539f6997b3f447c3a891b1852acf5c",
+  "schema_version": "v1.0-g-ablation-result-1",
+  "semantic_payload": {
+    "artifact_hashes": {
+      "v10d_winner_lock.json": "1603cf0faff9027c2e5bcfb53345338317963d55ffc048afcfca5f974923bf79",
+      "v10e_result_lock.json": "245039afc408df4d850dedea3859bfcd1fe6a6f2821f1b9dd362e62156d357db",
+      "v10f_result_lock.json": "0e24e485b74489756725dc6da7ef5e197dd63951a667fa70761758cfa8997a8f",
+      "v10g4_campaign": {
+        "v10g4_arm_s3042_WITHOUT_ELITE_TRANSFER.json": "ea39373ad3aee8c6a95c9f2f83fb5e68aae12d4625dd3c81c3dc152906831eb0",
+        "v10g4_arm_s3042_WITH_ELITE_TRANSFER.json": "ed2915f3651bd4642912d88201a8cbcdae0d35f7c0595b3b3739ae44a6c645a8",
+        "v10g4_arm_s3043_WITHOUT_ELITE_TRANSFER.json": "29804005bdb28d0ab6bf2cde7d896ec8fc0157a4c707e6131fd287269d8e1189",
+        "v10g4_arm_s3043_WITH_ELITE_TRANSFER.json": "ff5d9b6493711401d54387dff7a2bcc900612d4b575f18e110d2f0e9fa9ee6e4",
+        "v10g4_arm_s3044_WITHOUT_ELITE_TRANSFER.json": "da92556f8350f7f728d2535096a3419f6f7473a122b177fff8a1d473a4b12bd8",
+        "v10g4_arm_s3044_WITH_ELITE_TRANSFER.json": "116f03adc9a6836be98c6c310f159390c05077002b2e25e173b74f7028670671",
+        "v10g4_arm_s3045_WITHOUT_ELITE_TRANSFER.json": "686d2533a0646012be6a15bd0f1740a0a5684e9fa4d3f0d02926f6f437c44887",
+        "v10g4_arm_s3045_WITH_ELITE_TRANSFER.json": "3055ca9a6842052ac08d317025db3e3191fdc26e75e3c21c8e273b8413260b4f",
+        "v10g4_arm_s3046_WITHOUT_ELITE_TRANSFER.json": "1df85d26ef5510d7a742e63269b7d97f255a7e44857f05256299aace269f7b45",
+        "v10g4_arm_s3046_WITH_ELITE_TRANSFER.json": "919fa5fc9ba934489043052f13329ea86e3e398e4fa4a1b5de84d11b098b6c6d",
+        "v10g4_environment.json": "97c244887fedd5e40d17470847e5ccb0f384d736ba91cdf44e7fede4d6c02a28",
+        "v10g4_manifest.json": "a8c0eba9be4f576778f61c3609a662f755373080c22dbabe2ffbbbe235f31398",
+        "v10g4_paired_s3042.json": "db450a48ab7ccebc8710823dce983c3d90a1e4ce4a95692602cff6aed8dc4afc",
+        "v10g4_paired_s3043.json": "2ed98907752bb109ee5e2aa535bd31d96e0b9e32537ca32d79a7dfb4ed2b826c",
+        "v10g4_paired_s3044.json": "a127fada6f63563aad064ac5788e3af24d2c6764313e34535dbeada87d051020",
+        "v10g4_paired_s3045.json": "97c81df2f54da79c9bd73fef6ddd8657f78d4b2bf087134d660a94a08e4616e9",
+        "v10g4_paired_s3046.json": "689d843afd98e89d1d5c8294ad42a9d9fd0b44ba7795a60e3e179709c4a58ad4",
+        "v10g4_preflight.json": "f7f274d4013950d42bbc7153613b8cfd42a0c80cf1b8cadebf26d7a2998da472"
+      },
+      "v10g5_analysis": {
+        "v10g5_analysis_summary.json": "a15c48642216ef40efde4681e166c840b091aacf05c3cd1a12c15e7c04e82a60",
+        "v10g5_computational_accounting.json": "9c5a00d0c2ca9f5453268e5964a85d4705fdb31488ded6d8c39ec89c9b6242ad",
+        "v10g5_environment.json": "6d87743a6ad7a8aa40d6677a29781271efd4dc233f04eb5e3b0987b6c4b0f430",
+        "v10g5_feature_frequencies.json": "d954d4cdc04607568cc5ae9be5e3d9d3874bcb97ca2289ff720e4e82cc3403b2",
+        "v10g5_k_analysis.json": "86e156c93d608387338a53c6b8c7232791f278e814533f997d818926c7555077",
+        "v10g5_mechanistic_analysis.json": "3e1a185109ae84bddcac17699989db9f6e86896eaa25b25fbc25bd5fcae083c7",
+        "v10g5_paired_endpoint_table.json": "cbcc7a712bbb9c1ce3baff2c548a4d96b79c2e4ed545424586a8b87a70779829",
+        "v10g5_paired_statistics.json": "70835058dd2d5830911acfbc62b162fdf8e158a5163e38b5ffdfc340876e5c1c",
+        "v10g5_prevalidation.json": "8ac83c749523a8312384147f8068295ce2216adf6dd4f9550d722e2235c021ee",
+        "v10g5_recall_safeguard.json": "61a70a9598fbc3e0d25b3bfb095ca3f30f6da688a8adf5b7aba211570fa5eb86",
+        "v10g5_stability.json": "de30d449b1ebedc2447612e94c5069013e1be0466c4a82f4ee658ab2852bd658"
+      },
+      "v10g6_validation.json": "2180682bf002e9162e024914522629c9cce5aa18a061979dabfe70c662581f07",
+      "v10g_protocol_lock.json": "bfec591f462d2cb9248c6ab6731af5ffba4cf85140602336a46da77d92604d24"
+    },
+    "artifact_kind": "V10G_RESULT_SEMANTIC_PAYLOAD",
+    "comparison_direction": "WITH_ELITE_TRANSFER - WITHOUT_ELITE_TRANSFER",
+    "computational_accounting_summary": {
+      "nominal_per_arm_requests_per_phase": {
+        "bgwo": 96,
+        "bpso": 96,
+        "campaign_total": 1920,
+        "total_per_arm": 192
+      },
+      "rows": [
+        {
+          "bgwo_cache_hits": 4,
+          "bgwo_new_unique_evaluations": 92,
+          "bpso_cache_hits": 0,
+          "bpso_unique_evaluations": 96,
+          "cache_hits": 4,
+          "candidate_requests": 192,
+          "decision_tree_fits": 940,
+          "evaluator_calls": 188,
+          "final_phase": "BPSO",
+          "final_phase_index": 4,
+          "optimizer_cpu_time_sec": 79.972739,
+          "optimizer_seed": 3042,
+          "optimizer_wall_time_sec": 82.145217,
+          "unique_evaluations": 188,
+          "variant": "WITH_ELITE_TRANSFER"
+        },
+        {
+          "bgwo_cache_hits": 1,
+          "bgwo_new_unique_evaluations": 95,
+          "bpso_cache_hits": 0,
+          "bpso_unique_evaluations": 96,
+          "cache_hits": 1,
+          "candidate_requests": 192,
+          "decision_tree_fits": 955,
+          "evaluator_calls": 191,
+          "final_phase": "BPSO",
+          "final_phase_index": 4,
+          "optimizer_cpu_time_sec": 93.832687,
+          "optimizer_seed": 3042,
+          "optimizer_wall_time_sec": 96.048067,
+          "unique_evaluations": 191,
+          "variant": "WITHOUT_ELITE_TRANSFER"
+        },
+        {
+          "bgwo_cache_hits": 4,
+          "bgwo_new_unique_evaluations": 92,
+          "bpso_cache_hits": 0,
+          "bpso_unique_evaluations": 96,
+          "cache_hits": 4,
+          "candidate_requests": 192,
+          "decision_tree_fits": 940,
+          "evaluator_calls": 188,
+          "final_phase": "BPSO",
+          "final_phase_index": 6,
+          "optimizer_cpu_time_sec": 83.656005,
+          "optimizer_seed": 3043,
+          "optimizer_wall_time_sec": 85.667979,
+          "unique_evaluations": 188,
+          "variant": "WITH_ELITE_TRANSFER"
+        },
+        {
+          "bgwo_cache_hits": 1,
+          "bgwo_new_unique_evaluations": 95,
+          "bpso_cache_hits": 0,
+          "bpso_unique_evaluations": 96,
+          "cache_hits": 1,
+          "candidate_requests": 192,
+          "decision_tree_fits": 955,
+          "evaluator_calls": 191,
+          "final_phase": "BPSO",
+          "final_phase_index": 6,
+          "optimizer_cpu_time_sec": 89.050708,
+          "optimizer_seed": 3043,
+          "optimizer_wall_time_sec": 91.198306,
+          "unique_evaluations": 191,
+          "variant": "WITHOUT_ELITE_TRANSFER"
+        },
+        {
+          "bgwo_cache_hits": 4,
+          "bgwo_new_unique_evaluations": 92,
+          "bpso_cache_hits": 0,
+          "bpso_unique_evaluations": 96,
+          "cache_hits": 4,
+          "candidate_requests": 192,
+          "decision_tree_fits": 940,
+          "evaluator_calls": 188,
+          "final_phase": "BPSO",
+          "final_phase_index": 7,
+          "optimizer_cpu_time_sec": 89.818359,
+          "optimizer_seed": 3044,
+          "optimizer_wall_time_sec": 91.972681,
+          "unique_evaluations": 188,
+          "variant": "WITH_ELITE_TRANSFER"
+        },
+        {
+          "bgwo_cache_hits": 1,
+          "bgwo_new_unique_evaluations": 95,
+          "bpso_cache_hits": 0,
+          "bpso_unique_evaluations": 96,
+          "cache_hits": 1,
+          "candidate_requests": 192,
+          "decision_tree_fits": 955,
+          "evaluator_calls": 191,
+          "final_phase": "BPSO",
+          "final_phase_index": 7,
+          "optimizer_cpu_time_sec": 85.541587,
+          "optimizer_seed": 3044,
+          "optimizer_wall_time_sec": 87.625905,
+          "unique_evaluations": 191,
+          "variant": "WITHOUT_ELITE_TRANSFER"
+        },
+        {
+          "bgwo_cache_hits": 4,
+          "bgwo_new_unique_evaluations": 92,
+          "bpso_cache_hits": 0,
+          "bpso_unique_evaluations": 96,
+          "cache_hits": 4,
+          "candidate_requests": 192,
+          "decision_tree_fits": 940,
+          "evaluator_calls": 188,
+          "final_phase": "BPSO",
+          "final_phase_index": 6,
+          "optimizer_cpu_time_sec": 82.075132,
+          "optimizer_seed": 3045,
+          "optimizer_wall_time_sec": 84.037513,
+          "unique_evaluations": 188,
+          "variant": "WITH_ELITE_TRANSFER"
+        },
+        {
+          "bgwo_cache_hits": 1,
+          "bgwo_new_unique_evaluations": 95,
+          "bpso_cache_hits": 0,
+          "bpso_unique_evaluations": 96,
+          "cache_hits": 1,
+          "candidate_requests": 192,
+          "decision_tree_fits": 955,
+          "evaluator_calls": 191,
+          "final_phase": "BPSO",
+          "final_phase_index": 6,
+          "optimizer_cpu_time_sec": 86.744167,
+          "optimizer_seed": 3045,
+          "optimizer_wall_time_sec": 88.794074,
+          "unique_evaluations": 191,
+          "variant": "WITHOUT_ELITE_TRANSFER"
+        },
+        {
+          "bgwo_cache_hits": 4,
+          "bgwo_new_unique_evaluations": 92,
+          "bpso_cache_hits": 0,
+          "bpso_unique_evaluations": 96,
+          "cache_hits": 4,
+          "candidate_requests": 192,
+          "decision_tree_fits": 940,
+          "evaluator_calls": 188,
+          "final_phase": "BPSO",
+          "final_phase_index": 1,
+          "optimizer_cpu_time_sec": 87.861047,
+          "optimizer_seed": 3046,
+          "optimizer_wall_time_sec": 89.95292,
+          "unique_evaluations": 188,
+          "variant": "WITH_ELITE_TRANSFER"
+        },
+        {
+          "bgwo_cache_hits": 1,
+          "bgwo_new_unique_evaluations": 95,
+          "bpso_cache_hits": 0,
+          "bpso_unique_evaluations": 96,
+          "cache_hits": 1,
+          "candidate_requests": 192,
+          "decision_tree_fits": 955,
+          "evaluator_calls": 191,
+          "final_phase": "BPSO",
+          "final_phase_index": 1,
+          "optimizer_cpu_time_sec": 83.147365,
+          "optimizer_seed": 3046,
+          "optimizer_wall_time_sec": 85.152237,
+          "unique_evaluations": 191,
+          "variant": "WITHOUT_ELITE_TRANSFER"
+        }
+      ],
+      "with_minus_without": {
+        "bgwo_new_unique_evaluations": -15,
+        "cache_hits": 15,
+        "decision_tree_fits": -75,
+        "unique_evaluations": -15
+      },
+      "with_totals": {
+        "bgwo_new_unique_evaluations": 460,
+        "cache_hits": 20,
+        "decision_tree_fits": 4700,
+        "unique_evaluations": 940
+      },
+      "without_totals": {
+        "bgwo_new_unique_evaluations": 475,
+        "cache_hits": 5,
+        "decision_tree_fits": 4775,
+        "unique_evaluations": 955
+      }
+    },
+    "endpoint_summary": {
+      "average_precision": {
+        "all_zero": true,
+        "ci_excludes_zero": false,
+        "ci_lower_95": 0.0,
+        "ci_upper_95": 0.0,
+        "mean_difference": 0.0,
+        "n": 5,
+        "paired_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sample_sd": 0.0,
+        "standard_error": 0.0
+      },
+      "f1": {
+        "all_zero": true,
+        "ci_excludes_zero": false,
+        "ci_lower_95": 0.0,
+        "ci_upper_95": 0.0,
+        "mean_difference": 0.0,
+        "n": 5,
+        "paired_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sample_sd": 0.0,
+        "standard_error": 0.0
+      },
+      "k": {
+        "descriptive_95_ci": {
+          "all_zero": true,
+          "ci_lower_95": 0.0,
+          "ci_upper_95": 0.0,
+          "descriptive_only": true,
+          "mean_difference": 0.0
+        },
+        "interpretation_role": "K is a primary-SUPPORTING endpoint only; it cannot independently establish inferential elite-transfer benefit.",
+        "k_distribution_with": {
+          "max": 16,
+          "mean": 14.2,
+          "median": 14.0,
+          "min": 13,
+          "values": [
+            16,
+            13,
+            14,
+            13,
+            15
+          ]
+        },
+        "k_distribution_without": {
+          "max": 16,
+          "mean": 14.2,
+          "median": 14.0,
+          "min": 13,
+          "values": [
+            16,
+            13,
+            14,
+            13,
+            15
+          ]
+        },
+        "paired_differences": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "statistics": {
+          "max_difference": 0.0,
+          "mean_difference": 0.0,
+          "median_difference": 0.0,
+          "min_difference": 0.0,
+          "n": 5,
+          "negative_count": 0,
+          "positive_count": 0,
+          "zero_count": 5
+        }
+      },
+      "recall_safeguard": {
+        "paired_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "resolved_recall_harm_detected": false,
+        "status": "PASS"
+      }
+    },
+    "feature_frequency_summary": {
+      "consensus_features_ge3_of_5": {
+        "indices": [
+          0,
+          1,
+          6,
+          18,
+          20,
+          26,
+          34
+        ],
+        "names": [
+          "order_item_quantity",
+          "order_item_product_price",
+          "order_item_total",
+          "Type_PAYMENT",
+          "Market_LATAM",
+          "Shipping Mode_Second Class",
+          "Department Name_Golf"
+        ]
+      },
+      "feature_names": [
+        "order_item_quantity",
+        "order_item_product_price",
+        "product_price",
+        "order_item_discount",
+        "order_item_discount_rate",
+        "order_item_profit_ratio",
+        "order_item_total",
+        "days_schedule",
+        "year",
+        "month",
+        "day",
+        "day_of_week",
+        "hour",
+        "is_weekend",
+        "item_count_per_order",
+        "order_total_value",
+        "Type_DEBIT",
+        "Type_TRANSFER",
+        "Type_PAYMENT",
+        "Type_CASH",
+        "Market_LATAM",
+        "Market_Europe",
+        "Market_Pacific Asia",
+        "Market_USCA",
+        "Market_Africa",
+        "Shipping Mode_Standard Class",
+        "Shipping Mode_Second Class",
+        "Shipping Mode_First Class",
+        "Shipping Mode_Same Day",
+        "Customer Segment_Consumer",
+        "Customer Segment_Corporate",
+        "Customer Segment_Home Office",
+        "Department Name_Fan Shop",
+        "Department Name_Apparel",
+        "Department Name_Golf",
+        "Department Name_Footwear",
+        "Department Name_Outdoors",
+        "Department Name_Fitness",
+        "Department Name_Discs Shop",
+        "Department Name_Technology",
+        "Department Name_Pet Shop",
+        "Department Name_Health and Beauty",
+        "Department Name_Book Shop"
+      ],
+      "frequency_with": [
+        5,
+        3,
+        2,
+        1,
+        1,
+        1,
+        5,
+        1,
+        2,
+        0,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        3,
+        2,
+        3,
+        0,
+        2,
+        1,
+        1,
+        2,
+        3,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1
+      ],
+      "frequency_with_minus_without": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "frequency_without": [
+        5,
+        3,
+        2,
+        1,
+        1,
+        1,
+        5,
+        1,
+        2,
+        0,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        3,
+        2,
+        3,
+        0,
+        2,
+        1,
+        1,
+        2,
+        3,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        2,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1
+      ],
+      "strict_consensus_features_5_of_5": {
+        "indices": [
+          0,
+          6
+        ],
+        "names": [
+          "order_item_quantity",
+          "order_item_total"
+        ]
+      }
+    },
+    "g1_protocol_lock_sha256": "2914819f4c63b50bf58a8dfa19af1c5b05539f6997b3f447c3a891b1852acf5c",
+    "interpretation": {
+      "mechanistic_statement": "Elite transfer altered the search trajectory and the computational accounting but not the final selected solution: on every seed the paired arms converged to identical masks, identical metrics, and an identical final-phase (BPSO) selection.",
+      "no_resolved_inferential_superiority": true,
+      "primary_conclusion": "This experiment does not demonstrate a resolved elite-transfer contribution.",
+      "winner_unchanged_statement": "The frozen V1.0 winner HYBRID-K13 was neither modified nor re-selected."
+    },
+    "lock_semantics": {
+      "array_order_preserved": true,
+      "encoding": "utf-8",
+      "hash_algorithm": "sha256",
+      "hashed_payload": "semantic_payload_only",
+      "json_kwargs": {
+        "allow_nan": false,
+        "ensure_ascii": true,
+        "separators": [
+          ",",
+          ":"
+        ],
+        "sort_keys": true
+      },
+      "mapping_keys_sorted_recursively": true,
+      "trailing_newline": false
+    },
+    "mechanistic_summary": {
+      "per_seed": [
+        {
+          "bgwo_cache_hits_with_minus_without": 3,
+          "bgwo_new_unique_with_minus_without": -3,
+          "cache_hits_with_minus_without": 3,
+          "convergence_history_differ": true,
+          "convergence_length": 16,
+          "elite_hashes_equal_with_rows_1_3": true,
+          "final_mask_paired_identical": true,
+          "final_metrics_paired_identical": true,
+          "g4_invariant_row_collisions": [
+            false,
+            false,
+            false
+          ],
+          "optimizer_seed": 3042,
+          "paired_bpso_outputs_identical": true,
+          "row0_paired_identical": true,
+          "rows_1_3_with_are_elites": true,
+          "rows_1_3_without_are_filler": true,
+          "rows_4_11_paired_identical": true,
+          "unique_with_minus_without": -3
+        },
+        {
+          "bgwo_cache_hits_with_minus_without": 3,
+          "bgwo_new_unique_with_minus_without": -3,
+          "cache_hits_with_minus_without": 3,
+          "convergence_history_differ": true,
+          "convergence_length": 16,
+          "elite_hashes_equal_with_rows_1_3": true,
+          "final_mask_paired_identical": true,
+          "final_metrics_paired_identical": true,
+          "g4_invariant_row_collisions": [
+            false,
+            false,
+            false
+          ],
+          "optimizer_seed": 3043,
+          "paired_bpso_outputs_identical": true,
+          "row0_paired_identical": true,
+          "rows_1_3_with_are_elites": true,
+          "rows_1_3_without_are_filler": true,
+          "rows_4_11_paired_identical": true,
+          "unique_with_minus_without": -3
+        },
+        {
+          "bgwo_cache_hits_with_minus_without": 3,
+          "bgwo_new_unique_with_minus_without": -3,
+          "cache_hits_with_minus_without": 3,
+          "convergence_history_differ": true,
+          "convergence_length": 16,
+          "elite_hashes_equal_with_rows_1_3": true,
+          "final_mask_paired_identical": true,
+          "final_metrics_paired_identical": true,
+          "g4_invariant_row_collisions": [
+            false,
+            false,
+            false
+          ],
+          "optimizer_seed": 3044,
+          "paired_bpso_outputs_identical": true,
+          "row0_paired_identical": true,
+          "rows_1_3_with_are_elites": true,
+          "rows_1_3_without_are_filler": true,
+          "rows_4_11_paired_identical": true,
+          "unique_with_minus_without": -3
+        },
+        {
+          "bgwo_cache_hits_with_minus_without": 3,
+          "bgwo_new_unique_with_minus_without": -3,
+          "cache_hits_with_minus_without": 3,
+          "convergence_history_differ": true,
+          "convergence_length": 16,
+          "elite_hashes_equal_with_rows_1_3": true,
+          "final_mask_paired_identical": true,
+          "final_metrics_paired_identical": true,
+          "g4_invariant_row_collisions": [
+            false,
+            false,
+            false
+          ],
+          "optimizer_seed": 3045,
+          "paired_bpso_outputs_identical": true,
+          "row0_paired_identical": true,
+          "rows_1_3_with_are_elites": true,
+          "rows_1_3_without_are_filler": true,
+          "rows_4_11_paired_identical": true,
+          "unique_with_minus_without": -3
+        },
+        {
+          "bgwo_cache_hits_with_minus_without": 3,
+          "bgwo_new_unique_with_minus_without": -3,
+          "cache_hits_with_minus_without": 3,
+          "convergence_history_differ": true,
+          "convergence_length": 16,
+          "elite_hashes_equal_with_rows_1_3": true,
+          "final_mask_paired_identical": true,
+          "final_metrics_paired_identical": true,
+          "g4_invariant_row_collisions": [
+            false,
+            false,
+            false
+          ],
+          "optimizer_seed": 3046,
+          "paired_bpso_outputs_identical": true,
+          "row0_paired_identical": true,
+          "rows_1_3_with_are_elites": true,
+          "rows_1_3_without_are_filler": true,
+          "rows_4_11_paired_identical": true,
+          "unique_with_minus_without": -3
+        }
+      ],
+      "statement": "Elite transfer altered the search trajectory and the computational accounting but not the final selected solution: on every seed the paired arms converged to identical masks, identical metrics, and an identical final-phase (BPSO) selection."
+    },
+    "paired_seed_set": [
+      3042,
+      3043,
+      3044,
+      3045,
+      3046
+    ],
+    "protocol_name": "ELITE_TRANSFER_ABLATION_V10G",
+    "stability_summary": {
+      "cross_arm_paired_jaccards": {
+        "3042": 1.0,
+        "3043": 1.0,
+        "3044": 1.0,
+        "3045": 1.0,
+        "3046": 1.0
+      },
+      "k_distribution_with": [
+        13,
+        13,
+        14,
+        15,
+        16
+      ],
+      "k_distribution_without": [
+        13,
+        13,
+        14,
+        15,
+        16
+      ],
+      "within_with_pairwise_jaccards": {
+        "(0,1)": 0.3181818181818182,
+        "(0,2)": 0.2,
+        "(0,3)": 0.20833333333333334,
+        "(0,4)": 0.2916666666666667,
+        "(1,2)": 0.17391304347826086,
+        "(1,3)": 0.13043478260869565,
+        "(1,4)": 0.16666666666666666,
+        "(2,3)": 0.2857142857142857,
+        "(2,4)": 0.2608695652173913,
+        "(3,4)": 0.16666666666666666
+      },
+      "within_without_pairwise_jaccards": {
+        "(0,1)": 0.3181818181818182,
+        "(0,2)": 0.2,
+        "(0,3)": 0.20833333333333334,
+        "(0,4)": 0.2916666666666667,
+        "(1,2)": 0.17391304347826086,
+        "(1,3)": 0.13043478260869565,
+        "(1,4)": 0.16666666666666666,
+        "(2,3)": 0.2857142857142857,
+        "(2,4)": 0.2608695652173913,
+        "(3,4)": 0.16666666666666666
+      }
+    },
+    "starting_checkpoint_sha256": "b302fa0b35c8f4b63f4ee1f27b886f733f941c6f",
+    "test_isolation": {
+      "classification": "TEST_LOCKED_DURING_V10G_ABLATION",
+      "test_accessed": false,
+      "test_used_for_fitness": false,
+      "test_used_for_selection": false,
+      "test_used_for_winner_selection": false
+    },
+    "winner_governance": {
+      "no_competitor_winner_selection": true,
+      "no_tuning": true,
+      "winner_id": "HYBRID-K13",
+      "winner_source_stage": "V1.0-D",
+      "winner_unmodified": true
+    }
+  },
+  "semantic_result_lock_sha256": "e33414d491d50676bfb5dfc926dbe4ada1a16931fa083a0e8b914958b99fc4de",
+  "stability_summary": {
+    "cross_arm_paired_jaccards": {
+      "3042": 1.0,
+      "3043": 1.0,
+      "3044": 1.0,
+      "3045": 1.0,
+      "3046": 1.0
+    },
+    "k_distribution_with": [
+      13,
+      13,
+      14,
+      15,
+      16
+    ],
+    "k_distribution_without": [
+      13,
+      13,
+      14,
+      15,
+      16
+    ],
+    "within_with_pairwise_jaccards": {
+      "(0,1)": 0.3181818181818182,
+      "(0,2)": 0.2,
+      "(0,3)": 0.20833333333333334,
+      "(0,4)": 0.2916666666666667,
+      "(1,2)": 0.17391304347826086,
+      "(1,3)": 0.13043478260869565,
+      "(1,4)": 0.16666666666666666,
+      "(2,3)": 0.2857142857142857,
+      "(2,4)": 0.2608695652173913,
+      "(3,4)": 0.16666666666666666
+    },
+    "within_without_pairwise_jaccards": {
+      "(0,1)": 0.3181818181818182,
+      "(0,2)": 0.2,
+      "(0,3)": 0.20833333333333334,
+      "(0,4)": 0.2916666666666667,
+      "(1,2)": 0.17391304347826086,
+      "(1,3)": 0.13043478260869565,
+      "(1,4)": 0.16666666666666666,
+      "(2,3)": 0.2857142857142857,
+      "(2,4)": 0.2608695652173913,
+      "(3,4)": 0.16666666666666666
+    }
+  },
+  "stage": "V1.0-G6",
+  "status": "ABLATION_RESULT_LOCKED",
+  "test_isolation": {
+    "classification": "TEST_LOCKED_DURING_V10G_ABLATION",
+    "test_access_count": 0,
+    "test_accessed": false
+  },
+  "upstream_provenance": {
+    "prior_locks": {
+      "v10d_winner_lock_sha256": "1603cf0faff9027c2e5bcfb53345338317963d55ffc048afcfca5f974923bf79",
+      "v10e_result_lock_sha256": "245039afc408df4d850dedea3859bfcd1fe6a6f2821f1b9dd362e62156d357db",
+      "v10f_result_lock_sha256": "0e24e485b74489756725dc6da7ef5e197dd63951a667fa70761758cfa8997a8f"
+    },
+    "starting_checkpoint_sha256": "b302fa0b35c8f4b63f4ee1f27b886f733f941c6f",
+    "v10g4_acceptance": "V10G4_COMPLETE_GO",
+    "v10g4_stage": "V1.0-G4",
+    "v10g5_acceptance": "V10G5_COMPLETE_GO",
+    "v10g5_stage": "V1.0-G5"
+  },
+  "winner_governance": {
+    "no_competitor_winner_selection": true,
+    "winner_id": "HYBRID-K13",
+    "winner_source_stage": "V1.0-D",
+    "winner_unmodified": true
+  }
+}

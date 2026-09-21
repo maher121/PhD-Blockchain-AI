@@ -1,0 +1,57 @@
+{
+  "artifact_kind": "V10G5_PAIRED_STATISTICS",
+  "comparison_direction": "WITH_ELITE_TRANSFER - WITHOUT_ELITE_TRANSFER",
+  "df": 4,
+  "endpoints": {
+    "average_precision": {
+      "label": "Average Precision (AP)",
+      "statistics": {
+        "all_zero": true,
+        "ci_excludes_zero": false,
+        "ci_lower_95": 0.0,
+        "ci_upper_95": 0.0,
+        "df": 4,
+        "mean_difference": 0.0,
+        "n": 5,
+        "paired_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sample_sd": 0.0,
+        "standard_error": 0.0,
+        "t_critical": 2.7764451051977987
+      }
+    },
+    "f1": {
+      "label": "F1",
+      "statistics": {
+        "all_zero": true,
+        "ci_excludes_zero": false,
+        "ci_lower_95": 0.0,
+        "ci_upper_95": 0.0,
+        "df": 4,
+        "mean_difference": 0.0,
+        "n": 5,
+        "paired_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "sample_sd": 0.0,
+        "standard_error": 0.0,
+        "t_critical": 2.7764451051977987
+      }
+    }
+  },
+  "n": 5,
+  "p_value_reported": false,
+  "protocol_name": "ELITE_TRANSFER_ABLATION_V10G",
+  "schema_version": 1,
+  "stage": "V1.0-G5",
+  "t_critical": 2.7764451051977987
+}

@@ -1,0 +1,136 @@
+{
+  "artifact_kind": "V10G5_MECHANISTIC_ANALYSIS",
+  "per_seed": [
+    {
+      "bgwo_cache_hits_with_minus_without": 3,
+      "bgwo_new_unique_with_minus_without": -3,
+      "cache_hits_with_minus_without": 3,
+      "convergence_history_differ": true,
+      "convergence_length": 16,
+      "elite_hashes_equal_with_rows_1_3": true,
+      "final_mask_paired_identical": true,
+      "final_metrics_paired_identical": true,
+      "g4_invariant_row_collisions": [
+        false,
+        false,
+        false
+      ],
+      "optimizer_seed": 3042,
+      "paired_bpso_outputs_identical": true,
+      "row0_paired_identical": true,
+      "rows_1_3_with_are_elites": true,
+      "rows_1_3_without_are_filler": true,
+      "rows_4_11_paired_identical": true,
+      "unique_with_minus_without": -3
+    },
+    {
+      "bgwo_cache_hits_with_minus_without": 3,
+      "bgwo_new_unique_with_minus_without": -3,
+      "cache_hits_with_minus_without": 3,
+      "convergence_history_differ": true,
+      "convergence_length": 16,
+      "elite_hashes_equal_with_rows_1_3": true,
+      "final_mask_paired_identical": true,
+      "final_metrics_paired_identical": true,
+      "g4_invariant_row_collisions": [
+        false,
+        false,
+        false
+      ],
+      "optimizer_seed": 3043,
+      "paired_bpso_outputs_identical": true,
+      "row0_paired_identical": true,
+      "rows_1_3_with_are_elites": true,
+      "rows_1_3_without_are_filler": true,
+      "rows_4_11_paired_identical": true,
+      "unique_with_minus_without": -3
+    },
+    {
+      "bgwo_cache_hits_with_minus_without": 3,
+      "bgwo_new_unique_with_minus_without": -3,
+      "cache_hits_with_minus_without": 3,
+      "convergence_history_differ": true,
+      "convergence_length": 16,
+      "elite_hashes_equal_with_rows_1_3": true,
+      "final_mask_paired_identical": true,
+      "final_metrics_paired_identical": true,
+      "g4_invariant_row_collisions": [
+        false,
+        false,
+        false
+      ],
+      "optimizer_seed": 3044,
+      "paired_bpso_outputs_identical": true,
+      "row0_paired_identical": true,
+      "rows_1_3_with_are_elites": true,
+      "rows_1_3_without_are_filler": true,
+      "rows_4_11_paired_identical": true,
+      "unique_with_minus_without": -3
+    },
+    {
+      "bgwo_cache_hits_with_minus_without": 3,
+      "bgwo_new_unique_with_minus_without": -3,
+      "cache_hits_with_minus_without": 3,
+      "convergence_history_differ": true,
+      "convergence_length": 16,
+      "elite_hashes_equal_with_rows_1_3": true,
+      "final_mask_paired_identical": true,
+      "final_metrics_paired_identical": true,
+      "g4_invariant_row_collisions": [
+        false,
+        false,
+        false
+      ],
+      "optimizer_seed": 3045,
+      "paired_bpso_outputs_identical": true,
+      "row0_paired_identical": true,
+      "rows_1_3_with_are_elites": true,
+      "rows_1_3_without_are_filler": true,
+      "rows_4_11_paired_identical": true,
+      "unique_with_minus_without": -3
+    },
+    {
+      "bgwo_cache_hits_with_minus_without": 3,
+      "bgwo_new_unique_with_minus_without": -3,
+      "cache_hits_with_minus_without": 3,
+      "convergence_history_differ": true,
+      "convergence_length": 16,
+      "elite_hashes_equal_with_rows_1_3": true,
+      "final_mask_paired_identical": true,
+      "final_metrics_paired_identical": true,
+      "g4_invariant_row_collisions": [
+        false,
+        false,
+        false
+      ],
+      "optimizer_seed": 3046,
+      "paired_bpso_outputs_identical": true,
+      "row0_paired_identical": true,
+      "rows_1_3_with_are_elites": true,
+      "rows_1_3_without_are_filler": true,
+      "rows_4_11_paired_identical": true,
+      "unique_with_minus_without": -3
+    }
+  ],
+  "protocol_name": "ELITE_TRANSFER_ABLATION_V10G",
+  "schema_version": 1,
+  "stage": "V1.0-G5",
+  "totals_with": {
+    "bgwo_new_unique_evaluations": 460,
+    "cache_hits": 20,
+    "decision_tree_fits": 4700,
+    "unique_evaluations": 940
+  },
+  "totals_with_minus_without": {
+    "bgwo_new_unique_evaluations": -15,
+    "cache_hits": 15,
+    "decision_tree_fits": -75,
+    "unique_evaluations": -15
+  },
+  "totals_without": {
+    "bgwo_new_unique_evaluations": 475,
+    "cache_hits": 5,
+    "decision_tree_fits": 4775,
+    "unique_evaluations": 955
+  }
+}

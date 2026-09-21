@@ -95,6 +95,17 @@ LOCKED_EXECUTION_ORDER = (
 TEST_ACCESS_CLASSIFICATION = "TEST_LOCKED_DURING_V10G_ABLATION"
 PRODUCTION_CAMPAIGN_STAGE = "V1.0-G4"
 
+# Later sanctioned V1.0-G stages may legitimately coexist with the G1 protocol
+# lock in the governed results directory. The G2 gate remains fail-closed: any
+# artifact outside {v10g_protocol_lock.json} U SANCTIONED_POST_G2_ARTIFACTS
+# (e.g. anything G2 itself could create) is an immediate no-go.
+SANCTIONED_POST_G2_ARTIFACTS: tuple[str, ...] = (
+    "v10g4_campaign",
+    "v10g5_analysis",
+    "v10g_result_lock.json",
+    "v10g6_validation.json",
+)
+
 
 class V10GError(AblationError):
     """Base error for a fail-closed V1.0-G2 layer."""
@@ -317,27 +328,40 @@ def production_campaign_guard() -> bool:
 
 
 def no_g2_result_lock_artifacts() -> dict[str, Any]:
-    """Fail closed if the V1.0-G results directory contains any G2 result lock."""
+    """Fail closed on any ungoverned artifact in the V1.0-G results directory.
+
+    Lifecycle-aware: the historical baseline (G2-only era) contained exactly
+    ``v10g_protocol_lock.json``; today the sanctioned later stages
+    (V1.0-G4 campaign, V1.0-G5 analysis, V1.0-G6 validation and result lock)
+    legitimately coexist with the G1 protocol lock. This gate never permits a
+    G2-created result lock: any name outside ``{v10g_protocol_lock.json} U
+    SANCTIONED_POST_G2_ARTIFACTS`` raises V10GNoGoError, and the G1 protocol
+    lock must always be present.
+    """
     if not V10G_RESULTS_DIR.is_dir():
         return {
             "status": "FAIL",
             "checks": {"v10g_results_dir_exists": False},
             "created_result_locks": [],
         }
-    allowed = {PROTOCOL_LOCK_PATH.name}
+    allowed = {PROTOCOL_LOCK_PATH.name} | set(SANCTIONED_POST_G2_ARTIFACTS)
     present = sorted(path.name for path in V10G_RESULTS_DIR.iterdir())
-    forbidden = [name for name in present if name not in allowed]
-    if forbidden:
+    unexpected = sorted(name for name in present if name not in allowed)
+    if unexpected:
         raise V10GNoGoError(
-            f"V1.0-G2 must never create result artifacts; present: {forbidden}"
+            "V1.0-G2 must never create result artifacts; "
+            f"unexpected artifacts present: {unexpected}"
         )
+    protocol_lock_present = PROTOCOL_LOCK_PATH.name in present
     return {
-        "status": "PASS",
+        "status": "PASS" if protocol_lock_present else "FAIL",
         "checks": {
             "v10g_results_dir_exists": True,
-            "only_g1_protocol_lock_present": sorted(present) == sorted(allowed),
+            "protocol_lock_present": protocol_lock_present,
+            "no_ungoverned_artifacts_present": True,
         },
         "present_files": present,
+        "sanctioned_post_g2_artifacts": SANCTIONED_POST_G2_ARTIFACTS,
         "created_result_locks": [],
     }
 

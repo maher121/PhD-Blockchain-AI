@@ -1,0 +1,256 @@
+{
+  "artifact_kind": "V10G5_ANALYSIS_SUMMARY",
+  "endpoint_statistics": {
+    "ap": {
+      "all_zero": true,
+      "ci_excludes_zero": false,
+      "ci_lower_95": 0.0,
+      "ci_upper_95": 0.0,
+      "df": 4,
+      "mean_difference": 0.0,
+      "n": 5,
+      "paired_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sample_sd": 0.0,
+      "standard_error": 0.0,
+      "t_critical": 2.7764451051977987
+    },
+    "f1": {
+      "all_zero": true,
+      "ci_excludes_zero": false,
+      "ci_lower_95": 0.0,
+      "ci_upper_95": 0.0,
+      "df": 4,
+      "mean_difference": 0.0,
+      "n": 5,
+      "paired_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sample_sd": 0.0,
+      "standard_error": 0.0,
+      "t_critical": 2.7764451051977987
+    }
+  },
+  "endpoints_paired_differences_ap": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "endpoints_paired_differences_f1": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "input_campaign_status": "COMPLETE",
+  "interpretation": {
+    "average_precision": {
+      "ci_95": [
+        0.0,
+        0.0
+      ],
+      "direction": "identical_zero_difference",
+      "endpoint_specific_support": false,
+      "mean_difference": 0.0
+    },
+    "comparison_direction": "WITH_ELITE_TRANSFER - WITHOUT_ELITE_TRANSFER",
+    "conclusion": "This experiment does not demonstrate a resolved elite-transfer contribution.",
+    "f1": {
+      "ci_95": [
+        0.0,
+        0.0
+      ],
+      "direction": "identical_zero_difference",
+      "endpoint_specific_support": false,
+      "mean_difference": 0.0
+    },
+    "feasibility_preserved": true,
+    "recall_no_resolved_harm": true
+  },
+  "k_analysis": {
+    "descriptive_95_ci": {
+      "all_zero": true,
+      "ci_excludes_zero": false,
+      "ci_lower_95": 0.0,
+      "ci_upper_95": 0.0,
+      "descriptive_only": true,
+      "descriptive_rationale": "K cannot independently establish inferential benefit.",
+      "df": 4,
+      "mean_difference": 0.0,
+      "n": 5,
+      "paired_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sample_sd": 0.0,
+      "standard_error": 0.0,
+      "t_critical": 2.7764451051977987
+    },
+    "statistics": {
+      "max_difference": 0.0,
+      "mean_difference": 0.0,
+      "median_difference": 0.0,
+      "min_difference": 0.0,
+      "n": 5,
+      "negative_count": 0,
+      "positive_count": 0,
+      "zero_count": 5
+    }
+  },
+  "mechanistic": {
+    "all_convergence_histories_differ": true,
+    "all_final_masks_paired_identical": true,
+    "totals_with_minus_without": {
+      "bgwo_new_unique_evaluations": -15,
+      "cache_hits": 15,
+      "decision_tree_fits": -75,
+      "unique_evaluations": -15
+    }
+  },
+  "overall_winner": "none",
+  "p_value_reported": false,
+  "prevalidation": {
+    "checks": {
+      "accounting_3042_WITHOUT_ELITE_TRANSFER": true,
+      "accounting_3042_WITH_ELITE_TRANSFER": true,
+      "accounting_3043_WITHOUT_ELITE_TRANSFER": true,
+      "accounting_3043_WITH_ELITE_TRANSFER": true,
+      "accounting_3044_WITHOUT_ELITE_TRANSFER": true,
+      "accounting_3044_WITH_ELITE_TRANSFER": true,
+      "accounting_3045_WITHOUT_ELITE_TRANSFER": true,
+      "accounting_3045_WITH_ELITE_TRANSFER": true,
+      "accounting_3046_WITHOUT_ELITE_TRANSFER": true,
+      "accounting_3046_WITH_ELITE_TRANSFER": true,
+      "all_g4_paired_invariants_pass": true,
+      "arm_identity_set_exact": true,
+      "exactly_10_arm_runs": true,
+      "exactly_5_paired_seeds": true,
+      "g1_semantic_lock_unchanged": true,
+      "manifest_status_complete": true,
+      "no_incomplete_or_failed": true,
+      "paired_seed_set_exact": true,
+      "requests_with_960": true,
+      "requests_without_960": true,
+      "test_access_count_zero": true,
+      "test_unaccessed_3042_WITHOUT_ELITE_TRANSFER": true,
+      "test_unaccessed_3042_WITH_ELITE_TRANSFER": true,
+      "test_unaccessed_3043_WITHOUT_ELITE_TRANSFER": true,
+      "test_unaccessed_3043_WITH_ELITE_TRANSFER": true,
+      "test_unaccessed_3044_WITHOUT_ELITE_TRANSFER": true,
+      "test_unaccessed_3044_WITH_ELITE_TRANSFER": true,
+      "test_unaccessed_3045_WITHOUT_ELITE_TRANSFER": true,
+      "test_unaccessed_3045_WITH_ELITE_TRANSFER": true,
+      "test_unaccessed_3046_WITHOUT_ELITE_TRANSFER": true,
+      "test_unaccessed_3046_WITH_ELITE_TRANSFER": true,
+      "total_candidate_requests_1920": true
+    },
+    "status": "PASS"
+  },
+  "protocol_name": "ELITE_TRANSFER_ABLATION_V10G",
+  "recall_safeguard": {
+    "statistics": {
+      "all_zero": true,
+      "ci_excludes_zero": false,
+      "ci_lower_95": 0.0,
+      "ci_upper_95": 0.0,
+      "df": 4,
+      "mean_difference": 0.0,
+      "n": 5,
+      "paired_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sample_sd": 0.0,
+      "standard_error": 0.0,
+      "t_critical": 2.7764451051977987
+    },
+    "status": "PASS"
+  },
+  "schema_version": 1,
+  "stability": {
+    "consensus_features_ge3_of_5": [
+      "order_item_quantity",
+      "order_item_product_price",
+      "order_item_total",
+      "Type_PAYMENT",
+      "Market_LATAM",
+      "Shipping Mode_Second Class",
+      "Department Name_Golf"
+    ],
+    "cross_arm_paired_jaccards": {
+      "3042": 1.0,
+      "3043": 1.0,
+      "3044": 1.0,
+      "3045": 1.0,
+      "3046": 1.0
+    },
+    "frequency_with_minus_without": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "strict_consensus_features_5_of_5": [
+      "order_item_quantity",
+      "order_item_total"
+    ]
+  },
+  "stage": "V1.0-G5"
+}
