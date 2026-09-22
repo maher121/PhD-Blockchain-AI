@@ -1,0 +1,448 @@
+{
+  "artifact_kind": "V11E2_EXPERIMENT_PROTOCOL_LOCK",
+  "execution_metadata": {
+    "experiment_status": "NOT_EXECUTED",
+    "generated_at_utc": "2026-09-22T18:30:00Z",
+    "head_origin_main": "415e58ce260251dbbf1efbff9bbaab0a23c86a9c",
+    "test_access_count": 0,
+    "ai_fit_count": 0,
+    "ai_inference_count": 0,
+    "experiment_execution_count": 0
+  },
+  "semantic_payload": {
+    "artifact_kind": "V11E2_EXPERIMENT_PROTOCOL_LOCK",
+    "stage": "V1.1-E2B",
+    "protocol_version": "v1.1-e2b-final-experiment-protocol-lock-1",
+    "upstream_lock_stage": "V1.1-E1",
+    "scientific_matrix_resolution": "V11E2A_SCIENTIFIC_MATRIX_RESOLVED_GO",
+    "governed_population": {
+      "governed_order_count": 4588,
+      "risk_band_counts": {
+        "LOW": 0,
+        "MEDIUM": 4582,
+        "HIGH": 6
+      },
+      "risk_rule": "not rebalanced; NOT stratified; no LOW synthesis; no HIGH oversampling",
+      "validation_rows": 6000
+    },
+    "workloads": [
+      100,
+      250,
+      500,
+      1000,
+      2500
+    ],
+    "blockchain_seeds": [
+      522,
+      523,
+      524
+    ],
+    "repetitions": 3,
+    "repetition_rule": "deterministic mapping to seed family [522, 523, 524]",
+    "validation_policies": {
+      "B0": {
+        "checks": [
+          "c1",
+          "c2",
+          "c3",
+          "c4"
+        ],
+        "validators": 1
+      },
+      "B1": {
+        "checks": [
+          "c1",
+          "c2",
+          "c3",
+          "c4",
+          "c5",
+          "c6",
+          "c7",
+          "c8"
+        ],
+        "validators": 3,
+        "quorum": 3
+      },
+      "P": {
+        "mode": "AI_DRIVEN_ADAPTIVE_ALV",
+        "risk_input": "GOVERNED_AI_RISK",
+        "bands": {
+          "LOW": {
+            "checks": [
+              "c1",
+              "c2",
+              "c3",
+              "c4"
+            ],
+            "validators": 1
+          },
+          "MEDIUM": {
+            "checks": [
+              "c1",
+              "c2",
+              "c3",
+              "c4",
+              "c5",
+              "c6"
+            ],
+            "validators": 1
+          },
+          "HIGH": {
+            "checks": [
+              "c1",
+              "c2",
+              "c3",
+              "c4",
+              "c5",
+              "c6",
+              "c7",
+              "c8"
+            ],
+            "validators": 3
+          }
+        }
+      }
+    },
+    "attacks": [
+      "PA-01",
+      "PA-02",
+      "PA-03",
+      "PA-04",
+      "PA-05",
+      "PA-06",
+      "PA-07",
+      "PA-08",
+      "PA-09"
+    ],
+    "attack_instance_contract": {
+      "same_attacked_copies_reused_across_b0_b1_p": true,
+      "same_attacked_copies_reused_across_e02_e03_e04": true,
+      "attack_generation_injection_outside_validation_timing": true,
+      "pa08_pa09_donor_read_only": true,
+      "pa08_pa09_target_and_donor_distinct": true
+    },
+    "experiment_matrix": [
+      {
+        "experiment_id": "E01",
+        "name": "FUNCTIONAL_CORRECTNESS",
+        "policies": [
+          "B0",
+          "B1",
+          "P"
+        ],
+        "attacks": [],
+        "primary": [
+          "clean_verification_pass_count",
+          "clean_verification_pass_rate",
+          "valid_chain_construction_count"
+        ],
+        "primary_metric": "GOVERNED_ORDER_SELECTED",
+        "timing": "SECONDARY_DESCRIPTIVE",
+        "integrity_detection": "NO"
+      },
+      {
+        "experiment_id": "E02",
+        "name": "INTEGRITY_TAMPER_DETECTION",
+        "policies": [
+          "B0",
+          "B1",
+          "P"
+        ],
+        "attacks": [
+          "PA-01",
+          "PA-02",
+          "PA-03",
+          "PA-04",
+          "PA-05",
+          "PA-06",
+          "PA-07",
+          "PA-08",
+          "PA-09"
+        ],
+        "primary": [
+          "policy_specific_detected_count",
+          "policy_specific_detection_rate"
+        ],
+        "detection_semantics": "THAT_POLICY_REJECTS_ATTACKED_CHAIN",
+        "timing": "SECONDARY_DESCRIPTIVE",
+        "integrity_detection": "YES"
+      },
+      {
+        "experiment_id": "E03",
+        "name": "TAMPER_LOCALIZATION",
+        "policies": [
+          "B0",
+          "B1",
+          "P"
+        ],
+        "attacks": [
+          "PA-01",
+          "PA-02",
+          "PA-03",
+          "PA-04",
+          "PA-05",
+          "PA-06",
+          "PA-07",
+          "PA-08",
+          "PA-09"
+        ],
+        "primary": [
+          "unconditional_correct_localization_count",
+          "unconditional_correct_localization_rate"
+        ],
+        "localization_denominator": "ALL_INJECTED_ATTACKS_UNDETECTED_COUNTS_AS_NOT_LOCALIZED",
+        "timing": "SECONDARY_DESCRIPTIVE",
+        "integrity_detection": "YES"
+      },
+      {
+        "experiment_id": "E04",
+        "name": "ORDER_LEVEL_FAULT_ISOLATION",
+        "policies": [
+          "B0",
+          "B1",
+          "P"
+        ],
+        "attacks": [
+          "PA-01",
+          "PA-02",
+          "PA-03",
+          "PA-04",
+          "PA-05",
+          "PA-06",
+          "PA-07",
+          "PA-08",
+          "PA-09"
+        ],
+        "primary": [
+          "unaffected_order_preservation_count",
+          "unaffected_order_preservation_rate"
+        ],
+        "timing": "SECONDARY_DESCRIPTIVE",
+        "integrity_detection": "YES"
+      },
+      {
+        "experiment_id": "E05",
+        "name": "AI_LINKED_ADAPTIVE_BEHAVIOR",
+        "policies": [
+          "P"
+        ],
+        "matched_reference": [
+          "B0",
+          "B1"
+        ],
+        "attacks": [],
+        "primary": [
+          "applied_validation_check_allocation_by_governed_risk",
+          "validator_allocation_by_governed_risk",
+          "validation_level_distribution"
+        ],
+        "risk_rule": "MUST_USE_GOVERNED_AI_RISK",
+        "timing": "SECONDARY_DESCRIPTIVE",
+        "integrity_detection": "NO"
+      },
+      {
+        "experiment_id": "E06",
+        "name": "EXECUTION_TIME_OVERHEAD",
+        "policies": [
+          "B0",
+          "B1",
+          "P"
+        ],
+        "attacks": [],
+        "primary": [
+          "validation_only_wall_clock_runtime"
+        ],
+        "timing": "PRINCIPAL",
+        "integrity_detection": "NO"
+      },
+      {
+        "experiment_id": "E07",
+        "name": "MEMORY_OVERHEAD",
+        "policies": [
+          "B0",
+          "B1",
+          "P"
+        ],
+        "attacks": [],
+        "primary": [
+          "peak_traced_python_allocation_during_validation"
+        ],
+        "measurement": "tracemalloc_fresh_worker",
+        "unit": "MiB",
+        "label": "COMPUTATIONAL_MEMORY_PROXY",
+        "timing": "NOT_PRIMARY",
+        "integrity_detection": "NO"
+      },
+      {
+        "experiment_id": "E08",
+        "name": "STORAGE_OVERHEAD",
+        "policies": [],
+        "policy_independent": true,
+        "attacks": [],
+        "primary": [
+          "canonical_serialized_blockchain_bytes_per_workload"
+        ],
+        "reason": "validation policy does not mutate canonical blockchain representation",
+        "timing": "NO",
+        "integrity_detection": "NO"
+      },
+      {
+        "experiment_id": "E09",
+        "name": "THROUGHPUT",
+        "policies": [
+          "B0",
+          "B1",
+          "P"
+        ],
+        "attacks": [],
+        "primary": [
+          "validated_orders_per_second"
+        ],
+        "timing": "YES",
+        "integrity_detection": "NO"
+      },
+      {
+        "experiment_id": "E10",
+        "name": "RESOURCE_GREEN_PROXY",
+        "policies": [
+          "B0",
+          "B1",
+          "P"
+        ],
+        "attacks": [],
+        "derived_only": true,
+        "no_fourth_campaign": true,
+        "sources": [
+          "E06",
+          "E07",
+          "E08",
+          "E09"
+        ],
+        "primary": [
+          "runtime_proxy",
+          "validation_check_count",
+          "validator_invocation_count",
+          "measurable_hash_operation_count"
+        ],
+        "timing": "NO_DERIVED_ONLY",
+        "integrity_detection": "NO",
+        "direct_energy": "DIRECT_ENERGY_UNAVAILABLE"
+      }
+    ],
+    "timing_contract": {
+      "boundary": "validation policy call only",
+      "wall_clock": "perf_counter_ns",
+      "cpu": "process_time_ns",
+      "exclude": [
+        "chain_construction",
+        "ai_generation",
+        "ai_inference",
+        "attack_generation",
+        "attack_injection",
+        "canonical_serialization_prep",
+        "result_serialization",
+        "result_writing"
+      ],
+      "warm_up": "one_unmeasured_synthetic_warmup_per_policy",
+      "threads": 1,
+      "counterbalance_across_seeds": true
+    },
+    "aggregation": {
+      "persist_every_raw_run": true,
+      "continuous": [
+        "mean",
+        "median",
+        "std_ddof_1",
+        "min",
+        "max"
+      ],
+      "rates": "numerator_and_denominator_per_run_pooled_descriptive",
+      "paired_differences": [
+        "B1_minus_B0",
+        "P_minus_B0",
+        "P_minus_B1"
+      ],
+      "do_not_preregister": [
+        "confidence_intervals",
+        "significance_tests",
+        "bootstrap_intervals",
+        "order_level_inferential_tests"
+      ]
+    },
+    "risk_band_treatment": {
+      "LOW": {
+        "count": 0,
+        "marker": "LOW_ABSENT_IN_GOVERNED_POPULATION",
+        "rule": "no estimate, no imputation, no rebalance, no synthetic LOW"
+      },
+      "MEDIUM": {
+        "count": 4582,
+        "note": "aggregate P evidence is overwhelmingly MEDIUM-driven"
+      },
+      "HIGH": {
+        "count": 6,
+        "rule": "natural sampling only; persist exact HIGH n per seed/workload; if HIGH == 0 -> HIGH_NOT_OBSERVED_IN_CONDITION; if HIGH > 0 report descriptively with exact n"
+      }
+    },
+    "energy": {
+      "direct_energy": "DIRECT_ENERGY_UNAVAILABLE",
+      "never_report": [
+        "Joules",
+        "Wh",
+        "TDP x runtime",
+        "physical_energy_savings"
+      ]
+    },
+    "fairness_contract": {
+      "exact_order_ids": true,
+      "exact_chain_content": true,
+      "exact_canonical_serialization": true,
+      "exact_schema": true,
+      "exact_sha256_policy": true,
+      "exact_attack_instance": true,
+      "exact_seed": true,
+      "exact_workload_size": true,
+      "exact_timing_boundary": true,
+      "same_machine": true,
+      "only_validation_policy_differs": true
+    },
+    "output_schemas": {
+      "base_dir": "results/blockchain/v11e/",
+      "artifacts": [
+        "v11e_raw_run_observations",
+        "v11e_attack_instance_manifest.json",
+        "v11e_workload_manifest.json",
+        "v11e_experiment_results",
+        "v11e_aggregated_descriptive_summaries",
+        "v11e_experiment_result_lock.json"
+      ]
+    },
+    "test_isolation": {
+      "test_access_count": 0,
+      "ai_fit_count": 0,
+      "ai_inference_count": 0,
+      "experiment_execution_count": 0
+    },
+    "starting_checkpoint": {
+      "head_origin_main": "415e58ce260251dbbf1efbff9bbaab0a23c86a9c",
+      "stage": "V1.1-E2B"
+    },
+    "upstream": {
+      "v11a_protocol_lock_sha256": "aaf3ac3139e8296fb7f976a8a7ed9f18eb317af2f73b10cd0208b6bb870ebd8d",
+      "v11c_mapping_semantic_sha256": "c992429b2165f18649d36b0339260d9a95e1ae8524d7dfd586a168504d3cc765",
+      "v11d_result_lock_semantic_sha256": "440d351f4254cc74c2779b35fd161acecf452b071448a3592131d19ed87f5641",
+      "v11d_artifact_semantic_sha256": "ab7b1c8ef82035dc01005d8ac3ebaad379a77dd4bed743dbee5cae37b573186e",
+      "v11d_artifact_disk_sha256": "70b1d74c800baaa5d060a5d22739b4d142a578523a847a094899cb9746239b7b",
+      "v11d_summary_semantic_sha256": "d91c0102273a55379bc498d82323b670be523044f49de74c9f8234e8559afc6c",
+      "v11d_summary_disk_sha256": "99adcc25588e4bf431e61c52c68b6f06907bd55d7df32daf67852b39ece5007d"
+    },
+    "artifact_fingerprints": {
+      "protocol_config_sha256": "f895115c201c55685615e5dba2feb88ce7b1ddd790812bf4696c31722fc21334",
+      "protocol_document_sha256": "e2e1cf976098f9cfbea5c693775447bf0936b057f3fd1da4c2672fa03ea969c1",
+      "config_path": "config/experiments_v11e.yaml",
+      "document_path": "docs/v11e_experiment_protocol.md"
+    }
+  },
+  "semantic_result_lock_sha256": "8047fbe356c964e26f7acdcde930a1e2a6734026ea303b56334498ffa295f239",
+  "stage": "V1.1-E2B"
+}
