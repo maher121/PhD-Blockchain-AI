@@ -1,0 +1,125 @@
+{
+  "artifact_kind": "V11C_MAPPING_LOCK",
+  "execution_metadata": {
+    "experiment_status": "GOVERNED_MAPPING_EXECUTED",
+    "head_origin_main": "3f4a74a6731add8798fd4c6b0475b487a5d358ca",
+    "test_access_count": 0
+  },
+  "semantic_payload": {
+    "artifact_kind": "V11C_MAPPING_LOCK",
+    "construction_summary": {
+      "chains_constructed": 25881,
+      "chains_validated": 25881,
+      "delivery_status_order_counts": {
+        "Advance shipping": 5947,
+        "Late delivery": 14207,
+        "Shipping canceled": 1104,
+        "Shipping on time": 4623
+      },
+      "delivery_status_row_counts": {
+        "Advance shipping": 7828,
+        "Late delivery": 18678,
+        "Shipping canceled": 1432,
+        "Shipping on time": 6062
+      },
+      "duplicates_collapsed": 0,
+      "event_type_counts": {
+        "DELIVERY_STATUS_RECORDED": 25881,
+        "ORDER_CREATED": 25881,
+        "SHIPMENT_RECORDED": 25881
+      },
+      "global_root_digest": "c672403754e2cb509e1c69a43bffff452ad2d91adef5c26055e73af3e55e63d4",
+      "items_per_order": {
+        "max": 5,
+        "mean": 1.3137,
+        "median": 1.0,
+        "min": 1,
+        "p75": 2.0
+      },
+      "order_status_order_counts": {
+        "CANCELED": 514,
+        "CLOSED": 2852,
+        "COMPLETE": 8628,
+        "ON_HOLD": 1394,
+        "PAYMENT_REVIEW": 243,
+        "PENDING": 2958,
+        "PENDING_PAYMENT": 5581,
+        "PROCESSING": 3121,
+        "SUSPECTED_FRAUD": 590
+      },
+      "order_status_row_counts": {
+        "CANCELED": 667,
+        "CLOSED": 3703,
+        "COMPLETE": 11331,
+        "ON_HOLD": 1807,
+        "PAYMENT_REVIEW": 316,
+        "PENDING": 3914,
+        "PENDING_PAYMENT": 7392,
+        "PROCESSING": 4105,
+        "SUSPECTED_FRAUD": 765
+      },
+      "orders_failed": 0,
+      "total_rows_mapped": 34000,
+      "unique_orders": 25881
+    },
+    "dataset_identity": {
+      "dev_scope": "train_plus_validation_metadata",
+      "name": "DataCo SMART Supply Chain for Big Data Analysis",
+      "raw_dataset_sha256": "fa6d022ed437155e1a2f0378710602848703c8a7f203f7ff5d77805bf8480aa6"
+    },
+    "governance": {
+      "classification": "ORDER_CENTRIC_PER_ORDER_LOGICAL_BLOCKCHAIN",
+      "no_ai_generated": true,
+      "no_pii_in_payloads": true,
+      "test_access_count": 0
+    },
+    "inputs": {
+      "dev_scope": "train_plus_validation_metadata",
+      "dev_scope_sha256": "b4d962b9865343cf70cc6295bf605d295a3215e22627a8f2101c059ff960a2de",
+      "files": [
+        [
+          "data/processed/train/metadata.csv",
+          "1a4b9754f352bf237a2b6e54916db7d2b8b9f9431a1bb69e747ffe56039a0540",
+          28000
+        ],
+        [
+          "data/processed/validation/metadata.csv",
+          "3851013adfb29563d66a579ec530b3ef378aee20009841b7b29c6be50ca1fcbe",
+          6000
+        ]
+      ],
+      "rows_read_total": 34000
+    },
+    "rules": {
+      "aggregation": "per-line canonical payload digests sorted by canonical order item id; nested order-level digest over {order_id, item_count, line_digests}",
+      "ai_risk_assessed_generated_in_v11c": false,
+      "count_level": {
+        "delivery_status_order_counts": "ORDER",
+        "delivery_status_row_counts": "ROW",
+        "event_type_counts": "ORDER",
+        "order_status_order_counts": "ORDER",
+        "order_status_row_counts": "ROW"
+      },
+      "event_mapping": {
+        "DELIVERY_STATUS_RECORDED": "digest = sha256({order_id, delivery_status[, order_status]}); timestamp = last governed timestamp (shipping date)",
+        "ORDER_CREATED": "digest = nested order aggregate; timestamp = canonical order date",
+        "SHIPMENT_RECORDED": "digest = sha256({order_id, shipment_canonical}); timestamp = canonical shipping date"
+      },
+      "order_identity": "canonical decimal integer string; no sign, no leading zeros",
+      "order_level_conflict_policy": "FAIL_CLOSED",
+      "order_level_conflict_rule": "all rows of one canonical order must agree on every order-level source value (order date, shipping date, Delivery Status, Order Status); disagreement raises a deterministic OrderLevelConflictError -- never first/last/vote/average/aggregate",
+      "order_level_map": "one logical event of each mapped type per order, from the unique (validated) order-level source value",
+      "payload_digest": "sha256(canonical_json(payload))",
+      "schema_anchor_sha256": "0e22cc421c46878eca425f6ba0b25a53e7b5ed7f6218f067a329c97b1f5c6bb6",
+      "timestamp": "governed dataset timestamps only; canonical ISO-8601 UTC; equal timestamps ordered by the frozen event sequence"
+    },
+    "stage": "V1.1-C",
+    "starting_checkpoint": "3f4a74a6731add8798fd4c6b0475b487a5d358ca",
+    "starting_checkpoint_sha256": "3f4a74a6731add8798fd4c6b0475b487a5d358ca",
+    "upstream": {
+      "v11a_protocol_lock_sha256": "aaf3ac3139e8296fb7f976a8a7ed9f18eb317af2f73b10cd0208b6bb870ebd8d"
+    }
+  },
+  "semantic_result_lock_sha256": "c992429b2165f18649d36b0339260d9a95e1ae8524d7dfd586a168504d3cc765",
+  "stage": "V1.1-C"
+}
