@@ -1,0 +1,306 @@
+stage: "V1.1-D1"
+kind: "SCIENTIFIC_DECISION_PROTOCOL_LOCK"
+protocol_version: "v1.1-d1-governed-ai-risk-1"
+protocol_classification: "GOVERNED_AI_BLOCKCHAIN_SCIENTIFIC_DECISIONS_LOCKED"
+
+stage_identity:
+  title: "Governed AI-Blockchain Scientific Decision Lock"
+  purpose: >-
+    Preregister the scientific decisions that convert frozen V1.0 HYBRID-K13
+    row-level attack evidence into a future V1.1-D per-order governed risk
+    artifact. This stage defines protocol only and produces no predictions,
+    risk records, AI_RISK_ASSESSED blocks, or experimental results.
+  implementation_excluded: true
+  prediction_generation_excluded: true
+  blockchain_experiment_execution_excluded: true
+
+upstream:
+  starting_checkpoint: "e5c85aea6492431d37732b4214fef4974ad5c088"
+  v10_closed_immutable: true
+  v11a_v11b_v11c_immutable: true
+  v10d_winner_semantic_sha256: "1c258dc1a90ad78197d25e62bbc9fca24904cbcb77edafd24b12726059e49d84"
+  v10e_result_semantic_sha256: "ffca0957006bff3115705f9dfb0334e13a27c9abbc502f2c9d04f784a28141e9"
+  v11a_protocol_semantic_sha256: "aaf3ac3139e8296fb7f976a8a7ed9f18eb317af2f73b10cd0208b6bb870ebd8d"
+  v11c_mapping_semantic_sha256: "c992429b2165f18649d36b0339260d9a95e1ae8524d7dfd586a168504d3cc765"
+  v11c_canonical_development_orders: 25881
+  v11c_development_rows: 34000
+
+scope:
+  model_fit_allowed: false
+  model_reconstruction_allowed: false
+  prediction_allowed: false
+  predict_proba_allowed: false
+  decision_function_allowed: false
+  risk_record_generation_allowed: false
+  ai_risk_block_generation_allowed: false
+  v11e_execution_allowed: false
+  optimizer_execution_allowed: false
+  feature_reselection_allowed: false
+  test_access_allowed: false
+  test_threshold_tuning_allowed: false
+  files_outside_v11d1_allowed: false
+
+feature_identity:
+  configuration_id: "HYBRID-K13"
+  feature_space_dimension: 43
+  selected_feature_count: 13
+  winner_mask_sha256: "d1cc8c8b8643ce5d5daff3bdb6ff4c74dab6b1d78069a7f0052bcda10cb68c62"
+  canonical_feature_manifest_sha256: "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d"
+  selected_feature_list_sha256: "8be4b0818f6ca59a057ef91d47738fa692548a6ddbed983b4496c644296b906a"
+  ordered_features:
+    - "order_item_quantity"
+    - "product_price"
+    - "order_item_total"
+    - "is_weekend"
+    - "Type_DEBIT"
+    - "Type_TRANSFER"
+    - "Type_CASH"
+    - "Market_LATAM"
+    - "Market_Pacific Asia"
+    - "Shipping Mode_First Class"
+    - "Department Name_Golf"
+    - "Department Name_Fitness"
+    - "Department Name_Health and Beauty"
+  reselection_forbidden: true
+
+preprocessing:
+  source: "frozen V1.0 DataCoPreprocessor specification"
+  fit_partition: "TRAIN"
+  fit_rows: 28000
+  deterministic_reconstruction_required: true
+  numeric_imputation: "TRAIN median"
+  categorical_imputation: "TRAIN mode"
+  numeric_scaling: "StandardScaler fit on TRAIN only"
+  categorical_encoding: "frozen TRAIN-derived one-hot levels and order"
+  order_aggregates: "TRAIN-derived lookup under the frozen V1.0 rules"
+  output_feature_order: "canonical 43-feature manifest, then HYBRID-K13 projection"
+  fitted_state_reuse_rule: >-
+    A persisted fitted preprocessor may be used only after exact provenance and
+    state verification. Otherwise it is deterministically reconstructed from
+    frozen TRAIN under a separately authorized implementation stage.
+
+training_reconstruction:
+  source_contract: "src.pipeline_v08b.load_frozen_development_workloads"
+  source_fingerprint_artifact: "results/feature_selection/core_runs.csv"
+  fit_split: "TRAIN"
+  fit_rows: 28000
+  attack_type: "mixed"
+  attack_rate: 0.05
+  attack_severity: "MEDIUM"
+  attack_config: "config/attack_scenarios.yaml"
+  attack_and_model_seeds: [42, 43, 44, 45, 46]
+  fingerprint_requirements:
+    - "training_row_ids_sha256"
+    - "training_clean_features_sha256"
+    - "training_attacked_features_sha256"
+    - "training_labels_sha256"
+  labels: "deterministically generated is_attack labels aligned to attacked TRAIN rows"
+  verification_rule: >-
+    Every reconstructed seed workload must match the frozen V0.6/V1.0 training
+    fingerprints before model fitting is authorized; mismatch fails closed.
+
+target:
+  name: "is_attack"
+  unit: "ROW"
+  encoding:
+    normal: 0
+    attacked: 1
+  positive_class: 1
+  positive_class_meaning: "controlled experiment-generated attacked row"
+  real_world_attack_probability_claim_allowed: false
+  late_delivery_risk_is_target: false
+
+classifier:
+  primary: "decision_tree"
+  primary_role: "GOVERNED_V11D_RISK_MODEL"
+  parameters:
+    class_weight: "balanced"
+    max_depth: 5
+    min_samples_leaf: 20
+  hard_prediction_threshold: 0.5
+  random_state_binding: "one model for each frozen seed in model_strategy.seeds"
+  secondary_sensitivity_classifier: "logistic_regression"
+  secondary_may_generate_primary_artifact: false
+  selection_rationale: >-
+    The decision tree is the classifier used by the governed V1.0 feature-search
+    objective, retained materially stronger frozen attack-detection evidence than
+    LR, is bounded by max_depth=5 and min_samples_leaf=20, requires no additional
+    scaling or calibration choice beyond the frozen preprocessing, and remains
+    lightweight and locally interpretable. Its predict_proba output is treated as
+    an uncalibrated model-derived score, not a real-world probability.
+
+model_strategy:
+  type: "FIXED_FIVE_SEED_MEAN_ENSEMBLE"
+  seeds: [42, 43, 44, 45, 46]
+  member_count: 5
+  member_classifier: "decision_tree"
+  row_score_combination: "arithmetic mean in ascending seed order"
+  authoritative_source: "deterministic reconstruction from frozen fingerprint-verified TRAIN attack workloads"
+  v10f_artifact_role: "manifest-verified reconstruction reference, not automatic authority"
+  selection_or_weight_learning_allowed: false
+  fixed_equal_weights: true
+  rationale: >-
+    Equal averaging across the already-governed seed family reduces dependence on
+    an arbitrary single seed while preserving deterministic behavior. Five bounded
+    depth-5 trees remain computationally small; the fivefold inference overhead is
+    explicitly measured later as a computational cost rather than assumed free.
+
+risk_score:
+  semantics_version: "MODEL_DERIVED_ATTACK_RISK_V1"
+  row_member_score: "predict_proba(X) at the classifier class equal to is_attack=1"
+  row_ensemble_score: "arithmetic mean of the five member scores"
+  order_score: "maximum row_ensemble_score among all validation rows with the same canonical order_id"
+  range: "[0,1]"
+  direction: "higher means more attack-like under the frozen model family"
+  interpretation: >-
+    An uncalibrated model-derived attack-risk score relative to the controlled
+    V1.0 attack task. It is not a calibrated real-world probability, incidence
+    estimate, causal quantity, or guarantee that an order is malicious.
+  finite_required: true
+  clipping_allowed: false
+  rounding_before_digest: false
+
+row_to_order:
+  rule: "MAX"
+  input: "one five-seed mean row score for every eligible row of the order"
+  output: "maximum input score"
+  deterministic_tie_rule: "equal maxima produce the same scalar; no row is selected as evidence"
+  missing_row_policy: "FAIL_CLOSED"
+  omitted_row_policy: "FAIL_CLOSED"
+  rationale: >-
+    MAX preserves sensitivity to one suspicious order line and avoids dilution by
+    many normal lines. MEAN can hide a single attacked item; NOISY-OR requires an
+    unsupported conditional-independence interpretation and inflates with order
+    size. MAX is deterministic, interpretable, and lightweight.
+
+thresholds:
+  policy: "RETAIN_V11A_PREREGISTERED_BANDS"
+  low:
+    lower_inclusive: 0.0
+    upper_exclusive: 0.3333
+  medium:
+    lower_inclusive: 0.3333
+    upper_exclusive: 0.6667
+  high:
+    lower_inclusive: 0.6667
+    upper_inclusive: 1.0
+  semantics: "fixed operational validation-intensity bands, not calibrated probability categories"
+  validation_or_test_tuning_allowed: false
+  distribution_dependent_redefinition_allowed: false
+  rationale: >-
+    The selected score has the required finite [0,1] direction and V1.1-A already
+    froze these bands independently of generation mode before downstream ALV
+    outcomes existed. Retaining them avoids post-hoc optimization. Empty or highly
+    imbalanced bands are reportable outcomes and must not trigger threshold tuning.
+
+generation_partition:
+  primary: "VALIDATION"
+  rows: 6000
+  expected_unique_orders: 4588
+  input_view: "CLEAN_FROZEN_VALIDATION_FEATURES"
+  model_fit_partition: "TRAIN"
+  train_rows: 28000
+  train_and_validation_combination_for_primary_artifact_allowed: false
+  test_allowed: false
+  rationale: >-
+    Validation-only scoring avoids in-sample risk evidence while retaining 4,588
+    order chains, enough for the preregistered V1.1 order workloads up to 2,500.
+    The clean validation view preserves V1.1-C source integrity; V1.1-D performs
+    no attack mutation. TEST remains isolated.
+
+risk_record:
+  schema_version: "v1.1-d-governed-order-risk-1"
+  required_fields_in_order:
+    - "schema_version"
+    - "order_id"
+    - "risk_score"
+    - "risk_level"
+    - "source_row_count"
+    - "source_rows_digest"
+    - "classifier"
+    - "model_strategy"
+    - "model_seeds"
+    - "aggregation_rule"
+    - "source_partition"
+    - "score_semantics_version"
+    - "model_configuration_provenance"
+    - "hybrid_k13_provenance"
+    - "generation_stage_provenance"
+    - "record_digest"
+  record_digest_rule: >-
+    SHA-256 over canonical JSON of every required field except record_digest,
+    using V1.1 canonical serialization with the listed arrays in frozen order.
+  source_rows_digest_rule: >-
+    SHA-256 over canonical JSON of the sorted stable row_id strings contributing
+    to the order score; row identifiers themselves remain off-chain.
+  authoritative_storage: "off-chain governed V1.1-D risk artifact"
+  unlock_before_use_forbidden: true
+
+blockchain_linkage:
+  event_type: "AI_RISK_ASSESSED"
+  risk_mode: "GOVERNED_AI_RISK"
+  payload_policy: "DIGEST_MINIMAL_METADATA"
+  eligible_orders: "canonical V1.1-C orders present in the frozen VALIDATION partition"
+  append_position: "after DELIVERY_STATUS_RECORDED"
+  event_timestamp_rule: >-
+    Use the frozen governed risk-artifact generated_at_utc timestamp, which must
+    not precede the current order-chain head timestamp.
+  ai_risk_reference_fields:
+    - "mode"
+    - "stage"
+    - "order_id"
+    - "risk_score"
+    - "risk_level"
+    - "configuration_id"
+    - "classifier"
+    - "aggregation_rule"
+    - "record_digest"
+    - "artifact_ref"
+    - "artifact_lock_sha256"
+  raw_features_on_chain: false
+  raw_labels_on_chain: false
+  row_identifiers_on_chain: false
+  authoritative_record_rule: >-
+    The on-chain reference is verified against the record_digest and semantic
+    lock of the off-chain governed risk artifact before the block is accepted.
+
+alv_linkage:
+  policy: "ADAPTIVE_LIGHTWEIGHT_VALIDATION"
+  low: { checks: ["c1", "c2", "c3", "c4"], validator_count: 1 }
+  medium: { checks: ["c1", "c2", "c3", "c4", "c5", "c6"], validator_count: 1 }
+  high: { checks: ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"], validator_count: 3 }
+  future_hypothesis: >-
+    Evaluate whether preregistered risk-adaptive validation reduces validation
+    computational cost while preserving required integrity and tamper-detection
+    behavior under the preregistered attack model.
+  superiority_claim_before_v11e_allowed: false
+
+energy_governance:
+  marker: "DIRECT_ENERGY_UNAVAILABLE"
+  joules_claim_allowed: false
+  tdp_times_runtime_allowed: false
+  permitted_future_proxies:
+    - "wall-clock runtime"
+    - "CPU time"
+    - "hash operations"
+    - "validation checks"
+    - "validator count"
+    - "memory"
+    - "throughput"
+  proxy_not_energy_rule: "computational proxies must never be relabeled as measured energy"
+
+canonical_serialization:
+  encoding: "utf-8"
+  sort_keys: true
+  separators: [",", ":"]
+  ensure_ascii: true
+  allow_nan: false
+  trailing_newline: false
+  semantic_hash: "sha256(canonical_json(semantic_payload))"
+
+future_execution_gates:
+  require_protocol_review: true
+  require_protocol_lock_verification: true
+  require_model_reconstruction_authorization: true
+  require_risk_artifact_lock_before_blockchain_consumption: true
+  require_test_access_count_zero: true
