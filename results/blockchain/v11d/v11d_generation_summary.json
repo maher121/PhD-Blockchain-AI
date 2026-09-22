@@ -1,0 +1,93 @@
+{
+  "aggregation": {
+    "disabled_tuning": true,
+    "rule": "MAX"
+  },
+  "artifact": {
+    "artifact_sha256": "ab7b1c8ef82035dc01005d8ac3ebaad379a77dd4bed743dbee5cae37b573186e",
+    "file_sha256": "dbcd08ebf5a80cabb0921868d27f1141b29fac5cfc438faccd11048b8a6046a7",
+    "path": "/mnt/e/PhD-Blockchain-AI/results/blockchain/v11d/v11d_governed_risk_artifact.json",
+    "record_count": 4588
+  },
+  "artifact_kind": "V11D3_GOVERNED_RISK_GENERATION_SUMMARY",
+  "classifier": {
+    "parameters": {
+      "class_weight": "balanced",
+      "max_depth": 5,
+      "min_samples_leaf": 20
+    },
+    "prediction_threshold": 0.5,
+    "primary": "decision_tree"
+  },
+  "feature_identity": {
+    "configuration_id": "HYBRID-K13",
+    "feature_list_sha256": "8be4b0818f6ca59a057ef91d47738fa692548a6ddbed983b4496c644296b906a",
+    "manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+    "mask_sha256": "d1cc8c8b8643ce5d5daff3bdb6ff4c74dab6b1d78069a7f0052bcda10cb68c62",
+    "ordered_features": [
+      "order_item_quantity",
+      "product_price",
+      "order_item_total",
+      "is_weekend",
+      "Type_DEBIT",
+      "Type_TRANSFER",
+      "Type_CASH",
+      "Market_LATAM",
+      "Market_Pacific Asia",
+      "Shipping Mode_First Class",
+      "Department Name_Golf",
+      "Department Name_Fitness",
+      "Department Name_Health and Beauty"
+    ]
+  },
+  "generated_at_utc": "2026-09-22T15:06:45Z",
+  "governance": {
+    "energy_governance_marker": "DIRECT_ENERGY_UNAVAILABLE",
+    "no_classifier_comparison": true,
+    "no_corpus_append": true,
+    "no_energy_claim": true,
+    "no_optimizer": true,
+    "no_threshold_tuning": true,
+    "no_v11e": true
+  },
+  "model_strategy": {
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "type": "FIXED_FIVE_SEED_MEAN_ENSEMBLE"
+  },
+  "partitions": {
+    "fit": "TRAIN",
+    "generation": "VALIDATION",
+    "input_view": "CLEAN_FROZEN_VALIDATION_FEATURES",
+    "train_rows": 28000,
+    "validation_orders": 4588,
+    "validation_rows": 6000
+  },
+  "protocol": {
+    "config_sha256": "ab26b776684b3c8df33a40c999f643171bebc01643ea35ce90320b829697fb67",
+    "d1_lock_semantic_sha256": "917ad246e85d5086d71f8d8850af6d145345589af956461165099434f812e3d3",
+    "document_sha256": "0d8a8ccb68a61d7b1483a2d96e491d83807e5e8ed56c0597664a4135da8b8907",
+    "v11c_mapping_semantic_sha256": "c992429b2165f18649d36b0339260d9a95e1ae8524d7dfd586a168504d3cc765"
+  },
+  "risk_distribution": {
+    "HIGH": 6,
+    "LOW": 0,
+    "MEDIUM": 4582,
+    "max": 0.684731174267102,
+    "mean": 0.45211085611888824,
+    "median": 0.4580310760651479,
+    "min": 0.34597979624635256
+  },
+  "stage": "V1.1-D3",
+  "starting_checkpoint_sha256": "7c24a9994a6c2669fd7fcdeec7b5ce4c39ce824f",
+  "summary_sha256": "d91c0102273a55379bc498d82323b670be523044f49de74c9f8234e8559afc6c",
+  "test_isolation": {
+    "test_access_count": 0,
+    "test_partition_open": false
+  }
+}
