@@ -1,0 +1,422 @@
+stage: "V1.1-A"
+kind: "SCIENTIFIC_PROTOCOL_LOCK"
+protocol_classification: "BLOCKCHAIN_LIGHTWEIGHT_PROTOCOL_LOCKED"
+
+stage_identity:
+  title: "Lightweight Blockchain Scientific Protocol and Architecture Lock"
+  purpose: >-
+    Design, formalize, and lock the scientific protocol and architecture for the lightweight,
+    order-centric blockchain component of the "Lightweight and Green Blockchain-AI Framework"
+    thesis. No blockchain engine, validation mechanism, or experiment is implemented or executed
+    in V1.1-A; this stage only freezes the protocol by which V1.1-B and later stages must be built
+    and evaluated.
+  implementation_excluded: true
+  experiment_execution_excluded: true
+
+upstream:
+  v10_superstage: "V1.0"
+  v10_close_stage: "V1.0-I"
+  v10_start_checkpoint_sha256: "813a49b93db3271a275097e44c947ba96a09f763"
+  v10_closed_immutable: true
+  hybrid_k13_immutable_in_v11: true
+  ai_winner_configuration: "HYBRID-K13"
+  ai_winner_selected_feature_count: 13
+  ai_feature_space_dimension: 43
+  ai_winner_feature_manifest_sha256: "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d"
+  ai_winner_mask_sha256: "d1cc8c8b8643ce5d5daff3bdb6ff4c74dab6b1d78069a7f0052bcda10cb68c62"
+  referenced_v10_semantic_locks:
+    v10d_hybrid_winner_lock: "1c258dc1a90ad78197d25e62bbc9fca24904cbcb77edafd24b12726059e49d84"
+    v10e_result_lock: "ffca0957006bff3115705f9dfb0334e13a27c9abbc502f2c9d04f784a28141e9"
+    v10f_resource_lock: "f714b4a95070ee26718b3b2f8dc2ed820c5c2dadb7c5fb58fa1c09f95505b412"
+    v10g_ablation_lock: "e33414d491d50676bfb5dfc926dbe4ada1a16931fa083a0e8b914958b99fc4de"
+  upstream_consumption_rule: >-
+    The blockchain component consumes frozen V1.0 outputs as READ-ONLY provenance references
+    (configuration identity and aggregate evidence only). It never re-runs, retrains, or mutates
+    any V1.0 artifact and never depends on per-row AI predictions because none exist in the frozen
+    V1.0 artifacts.
+
+scope:
+  blockchain_engine_implementation_allowed: false
+  blockchain_experiment_execution_allowed: false
+  adaptive_lightweight_validation_implementation_allowed: false
+  tampering_scenario_execution_allowed: false
+  ai_retraining_allowed: false
+  ai_model_reconstruction_allowed: false
+  v10_rerun_allowed: false
+  v10_artifacts_mutation_allowed: false
+  dataco_raw_read_allowed: false
+  dataco_raw_release_allowed: false
+  split_or_test_access_allowed: false
+  pow_required_allowed: false
+  mining_allowed: false
+  external_platform_required_allowed: false
+  cloud_or_distributed_compute_allowed: false
+
+architecture:
+  primary_classification: "ORDER_CENTRIC_PER_ORDER_LOGICAL_BLOCKCHAIN"
+  unit_of_chain: "order"
+  summary_layer: "OPTIONAL_LIGHTWEIGHT_GLOBAL_SUMMARY_ABSTRACTION"
+  summary_layer_mandatory: false
+  core_mandatory_components:
+    - chain_id (canonical Order Id)
+    - presented block schema
+    - deterministic genesis rule
+    - canonical serialization primitive
+    - SHA-256 hash-linked per-order chain
+    - authorized-validator lightweight validation policy
+    - adaptive lightweight validation (ALV) policy definition
+  summary_optional_components:
+    - lightweight hash-root index over completed per-order chains (none proposed in V1.0)
+  ordering_rule: "blocks are order-local; unrelated orders never appear in a shared block chain"
+  motivation: >-
+    Order-level chaining gives per-order traceability, tamper localization, and fault isolation,
+    keeps verification cost bounded per order, and allows independent per-order verification.
+    These are design motivations and testable hypotheses, not empirical superiority claims.
+
+dataco_semantics:
+  dataset_name: "DataCo SMART Supply Chain"
+  native_event_log: false
+  native_provenance_dag: false
+  honest_positioning: >-
+    DataCo is a historical, tabular supply-chain dataset, not a native blockchain event log.
+    V1.1 stages therefore classify every event and payload item as OBSERVED_ATTRIBUTE,
+    DETERMINISTICALLY_DERIVED, or RESEARCH_GENERATED and never present derived or synthetic items
+    as observed blockchain events.
+  classification_rule: "every event type and payload field carries exactly one provenance class"
+  observed_attributes: >-
+    Attributes recorded in the governed raw rows that are usable as recorded observations, e.g.
+    order date, shipping date, Delivery Status, Order Status, Type (payment/profile).
+  deterministically_derived: >-
+    Order lifecycle stages reconstructed from governed datetime columns with a fixed deterministic
+    rule (e.g., ORDER_CREATED from order date, SHIPMENT_RECORDED from shipping date). These are
+    derived representations of observed attributes, not native event logs.
+  research_generated: >-
+    Scenario-only artifacts produced for experiments, explicitly labeled, e.g. synthetic tampering
+    payloads and the synthetic per-order risk reference used to exercise adaptive validation.
+  never_claimed_as_observed: true
+
+order_identity:
+  canonical_field: "Order Id"
+  field_source: "governed raw DataCo column present in DATACO_IDENTIFIER_COLUMNS"
+  kaggle_to_canonical_rule: "Order Id -> order_id (34-column canonical preprocessing)"
+  item_line_field: "Order Item Id"
+  item_line_canonical_rule: "Order Item Id -> transaction_id"
+  normalization_rule: "canonical decimal integer string; no sign, no leading zeros"
+  serialization_rule: "quoted string inside canonical JSON"
+  multiple_rows_per_order: true
+  canonical_chain_key: "order_id"
+  unique_chain_per_order_rule: "exactly one logical chain per distinct canonical order_id in the governed workload sample"
+  order_level_aggregation_policy: >-
+    Order-level block payloads aggregate this order's item lines over canonical columns only.
+    Every aggregate is deterministic: item_count = number of lines; line digests computed over
+    each line's canonical payload, sorted by canonical transaction_id; order payload digest is the
+    nested hash over the ordered line digests.
+  use_of_v10_derived_order_features: >-
+    Train-derived order-level features (e.g. item_count_per_order, order_total_value) are V1.0
+    artifacts; they may appear inside research-generated payloads only with an explicit
+    provenance note and never as observed blockchain data.
+
+block_schema:
+  schema_version: "1"
+  fields:
+    schema_version: { type: "string", required: true, provenance: "PROTOCOL", purpose: "schema self-identification" }
+    order_id: { type: "string", required: true, provenance: "DETERMINISTICALLY_DERIVED", purpose: "canonical chain identity" }
+    block_index: { type: "integer", required: true, provenance: "DETERMINISTICALLY_DERIVED", purpose: "chain position, monotone" }
+    event_type: { type: "string", required: true, provenance: "DEPENDS_ON_EVENT_TYPE", purpose: "event taxonomy discriminator" }
+    event_timestamp: { type: "string", required: true, provenance: "OBSERVED_OR_DERIVED", purpose: "canonical ISO-8601 UTC" }
+    payload_digest: { type: "string", required: true, provenance: "DETERMINISTICALLY_DERIVED", purpose: "payload integrity" }
+    payload_ref: { type: "string", required: false, provenance: "DEPENDS_ON_EVENT_TYPE", purpose: "off-chain canonical payload locator" }
+    ai_risk_reference: { type: "object or null", required: false, provenance: "MODE_DEPENDENT", purpose: "provenance-locked AI risk record for adaptive validation (governed V1.1-D, or labeled research-generated synthetic)" }
+    validation_policy: { type: "string", required: true, provenance: "DETERMINISTICALLY_DERIVED", purpose: "AUTHORIZED_VALIDATOR_<variant>" }
+    previous_hash: { type: "string or null", required: true, provenance: "DETERMINISTICALLY_DERIVED", purpose: "hash-link to predecessor; null only in genesis" }
+    block_hash: { type: "string", required: true, provenance: "DETERMINISTICALLY_DERIVED", purpose: "self hash over block_without_block_hash" }
+  constraints:
+    block_index_nonnegative: true
+    block_index_0_is_genesis: true
+    block_index_monotone_per_order: true
+    event_timestamp_non_decreasing_per_order: true
+    previous_hash_null_only_index_0: true
+
+genesis:
+  rule: "deterministic, no random nonce"
+  index: 0
+  event_type: "ORDER_GENESIS"
+  previous_hash: "null"
+  content: "canonical JSON of {order_id, canonical order creation timestamp}"
+  self_hash: "H(canonical_serialization(block_without_block_hash))"
+
+events:
+  static_catalog: true
+  types:
+    ORDER_GENESIS: { provenance_class: "DERIVED", description: "anchor block, deterministic, from canonical order_id" }
+    ORDER_CREATED: { provenance_class: "DERIVED", description: "derived from governed order date column" }
+    SHIPMENT_RECORDED: { provenance_class: "DERIVED", description: "derived from governed shipping date column" }
+    DELIVERY_STATUS_RECORDED: { provenance_class: "OBSERVED", description: "recorded Delivery Status value (operational outcome, not an AI feature)" }
+    AI_RISK_ASSESSED: { provenance_class: "MODE_DEPENDENT", description: "references a provenance-locked per-order AI risk record (governed V1.1-D mode, or labeled research-generated synthetic); aggregate-only in V1.0" }
+  fixed_event_sequence_rule: >-
+    Each per-order chain appends static event types in frozen order
+    (ORDER_GENESIS, ORDER_CREATED, SHIPMENT_RECORDED, DELIVERY_STATUS_RECORDED, AI_RISK_ASSESSED);
+    stage clocks are order-coherent so event_timestamp is non-decreasing.
+
+canonical_serialization:
+  encoding: "utf-8"
+  function: "json.dumps"
+  sort_keys: true
+  separators: [",", ":"]
+  ensure_ascii: true
+  allow_nan: false
+  trailing_newline: false
+  float_rule: "finite Python floats round-trippable by json; NaN/Infinity forbidden"
+  temporal_rule: "timestamps are pre-serialized ISO-8601 UTC strings, never native datetime objects"
+  sentinel_rule: "null for absent/optional items (previous_hash in genesis)"
+  array_order_rule: "defined order preserved (e.g. sorted line digests by transaction_id)"
+  semantic_hash_rule: "SHA-256 over the canonical-serialized payload bytes (no trailing newline)"
+
+hash:
+  algorithm: "sha256"
+  integrity_only: true
+  not_encryption: true
+  confidentiality_claim_from_hash: false
+  preimage: "canonical_serialization(block_without_block_hash)"
+  preimage_excludes:
+    - "block_hash"
+  chain_linking_rule: >
+    block_with_block_hash.previous_hash == hash of directly preceding block in the same order chain;
+    links are strict, one per order chain.
+
+payload:
+  primary_strategy: "DIGEST_MINIMAL_METADATA"
+  on_chain: "payload_digest (block-level) and order-level aggregate digests only"
+  off_chain_repository: "frozen canonical payload archive keyed by payload_ref; authoritative source for re-verification"
+  tradeoff_statement: >-
+    Digest-only keeps blocks small and verification cost low, but re-verification of contents
+    requires the off-chain canonical archive. The archive is versioned and keyed; this is a
+    reproducibility choice, not a confidentiality mechanism.
+  full_payload_mode: "optional experiment-only variant for storage-size measurement"
+
+ai_integration:
+  contract: "AI-BLOCKCHAIN_frozen_reference_contract"
+  reads_frozen_only: true
+  no_retraining: true
+  no_feature_reselection: true
+  no_optimizer_execution: true
+  no_test_based_threshold_tuning: true
+  frozen_ai_reference:
+    stage: "V1.0-E"
+    configuration_id: "HYBRID-K13"
+    classifiers: ["decision_tree", "logistic_regression"]
+    feature_space_dimension: 43
+    selected_feature_count: 13
+    feature_manifest_sha256: "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d"
+    evidence_kind: "aggregate frozen final-test metrics (average precision, F1, recall); no persisted per-order AI risk predictions"
+  per_order_risk_existence_in_v10_frozen_artifacts: false
+  risk_input_modes:
+    GOVERNED_AI_RISK:
+      classification: "A"
+      role: "PRIMARY"
+      intent: "intended primary AI-Blockchain integration mode"
+      research_generated: false
+      production_rule: >-
+        Produced in a later authorized governed stage (V1.1-D) from the frozen V1.0 AI
+        configuration. HYBRID-K13 remains immutable; no feature reselection, no optimizer
+        execution, no TEST-based threshold tuning. Per-order risk records are persisted,
+        provenance-locked (record digest + stage fingerprint) before any ALV experiment consumes
+        them. Whether retraining is needed is a separate governed decision; the contract does not
+        presume it.
+    SYNTHETIC_RISK:
+      classification: "B"
+      role: "SIMULATION_ABLATION_TESTING_ONLY"
+      intent: "explicitly simulation/ablation/testing only"
+      research_generated: true
+      generation_rule: "deterministic SHA-256 over canonical order_id normalized to [0,1]"
+      rules:
+        - "never presented as an AI prediction"
+        - "never the sole evidence for the thesis claim that AI adaptively controls blockchain validation"
+        - "permitted for functional tests, stress tests, controlled ablation, and validation-path coverage"
+  per_order_risk_record_contract:
+    fields:
+      order_id: { type: "string", description: "canonical order identity" }
+      risk_score: { type: "float in [0,1]", description: "risk score" }
+      risk_level: { type: "LOW|MEDIUM|HIGH", description: "mapped risk band" }
+      model_configuration_provenance: { type: "string", description: "AI configuration identity (HYBRID-K13 classifiers)" }
+      hybrid_k13_provenance: { type: "string", description: "feature manifest + mask + V1.0 semantic lock digests" }
+      generation_stage_provenance: { type: "string", description: "stage that generated the record (GOVERNED_AI_RISK -> V1.1-D; SYNTHETIC_RISK -> labeled research-generated)" }
+      record_digest: { type: "string", description: "SHA-256 over canonical serialization of the six preceding fields" }
+    lock_before_use: "a governed stage fingerprint over the persisted artifact must be recorded before ALV consumption"
+    unlocked_consumption_forbidden: true
+  risk_generation_vs_mapping_vs_validation:
+    risk_score_generation: "produces order_id-level risk_score; provenance depends on mode (governed in V1.1-D, or labeled research-generated synthetic)"
+    risk_level_mapping: "deterministic frozen mapping from risk_score to risk_level; preregistered here and independent of generation mode"
+    blockchain_validation_policy: "ALV maps risk_level to check set + validator count; the policy is frozen and independent of generation mode"
+  risk_band_from_score: "score < 0.3333 -> LOW; 0.3333 <= score < 0.6667 -> MEDIUM; >= 0.6667 -> HIGH"
+  threshold_preregistration: >-
+    LOW/MEDIUM/HIGH thresholds are preregistered and frozen here, before any ALV evaluation. They
+    must not be tuned using final TEST outcomes or any validation outcome.
+
+threat_model:
+  perspective: "off-chain malicious or unlucky actor; no full node compromise assumptions"
+  scenarios:
+    PA_01: { name: "payload modification", detection: "payload_digest mismatch at affected block", localization: "affected block chain index" }
+    PA_02: { name: "block deletion", detection: "prev_hash mismatch or index gap", localization: "first affected block" }
+    PA_03: { name: "block insertion", detection: "prev_hash mismatch or index gap", localization: "insertion point" }
+    PA_04: { name: "previous-hash modification", detection: "block_hash recomputation mismatch", localization: "modified block" }
+    PA_05: { name: "order-id modification", detection: "canonical order_id prefix of index-0 genesis mismatch", localization: "order chain" }
+    PA_06: { name: "AI-risk record modification", detection: "ai_risk_reference digest verification failure", localization: "affected block/order" }
+    PA_07: { name: "chain truncation", detection: "on-chain declared block_count vs chained reach", localization: "truncation point" }
+    PA_08: { name: "cross-order substitution", detection: "per-order chain identity checks (company-wide batch verification)", localization: "substituted chain" }
+    PA_09: { name: "cross-order replay", detection: "event timestamp/order coherence + per-order uniqueness checks", localization: "replayed block" }
+  tampering_execution_rule: "attacks are run only on generated experiment copies, never on frozen V1.0 artifacts"
+
+security_properties:
+  demonstrated_scope:
+    - "integrity (tamper evidence via chained hashes)"
+    - "deterministic verification"
+    - "traceability (per-order event order)" 
+    - "order-level fault isolation"
+    - "AI-result provenance linkage (frozen reference digest)"
+  explicitly_not_claimed:
+    - "confidentiality"
+    - "anonymity / privacy"
+    - "decentralization"
+    - "BFT consensus"
+    - "non-repudiation"
+    - "legal immutability"
+
+terminology:
+  preferred: ["lightweight research prototype", "hash-linked order ledger", "blockchain-inspired integrity layer", "per-order logical chain"]
+  avoided: ["full blockchain network", "mining layer", "consensus under adversarial nodes"]
+
+validation:
+  mode: "AUTHORIZED_VALIDATOR_LIGHTWEIGHT"
+  core_checks:
+    c1: "schema conformance"
+    c2: "self block_hash recomputation"
+    c3: "previous_hash linkage"
+    c4: "event timestamp non-decreasing per order"
+    c5: "order_integrity (canonical order_id chain prefix match)"
+    c6: "ai_risk_reference present for AI-linked event blocks"
+    c7: "ai_risk_reference digest re-verification"
+    c8: "chain prefix re-verification (prior blocks hash recheck)"
+  baseline_acceptance: "all applied checks pass; deterministic verdict list; no probabilistic acceptance"
+
+adaptive_lightweight_validation:
+  name: "ADAPTIVE_LIGHTWEIGHT_VALIDATION"
+  short_name: "ALV"
+  risk_mode_policy: >-
+    The active risk-input mode (GOVERNED_AI_RISK or SYNTHETIC_RISK) determines the provenance of
+    the per-order risk record only. The risk_level mapping and the band-to-checks validation policy
+    below are identical regardless of mode. The principal evidence for AI-driven ALV behavior is
+    always GOVERNED_AI_RISK; SYNTHETIC_RISK is simulation/ablation/testing only.
+  band_to_checks:
+    LOW:    { checks: ["c1", "c2", "c3", "c4"], validator_count: 1 }
+    MEDIUM: { checks: ["c1", "c2", "c3", "c4", "c5", "c6"], validator_count: 1 }
+    HIGH:   { checks: ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"], validator_count: 3 }
+  fail_safe: "missing or malformed risk reference escalates the block to MEDIUM validation"
+  tie_handling: "validators are deterministic; differing verdict inputs are impossible; on any input discrepancy the block is REJECTED with reason"
+  attack_condition: "validators perform their applied checks over the block; a failing check rejects the block and localizes the fault"
+
+baselines:
+  registered:
+    B0: "fixed single authorized validator; checks c1..c4 on every block"
+    B1: "fixed stronger validation; quorum of 3 deterministic authorized validators on every block"
+    P:  "proposed ALV; band-specific check sets and validator counts"
+  fairness_rule: >
+    All baselines evaluate the identical workload, serialization, hash scheme, block schema,
+    attack instances, machine, seeds, and measurement procedure; only the validation policy differs.
+
+experiments_preregistered:
+  synthetic_risk_uses: "SYNTHETIC_RISK is permitted for functional tests, stress tests, controlled ablation, and validation-path coverage only"
+  synthetic_risk_forbidden_uses: "SYNTHETIC_RISK must never be the sole evidence for the thesis claim that AI adaptively controls blockchain validation"
+  E01_functional_correctness: { status: "CANDIDATE_SCENARIO", risk_modes_allowed: ["GOVERNED_AI_RISK", "SYNTHETIC_RISK"] }
+  E02_integrity_tamper_detection: { status: "CANDIDATE_SCENARIO", risk_modes_allowed: ["GOVERNED_AI_RISK", "SYNTHETIC_RISK"] }
+  E03_tamper_localization: { status: "CANDIDATE_SCENARIO", risk_modes_allowed: ["GOVERNED_AI_RISK", "SYNTHETIC_RISK"] }
+  E04_order_level_fault_isolation: { status: "CANDIDATE_SCENARIO", risk_modes_allowed: ["GOVERNED_AI_RISK", "SYNTHETIC_RISK"] }
+  E05_ai_linked_adaptive_behavior:
+    status: "CANDIDATE_SCENARIO"
+    principal_evidence_mode: "GOVERNED_AI_RISK"
+    principal_evidence_rule: >-
+      The principal AI-driven ALV experiment requires GOVERNED_AI_RISK (produced, persisted and
+      provenance-locked in V1.1-D before consumption by the principal ALV experiment in V1.1-E).
+      SYNTHETIC_RISK may support functional and
+      stress pre-checks but must never be the sole evidence for this experiment's conclusion.
+    synthetic_as_sole_evidence: false
+  E06_execution_time_overhead: { status: "CANDIDATE_SCENARIO", risk_modes_allowed: ["GOVERNED_AI_RISK", "SYNTHETIC_RISK"] }
+  E07_memory_overhead: { status: "CANDIDATE_SCENARIO", risk_modes_allowed: ["GOVERNED_AI_RISK", "SYNTHETIC_RISK"] }
+  E08_storage_overhead: { status: "CANDIDATE_SCENARIO", risk_modes_allowed: ["GOVERNED_AI_RISK", "SYNTHETIC_RISK"] }
+  E09_throughput: { status: "CANDIDATE_SCENARIO", risk_modes_allowed: ["GOVERNED_AI_RISK", "SYNTHETIC_RISK"] }
+  E10_resource_and_green_proxy: { status: "CANDIDATE_SCENARIO", risk_modes_allowed: ["GOVERNED_AI_RISK", "SYNTHETIC_RISK"] }
+  none_executed_in_v11a: true
+
+metrics:
+  functional: ["verification_pass_rate", "detection_rate", "localization_rate", "fault_isolation_rate"]
+  performance: ["wall_time_per_order_chain", "memory_footprint_mib", "storage_bytes_per_block", "blocks_per_second"]
+  adaptive: ["validation_level_distribution", "validated_checks_per_block", "quorum_frequency"]
+  green: ["computational_proxy_checks_per_block", "normalized_resource_proxy_vs_baselines"]
+  proxy_rule: "CPU/wall time and resource counts are proxies only; never labeled or inferred as measured Joules"
+
+workloads:
+  basis: "governed 40000-row canonical sample (frozen, order_grouped split); workloads sampled deterministically by canonical order_id"
+  justification: >-
+    Raw DataCo has ~180,519 rows / ~65,752 orders (~2.75 item lines per order). The governed cap
+    keeps 40,000 rows, implying on the order of 14,000-15,000 unique orders, so the largest
+    workload (2500 orders) stays comfortably within the governed sample and the chain construction
+    is reproduced from the frozen canonical sample only.
+  order_counts: [100, 250, 500, 1000, 2500]
+  repetitions: 3
+  sampling_rule: "deterministic selection of canonical order ids via canonical seed"
+
+seeds:
+  blockchain_seed_family: [522, 523, 524]
+  seed_scope: "order sampling, synthetic risk scores, per-order chain construction"
+  reproducibility_note: "seeds are integers; SHA-256-based synthetic derivation is platform-independent"
+  forbidden_overlap_with_prior_families: true
+  recorded_prior_families: [[42, 43, 44, 45, 46], [1042, 1043, 1044, 1045, 1046], [2042, 2043, 2044, 2045, 2046], [3042, 3043, 3044, 3045, 3046]]
+
+energy_policy:
+  direct_energy_policy: "direct physical energy measurement unavailable"
+  fallback_marker: "DIRECT_ENERGY_UNAVAILABLE"
+  forbidden_inference:
+    - "TDP-times-time"
+    - "measured Joules claim"
+    - "measured energy reduction claim"
+  permitted_terms: ["computational proxy", "resource proxy", "lightweight", "green-computing-relevance framing"]
+
+implementation_constraints:
+  language: "local Python 3.12"
+  external_platforms: "none (no Ethereum, Fabric, Solidity, Docker, cloud, or mining)"
+  thread_policy: "reproducibility threads = 1 where applicable"
+  upstream_consumption: "read-only frozen V1.0 artifacts"
+
+future_boundaries:
+  stage_map:
+    "V1.1-A": "Blockchain Protocol & Architecture Lock"
+    "V1.1-B": "Core Lightweight Blockchain Engine Implementation"
+    "V1.1-C": "DataCo Order/Event Mapping and Blockchain Construction"
+    "V1.1-D": "Governed Per-Order AI Risk Artifact and Frozen-AI Integration"
+    "V1.1-E": "AI-Driven Adaptive Lightweight Validation and Integrity/Tampering Experiments"
+    "V1.1-F": "Resource-Efficiency / Green Evaluation"
+    "V1.1-G": "Final Blockchain Scientific Analysis and Notebook"
+  v11b: "implement the core lightweight blockchain engine and frozen policies (canonical serialization, hashing, block schema, chaining); no risk artifact generation"
+  v11c: "map governed DataCo orders to canonical order_id chains and construct the per-order blockchains deterministically"
+  v11d: >-
+    produce the governed per-order AI risk artifact (GOVERNED_AI_RISK) from the frozen V1.0 AI
+    configuration, then persist and provenance-lock it (record digest + stage fingerprint) and
+    freeze it BEFORE any later stage consumes it. HYBRID-K13 is unchanged and immutable; whether
+    retraining is needed is a separate governed decision that the contract does not presume.
+  v11e: >-
+    principal AI-driven ALV evaluation and the integrity/tampering experiments consume the frozen
+    GOVERNED_AI_RISK artifact produced and locked in V1.1-D; consumption is forbidden without that
+    provenance/lock. SYNTHETIC_RISK is restricted to functional, stress, ablation, and
+    validation-path-coverage runs.
+  v11f: "resource-efficiency / green evaluation under computational-proxy rules and green wording"
+  v11g: "final blockchain scientific analysis and synthesis notebook (read-only over results/)"
+  claim_boundary: "no empirical claims from V1.1-A; ALV superiority only from the controlled V1.1-E experiments with registered baselines and GOVERNED_AI_RISK principal evidence"
+
+governed_sources:
+  provenance: "src/config.py (GLOBAL_SEED=42, DATACO_MAX_ROWS=40000, split ratios, leakage keys, canonical column mapping)"
+  feature_space: "src/pipeline_v09g.py FEATURE_SPACE_SIZE=43"
+  dataset_dictionary: "docs/data_dictionary.md (Late_delivery_risk is operational; no cyber labels)"
+  protocol_conventions: "docs/v10_hybrid_bpso_bgwo_protocol.md and config/hybrid_v10.yaml (hash/lock conventions)"
+  winner_evidence: "results/hybrid/v10d/v10d_winner_lock.json"
+  final_test_evidence: "results/hybrid/v10e/v10e_result_lock.json"
+  seed_families_frozen: "config/hybrid_v10.yaml"

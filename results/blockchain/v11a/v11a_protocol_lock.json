@@ -1,0 +1,86 @@
+{
+  "artifact_kind": "V11A_PROTOCOL_LOCK",
+  "execution_metadata": {
+    "experiment_status": "NOT_EXECUTED",
+    "generated_at_utc": "2026-09-22T06:48:58Z",
+    "head_origin_main": "813a49b93db3271a275097e44c947ba96a09f763",
+    "implementation_status": "NOT_IMPLEMENTED"
+  },
+  "semantic_payload": {
+    "artifact_fingerprints": {
+      "protocol_config": "config/blockchain_v11.yaml",
+      "protocol_config_sha256": "3b42e767b8101213896681e386dad2b5afa6a71016db5c960f1b27e301c44d9b",
+      "protocol_document": "docs/v11_blockchain_protocol.md",
+      "protocol_document_sha256": "5e450b5662556f2ffa8406bcb59a422acb45456286d054a25ab96e3bb11a44b4"
+    },
+    "artifact_kind": "V11A_PROTOCOL_LOCK",
+    "protocol_classification": "BLOCKCHAIN_LIGHTWEIGHT_PROTOCOL_LOCKED",
+    "protocol_identity": {
+      "ai_risk_input_modes": [
+        "GOVERNED_AI_RISK",
+        "SYNTHETIC_RISK"
+      ],
+      "architecture": "ORDER_CENTRIC_PER_ORDER_LOGICAL_BLOCKCHAIN",
+      "governed_risk_artifact_stage": "V1.1-D",
+      "primary_ai_risk_mode": "GOVERNED_AI_RISK",
+      "principal_alv_experiment_stage": "V1.1-E",
+      "proposed_mechanism": "ADAPTIVE_LIGHTWEIGHT_VALIDATION_ALV",
+      "summary_layer": "OPTIONAL_LIGHTWEIGHT_GLOBAL_SUMMARY_ABSTRACTION",
+      "validation_mode": "AUTHORIZED_VALIDATOR_LIGHTWEIGHT"
+    },
+    "revision": "STAGE_BOUNDARY_CORRECTION_1",
+    "revision_decisions": {
+      "governed_risk_artifact_locked_in_v11d": true,
+      "main_ai_alv_requires_governed_risk": true,
+      "principal_alv_experiment_in_v11e": true,
+      "synthetic_never_ai_prediction": true,
+      "synthetic_not_sole_evidence_for_ai_alv_claim": true,
+      "thresholds_preregistered": true,
+      "v11e_consumption_requires_v11d_lock": true
+    },
+    "schema_version": "v1.1-a-blockchain-protocol-lock-3",
+    "stage": "V1.1-A",
+    "stage_boundaries": {
+      "V1.1-A": "Blockchain Protocol & Architecture Lock",
+      "V1.1-B": "Core Lightweight Blockchain Engine Implementation",
+      "V1.1-C": "DataCo Order/Event Mapping and Blockchain Construction",
+      "V1.1-D": "Governed Per-Order AI Risk Artifact and Frozen-AI Integration",
+      "V1.1-E": "AI-Driven Adaptive Lightweight Validation and Integrity/Tampering Experiments",
+      "V1.1-F": "Resource-Efficiency / Green Evaluation",
+      "V1.1-G": "Final Blockchain Scientific Analysis and Notebook"
+    },
+    "starting_checkpoint": "813a49b93db3271a275097e44c947ba96a09f763",
+    "upstream_v10": {
+      "close_stage": "V1.0-I",
+      "feature_space_dimension": 43,
+      "frozen_baselines": [
+        "B0",
+        "B1",
+        "P"
+      ],
+      "hybrid_k13_immutable_in_v11": true,
+      "registered_experiments": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10"
+      ],
+      "selected_feature_count": 13,
+      "v10d_winner_lock_sha256": "1c258dc1a90ad78197d25e62bbc9fca24904cbcb77edafd24b12726059e49d84",
+      "v10e_result_lock_sha256": "ffca0957006bff3115705f9dfb0334e13a27c9abbc502f2c9d04f784a28141e9",
+      "v10f_resource_lock_sha256": "f714b4a95070ee26718b3b2f8dc2ed820c5c2dadb7c5fb58fa1c09f95505b412",
+      "v10g_ablation_lock_sha256": "e33414d491d50676bfb5dfc926dbe4ada1a16931fa083a0e8b914958b99fc4de",
+      "winner_configuration": "HYBRID-K13",
+      "winner_feature_manifest_sha256": "5146fd08fe766979adaf443bf9f4f7d32ee3c94cfdaf0fd46ec0efd10e92a10d",
+      "winner_mask_sha256": "d1cc8c8b8643ce5d5daff3bdb6ff4c74dab6b1d78069a7f0052bcda10cb68c62"
+    }
+  },
+  "semantic_result_lock_sha256": "aaf3ac3139e8296fb7f976a8a7ed9f18eb317af2f73b10cd0208b6bb870ebd8d",
+  "stage": "V1.1-A"
+}
