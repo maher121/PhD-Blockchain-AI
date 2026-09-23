@@ -70,6 +70,12 @@ KIND = "V11E3_EXPERIMENT_RUNNER_MACHINERY"
 PROTOCOL_VERSION = "v1.1-e3-governed-experiment-runner-machinery-1"
 EXPECTED_HEAD = "b1ff42e9b2e71cce9e829261b2cd0f8a8a79a3a0"
 E3_MARKER = "V11E3_EXPERIMENT_RUNNER_MACHINERY_READY_REVIEW_REQUIRED"
+E4_AUTHORIZED_HEAD = "90c9d7e935d95b6226029fe2be1aeace1358e9ad"
+E4A_BLOCKERS_RESOLVED_MARKER = "V11E4A_BLOCKERS_RESOLVED_REVIEW_REQUIRED"
+E10_DERIVED_ONLY_MSG = (
+    "E10 is DERIVED ONLY: derive_e10_resource_green_proxy requires cached E06-E09 "
+    "cell outputs and must never re-run measurement campaigns."
+)
 
 E2_PROTOCOL_LOCK_SEMANTIC_SHA256 = (
     "8047fbe356c964e26f7acdcde930a1e2a6734026ea303b56334498ffa295f239"
@@ -953,7 +959,7 @@ def run_e01_functional_correctness(
     for oid in canonical_ids:
         blocks = tuple(chains[oid])
         head = blocks[-1]
-        result = validate_under_policy(context.policy, head, blocks, oid)
+        result, timing = time_policy_validation(context.policy, head, blocks, oid)
         if result.accepted:
             valid += 1
         else:
@@ -967,8 +973,8 @@ def run_e01_functional_correctness(
                 blocks=len(blocks),
                 risk_counts=workload_rc,
                 validation_outcome=result.accepted,
-                wall_time_ns=0,
-                cpu_time_ns=0,
+                wall_time_ns=int(timing.wall_ns),
+                cpu_time_ns=int(timing.cpu_ns),
                 validation_check_count=ops["validation_check_count"],
                 validator_invocation_count=ops["validator_invocation_count"],
                 hash_operation_count=ops["hash_operation_count"],
@@ -987,6 +993,7 @@ def run_e01_functional_correctness(
             "context": context.as_mapping(),
             "primary": primary,
             "raw_records": records,
+            "timing_role": "SECONDARY_DESCRIPTIVE",
             "energy_marker": ENERGY_MARKER,
             "semantic_sha256": sha256_hex(
                 {
@@ -1012,7 +1019,7 @@ def run_e02_tamper_detection(
         instance = attack_instances[scenario_id]
         tampered = instance.tampered_blocks
         head = tampered[-1]
-        result = validate_under_policy(context.policy, head, tampered, instance.target_order_id)
+        result, timing = time_policy_validation(context.policy, head, tampered, instance.target_order_id)
         detected = not result.accepted
         ops = deterministic_operation_counts(result, tampered)
         raw_records.append(
@@ -1024,6 +1031,8 @@ def run_e02_tamper_detection(
                 validation_outcome=result.accepted,
                 detection_outcome=bool(detected),
                 storage_bytes=canonical_storage_bytes(tampered),
+                wall_time_ns=int(timing.wall_ns),
+                cpu_time_ns=int(timing.cpu_ns),
                 validation_check_count=ops["validation_check_count"],
                 validator_invocation_count=ops["validator_invocation_count"],
                 hash_operation_count=ops["hash_operation_count"],
@@ -1045,6 +1054,7 @@ def run_e02_tamper_detection(
                 "denominator": len(raw_records),
             },
             "raw_records": raw_records,
+            "timing_role": "SECONDARY_DESCRIPTIVE",
             "energy_marker": ENERGY_MARKER,
             "semantic_sha256": sha256_hex(
                 {
@@ -1071,7 +1081,7 @@ def run_e03_localization(
         instance = attack_instances[scenario_id]
         tampered = instance.tampered_blocks
         head = tampered[-1]
-        result = validate_under_policy(context.policy, head, tampered, instance.target_order_id)
+        result, timing = time_policy_validation(context.policy, head, tampered, instance.target_order_id)
         detected = not result.accepted
         ops = deterministic_operation_counts(result, tampered)
         outcome = e1.detect_tamper(
@@ -1101,6 +1111,8 @@ def run_e03_localization(
                 validation_outcome=result.accepted,
                 detection_outcome=bool(detected),
                 localization_outcome=localization,
+                wall_time_ns=int(timing.wall_ns),
+                cpu_time_ns=int(timing.cpu_ns),
                 validation_check_count=ops["validation_check_count"],
                 validator_invocation_count=ops["validator_invocation_count"],
                 hash_operation_count=ops["hash_operation_count"],
@@ -1117,6 +1129,7 @@ def run_e03_localization(
                 "denominator": len(raw_records),
             },
             "raw_records": raw_records,
+            "timing_role": "SECONDARY_DESCRIPTIVE",
             "energy_marker": ENERGY_MARKER,
             "semantic_sha256": sha256_hex(
                 {
@@ -1146,10 +1159,14 @@ def run_e04_order_level_fault_isolation(
         unaffected = sorted(canonical_ids - affected)
         preserved = 0
         propagated = 0
+        wall_ns_sum = 0
+        cpu_ns_sum = 0
         for oid in unaffected:
             blocks = tuple(chains[oid])
             head = blocks[-1]
-            result = validate_under_policy(context.policy, head, blocks, oid)
+            result, timing = time_policy_validation(context.policy, head, blocks, oid)
+            wall_ns_sum += timing.wall_ns
+            cpu_ns_sum += timing.cpu_ns
             if result.accepted:
                 preserved += 1
             else:
@@ -1170,6 +1187,8 @@ def run_e04_order_level_fault_isolation(
                     "cross_order_propagation_count": propagated,
                     "unaffected_order_count": denominator,
                 },
+                wall_time_ns=int(wall_ns_sum),
+                cpu_time_ns=int(cpu_ns_sum),
                 validation_check_count=NA,
                 validator_invocation_count=NA,
                 hash_operation_count=NA,
@@ -1189,6 +1208,7 @@ def run_e04_order_level_fault_isolation(
                 "denominator": rate["denominator"],
             },
             "raw_records": raw_records,
+            "timing_role": "SECONDARY_DESCRIPTIVE",
             "energy_marker": ENERGY_MARKER,
             "semantic_sha256": sha256_hex(
                 {
@@ -1225,7 +1245,7 @@ def run_e05_ai_linked_adaptive_behavior(
         head = blocks[-1]
         record = governed_records.get(oid)
         governed_level = record["risk_level"] if record else e1.route_risk_levels([e1.synthetic_governed_record(oid, 0.5)])["MEDIUM"]
-        result = validate_under_policy("P", head, blocks, oid)
+        result, timing = time_policy_validation("P", head, blocks, oid)
         ops = deterministic_operation_counts(result, blocks)
         level_dist[governed_level] += 1
         allocation_by_level[governed_level]["validation_checks"] += len(result.applied_checks)
@@ -1237,8 +1257,8 @@ def run_e05_ai_linked_adaptive_behavior(
                 blocks=len(blocks),
                 risk_counts=workload_rc,
                 validation_outcome=result.accepted,
-                wall_time_ns=0,
-                cpu_time_ns=0,
+                wall_time_ns=int(timing.wall_ns),
+                cpu_time_ns=int(timing.cpu_ns),
                 validation_check_count=ops["validation_check_count"],
                 validator_invocation_count=ops["validator_invocation_count"],
                 hash_operation_count=ops["hash_operation_count"],
@@ -1277,6 +1297,7 @@ def run_e05_ai_linked_adaptive_behavior(
             },
             "matched_reference": matched,
             "raw_records": raw_records,
+            "timing_role": "SECONDARY_DESCRIPTIVE",
             "integrity_detection": "NO",
             "energy_marker": ENERGY_MARKER,
             "semantic_sha256": sha256_hex(
@@ -1332,6 +1353,7 @@ def run_e06_execution_time_overhead(
             },
             "raw_records": raw_records,
             "timing_principal": True,
+            "timing_role": "PRINCIPAL",
             "energy_marker": ENERGY_MARKER,
             "semantic_sha256": sha256_hex(
                 {
@@ -1485,6 +1507,40 @@ def run_e09_throughput(
     ]
 
 
+def _require_cache_cell(cell: Mapping[str, Any], experiment: str, keys: Sequence[str]) -> None:
+    """Fail closed if a cached E06-E09 output is absent, mislabeled, or partial."""
+    if not isinstance(cell, Mapping) or not cell:
+        raise V11E3Error(
+            f"E10 derivation requires cached {experiment} results; got {type(cell).__name__}"
+        )
+    if cell.get("experiment") != experiment:
+        raise V11E3Error(
+            f"E10 derivation received {cell.get('experiment')!r}; requires {experiment}"
+        )
+    missing = [key for key in keys if key not in cell]
+    if missing:
+        raise V11E3Error(f"E10 derivation: {experiment} cache missing fields {sorted(missing)}")
+
+
+def _require_cache_primary(cell: Mapping[str, Any], key: str, kind: str = "scalar") -> None:
+    primary = cell.get("primary")
+    if not isinstance(primary, Mapping) or key not in primary:
+        raise V11E3Error(
+            f"E10 derivation: cached {cell.get('experiment')} missing primary field {key!r}"
+        )
+    value = primary[key]
+    if kind == "mapping":
+        if not isinstance(value, Mapping) or not value:
+            raise V11E3Error(
+                f"E10 derivation: cached {cell.get('experiment')} {key!r} is not a non-empty summary"
+            )
+        return
+    if value is not None and not isinstance(value, (int, float)):
+        raise V11E3Error(
+            f"E10 derivation: cached {cell.get('experiment')} {key!r} is not numeric"
+        )
+
+
 def derive_e10_resource_green_proxy(
     e06_results: Mapping[str, Any],
     e07_results: Mapping[str, Any],
@@ -1492,21 +1548,30 @@ def derive_e10_resource_green_proxy(
     e09_results: Mapping[str, Any],
     context: ExperimentContext,
 ) -> dict[str, Any]:
-    """E10: derived ONLY from E06-E09 + deterministic operation counts.
+    """E10: derived ONLY from cached E06-E09 outputs + deterministic op counts.
 
-    Does NOT launch a fourth independent performance campaign. The output is
-    computational/proxy evidence only; DIRECT_ENERGY_UNAVAILABLE is mandatory
-    and no Joules/Wh/TDP×time/physical energy savings are ever reported.
+    Never invokes any measurement runner, timing harness, tracemalloc worker,
+    or storage campaign. If the required cached E06-E09 results are absent or
+    incomplete it FAILS CLOSED rather than silently regenerating them.
     """
-    check_count = sum(
-        int(r["validation_check_count"]) for r in e06_results.get("raw_records", [])
-    )
-    validator_count = sum(
-        int(r["validator_invocation_count"]) for r in e06_results.get("raw_records", [])
-    )
-    hash_count = sum(
-        int(r["hash_operation_count"]) for r in e06_results.get("raw_records", [])
-    )
+    _require_cache_cell(e06_results, "E06", ("experiment", "primary", "raw_records"))
+    _require_cache_cell(e07_results, "E07", ("experiment", "primary"))
+    _require_cache_cell(e08_results, "E08", ("experiment", "primary"))
+    _require_cache_cell(e09_results, "E09", ("experiment", "primary"))
+    _require_cache_primary(e06_results, "validation_only_wall_clock_runtime_ns", kind="mapping")
+    _require_cache_primary(e07_results, "peak_traced_python_allocation_during_validation_mib", kind="mapping")
+    _require_cache_primary(e08_results, "canonical_serialized_blockchain_bytes_per_workload", kind="scalar")
+    _require_cache_primary(e09_results, "validated_orders_per_second", kind="scalar")
+    all_records = e06_results.get("raw_records")
+    if not isinstance(all_records, list) or not all_records:
+        raise V11E3Error("E10 derivation: E06 cache raw_records empty or invalid")
+    for record in all_records:
+        for key in ("validation_check_count", "validator_invocation_count", "hash_operation_count"):
+            if not isinstance(record.get(key), int):
+                raise V11E3Error(f"E10 derivation: E06 cache raw record missing int field {key!r}")
+    check_count = sum(int(r["validation_check_count"]) for r in all_records)
+    validator_count = sum(int(r["validator_invocation_count"]) for r in all_records)
+    hash_count = sum(int(r["hash_operation_count"]) for r in all_records)
     return {
         "experiment": "E10",
         "context": context.as_mapping(),
@@ -1587,11 +1652,7 @@ def run_ordered_experiments(
     if eid == "E09":
         return run_e09_throughput(context, chains, governed_records or None)
     if eid == "E10":
-        e06 = run_e06_execution_time_overhead(context, chains, governed_records or None)[0]
-        e07 = run_e07_memory_overhead(context, chains, governed_records or None)[0]
-        e08 = run_e08_storage_overhead(context, chains)
-        e09 = run_e09_throughput(context, chains, governed_records or None)[0]
-        return [derive_e10_resource_green_proxy(e06, e07, e08, e09, context)]
+        raise V11E3Error(E10_DERIVED_ONLY_MSG)
     raise V11E3Error(f"unknown experiment id {eid!r}")
 
 
@@ -1652,6 +1713,68 @@ def _sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def live_governed_artifact_gate() -> dict[str, Any]:
+    """Read-only live re-verification of the governed V1.1-D3 artifact/population.
+
+    Reuses the frozen V1.1-E1 integration preflight in its documented post-stage
+    mode (``checkpoint_guard=False``): the historical E1 stage guard pinned its
+    own starting checkpoint, while E4-runtime head authorization is enforced
+    separately against the E4 authorized checkpoint. Fails closed on any drift
+    of the population size, risk bands, or record-digest reverification.
+    """
+    upstream = e1.run_v11e1_preflight(checkpoint_guard=False)
+    return {
+        "governed_records": upstream.artifact_record_count,
+        "low": upstream.low,
+        "medium": upstream.medium,
+        "high": upstream.high,
+        "verified_record_digests": upstream.verified_record_digests,
+        "d1_lock_semantic_sha256": upstream.d1_lock_semantic_sha256,
+        "v11c_lock_semantic_sha256": upstream.v11c_lock_semantic_sha256,
+        "d3_result_lock_semantic_sha256": upstream.d3_result_lock_semantic_sha256,
+        "artifact_semantic_sha256": upstream.artifact_semantic_sha256,
+        "artifact_disk_sha256": upstream.artifact_file_sha256,
+        "summary_semantic_sha256": upstream.summary_semantic_sha256,
+        "summary_disk_sha256": upstream.summary_file_sha256,
+        "test_access_count": upstream.test_access_count,
+    }
+
+
+def verify_e4_runtime_head_guard() -> dict[str, str]:
+    """E4-runtime authorization: current HEAD == origin/main == E4 checkpoint.
+
+    Distinct from the historical E3 stage guard (which pins the E3 starting
+    checkpoint). Fails closed on any drift.
+    """
+    head = _git_rev("HEAD")
+    origin_main = _git_rev("origin/main")
+    if head != E4_AUTHORIZED_HEAD or origin_main != E4_AUTHORIZED_HEAD:
+        raise V11E3PreflightError(
+            "E4 runtime guard failed: HEAD/origin drifted from the E4 authorized checkpoint."
+        )
+    return {
+        "head": head,
+        "origin_main": origin_main,
+        "authorized_head": E4_AUTHORIZED_HEAD,
+    }
+
+
+def run_v11e4_runtime_preflight() -> dict[str, Any]:
+    """E4-runtime readiness: authorized HEAD/origin + full fail-closed gates.
+
+    Combines the E4 runtime head guard against ``E4_AUTHORIZED_HEAD`` with the
+    historical E3 preflight data gates in the documented post-stage mode
+    (``checkpoint_guard=False``). Read-only; never executes experiments.
+    """
+    evidence = run_v11e3_preflight(checkpoint_guard=False)
+    guard = verify_e4_runtime_head_guard()
+    evidence.update(guard)
+    evidence["runtime_mode"] = "E4_RUNTIME_READINESS"
+    evidence["marker"] = E4A_BLOCKERS_RESOLVED_MARKER
+    evidence["semantic_sha256"] = sha256_hex({key: val for key, val in evidence.items() if key != "semantic_sha256"})
+    return evidence
+
+
 def run_v11e3_preflight(*, checkpoint_guard: bool = True) -> dict[str, Any]:
     """Fail-closed E3 readiness gates over the frozen upstream + E2 artifacts."""
     evidence: dict[str, Any] = {}
@@ -1702,6 +1825,29 @@ def run_v11e3_preflight(*, checkpoint_guard: bool = True) -> dict[str, Any]:
     if drift:
         raise V11E3PreflightError(f"E2 lock upstream provenance drifted: {sorted(drift)}")
     evidence["upstream_provenance_verified"] = True
+
+    live = live_governed_artifact_gate()
+    evidence.update({f"live_{key}": val for key, val in live.items()})
+    evidence["live_governed_artifact_gate_passed"] = True
+    if live["governed_records"] != e1.EXPECTED_ORDERS:
+        raise V11E3PreflightError("live governed population count drifted.")
+    if (live["low"], live["medium"], live["high"]) != (e1.EXPECTED_LOW, e1.EXPECTED_MEDIUM, e1.EXPECTED_HIGH):
+        raise V11E3PreflightError("live governed risk-band distribution drifted.")
+    if live["verified_record_digests"] != e1.EXPECTED_ORDERS:
+        raise V11E3PreflightError("live governed record-digest reverification incomplete.")
+    if live["test_access_count"] != 0:
+        raise V11E3PreflightError("live upstream verification reports TEST access.")
+    if live["d3_result_lock_semantic_sha256"] != e1.D3_RESULT_LOCK_SEMANTIC:
+        raise V11E3PreflightError("live D3 result-lock semantic hash drifted.")
+    if live["artifact_semantic_sha256"] != e1.ARTIFACT_SEMANTIC_SHA256:
+        raise V11E3PreflightError("live governed artifact semantic hash drifted.")
+    if live["artifact_disk_sha256"] != e1.ARTIFACT_DISK_SHA256:
+        raise V11E3PreflightError("live governed artifact disk hash drifted.")
+    if live["summary_semantic_sha256"] != e1.SUMMARY_SEMANTIC_SHA256:
+        raise V11E3PreflightError("live summary semantic hash drifted.")
+    if live["summary_disk_sha256"] != e1.SUMMARY_DISK_SHA256:
+        raise V11E3PreflightError("live summary disk hash drifted.")
+
     evidence["marker"] = E3_MARKER
     evidence["semantic_sha256"] = sha256_hex({key: val for key, val in evidence.items() if key != "semantic_sha256"})
     return evidence
@@ -1734,6 +1880,32 @@ def synthetic_workload_fixture(
     return {"order_ids": canonical_ids, "chains": chains, "records": records}
 
 
+def _derive_e10_from_seed_cache(
+    per_seed: Mapping[str, Any], seed: int, fixture: Mapping[str, Any]
+) -> list[dict[str, Any]]:
+    """Derive each E10 cell from the already-run E06-E09 seed cells (no re-run)."""
+    e08_cell = per_seed["E08"][0]
+    e10_cells: list[dict[str, Any]] = []
+    for idx, policy in enumerate(policy_execution_order(seed)):
+        context = context_for(
+            "E10",
+            seed,
+            len(fixture["order_ids"]),
+            fixture["order_ids"],
+            policy,
+        )
+        e10_cells.append(
+            derive_e10_resource_green_proxy(
+                per_seed["E06"][idx],
+                per_seed["E07"][idx],
+                e08_cell,
+                per_seed["E09"][idx],
+                context,
+            )
+        )
+    return e10_cells
+
+
 def dry_run_all_experiments(
     order_ids: Sequence[Any],
     *,
@@ -1745,13 +1917,14 @@ def dry_run_all_experiments(
     In-memory only: no file writes, no TEST access, no governed workloads, no
     AI fit/infer. Every experiment cell for every policy in the requested seeds
     is exercised so the machinery is fully branch-covered before any governed
-    run is authorized.
+    run is authorized. E10 is always derived from the cached E06-E09 cells run
+    once in the same loop; it never re-runs a measurement campaign.
     """
     fixture = synthetic_workload_fixture(order_ids, risk_levels=risk_levels)
     results: dict[str, Any] = {}
     for seed in seeds:
         per_seed: dict[str, Any] = {}
-        for experiment_id in ("E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10"):
+        for experiment_id in ("E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09"):
             policies = policy_execution_order(seed)
             if experiment_id == "E05":
                 policies = ("P",)
@@ -1793,15 +1966,10 @@ def dry_run_all_experiments(
                     per_experiment.extend(run_e09_throughput(context, fixture["chains"], fixture["records"]))
                 elif experiment_id == "E07":
                     per_experiment.extend(run_e07_memory_overhead(context, fixture["chains"], fixture["records"]))
-                elif experiment_id == "E10":
-                    e06 = run_e06_execution_time_overhead(context, fixture["chains"], fixture["records"])[0]
-                    e07 = run_e07_memory_overhead(context, fixture["chains"], fixture["records"])[0]
-                    e08 = run_e08_storage_overhead(context, fixture["chains"])
-                    e09 = run_e09_throughput(context, fixture["chains"], fixture["records"])[0]
-                    per_experiment.append(derive_e10_resource_green_proxy(e06, e07, e08, e09, context))
                 else:  # pragma: no cover - defensive
                     raise V11E3Error(f"unhandled experiment {experiment_id!r}")
             per_seed[experiment_id] = per_experiment
+        per_seed["E10"] = _derive_e10_from_seed_cache(per_seed, seed, fixture)
         results[str(seed)] = per_seed
     return {
         "stage": STAGE,

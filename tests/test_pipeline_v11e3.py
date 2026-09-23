@@ -407,14 +407,29 @@ def test_dry_run_energy_marker_everywhere(dry_run):
 
 
 # --------------------------------------------------------------------------- #
-# preflight (read-only, fail-closed)
+# preflight (read-only, fail-closed) + E4 runtime readiness
 # --------------------------------------------------------------------------- #
 
 
-def test_preflight_read_only_and_fail_closed():
+def test_historical_stage_head_guard_semantics(monkeypatch):
+    assert p.EXPECTED_HEAD == "b1ff42e9b2e71cce9e829261b2cd0f8a8a79a3a0"
+    monkeypatch.setattr(p, "_git_rev", lambda rev: p.EXPECTED_HEAD)
     evidence = p.run_v11e3_preflight(checkpoint_guard=True)
-    assert evidence["head"] == p.EXPECTED_HEAD
-    assert evidence["origin_main"] == p.EXPECTED_HEAD
+    assert evidence["head"] == evidence["origin_main"] == evidence["expected_head"] == p.EXPECTED_HEAD
+    assert evidence["marker"] == p.E3_MARKER
+    assert evidence["live_governed_artifact_gate_passed"] is True
+    monkeypatch.setattr(p, "_git_rev", lambda rev: "0" * 40)
+    with pytest.raises(p.V11E3PreflightError):
+        p.run_v11e3_preflight(checkpoint_guard=True)
+
+
+def test_e4_runtime_readiness_preflight():
+    evidence = p.run_v11e4_runtime_preflight()
+    assert p.E4_AUTHORIZED_HEAD == "90c9d7e935d95b6226029fe2be1aeace1358e9ad"
+    assert p.E4A_BLOCKERS_RESOLVED_MARKER == "V11E4A_BLOCKERS_RESOLVED_REVIEW_REQUIRED"
+    assert evidence["head"] == evidence["origin_main"] == evidence["authorized_head"] == p.E4_AUTHORIZED_HEAD
+    assert evidence["runtime_mode"] == "E4_RUNTIME_READINESS"
+    assert evidence["marker"] == p.E4A_BLOCKERS_RESOLVED_MARKER
     assert evidence["e2_protocol_lock_semantic_sha256"] == p.E2_PROTOCOL_LOCK_SEMANTIC_SHA256
     assert evidence["e2_config_fingerprint"] == p.E2_CONFIG_FINGERPRINT
     assert evidence["e2_document_fingerprint"] == p.E2_DOC_FINGERPRINT
@@ -424,4 +439,188 @@ def test_preflight_read_only_and_fail_closed():
     assert evidence["ai_inference_count"] == 0
     assert evidence["experiment_execution_count"] == 0
     assert evidence["upstream_provenance_verified"] is True
-    assert evidence["marker"] == p.E3_MARKER
+    assert evidence["live_governed_artifact_gate_passed"] is True
+
+
+def test_live_governed_artifact_gate_reverifies():
+    live = p.live_governed_artifact_gate()
+    assert live["governed_records"] == 4588
+    assert (live["low"], live["medium"], live["high"]) == (0, 4582, 6)
+    assert live["verified_record_digests"] == 4588
+    assert live["test_access_count"] == 0
+    assert live["d1_lock_semantic_sha256"] == e1.D1_SEMANTIC_LOCK_SHA256
+    assert live["v11c_lock_semantic_sha256"] == e1.V11C_MAPPING_SEMANTIC_SHA256
+    assert live["d3_result_lock_semantic_sha256"] == e1.D3_RESULT_LOCK_SEMANTIC
+    assert live["artifact_semantic_sha256"] == e1.ARTIFACT_SEMANTIC_SHA256
+    assert live["artifact_disk_sha256"] == e1.ARTIFACT_DISK_SHA256
+    assert live["summary_semantic_sha256"] == e1.SUMMARY_SEMANTIC_SHA256
+    assert live["summary_disk_sha256"] == e1.SUMMARY_DISK_SHA256
+
+
+def _stub_upstream(monkeypatch, **overrides):
+    from types import SimpleNamespace
+
+    base = {
+        "d1_lock_semantic_sha256": e1.D1_SEMANTIC_LOCK_SHA256,
+        "v11c_lock_semantic_sha256": e1.V11C_MAPPING_SEMANTIC_SHA256,
+        "d3_result_lock_semantic_sha256": e1.D3_RESULT_LOCK_SEMANTIC,
+        "artifact_semantic_sha256": e1.ARTIFACT_SEMANTIC_SHA256,
+        "artifact_file_sha256": e1.ARTIFACT_DISK_SHA256,
+        "summary_semantic_sha256": e1.SUMMARY_SEMANTIC_SHA256,
+        "summary_file_sha256": e1.SUMMARY_DISK_SHA256,
+        "artifact_record_count": e1.EXPECTED_ORDERS,
+        "low": e1.EXPECTED_LOW,
+        "medium": e1.EXPECTED_MEDIUM,
+        "high": e1.EXPECTED_HIGH,
+        "verified_record_digests": e1.EXPECTED_ORDERS,
+        "test_access_count": 0,
+    }
+    base.update(overrides)
+    monkeypatch.setattr(
+        e1,
+        "run_v11e1_preflight",
+        lambda checkpoint_guard=False: SimpleNamespace(**base),
+    )
+
+
+def test_e3_preflight_fails_closed_on_live_population_drift(monkeypatch):
+    _stub_upstream(monkeypatch, artifact_record_count=4587, high=5)
+    with pytest.raises(p.V11E3PreflightError):
+        p.run_v11e3_preflight(checkpoint_guard=False)
+
+
+def test_e3_preflight_fails_closed_on_live_hash_drift(monkeypatch):
+    _stub_upstream(monkeypatch, d3_result_lock_semantic_sha256="0" * 64)
+    with pytest.raises(p.V11E3PreflightError):
+        p.run_v11e3_preflight(checkpoint_guard=False)
+    _stub_upstream(monkeypatch, artifact_file_sha256="0" * 64)
+    with pytest.raises(p.V11E3PreflightError):
+        p.run_v11e3_preflight(checkpoint_guard=False)
+    _stub_upstream(monkeypatch, summary_file_sha256="0" * 64)
+    with pytest.raises(p.V11E3PreflightError):
+        p.run_v11e3_preflight(checkpoint_guard=False)
+
+
+def test_e4_runtime_head_guard_fails_closed_on_drift(monkeypatch):
+    monkeypatch.setattr(p, "_git_rev", lambda rev: "0" * 40)
+    with pytest.raises(p.V11E3PreflightError):
+        p.run_v11e4_runtime_preflight()
+
+
+# --------------------------------------------------------------------------- #
+# secondary descriptive timing (E01-E05) and principal timing (E06)
+# --------------------------------------------------------------------------- #
+
+
+def test_e01_to_e05_real_secondary_timing(dry_run):
+    for ex in ("E01", "E02", "E03", "E04", "E05"):
+        for cell in dry_run[ex]:
+            assert cell["timing_role"] == "SECONDARY_DESCRIPTIVE"
+            assert cell["raw_records"]
+            for rec in cell["raw_records"]:
+                assert isinstance(rec["wall_time_ns"], int)
+                assert isinstance(rec["cpu_time_ns"], int)
+                assert rec["wall_time_ns"] > 0
+                assert rec["cpu_time_ns"] >= 0
+                assert rec["wall_time_ns"] != 0 or rec["cpu_time_ns"] != 0
+
+
+def test_e06_remains_principal_timing(dry_run):
+    for cell in dry_run["E06"]:
+        assert cell["timing_principal"] is True
+        assert cell["timing_role"] == "PRINCIPAL"
+    for ex in ("E01", "E02", "E03", "E04", "E05"):
+        for cell in dry_run[ex]:
+            assert cell.get("timing_principal") is not True
+
+
+# --------------------------------------------------------------------------- #
+# E10 derived-only (cached inputs, never re-runs measurements)
+# --------------------------------------------------------------------------- #
+
+
+def _e10_context(policy: str = "B0") -> p.ExperimentContext:
+    return p.context_for("E10", 522, 4, SMALL_IDS, policy)
+
+
+def test_e10_consumes_cached_e06_to_e09(dry_run):
+    for idx, cell in enumerate(dry_run["E10"]):
+        assert cell["derived_only"] is True
+        assert cell["no_fourth_campaign"] is True
+        assert cell["direct_energy"] == p.ENERGY_MARKER
+        assert cell["energy_marker"] == p.ENERGY_MARKER
+        assert cell["semantic_sha256"] and len(cell["semantic_sha256"]) == 64
+        policy = cell["context"]["policy"]
+        direct = p.derive_e10_resource_green_proxy(
+            dry_run["E06"][idx],
+            dry_run["E07"][idx],
+            dry_run["E08"][0],
+            dry_run["E09"][idx],
+            p.context_for("E10", 522, 4, SMALL_IDS, policy),
+        )
+        assert direct["semantic_sha256"] == cell["semantic_sha256"]
+
+
+def test_e10_never_invokes_measurement_runners(dry_run, monkeypatch):
+    calls = []
+
+    def spy(name):
+        def _spy(*args, **kwargs):
+            calls.append(name)
+            raise AssertionError(f"E10 derivation must not call {name}")
+
+        return _spy
+
+    for attr in (
+        "run_e06_execution_time_overhead",
+        "run_e07_memory_overhead",
+        "run_e08_storage_overhead",
+        "run_e09_throughput",
+        "time_policy_validation",
+        "memory_proxy_fresh_worker",
+        "warm_up_validation",
+    ):
+        monkeypatch.setattr(p, attr, spy(attr))
+    cell = p.derive_e10_resource_green_proxy(
+        dry_run["E06"][0],
+        dry_run["E07"][0],
+        dry_run["E08"][0],
+        dry_run["E09"][0],
+        _e10_context(),
+    )
+    assert cell["derived_only"] is True
+    assert calls == []
+
+
+def test_e10_missing_cache_fails_closed(dry_run):
+    ctx = _e10_context()
+    with pytest.raises(p.V11E3Error):
+        p.derive_e10_resource_green_proxy({}, dry_run["E07"][0], dry_run["E08"][0], dry_run["E09"][0], ctx)
+    with pytest.raises(p.V11E3Error):
+        p.derive_e10_resource_green_proxy(dry_run["E06"][0], {}, dry_run["E08"][0], dry_run["E09"][0], ctx)
+    with pytest.raises(p.V11E3Error):
+        p.derive_e10_resource_green_proxy(dry_run["E06"][0], dry_run["E07"][0], {}, dry_run["E09"][0], ctx)
+    with pytest.raises(p.V11E3Error):
+        p.derive_e10_resource_green_proxy(dry_run["E06"][0], dry_run["E07"][0], dry_run["E08"][0], {}, ctx)
+    mislabeled = dict(dry_run["E06"][0], experiment="E09")
+    with pytest.raises(p.V11E3Error):
+        p.derive_e10_resource_green_proxy(mislabeled, dry_run["E07"][0], dry_run["E08"][0], dry_run["E09"][0], ctx)
+    bad_records = dict(dry_run["E06"][0], raw_records=[])
+    with pytest.raises(p.V11E3Error):
+        p.derive_e10_resource_green_proxy(bad_records, dry_run["E07"][0], dry_run["E08"][0], dry_run["E09"][0], ctx)
+
+
+def test_e10_dispatch_refuses_rerun(monkeypatch):
+    fixture = _small_fixture()
+    counts = {"calls": 0}
+
+    def spy(*args, **kwargs):
+        counts["calls"] += 1
+        raise AssertionError("dispatch must never re-run measurement campaigns for E10")
+
+    for attr in ("run_e06_execution_time_overhead", "run_e07_memory_overhead", "run_e08_storage_overhead", "run_e09_throughput"):
+        monkeypatch.setattr(p, attr, spy)
+    context = p.context_for("E10", 522, 4, SMALL_IDS, "B0")
+    with pytest.raises(p.V11E3Error, match="DERIVED ONLY"):
+        p.run_ordered_experiments(context, fixture["chains"], None, fixture["records"])
+    assert counts["calls"] == 0
