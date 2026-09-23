@@ -70,8 +70,6 @@ KIND = "V11E3_EXPERIMENT_RUNNER_MACHINERY"
 PROTOCOL_VERSION = "v1.1-e3-governed-experiment-runner-machinery-1"
 EXPECTED_HEAD = "b1ff42e9b2e71cce9e829261b2cd0f8a8a79a3a0"
 E3_MARKER = "V11E3_EXPERIMENT_RUNNER_MACHINERY_READY_REVIEW_REQUIRED"
-E4_AUTHORIZED_HEAD = "90c9d7e935d95b6226029fe2be1aeace1358e9ad"
-E4A_BLOCKERS_RESOLVED_MARKER = "V11E4A_BLOCKERS_RESOLVED_REVIEW_REQUIRED"
 E10_DERIVED_ONLY_MSG = (
     "E10 is DERIVED ONLY: derive_e10_resource_green_proxy requires cached E06-E09 "
     "cell outputs and must never re-run measurement campaigns."
@@ -1718,9 +1716,11 @@ def live_governed_artifact_gate() -> dict[str, Any]:
 
     Reuses the frozen V1.1-E1 integration preflight in its documented post-stage
     mode (``checkpoint_guard=False``): the historical E1 stage guard pinned its
-    own starting checkpoint, while E4-runtime head authorization is enforced
-    separately against the E4 authorized checkpoint. Fails closed on any drift
-    of the population size, risk bands, or record-digest reverification.
+    own starting checkpoint, while current-HEAD runtime authorization is owned
+    by the V1.1-E4L launcher (operator-supplied ``--authorized-commit`` with
+    ``HEAD == origin/main == authorized_commit`` enforced at launch time, never
+    hard-coded here). Fails closed on any drift of the population size, risk
+    bands, or record-digest reverification.
     """
     upstream = e1.run_v11e1_preflight(checkpoint_guard=False)
     return {
@@ -1740,43 +1740,19 @@ def live_governed_artifact_gate() -> dict[str, Any]:
     }
 
 
-def verify_e4_runtime_head_guard() -> dict[str, str]:
-    """E4-runtime authorization: current HEAD == origin/main == E4 checkpoint.
-
-    Distinct from the historical E3 stage guard (which pins the E3 starting
-    checkpoint). Fails closed on any drift.
-    """
-    head = _git_rev("HEAD")
-    origin_main = _git_rev("origin/main")
-    if head != E4_AUTHORIZED_HEAD or origin_main != E4_AUTHORIZED_HEAD:
-        raise V11E3PreflightError(
-            "E4 runtime guard failed: HEAD/origin drifted from the E4 authorized checkpoint."
-        )
-    return {
-        "head": head,
-        "origin_main": origin_main,
-        "authorized_head": E4_AUTHORIZED_HEAD,
-    }
-
-
-def run_v11e4_runtime_preflight() -> dict[str, Any]:
-    """E4-runtime readiness: authorized HEAD/origin + full fail-closed gates.
-
-    Combines the E4 runtime head guard against ``E4_AUTHORIZED_HEAD`` with the
-    historical E3 preflight data gates in the documented post-stage mode
-    (``checkpoint_guard=False``). Read-only; never executes experiments.
-    """
-    evidence = run_v11e3_preflight(checkpoint_guard=False)
-    guard = verify_e4_runtime_head_guard()
-    evidence.update(guard)
-    evidence["runtime_mode"] = "E4_RUNTIME_READINESS"
-    evidence["marker"] = E4A_BLOCKERS_RESOLVED_MARKER
-    evidence["semantic_sha256"] = sha256_hex({key: val for key, val in evidence.items() if key != "semantic_sha256"})
-    return evidence
-
-
 def run_v11e3_preflight(*, checkpoint_guard: bool = True) -> dict[str, Any]:
-    """Fail-closed E3 readiness gates over the frozen upstream + E2 artifacts."""
+    """Fail-closed E3 readiness gates over the frozen upstream + E2 artifacts.
+
+    ``checkpoint_guard=True`` asserts the historical E3 stage guard
+    (``HEAD == origin/main == EXPECTED_HEAD``), pinning the checkpoint for which
+    E3 was originally implemented. ``checkpoint_guard=False`` is the documented
+    post-stage mode: it skips git entirely and reruns the frozen semantic/data
+    gates (live governed artifact re-verification, D3 provenance checks,
+    population + risk-band distribution checks, TEST/AI governance counters),
+    making no claim about the current HEAD. Current-HEAD runtime authorization
+    is enforced by the V1.1-E4L launcher against the operator-supplied
+    authorized execution commit, never hard-coded in this module.
+    """
     evidence: dict[str, Any] = {}
     evidence["stage"] = STAGE
     evidence["protocol_version"] = PROTOCOL_VERSION

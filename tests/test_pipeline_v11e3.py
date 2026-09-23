@@ -407,11 +407,14 @@ def test_dry_run_energy_marker_everywhere(dry_run):
 
 
 # --------------------------------------------------------------------------- #
-# preflight (read-only, fail-closed) + E4 runtime readiness
+# preflight (read-only, fail-closed): historical stage guard vs post-stage data
+# gates; current-HEAD runtime authorization is owned by the V1.1-E4L launcher.
 # --------------------------------------------------------------------------- #
 
 
 def test_historical_stage_head_guard_semantics(monkeypatch):
+    # A. historical E3 checkpoint guard: pins the checkpoint for which E3 was
+    # originally implemented, independent of the E4L runtime authorization.
     assert p.EXPECTED_HEAD == "b1ff42e9b2e71cce9e829261b2cd0f8a8a79a3a0"
     monkeypatch.setattr(p, "_git_rev", lambda rev: p.EXPECTED_HEAD)
     evidence = p.run_v11e3_preflight(checkpoint_guard=True)
@@ -423,13 +426,38 @@ def test_historical_stage_head_guard_semantics(monkeypatch):
         p.run_v11e3_preflight(checkpoint_guard=True)
 
 
-def test_e4_runtime_readiness_preflight():
-    evidence = p.run_v11e4_runtime_preflight()
-    assert p.E4_AUTHORIZED_HEAD == "90c9d7e935d95b6226029fe2be1aeace1358e9ad"
-    assert p.E4A_BLOCKERS_RESOLVED_MARKER == "V11E4A_BLOCKERS_RESOLVED_REVIEW_REQUIRED"
-    assert evidence["head"] == evidence["origin_main"] == evidence["authorized_head"] == p.E4_AUTHORIZED_HEAD
-    assert evidence["runtime_mode"] == "E4_RUNTIME_READINESS"
-    assert evidence["marker"] == p.E4A_BLOCKERS_RESOLVED_MARKER
+def test_historical_stage_head_guard_fails_closed_on_drift(monkeypatch):
+    # A (drift): the stage guard fails closed whenever HEAD or origin/main moves
+    # off the historical E3 checkpoint.
+    monkeypatch.setattr(p, "_git_rev", lambda rev: "0" * 40)
+    with pytest.raises(p.V11E3PreflightError, match="E3 checkpoint guard failed"):
+        p.run_v11e3_preflight(checkpoint_guard=True)
+
+
+def _no_git_available():
+    import contextlib
+
+    @contextlib.contextmanager
+    def _manager():
+        original = p._git_rev
+        p._git_rev = lambda rev: (_ for _ in ()).throw(
+            AssertionError(f"unexpected git call for {rev!r}"))
+        try:
+            yield
+        finally:
+            p._git_rev = original
+
+    return _manager()
+
+
+def test_e3_post_stage_data_gates_reverify():
+    # B. E3 semantic/data verification after stage closure: the documented
+    # post-stage mode reruns every frozen gate while making no current-HEAD
+    # claim (head == expected_head == historical E3 checkpoint only).
+    with _no_git_available():
+        evidence = p.run_v11e3_preflight(checkpoint_guard=False)
+    assert evidence["head"] == evidence["origin_main"] == evidence["expected_head"] == p.EXPECTED_HEAD
+    assert evidence["marker"] == p.E3_MARKER
     assert evidence["e2_protocol_lock_semantic_sha256"] == p.E2_PROTOCOL_LOCK_SEMANTIC_SHA256
     assert evidence["e2_config_fingerprint"] == p.E2_CONFIG_FINGERPRINT
     assert evidence["e2_document_fingerprint"] == p.E2_DOC_FINGERPRINT
@@ -440,6 +468,33 @@ def test_e4_runtime_readiness_preflight():
     assert evidence["experiment_execution_count"] == 0
     assert evidence["upstream_provenance_verified"] is True
     assert evidence["live_governed_artifact_gate_passed"] is True
+
+
+def test_e3_runtime_authorization_is_not_hardcoded_in_stage_machinery():
+    # C (ownership): E4L runtime authorization is the launcher's job. The E3
+    # module must no longer carry E4-specific hard-coded authorization or the
+    # E4-readiness preflight that baked a single execution commit.
+    for obsolete in ("E4_AUTHORIZED_HEAD", "E4A_BLOCKERS_RESOLVED_MARKER",
+                     "verify_e4_runtime_head_guard", "run_v11e4_runtime_preflight"):
+        assert not hasattr(p, obsolete), f"obsolete E4 authorization symbol still present: {obsolete}"
+    # historical stage guard + semantic/data gates retained
+    assert hasattr(p, "EXPECTED_HEAD")
+    assert hasattr(p, "E3_MARKER")
+    assert callable(p.run_v11e3_preflight)
+    assert callable(p.live_governed_artifact_gate)
+
+
+def test_e3_post_stage_mode_makes_no_current_head_claim(monkeypatch):
+    # B (boundary): post-stage mode never invokes git; it must not pretend to
+    # authorize the current HEAD. That responsibility belongs to the V1.1-E4L
+    # launcher, which compares HEAD == origin/main == authorized_commit at
+    # runtime (verified in tests/test_pipeline_v11e4.py).
+    def _no_git(rev: str) -> str:
+        raise AssertionError(f"post-stage mode must not invoke git (requested {rev!r})")
+
+    monkeypatch.setattr(p, "_git_rev", _no_git)
+    evidence = p.run_v11e3_preflight(checkpoint_guard=False)
+    assert evidence["head"] == evidence["expected_head"] == p.EXPECTED_HEAD
 
 
 def test_live_governed_artifact_gate_reverifies():
@@ -501,10 +556,10 @@ def test_e3_preflight_fails_closed_on_live_hash_drift(monkeypatch):
         p.run_v11e3_preflight(checkpoint_guard=False)
 
 
-def test_e4_runtime_head_guard_fails_closed_on_drift(monkeypatch):
-    monkeypatch.setattr(p, "_git_rev", lambda rev: "0" * 40)
-    with pytest.raises(p.V11E3PreflightError):
-        p.run_v11e4_runtime_preflight()
+# C: current-HEAD runtime authorization fail-closed behavior (HEAD == origin/main
+# == authorized-commit, wrong commit rejected, HEAD != origin rejected) lives in
+# tests/test_pipeline_v11e4.py; E3 owns only the historical stage guard (A) and
+# the post-stage data gates (B), both covered above.
 
 
 # --------------------------------------------------------------------------- #
