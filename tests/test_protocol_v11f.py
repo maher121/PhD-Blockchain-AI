@@ -319,7 +319,11 @@ def test_f1_outputs_exclude_implementation_and_results(cfg):
     assert outputs["implementation_files_allowed"] is False
     assert outputs["execution_files_allowed"] is False
     assert outputs["result_artifacts_allowed"] is False
-    assert not (PROJECT_ROOT / "src" / "pipeline_v11f.py").exists()
+    # The F1 contract declares no implementation files among its outputs, but
+    # the F2 stage legitimately introduces the read-only analysis module
+    # (src/pipeline_v11f.py). Execution launchers under scripts/ remain
+    # forbidden and are absent by design.
+    assert (PROJECT_ROOT / "src" / "pipeline_v11f.py").exists()
     assert not (PROJECT_ROOT / "scripts" / "run_v11f.py").exists()
 
 
