@@ -1,0 +1,279 @@
+{
+  "artifact_kind": "V11F1_RESOURCE_EFFICIENCY_PROTOCOL_LOCK",
+  "execution_metadata": {
+    "ai_fit_count": 0,
+    "ai_inference_count": 0,
+    "experiment_execution_count": 0,
+    "f2_started": false,
+    "head_origin_main": "d425cf1c89e391edd1a68fd2b14f3565ab487b88",
+    "new_measurement_campaign_count": 0,
+    "protocol_only": true,
+    "test_access_count": 0
+  },
+  "semantic_payload": {
+    "access_policy": {
+      "data_access": "READ_ONLY_PERSISTED_ARTIFACTS_ONLY",
+      "raw_dataco_reopen_allowed": false,
+      "test_access": "FORBIDDEN",
+      "test_access_count_required": 0,
+      "upstream_mutation_allowed": false
+    },
+    "ai_policy": {
+      "ai_fit_allowed": false,
+      "ai_inference_allowed": false,
+      "model_loading_for_new_scoring_allowed": false,
+      "new_risk_prediction_allowed": false,
+      "retraining_allowed": false,
+      "frozen_ai_derived_outcomes_context_only": true
+    },
+    "allowed_metric_families": {
+      "computational_work": [
+        "validation_check_count",
+        "validator_invocation_count",
+        "measurable_hash_operation_count"
+      ],
+      "memory": [
+        "persisted_tracemalloc_peak_proxy"
+      ],
+      "runtime": [
+        "persisted_wall_clock_timing",
+        "persisted_cpu_process_timing"
+      ],
+      "storage": [
+        "persisted_canonical_serialized_bytes"
+      ],
+      "throughput": [
+        "persisted_validated_orders_per_second"
+      ]
+    },
+    "artifact_fingerprints": {
+      "config_path": "config/resource_efficiency_v11f.yaml",
+      "protocol_config_sha256": "84f198556ce319a2775063e11960cd8cd5e5457b8fea14ac835b6f93040c71f3",
+      "protocol_document_sha256": "8e20ac45291fe5568b5d1e10a3671faec71e3db4bb191c8a299ca446d68eaaa1",
+      "protocol_path": "docs/v11f_green_evaluation_protocol.md"
+    },
+    "artifact_kind": "V11F1_RESOURCE_EFFICIENCY_PROTOCOL_LOCK",
+    "descriptive_analysis": {
+      "allowed_matched_differences": {
+        "B1_minus_B0": "metric(B1, seed, workload) - metric(B0, seed, workload)",
+        "P_minus_B0": "metric(P, seed, workload) - metric(B0, seed, workload)",
+        "P_minus_B1": "metric(P, seed, workload) - metric(B1, seed, workload)"
+      },
+      "allowed_summaries": [
+        "mean",
+        "median",
+        "sample_standard_deviation_ddof_1",
+        "min",
+        "max",
+        "coefficient_of_variation"
+      ],
+      "coefficient_of_variation_formula": "sample_standard_deviation_ddof_1 / abs(arithmetic_mean)",
+      "coefficient_of_variation_precondition": "arithmetic_mean != 0",
+      "forbidden": [
+        "p_values",
+        "statistical_significance_claims",
+        "bootstrap_inference",
+        "order_level_inference",
+        "inferential_confidence_intervals",
+        "composite_overall_policy_score",
+        "overall_policy_winner",
+        "universal_superiority",
+        "global_policy_ranking"
+      ],
+      "normalized_ratio_formula": "metric(numerator_policy, seed, workload) / metric(denominator_policy, seed, workload)",
+      "normalized_ratio_preconditions": [
+        "exact seed/workload match",
+        "denominator is strictly positive",
+        "metric family and direction are explicitly reported",
+        "E08 storage is excluded from policy ratios"
+      ],
+      "reason": "three fixed seeds, nested workloads, and pseudoreplication risk",
+      "status": "DESCRIPTIVE_ONLY"
+    },
+    "direct_energy_policy": {
+      "allowed_wording": [
+        "computational resource proxy",
+        "resource-efficiency evidence",
+        "lightweight computational behavior",
+        "runtime evidence",
+        "throughput evidence",
+        "memory proxy",
+        "storage evidence"
+      ],
+      "cpu_time_is_energy": false,
+      "future_direct_measurement_requires_separate_governance": true,
+      "prohibited_estimates": [
+        "Joules",
+        "Wh",
+        "kWh",
+        "Watts",
+        "TDP-derived_energy",
+        "carbon_emissions",
+        "CO2e"
+      ],
+      "prohibited_proxy_claims": [
+        "energy_saved",
+        "energy_reduction",
+        "power_reduction",
+        "carbon_reduction"
+      ],
+      "status": "DIRECT_ENERGY_UNAVAILABLE",
+      "storage_is_energy": false,
+      "throughput_is_energy": false,
+      "tracemalloc_is_energy": false,
+      "wall_time_is_energy": false
+    },
+    "e07": {
+      "electrical_energy_measurement": false,
+      "label": "COMPUTATIONAL_MEMORY_PROXY",
+      "measurement": "tracemalloc_fresh_worker",
+      "required_terms": [
+        "fresh-process tracemalloc peak",
+        "Python traced-allocation memory proxy"
+      ],
+      "rss_measurement": false
+    },
+    "e08": {
+      "manufactured_b0_b1_p_storage_differences_forbidden": true,
+      "persisted_policy_token": "B0",
+      "policy_storage_differences_allowed": false,
+      "status": "POLICY_INDEPENDENT",
+      "token_semantics": "serialization placeholder only; not a policy comparison"
+    },
+    "e10": {
+      "fourth_campaign_allowed": false,
+      "independent_measurement_allowed": false,
+      "sources": [
+        "E06",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "status": "DERIVED_ONLY"
+    },
+    "future_f2_fail_closed": {
+      "ai_fit_detected": true,
+      "ai_inference_detected": true,
+      "b0_b1_p_policy_contract_changed": true,
+      "direct_energy_terminology_or_claim_introduced": true,
+      "e10_not_derived_only": true,
+      "expected_v11e_result_lock_absent": true,
+      "nested_workloads_treated_as_independent_replicates": true,
+      "new_measurement_campaign_attempted": true,
+      "required_artifact_fingerprint_mismatch": true,
+      "semantic_lock_mismatch": true,
+      "unexpected_policy": true,
+      "unexpected_test_access": true,
+      "unmatched_comparison": true,
+      "upstream_artifact_mutation_detected": true
+    },
+    "new_measurement_policy": {
+      "new_energy_campaign": false,
+      "new_memory_campaign": false,
+      "new_security_campaign": false,
+      "new_storage_campaign": false,
+      "new_throughput_campaign": false,
+      "new_timing_campaign": false,
+      "new_tracemalloc_campaign": false,
+      "rerun_e06_allowed": false,
+      "rerun_e07_allowed": false,
+      "rerun_e08_allowed": false,
+      "rerun_e09_allowed": false,
+      "rerun_e10_allowed": false
+    },
+    "pairing": {
+      "additional_governed_keys_required_when_present": [
+        "experiment_id",
+        "measurement_boundary",
+        "machine_environment"
+      ],
+      "minimum_keys": [
+        "seed",
+        "workload"
+      ],
+      "require_identical_metric_family": true,
+      "require_one_observation_per_policy_key": true,
+      "unmatched_comparison_policy": "FAIL_CLOSED"
+    },
+    "policies": {
+      "additions_allowed": false,
+      "allowed": [
+        "B0",
+        "B1",
+        "P"
+      ],
+      "definition_changes_allowed": false,
+      "execution_allowed": false,
+      "tuning_allowed": false
+    },
+    "population": {
+      "governed_order_count": 4588,
+      "high_evidence": "SPARSE_DESCRIPTIVE_ONLY",
+      "low_marker": "LOW_ABSENT_IN_GOVERNED_POPULATION",
+      "risk_band_counts": {
+        "HIGH": 6,
+        "LOW": 0,
+        "MEDIUM": 4582
+      },
+      "strong_high_subgroup_inference_allowed": false,
+      "workload_100_high_marker": "HIGH_NOT_OBSERVED_IN_CONDITION"
+    },
+    "protocol_classification": "RESOURCE_EFFICIENCY_GREEN_EVALUATION_PROTOCOL_LOCKED",
+    "protocol_version": "v1.1-f1-resource-efficiency-protocol-lock-1",
+    "research_question": "How resource-efficient/lightweight is adaptive policy P relative to fixed baselines B0 and B1 on the governed V1.1 blockchain workload, using descriptive computational/resource proxies while making zero direct-energy claims?",
+    "security_context": {
+      "e02_detection_counts": {
+        "B0": 30,
+        "B1": 105,
+        "P": 75,
+        "denominator_per_policy": 135
+      },
+      "e03_independent_confirmatory_evidence": false,
+      "e03_reason": "binary localization outcomes mirrored E02 detection in the governed run",
+      "e04_unaffected_order_preservation": {
+        "denominator_per_policy": 117315,
+        "numerator_per_policy": 117315
+      },
+      "new_security_evaluation_allowed": false,
+      "role": "FROZEN_UPSTREAM_TRADE_OFF_CONTEXT_ONLY"
+    },
+    "stage": "V1.1-F1",
+    "starting_checkpoint": "d425cf1c89e391edd1a68fd2b14f3565ab487b88",
+    "upstream_v11e": {
+      "ai_fit_count": 0,
+      "ai_inference_count": 0,
+      "duplicate_cells": 0,
+      "e10_derived_cells": 45,
+      "expected_cells": 390,
+      "immutable": true,
+      "measured_cells": 345,
+      "missing_cells": 0,
+      "protocol_lock_semantic_sha256": "8047fbe356c964e26f7acdcde930a1e2a6734026ea303b56334498ffa295f239",
+      "regeneration_allowed": false,
+      "result_lock_file_sha256": "dd3b926eb08206f505e739ed61c5f29a3e7f03a370e9afc1a077e0b260fd6e64",
+      "result_lock_path": "results/blockchain/v11e/v11e_experiment_result_lock.json",
+      "result_lock_semantic_sha256": "058aeca8ac97101356bcf1c4dc5b74fb3affbda6833a85b5d423a53556cd1749",
+      "stage": "V1.1-E4",
+      "test_access_count": 0
+    },
+    "workloads": {
+      "independent_replicates": false,
+      "nesting": "100 subset 250 subset 500 subset 1000 subset 2500 within each seed",
+      "order_counts": [
+        100,
+        250,
+        500,
+        1000,
+        2500
+      ],
+      "seed_workload_cells_may_be_treated_as_15_independent_replicates": false,
+      "seeds": [
+        522,
+        523,
+        524
+      ]
+    }
+  },
+  "semantic_result_lock_sha256": "68cceedde6384c16a23226ddf082ef7d478e489c9b691e4e63d30bade85597e1",
+  "stage": "V1.1-F1"
+}
