@@ -406,16 +406,74 @@ def test_protected_worktree_entries_do_not_block():
 
 
 @pytest.mark.skipif(not _has_frozen_checkpoint(), reason="frozen V1.1-E family absent")
-def test_readiness_produces_no_authorized_real_output(
-    tmp_path: Path, real_verify_report
-):
+def test_readiness_does_not_mutate_frozen_real_outputs(real_verify_report):
+    """F4-B evolved the lifecycle guarantee.
+
+    Before F4-B the governed F4 result artifacts did not exist, so VERIFY proved
+    "no real F4 outputs are produced". F4-B has legitimately frozen them, so VERIFY
+    now proves the stronger read-only property: it must not create, rewrite, mutate,
+    or delete the already-frozen real outputs, and every authoritative semantic /
+    result-lock binding must still recompute.
+    """
     real_out = Path(f2.V11F_DIR)
-    before = set(real_out.iterdir())
+    names = (ANALYSIS_RESULTS_NAME, EXECUTION_MANIFEST_NAME, RESULT_LOCK_NAME)
+    missing = [name for name in names if not (real_out / name).exists()]
+    assert not missing, f"frozen F4 artifacts missing: {missing}"
+
+    before = {
+        name: {
+            "sha256": f2.sha256_file(real_out / name),
+            "bytes": (real_out / name).stat().st_size,
+            "mtime_ns": (real_out / name).stat().st_mtime_ns,
+        }
+        for name in names
+    }
+
+    assert real_verify_report["mode"] == "verify"
     assert real_verify_report["outputs_written"] == []
-    after = set(real_out.iterdir())
-    assert before == after
-    for name in (ANALYSIS_RESULTS_NAME, EXECUTION_MANIFEST_NAME, RESULT_LOCK_NAME):
-        assert not (real_out / name).exists()
+
+    for name in names:
+        path = real_out / name
+        stat = path.stat()
+        assert f2.sha256_file(path) == before[name]["sha256"]
+        assert stat.st_size == before[name]["bytes"]
+        assert stat.st_mtime_ns == before[name]["mtime_ns"]
+
+    # authoritative bindings remain valid after VERIFY
+    assert real_verify_report["f2_semantic_analysis_sha256"] == (
+        "0765ea4d79cdad956d09156983395c9c85fe748002cd91a084e2dc5ef6bf3899"
+    )
+    assert before[ANALYSIS_RESULTS_NAME]["sha256"] == (
+        "eb4ce1c69d56385a0bddc606bed40ec4d9dcc049e77a172c612a0414f2357d3a"
+    )
+    assert before[EXECUTION_MANIFEST_NAME]["sha256"] == (
+        "d1fb42d0bfb8b11267fc6572c2c333d7d77ca1b559533eff6309a128bfd599f8"
+    )
+
+    lock = json.loads((real_out / RESULT_LOCK_NAME).read_text(encoding="utf-8"))
+    assert lock["semantic_result_lock_sha256"] == (
+        "d639be8970bd6662ed0efe688ec2c0375414942ebf636d2b958abd88d722bd1a"
+    )
+    assert lock["semantic_result_lock_sha256"] == f2.sha256_of_canonical(
+        lock["semantic_payload"]
+    )
+    assert lock["artifacts_fingerprints_sha256"][ANALYSIS_RESULTS_NAME] == (
+        before[ANALYSIS_RESULTS_NAME]["sha256"]
+    )
+    assert lock["artifacts_fingerprints_sha256"][EXECUTION_MANIFEST_NAME] == (
+        before[EXECUTION_MANIFEST_NAME]["sha256"]
+    )
+
+    v11e_lock = json.loads((Path(f2.V11E_DIR) / f2.V11E_LOCK_NAME).read_text(encoding="utf-8"))
+    assert f2.sha256_file(Path(f2.V11E_DIR) / f2.V11E_LOCK_NAME) == (
+        "dd3b926eb08206f505e739ed61c5f29a3e7f03a370e9afc1a077e0b260fd6e64"
+    )
+    assert v11e_lock["semantic_result_lock_sha256"] == (
+        "058aeca8ac97101356bcf1c4dc5b74fb3affbda6833a85b5d423a53556cd1749"
+    )
+    assert v11e_lock["semantic_result_lock_sha256"] == f2.sha256_of_canonical(
+        v11e_lock["semantic_payload"]
+    )
 
 
 # --------------------------------------------------------------------------- #
