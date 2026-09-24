@@ -321,10 +321,12 @@ def test_f1_outputs_exclude_implementation_and_results(cfg):
     assert outputs["result_artifacts_allowed"] is False
     # The F1 contract declares no implementation files among its outputs, but
     # the F2 stage legitimately introduces the read-only analysis module
-    # (src/pipeline_v11f.py). Execution launchers under scripts/ remain
-    # forbidden and are absent by design.
+    # (src/pipeline_v11f.py) and the F4 stage legitimately introduces its
+    # governed execution/persistence harness (scripts/run_v11f.py). F1 itself
+    # created none of these; governed persistence still requires explicit
+    # --allow-governed-execution authorization (see tests/test_run_v11f.py).
     assert (PROJECT_ROOT / "src" / "pipeline_v11f.py").exists()
-    assert not (PROJECT_ROOT / "scripts" / "run_v11f.py").exists()
+    assert (PROJECT_ROOT / "scripts" / "run_v11f.py").exists()
 
 
 def test_protocol_document_states_critical_boundaries():
